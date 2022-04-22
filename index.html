@@ -211,7 +211,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2022-04-22 00:19:36" itemprop="dateModified" datetime="2022-04-22T00:19:36-04:00">2022-04-22</time>
+        <time title="Modified: 2022-04-22 00:22:34" itemprop="dateModified" datetime="2022-04-22T00:22:34-04:00">2022-04-22</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -251,14 +251,17 @@ R^2=\frac{ESS}{SST}=1-\frac{SSE}{SST}=1-\frac{\sum e_i^2}{\sum(y_i-\overline{y})
 \]</span></p>
 <h2 id="formulat-r2">Formulat <span class="math inline">\(R^2\)</span></h2>
 <p>Suppose <span class="math inline">\(y_i=\hat{y}_i+e_i\)</span> <span class="math display">\[
+\begin{gather}
 Var(y)=Var(y)+Var(e)+2Cov(\hat{y},e)\\
 =Var(\hat{y})+Var(e)\ (Cov(\hat{y},e)=0)\\
 \Rightarrow\sum(y_i-\overline{y})^2=\sum(\hat{y}_i-\overline{\hat{y}})^2+\sum(e_i-\overline{e})^2\\
 =\sum(\hat{y}_i-\overline{\hat{y}})^2+\sum e_i^2\ (\overline{e}=0)\\
-=\sum(\hat{y}_i-\overline{y})^2+\sum e_i^2\
+=\sum(\hat{y}_i-\overline{y})^2+\sum e_i^2
+\end{gather}
 \]</span></p>
 <h2 id="relationship-between-r2-and-pearson-correlation-coefficient">Relationship between <span class="math inline">\(R^2\)</span> and Pearson correlation coefficient</h2>
 <p><span class="math display">\[
+\begin{gather}
 r^2_{y,\hat{y}}=(\frac{Cov(y,\hat{y})}{\sqrt{Var(y)Var(\hat{y})}})^2\\
 =\frac{Cov(y,\hat{y})Cov(y,\hat{y})}{Var(y)Var(\hat{y})}\\
 =\frac{Cov(\hat{y}+e,\hat{y})^2}{Var(y)Var(\hat{y})}\\
@@ -267,6 +270,7 @@ r^2_{y,\hat{y}}=(\frac{Cov(y,\hat{y})}{\sqrt{Var(y)Var(\hat{y})}})^2\\
 =\frac{\sum(\hat{y}_i-\overline{\hat{y}})^2}{\sum(y_i-\overline{y})^2}\\
 =\frac{SSR}{SST}\\
 =R^2
+\end{gather}
 \]</span></p>
 <blockquote>
 <p>Conclusion: <span class="math inline">\(R^2\)</span> is equal to the squared Pearson correlation coefficient between observed response variable and predicted response variable</p>
