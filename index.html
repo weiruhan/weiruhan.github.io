@@ -205,7 +205,7 @@
       <span class="post-meta-item-text">Posted on</span>
       
 
-      <time title="Created: 2022-04-25 15:44:52 / Modified: 16:19:35" itemprop="dateCreated datePublished" datetime="2022-04-25T15:44:52-04:00">2022-04-25</time>
+      <time title="Created: 2022-04-25 15:44:52 / Modified: 16:57:40" itemprop="dateCreated datePublished" datetime="2022-04-25T15:44:52-04:00">2022-04-25</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -254,7 +254,10 @@
 <li>It <strong>must be</strong> causally related to the dependent variable</li>
 </ul>
 <p>Sometimes the presence of these variables is not recognized after the fact, in which case they are referred to as <strong>lurking variables</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">graph TD</span><br><span class="line">A[Confounding variable]-.-&gt;B[predictor variable]</span><br><span class="line">B --&gt;C[response variable]</span><br><span class="line">A --&gt;C</span><br></pre></td></tr></table></figure>
+<pre class="mermaid">graph TD
+A[Confounding variable]-.->B[predictor variable];
+B -->C[response variable];
+A -->C;</pre>
 <h2 id="comparative-study">Comparative study</h2>
 <blockquote>
 <p>The goal of the simplest and most common comparative studies is to evaluate how a "change" from a <code>"baseline"</code> or <code>"normal"</code> condition affects a response variable.</p>
@@ -326,7 +329,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2022-04-25 15:56:59" itemprop="dateModified" datetime="2022-04-25T15:56:59-04:00">2022-04-25</time>
+        <time title="Modified: 2022-04-25 16:54:12" itemprop="dateModified" datetime="2022-04-25T16:54:12-04:00">2022-04-25</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -363,7 +366,8 @@
 </ul>
 <p>The coefficient of determination of <span class="math inline">\(R^2\)</span> shows how much of the variation of the dependent variable <code>Var(y)</code> can be explained by the model; In <strong>OLS</strong> estimate, <span class="math inline">\(R^2\)</span> can also be calculated as the ratio of Explained sum of square (ESS) to total sum squared(TSS) <span class="math display">\[
 R^2=\frac{ESS}{SST}=1-\frac{SSE}{SST}=1-\frac{\sum e_i^2}{\sum(y_i-\overline{y})^2}
-\]</span> ## Formulate <span class="math inline">\(R^2\)</span></p>
+\]</span></p>
+<h2 id="formulate-r2">Formulate <span class="math inline">\(R^2\)</span></h2>
 <p>Suppose <span class="math inline">\(y_i=\hat{y}_i+e_i\)</span> <span class="math display">\[
 \begin{gather}
 Var(y)=Var(y)+Var(e)+2Cov(\hat{y},e)\\
@@ -774,10 +778,16 @@ Var[L(t)-L(s)]\\
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
-      
 
-      <time title="Created: 2021-11-25 07:08:40 / Modified: 07:33:50" itemprop="dateCreated datePublished" datetime="2021-11-25T07:08:40-05:00">2021-11-25</time>
+      <time title="Created: 2021-11-25 07:08:40" itemprop="dateCreated datePublished" datetime="2021-11-25T07:08:40-05:00">2021-11-25</time>
     </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2022-04-25 17:34:06" itemprop="dateModified" datetime="2022-04-25T17:34:06-04:00">2022-04-25</time>
+      </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
@@ -812,6 +822,11 @@ Var[L(t)-L(s)]\\
 <h3 id="deploy-to-remote-sites">Deploy to remote sites</h3>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
 <p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+<h2 id="reference">Reference</h2>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://theme-next.js.org/">Configure Hexo Next page from scratch</a></li>
+<li><a target="_blank" rel="noopener" href="https://clarkchen.com/Hexo/Hexo%E4%B8%AD%E6%8F%92%E5%85%A5mermaid-diagrams/">Insert mermaid</a></li>
+</ul>
 
       
     </div>
@@ -849,6 +864,15 @@ Var[L(t)-L(s)]\\
   <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a>
   </div>
 
+
+  <script src='https://unpkg.com/mermaid@/dist/mermaid.min.js'></script>
+  <script>
+    if (window.mermaid) {
+      mermaid.initialize(JSON.stringify());
+    }
+  </script>
+
+
     </div>
   </footer>
 
@@ -860,6 +884,8 @@ Var[L(t)-L(s)]\\
   
 
 
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"default","dark":"dark"},"js":{"url":"https://cdn.jsdelivr.net/npm/mermaid@8.13.3/dist/mermaid.min.js","integrity":"sha256-blHXaX2RMvNwEOnrYOl/6/RKqNi97Ig3o6Ae3bhXPvM="}}</script>
+  <script src="/js/third-party/tags/mermaid.js"></script>
 
 
 

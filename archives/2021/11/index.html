@@ -252,6 +252,15 @@
   <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a>
   </div>
 
+
+  <script src='https://unpkg.com/mermaid@/dist/mermaid.min.js'></script>
+  <script>
+    if (window.mermaid) {
+      mermaid.initialize(JSON.stringify());
+    }
+  </script>
+
+
     </div>
   </footer>
 
@@ -263,6 +272,8 @@
   
 
 
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"default","dark":"dark"},"js":{"url":"https://cdn.jsdelivr.net/npm/mermaid@8.13.3/dist/mermaid.min.js","integrity":"sha256-blHXaX2RMvNwEOnrYOl/6/RKqNi97Ig3o6Ae3bhXPvM="}}</script>
+  <script src="/js/third-party/tags/mermaid.js"></script>
 
 
 
