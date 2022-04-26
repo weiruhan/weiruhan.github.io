@@ -29,7 +29,7 @@
 <meta property="og:description" content="Types of Statistical studies  Study with different purposes  Comparative (analytical) study A study whose purpose is to compare two or more alternative methods or groups distinguished by some attribut">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-04-25T19:44:52.000Z">
-<meta property="article:modified_time" content="2022-04-25T23:15:49.718Z">
+<meta property="article:modified_time" content="2022-04-26T03:08:47.600Z">
 <meta property="article:author" content="Weiru Han">
 <meta property="article:tag" content="Statistics and Data analysis from elementary to intermediate">
 <meta property="article:tag" content="Collecting Data">
@@ -123,7 +123,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#types-of-statistical-studies"><span class="nav-number">1.</span> <span class="nav-text">Types of Statistical studies</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#confounding-variable"><span class="nav-number">2.</span> <span class="nav-text">Confounding variable</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#comparative-study"><span class="nav-number">3.</span> <span class="nav-text">Comparative study</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#observational-study"><span class="nav-number">4.</span> <span class="nav-text">Observational study</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#sample-survey"><span class="nav-number">4.1.</span> <span class="nav-text">Sample survey</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#basic-sampling-designs"><span class="nav-number">5.</span> <span class="nav-text">Basic sampling designs</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#experimental-studies"><span class="nav-number">6.</span> <span class="nav-text">Experimental studies</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#strategies-to-reduce-experimental-error-variation"><span class="nav-number">6.1.</span> <span class="nav-text">Strategies to reduce experimental error variation</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#types-of-statistical-studies"><span class="nav-number">1.</span> <span class="nav-text">Types of Statistical studies</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#confounding-variable"><span class="nav-number">2.</span> <span class="nav-text">Confounding variable</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#comparative-study"><span class="nav-number">3.</span> <span class="nav-text">Comparative study</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#observational-study"><span class="nav-number">4.</span> <span class="nav-text">Observational study</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#sample-survey"><span class="nav-number">4.1.</span> <span class="nav-text">Sample survey</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#basic-sampling-designs"><span class="nav-number">5.</span> <span class="nav-text">Basic sampling designs</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#experimental-studies"><span class="nav-number">6.</span> <span class="nav-text">Experimental studies</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#strategies-to-reduce-experimental-error-variation"><span class="nav-number">6.1.</span> <span class="nav-text">Strategies to reduce experimental error variation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#basic-experimental-designs"><span class="nav-number">6.2.</span> <span class="nav-text">Basic experimental designs</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -211,7 +211,7 @@
       <span class="post-meta-item-text">Posted on</span>
       
 
-      <time title="Created: 2022-04-25 15:44:52 / Modified: 19:15:49" itemprop="dateCreated datePublished" datetime="2022-04-25T15:44:52-04:00">2022-04-25</time>
+      <time title="Created: 2022-04-25 15:44:52 / Modified: 23:08:47" itemprop="dateCreated datePublished" datetime="2022-04-25T15:44:52-04:00">2022-04-25</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -311,11 +311,134 @@ A -->C;</pre>
 <blockquote>
 <p>Main components of experimental error:</p>
 <ul>
-<li>Systematic error</li>
-<li>Random error</li>
-<li>Measurement error</li>
+<li><p>Systematic error</p>
+<p>Caused by difference between experimental units; the nuisance factors on which the experimental units differ are said to <strong>confound</strong> or <strong>bias</strong> the treatment comparisons</p></li>
+<li><p>Random error</p>
+<p>Caused by the inherent variability in the response of similar experimental units <code>given the same treatment</code></p></li>
+<li><p>Measurement error</p>
+<p>Caused by imprecise measurement instruments</p></li>
 </ul>
 </blockquote>
+<ul>
+<li><p><code>Strategies</code> to reduce the <code>systematic error</code> with respect to type of <code>nuisance factor</code></p>
+<blockquote>
+<ul>
+<li>Blocking: nuisance factor is <b>controllable</b></li>
+<li>Regression Analysis: nuisance factors cannot be used as <b>blocking factor</b> because they are <b>not controllable</b>; such nuisance factors are called <b>covariates</b>. A <b>covariate</b> should be measured before the treatment are applied to experimental units because it could also be affected by the treatment</li>
+<li>Randomization: in terms of additional known or unknown nuisance factors, the experimental units may <b>well differ</b> on these factors, thus biasing the results. Randomization doesn't imply experimental units are equal for each treatment, but that no one treatment is favored</li>
+</ul>
+<p><code>In summary</code>: Block over those nuisance factors that can be easily controlled, randomize over the rest</p>
+</blockquote></li>
+<li><p>Strategy to reduce the <code>random error</code></p>
+<blockquote>
+<p>Replicating thhe experimental runs; making multiple independent runs under identical treatment conditions</p>
+</blockquote></li>
+<li><p>Strategy to reduce the measurement error</p>
+<blockquote>
+<p>Repeat measurements, including having different subjects make the measurements;</p>
+<p>Variation within each group of measurements can be used to estimate random and measurement errors.</p>
+</blockquote></li>
+</ul>
+<h3 id="basic-experimental-designs">Basic experimental designs</h3>
+<ul>
+<li><p>Completely randomized design (CRD)</p>
+<blockquote>
+<p>All experimental units are assigned at random to the treatment</p>
+</blockquote>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Batch1</th>
+<th style="text-align: center;">Batch 2</th>
+<th style="text-align: center;">Batch 3</th>
+<th style="text-align: center;">Batch 4</th>
+<th style="text-align: center;">Batch 5</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">A</td>
+<td style="text-align: center;">C</td>
+<td style="text-align: center;">D</td>
+<td style="text-align: center;">D</td>
+<td style="text-align: center;">B</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">B</td>
+<td style="text-align: center;">A</td>
+<td style="text-align: center;">A</td>
+<td style="text-align: center;">C</td>
+<td style="text-align: center;">D</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">C</td>
+<td style="text-align: center;">D</td>
+<td style="text-align: center;">B</td>
+<td style="text-align: center;">A</td>
+<td style="text-align: center;">C</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">B</td>
+<td style="text-align: center;">C</td>
+<td style="text-align: center;">D</td>
+<td style="text-align: center;">B</td>
+<td style="text-align: center;">A</td>
+</tr>
+</tbody>
+</table>
+<p><em>Randomly assign <span class="math inline">\(20\)</span> samples to the <span class="math inline">\(4\)</span> treatments <span class="math inline">\(ABCD\)</span> without considering the batchs they are from</em></p></li>
+<li><p>Randomized block design (RBD)</p>
+<blockquote>
+<p>Forming blocks of units which are similar (in terms of chosen blocking factors)</p>
+<p>Two special cases:</p>
+<ul>
+<li>Matched pairs design: Match subjects on the nuisance factors (controllable)</li>
+<li>Cross-over design: the order in which the methods are administered may introduce bias due to the learning effect</li>
+</ul>
+</blockquote>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Batch 1</th>
+<th style="text-align: center;">Batch 2</th>
+<th style="text-align: center;">Batch 3</th>
+<th style="text-align: center;">Batch 4</th>
+<th style="text-align: center;">Batch 5</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">A</td>
+<td style="text-align: center;">D</td>
+<td style="text-align: center;">C</td>
+<td style="text-align: center;">D</td>
+<td style="text-align: center;">B</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">C</td>
+<td style="text-align: center;">A</td>
+<td style="text-align: center;">B</td>
+<td style="text-align: center;">C</td>
+<td style="text-align: center;">C</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">B</td>
+<td style="text-align: center;">C</td>
+<td style="text-align: center;">D</td>
+<td style="text-align: center;">B</td>
+<td style="text-align: center;">A</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">D</td>
+<td style="text-align: center;">B</td>
+<td style="text-align: center;">A</td>
+<td style="text-align: center;">A</td>
+<td style="text-align: center;">D</td>
+</tr>
+</tbody>
+</table>
+<p><em>Randomly assign <span class="math inline">\(4\)</span> treatments to the experiments within each block</em></p></li>
+</ul>
 
     </div>
 
