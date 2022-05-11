@@ -29,7 +29,7 @@
 <meta property="og:description" content="Suppose we are given the distribution of a continuous random variable \(X\). Let \(Y&#x3D;\phi(X)\), where \(\phi\) is an invertible (one-to-one) function. Let \(\psi&#x3D;\phi^{-1}\) so that \(X&#x3D;\psi(Y)\). Fur">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-05-09T06:27:40.000Z">
-<meta property="article:modified_time" content="2022-05-10T00:16:23.896Z">
+<meta property="article:modified_time" content="2022-05-11T23:18:37.353Z">
 <meta property="article:author" content="Weiru Han">
 <meta property="article:tag" content="Statistics and Data analysis from elementary to intermediate">
 <meta name="twitter:card" content="summary">
@@ -208,10 +208,16 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
-      
 
-      <time title="Created: 2022-05-09 02:27:40 / Modified: 20:16:23" itemprop="dateCreated datePublished" datetime="2022-05-09T02:27:40-04:00">2022-05-09</time>
+      <time title="Created: 2022-05-09 02:27:40" itemprop="dateCreated datePublished" datetime="2022-05-09T02:27:40-04:00">2022-05-09</time>
     </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2022-05-11 19:18:37" itemprop="dateModified" datetime="2022-05-11T19:18:37-04:00">2022-05-11</time>
+      </span>
 
   
 </div>
@@ -242,7 +248,7 @@ g(y)=\frac{dG(y)}{dy}=\frac{dF(\psi(y))}{dy}\\
 \end{gather}
 \]</span> Next suppose <span class="math inline">\(\phi\)</span> is a strictly decreasing function. Then <span class="math inline">\(\psi=\phi^{-1}\)</span> is also a strictly decreasing function and <span class="math inline">\(d\psi(y)/dy&lt;0\)</span>. Therefore <span class="math display">\[
 G(y)=P[Y\leq y] = P[\phi(X)\leq y]=P[X\geq\phi^{-1}(y)]=1-F(\psi(y))
-\]</span> Differentiating <span class="math inline">\(G(y)\)</span> by usingn the chain rule, it follows that <span class="math display">\[
+\]</span> Differentiating <span class="math inline">\(G(y)\)</span> by using the chain rule, it follows that <span class="math display">\[
 \begin{gather}
 g(y)=\frac{dG(y)}{dy} = -\frac{dF(\psi(y))}{dy}\\
 =-f(\psi(y))\frac{d\psi(y)}{dy}\\
