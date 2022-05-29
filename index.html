@@ -131,7 +131,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">9</span>
+          <span class="site-state-item-count">10</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -171,6 +171,87 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/05/29/log-normal-distribution/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Weiru Han">
+      <meta itemprop="description" content="The journey of a thousand miles begins with one step">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Weiru Han's blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/05/29/log-normal-distribution/" class="post-title-link" itemprop="url">log-normal distribution</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2022-05-29 17:08:06 / Modified: 17:37:43" itemprop="dateCreated datePublished" datetime="2022-05-29T17:08:06-04:00">2022-05-29</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>The p.d.f. of log-normal distribution is <span class="math display">\[
+f_X(x)=\frac{1}{x\sigma\sqrt{2\pi}}e^{-\frac{1}{2}(\frac{lnx-\mu}{\sigma})^2}
+\]</span></p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://towardsdatascience.com/log-normal-distribution-a-simple-explanation-7605864fb67c">The log-normal distribution is a right skewed continuous probability distribution, meaning it has a long tail towards the right. It is used for modelling various natural phenomena such as income distributions, the length of chess games or the time to repair a maintainable system and more.</a></p>
+</blockquote>
+<p>If the random variable <span class="math inline">\(X\)</span> is log-normally distributed, then <span class="math inline">\(Y=\ln(X)\)</span> has a normal distribution. We can apply the same rule from <a target="_blank" rel="noopener" href="https://weiruhan.github.io/2022/05/09/Density-of-transformed-random-variable/">Density of transformed random variable</a> to prove this statement. <span class="math display">\[
+\begin{gather*}
+X\sim LogNormal(\mu,\sigma^2)\\
+Y=lnX\\
+X=\psi(Y)=e^Y\\
+\Rightarrow g_Y(y)=f(\psi(y))|\frac{dx}{dy}|\\
+=\frac{1}{e^y\sigma\sqrt{2\pi}}e^{-\frac{1}{2}(\frac{y-\mu}{\sigma})^2}e^y\\
+=\frac{1}{\sigma\sqrt{2\pi}}e^{-\frac{1}{2}(\frac{y-\mu}{\sigma})^2}\\
+\Rightarrow Y\sim N(\mu,\sigma^2)
+\end{gather*}
+\]</span></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
