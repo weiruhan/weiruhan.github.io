@@ -29,7 +29,7 @@
 <meta property="og:description" content="Below is an interesting question about likelihood from a thread in quora Why do we always put log() in Maximum likelihood estimatioon before estimate the parameter? The answer to this question is  \(l">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-05-30T03:57:59.000Z">
-<meta property="article:modified_time" content="2022-05-30T21:42:15.649Z">
+<meta property="article:modified_time" content="2022-06-01T04:04:34.297Z">
 <meta property="article:author" content="Weiru Han">
 <meta property="article:tag" content="Math statistics">
 <meta name="twitter:card" content="summary">
@@ -216,7 +216,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2022-05-30 17:42:15" itemprop="dateModified" datetime="2022-05-30T17:42:15-04:00">2022-05-30</time>
+        <time title="Modified: 2022-06-01 00:04:34" itemprop="dateModified" datetime="2022-06-01T00:04:34-04:00">2022-06-01</time>
       </span>
 
   
@@ -234,15 +234,19 @@
 <p>The answer to this question is</p>
 <blockquote>
 <p><span class="math inline">\(log(x)\)</span> is an increasing function. Therefore solving the following two problems gives the same result: <span class="math display">\[
+\begin{gather*}
 \underset{\theta}{max}\ f(x;\theta)\\
 \underset{\theta}{max}\ log(f(x;\theta))
+\end{gather*}
 \]</span></p>
 </blockquote>
 <p>From above two equations, it seems there is no necessity to put log to solve the problem. The reason to put log is because most of the times it's faster to deal with sums than the products in the objective since it is more convenient to differentiate the sums than produces. For example, suppose we have <span class="math inline">\(n\)</span> data points <span class="math inline">\(x_1,x_2,\cdots,x_n\)</span> which are iid drawn from <span class="math inline">\(f(x;\theta)\)</span> with unknown <span class="math inline">\(\theta\)</span>. MLE of <span class="math inline">\(\theta\)</span> will solve the following problems:</p>
 <blockquote>
 <p><span class="math display">\[
+\begin{gather*}
 \underset{\theta}{max}\ \underset{i=1}{\overset{n}{\prod}}f(x_i;\theta)\\
 \underset{\theta}{max}\ \underset{i=1}{\overset{n}{\sum}}log(f(x_i;\theta))
+\end{gather*}
 \]</span></p>
 </blockquote>
 <p>Two equations are equivalent, but it may take few addtional steps to reach the same condition if we use the product</p>
