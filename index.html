@@ -131,7 +131,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">10</span>
+          <span class="site-state-item-count">12</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -142,7 +142,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-count">7</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -171,6 +171,205 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/05/29/use-of-log-in-likelihood/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Weiru Han">
+      <meta itemprop="description" content="The journey of a thousand miles begins with one step">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Weiru Han's blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/05/29/use-of-log-in-likelihood/" class="post-title-link" itemprop="url">use of log in likelihood</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2022-05-29 23:57:59" itemprop="dateCreated datePublished" datetime="2022-05-29T23:57:59-04:00">2022-05-29</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2022-05-30 17:42:15" itemprop="dateModified" datetime="2022-05-30T17:42:15-04:00">2022-05-30</time>
+      </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>Below is an interesting question about likelihood from a thread in <a target="_blank" rel="noopener" href="https://www.quora.com/Why-do-we-always-put-log-in-Maximum-Likelihood-estimation-before-estimate-the-parameter">quora</a></p>
+<p><strong>Why do we always put log() in Maximum likelihood estimatioon before estimate the parameter?</strong></p>
+<p>The answer to this question is</p>
+<blockquote>
+<p><span class="math inline">\(log(x)\)</span> is an increasing function. Therefore solving the following two problems gives the same result: <span class="math display">\[
+\underset{\theta}{max}\ f(x;\theta)\\
+\underset{\theta}{max}\ log(f(x;\theta))
+\]</span></p>
+</blockquote>
+<p>From above two equations, it seems there is no necessity to put log to solve the problem. The reason to put log is because most of the times it's faster to deal with sums than the products in the objective since it is more convenient to differentiate the sums than produces. For example, suppose we have <span class="math inline">\(n\)</span> data points <span class="math inline">\(x_1,x_2,\cdots,x_n\)</span> which are iid drawn from <span class="math inline">\(f(x;\theta)\)</span> with unknown <span class="math inline">\(\theta\)</span>. MLE of <span class="math inline">\(\theta\)</span> will solve the following problems:</p>
+<blockquote>
+<p><span class="math display">\[
+\underset{\theta}{max}\ \underset{i=1}{\overset{n}{\prod}}f(x_i;\theta)\\
+\underset{\theta}{max}\ \underset{i=1}{\overset{n}{\sum}}log(f(x_i;\theta))
+\]</span></p>
+</blockquote>
+<p>Two equations are equivalent, but it may take few addtional steps to reach the same condition if we use the product</p>
+<h1 id="reference">Reference</h1>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.quora.com/Why-do-we-always-put-log-in-Maximum-Likelihood-estimation-before-estimate-the-parameter"><strong>Why do we always put log() in Maximum Likelihood estimation before estimate the parameter?</strong></a></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/05/29/laplace-approximation/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Weiru Han">
+      <meta itemprop="description" content="The journey of a thousand miles begins with one step">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Weiru Han's blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/05/29/laplace-approximation/" class="post-title-link" itemprop="url">Laplace approximation</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2022-05-29 22:34:29" itemprop="dateCreated datePublished" datetime="2022-05-29T22:34:29-04:00">2022-05-29</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2022-06-01 00:02:57" itemprop="dateModified" datetime="2022-06-01T00:02:57-04:00">2022-06-01</time>
+      </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>The Laplace technique can be used to approximate the reasonably well behaved functions that have most of their mass concentrated in a small area of their domain.<a target="_blank" rel="noopener" href="https://bookdown.org/rdpeng/advstatcomp/laplace-approximation.html#computing-the-posterior-mean">(Laplace approximation)</a> Technically, it works for functions that are in the class of <span class="math inline">\(\mathcal{L}^2\)</span>, which is also called the square integrable function, meaning <span class="math display">\[
+\int g(x)^2dx &lt;\infty
+\]</span> Such a function generally has a very rapid decreasing tails so that in the far reaches of the domain we would not expect to see large spikes.</p>
+<p>The Laplace approximation framework is a simple but widely used framework, and aims to find a Gaussian approximation to a probability density <strong>defined over a set of continuous variables</strong>. (<a target="_blank" rel="noopener" href="https://cedar.buffalo.edu/~srihari/CSE574/Chap4/4.4-Laplace.pdf">Laplace approximation</a>)</p>
+<p>In <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Bayesian_statistics">Bayesian statistics</a>, <strong>Laplace approximation</strong> can refer to either approximating the <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Normalizing_constant">posterior normalizing constant</a> with <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Laplace&#39;s_method#cite_note-1">Laplace's method</a> or approximating the posterior distribution with a <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Normal_distribution">Gaussian</a> centered at the <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Maximum_a_posteriori_estimation">maximum a posteriori estimate</a>.<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Laplace&#39;s_method#cite_note-2">(Amaral Turkman 2019)</a></p>
+<p>Suppose we want to approximate the pdf <span class="math inline">\(p(\theta)\)</span>, which doesn't belong to any known distribution. The density curve is smooth and well peaked around its point of maxima <span class="math inline">\(\hat{\theta}\)</span>. Thereby, <span class="math inline">\(\frac{dp(\theta)}{d\theta}|_{\hat{\theta}}=0\)</span> and <span class="math inline">\(\frac{d^2p(\theta)}{d\theta^2}|_{\hat{\theta}}&lt;0\)</span>; thus we can conclude that <span class="math inline">\(\frac{dlnp(\theta)}{d\theta}|_{\hat{\theta}}=0\)</span> and <span class="math inline">\(\frac{d^2lnp(\theta)}{d\theta^2}|_{\hat{\theta}}&lt;0\)</span></p>
+<p>Then we can approximate it by a normal pdf. Denote <span class="math inline">\(h(\theta)=lnp(\theta)\)</span> <span class="math display">\[
+\begin{gather*}
+h(\theta)\approx lnp(\hat{\theta})+(\theta-\hat{\theta})\frac{dlnp(\theta)}{d\theta}|_{\hat{\theta}}+\frac{1}{2}(\theta-\hat{\theta})^2\frac{d^2lnp(\theta)}{d\theta^2}|_{\hat{\theta}}\\
+=lnp(\hat{\theta})-\frac{1}{2}(\theta-\hat{\theta})^2\frac{-d^2lnp(\theta)}{d\theta^2}|_{\hat{\theta}}\ (\frac{dlnp(\theta)}{d\theta}|_{\hat{\theta}}=0)\\
+=lnp(\hat{\theta})-\frac{(\theta-\hat{\theta})^2}{2\sigma^2}\ (\sigma^2=(\frac{-d^2lnp(\theta)}{d\theta^2}|_{\hat{\theta}})^{-1}&gt;0)\\
+\Rightarrow p(\theta)=e^{h(\theta)}\approx p(\hat{\theta})e^{-\frac{(\theta-\hat{\theta})^2}{2\sigma^2}}\\
+\Rightarrow p(\theta)\propto e^{-\frac{(\theta-\hat{\theta})^2}{2\sigma^2}}
+\end{gather*}
+\]</span> Suppose <span class="math inline">\(f(\theta)=e^{-\frac{(\theta-\hat{\theta})^2}{2\sigma^2}}\)</span>, then we can approximate <span class="math inline">\(p(\theta)\)</span> as <span class="math display">\[
+\begin{gather*}
+p(\theta)\approx \frac{1}{\int f(\theta)d\theta}f(\theta)\\
+=\frac{1}{\sqrt{2\pi}\sigma\int \frac{1}{\sqrt{2\pi}\sigma}e^{-\frac{(\theta-\hat{\theta})^2}{2\sigma^2}}d\theta}e^{-\frac{(\theta-\hat{\theta})^2}{2\sigma^2}}\\
+=\frac{1}{\sqrt{2\pi}\sigma}e^{-\frac{(\theta-\hat{\theta})^2}{2\sigma^2}}\\
+\text{where\ }\int f(\theta)d\theta\text{ is the normalizing term}
+\end{gather*}
+\]</span> As a result, pdf of <span class="math inline">\(\theta\)</span> is approximated by a normal distribution using Laplace method, which can be shown as below <span class="math display">\[
+\begin{gather*}
+\theta\sim N(\hat{\theta},\sigma^2)\\
+\sigma^2=(\frac{-d^2lnp(\theta)}{d\theta^2}|_{\hat{\theta}})^{-1}&gt;0
+\end{gather*}
+\]</span></p>
+<h1 id="reference">Reference</h1>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Laplace%27s_method#cite_note-2">Laplace's method</a></li>
+<li><a target="_blank" rel="noopener" href="https://cedar.buffalo.edu/~srihari/CSE574/Chap4/4.4-Laplace.pdf">SUNY buffalo lecture notes</a></li>
+<li><a target="_blank" rel="noopener" href="https://bookdown.org/rdpeng/advstatcomp/laplace-approximation.html#computing-the-posterior-mean">Advanced statistical computing</a></li>
+<li><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Normalizing_constant">Normalizing constant</a></li>
+<li><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Taylor%27s_theorem">Taylor's theorem</a></li>
+<li><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Bayesian_statistics">Bayesian statistics</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.cs.cmu.edu/~tom/10-702/laplace.pdf">Azevedo-Filho,A. 1994</a></li>
+<li><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Laplace&#39;s_method#cite_note-2">Amaral Turkman 2019</a></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1299,233 +1498,9 @@ var(Y_i)=e_i^T\lambda_ie_i=\lambda_ie_i^Te_i=\lambda_i
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/11/29/Levy-process/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Weiru Han">
-      <meta itemprop="description" content="The journey of a thousand miles begins with one step">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Weiru Han's blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/11/29/Levy-process/" class="post-title-link" itemprop="url">Levy process</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2021-11-29 01:19:34" itemprop="dateCreated datePublished" datetime="2021-11-29T01:19:34-05:00">2021-11-29</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2022-02-21 03:08:13" itemprop="dateModified" datetime="2022-02-21T03:08:13-05:00">2022-02-21</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/time-series-analysis/" itemprop="url" rel="index"><span itemprop="name">time series analysis</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="definition-of-levy-process">Definition of Levy process</h1>
-<p>A <b>Levy process</b>, <span class="math inline">\(\{L(t),t\in \mathbb{R}\}\)</span> is a process with the following <span class="math inline">\(4\)</span> properties:</p>
-<ol type="i">
-<li><p><span class="math inline">\(L(0)=0\)</span></p></li>
-<li><p><span class="math inline">\(L(t)-L(s)\)</span> has the same distribution as <span class="math inline">\(L(t-s)\)</span> for <span class="math inline">\(\forall\ s,t\)</span> such that <span class="math inline">\(s\leq t\)</span></p></li>
-<li><p>If <span class="math inline">\((s,t)\)</span> and <span class="math inline">\((u,v)\)</span> are disjoint intervals then <span class="math inline">\(L(t)-L(s)\)</span> and <span class="math inline">\(L(v)-L(u)\)</span> are independent</p></li>
-<li><p><span class="math inline">\(\{L(t)\}\)</span> is continuous in probability, that is, for <span class="math inline">\(\forall\ \epsilon&gt;0\)</span> and for <span class="math inline">\(\forall\ t\in \mathbb{R}\)</span> <span class="math display">\[
-\underset{s\rightarrow t}{lim}P(\left|L(t)-L(s)\right|&gt;\epsilon)=0
-\]</span></p></li>
-</ol>
-<h2 id="brownian-motion">Brownian motion</h2>
-<p>A well-known example of the levy process is the <strong>Brownian Motion</strong> <span class="math display">\[
-\begin{gather}
-L(t)\sim N(\mu t,\sigma^2t)\\
-t\geq0,\ \mu\in \mathbb{R}\ and\ \sigma&gt;0
-\end{gather}
-\]</span> To show that it satisfies property (ii) of <strong>Levy process</strong>, we can calculate the corresponding expectation and variance <span class="math display">\[
-\begin{gather}
-E[L(t)-L(s)]\\
-=E[L(t)]-E[L(s)]\\
-=\mu(t-s)\\
-=E[L(t-s)]
-\end{gather}
-\]</span></p>
-<p><span class="math display">\[
-\begin{gather}
-Var[L(t)-L(s)]\\
-=E[(L(t)-L(s)-E[L(t)-L(s)])^2]\\
-=E[[L(t)-L(s)]^2-2[L(t)-L(s)]\mu(t-s)+\mu^2(t-s)^2]\\
-=E[L^2(t)+L^2(s)-2L(t)L(s)]-\mu^2(t-s)^2\\
-=\sigma^2t+\mu^2t^2+\sigma^2s+\mu^2s^2-\mu^2(t-s)^2-2E[L(t)L(s)]\\
-=\sigma^2(t+s)+\mu^2(t^2+s^2-t^2-s^2+2ts)-2E[L(t)L(s)]\\
-=\sigma^2(t+s)+2\mu^2ts-2E[L(t)L(s)]\\
-=\sigma^2(t+s)+2\mu^2ts-2E[[L(s)+L(t)-L(s)]L(s)]
-\end{gather}
-\]</span></p>
-<p>Since <span class="math inline">\(L(t)-L(s)\text{ is independent to }L(s)\)</span>, we have <span class="math display">\[
-\begin{gather}
-Var[L(t)-L(s)]\\
-=\sigma^2(t+s)+2\mu^2ts-2[E[L^2(s)]+E[L(t)-L(s)]E[L(s)]]\\
-=\sigma^2(t+s)+2\mu^2ts-2(\mu^2s^2+\sigma^2s+\mu(t-s)\mu s)\\
-=\sigma^2(t+s)-2\sigma^2s\\
-=\sigma^2(t-s)\\
-=Var[L(t-s)]\
-\end{gather}
-\]</span> Hence <span class="math inline">\(L(t)-L(s)\)</span> has the same distribution of <span class="math inline">\(L(t-s)\)</span></p>
-<h1 id="reference">Reference</h1>
-<ol type="1">
-<li><strong>Brockwell, P. J., &amp; Davis, R. A. (2002). <em>Introduction to time series and forecasting</em>. New York: Springer.</strong></li>
-</ol>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/11/25/hexo_tutorial/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Weiru Han">
-      <meta itemprop="description" content="The journey of a thousand miles begins with one step">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Weiru Han's blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/11/25/hexo_tutorial/" class="post-title-link" itemprop="url">Basic command of hexo</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2021-11-25 07:08:40" itemprop="dateCreated datePublished" datetime="2021-11-25T07:08:40-05:00">2021-11-25</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2022-04-25 17:34:06" itemprop="dateModified" datetime="2022-04-25T17:34:06-04:00">2022-04-25</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/hexo/" itemprop="url" rel="index"><span itemprop="name">hexo</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="quick-start">Quick Start</h2>
-<h3 id="create-a-new-post">Create a new post</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="run-server">Run server</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="generate-static-files">Generate static files</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="deploy-to-remote-sites">Deploy to remote sites</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-<h2 id="reference">Reference</h2>
-<ul>
-<li><a target="_blank" rel="noopener" href="https://theme-next.js.org/">Configure Hexo Next page from scratch</a></li>
-<li><a target="_blank" rel="noopener" href="https://clarkchen.com/Hexo/Hexo%E4%B8%AD%E6%8F%92%E5%85%A5mermaid-diagrams/">Insert mermaid</a></li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+  </nav>
 
 </div>
   </main>
