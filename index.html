@@ -131,7 +131,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">12</span>
+          <span class="site-state-item-count">13</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -180,6 +180,88 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/06/02/delta-method/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Weiru Han">
+      <meta itemprop="description" content="The journey of a thousand miles begins with one step">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Weiru Han's blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/06/02/delta-method/" class="post-title-link" itemprop="url">delta method</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2022-06-02 17:35:23 / Modified: 19:09:13" itemprop="dateCreated datePublished" datetime="2022-06-02T17:35:23-04:00">2022-06-02</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>The Taylor series of a <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Real-valued_function">real</a> or <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Complex-valued_function">complex-valued function</a> <em>f</em> (<em>x</em>) that is <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Infinitely_differentiable_function">infinitely differentiable</a> at a <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Real_number">real</a> or <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Complex_number">complex number</a> <span class="math inline">\(a\)</span> is the <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Power_series">power series</a> <span class="math display">\[
+f(x)\approx f(a)+\frac{f&#39;(a)}{1}(x-a)+\frac{f&#39;&#39;(a)}{2!}(x-a)^2+\frac{f&#39;&#39;&#39;(a)}{3!}(x-a)^3+\cdots
+\]</span> Where <span class="math inline">\(n!\)</span> denotes the factorial of <span class="math inline">\(n\)</span>. In the more compact sigma notation, this can be written as <span class="math display">\[
+\underset{n=0}{\overset{\infty}{\sum}}\frac{f^{(n)}(a)}{n!}(x-a)^n
+\]</span> The property of taylor series determines two things:</p>
+<ul>
+<li>The approximation would be more closer to the original value of <span class="math inline">\(f(x)\)</span> if we add more terms</li>
+<li>As <span class="math inline">\(x\)</span> is more closer to the <span class="math inline">\(a\)</span>, the approximation will be more accurate</li>
+</ul>
+<p>We will show two examples to illustrate above two properties <span class="math display">\[
+\begin{gather*}
+f(x)=lnx(x\in(0,1))\\
+f(x)\approx lnx_0+(x-x_0)\frac{1}{x_0}(\text{first order})\\
+f(x)\approx lnx_0+(x-x_0)\frac{1}{x_0}-\frac{1}{2}(x-x_0)^2\frac{1}{x_0^2}(\text{second order})
+\end{gather*}
+\]</span></p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">c1 &lt;- curve(<span class="built_in">log</span>(x))</span><br><span class="line">c2 &lt;- curve(<span class="built_in">log</span>(<span class="number">0.5</span>)+<span class="number">2</span>*(x-<span class="number">0.5</span>))</span><br><span class="line">plot(curve(<span class="built_in">log</span>(<span class="number">0.5</span>)+<span class="number">2</span>*(x-<span class="number">0.5</span>)-<span class="number">0.5</span>*(x-<span class="number">0.5</span>)^<span class="number">2</span>*<span class="number">4</span>),</span><br><span class="line">     col = <span class="string">&#x27;red&#x27;</span>,type = <span class="string">&#x27;l&#x27;</span>,xlab = <span class="string">&#x27;x&#x27;</span>,ylab = <span class="string">&#x27;y&#x27;</span>,</span><br><span class="line">     ylim = <span class="built_in">c</span>(-<span class="number">3</span>,<span class="number">0</span>),main = <span class="string">&#x27;Taylor approximation for lnx at point 0.5&#x27;</span>)</span><br><span class="line">lines(c1$x,c1$y,col = <span class="string">&#x27;green&#x27;</span>)</span><br><span class="line">lines(c2$x,c2$y,col = <span class="string">&#x27;blue&#x27;</span>)</span><br><span class="line">legend(<span class="string">&#x27;topleft&#x27;</span>,</span><br><span class="line">       <span class="built_in">c</span>(<span class="string">&#x27;lnx&#x27;</span>,<span class="string">&#x27;first order&#x27;</span>,<span class="string">&#x27;second order&#x27;</span>),</span><br><span class="line">       inset = <span class="number">0.001</span>,</span><br><span class="line">       cex = <span class="number">0.5</span>,</span><br><span class="line">       lty = <span class="built_in">c</span>(<span class="number">1</span>,<span class="number">1</span>),</span><br><span class="line">       col = <span class="built_in">c</span>(<span class="string">&#x27;green&#x27;</span>,<span class="string">&#x27;blue&#x27;</span>,<span class="string">&#x27;red&#x27;</span>))</span><br></pre></td></tr></table></figure>
+<p><img src="https://res.cloudinary.com/djd9gr1bu/image/upload/v1654211309/github_page/Plot1_dmycpa.png" alt="hi" class="inline"/></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="http://example.com/2022/05/29/use-of-log-in-likelihood/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -193,7 +275,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/05/29/use-of-log-in-likelihood/" class="post-title-link" itemprop="url">use of log in likelihood</a>
+          <a href="/2022/05/29/use-of-log-in-likelihood/" class="post-title-link" itemprop="url">Use of log in likelihood</a>
         </h2>
 
         <div class="post-meta-container">
@@ -211,7 +293,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2022-06-01 00:04:34" itemprop="dateModified" datetime="2022-06-01T00:04:34-04:00">2022-06-01</time>
+        <time title="Modified: 2022-06-02 17:35:46" itemprop="dateModified" datetime="2022-06-02T17:35:46-04:00">2022-06-02</time>
       </span>
 
   
@@ -1380,111 +1462,6 @@ y_i=\hat{y}_i+e_i
 <ul>
 <li><a target="_blank" rel="noopener" href="https://stats.stackexchange.com/questions/469212/proof-that-the-mean-of-predicted-values-in-ols-regression-is-equal-to-the-mean-o">Proof that the mean of predicted values in OLS regression is equal to the mean of original values?</a></li>
 </ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/02/21/Principal-component-analysis/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Weiru Han">
-      <meta itemprop="description" content="The journey of a thousand miles begins with one step">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Weiru Han's blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/02/21/Principal-component-analysis/" class="post-title-link" itemprop="url">Principal component analysis</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2022-02-21 03:04:30" itemprop="dateCreated datePublished" datetime="2022-02-21T03:04:30-05:00">2022-02-21</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2022-02-22 02:01:23" itemprop="dateModified" datetime="2022-02-22T02:01:23-05:00">2022-02-22</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/PCA/" itemprop="url" rel="index"><span itemprop="name">PCA</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="principal-component-analysis">Principal Component analysis</h1>
-<h2 id="pca-deduction-using-spectral-decomposition">PCA deduction using Spectral decomposition</h2>
-<p>Suppose we have a random vector <span class="math display">\[
-\begin{gather}
-X = \begin{pmatrix}X_1\\X_2\\ \vdots\\\ X_p\end{pmatrix}\\
-var(X) = \Sigma=\begin{bmatrix}\sigma_1^2 &amp; \sigma_{21}^2&amp; \cdots &amp; \sigma_{1p}^2\\
-\sigma_{21}^2&amp; \sigma_{22}^2 &amp; \cdots &amp; \sigma_{2p}^2\\
-\vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
-\sigma_{p1}^2&amp;\sigma_{p2}^2&amp; \cdots &amp; \sigma_{p}^2
-\end{bmatrix}\\
-\end{gather}
-\]</span> We need to augment the spread between the data, so we need to consider linear combination <span class="math display">\[
-Y_i = e_{11}X_1+e_{12}X_2+\cdots+e_{1p}X_p=\mathbf{e}_i^TX
-\]</span> and maximize the variance of linear combination <span class="math display">\[
-\begin{gather}
-var(Y_i)=E[(\mathbf{e}_i^TX-E(\mathbf{e}_i^TX))^2]\\
-E[(\mathbf{e}_i^TX-E(\mathbf{e}_i^TX))^T(\mathbf{e}_i^TX-E(\mathbf{e}_i^TX))]\\
-=E[(\mathbf{e}_i^TX-E(\mathbf{e}_i^TX))(\mathbf{e}_i^TX-E(\mathbf{e}_i^TX))^T](\text{variance is a scalar})\\
-=E[\mathbf{e}_i^TXX^T\mathbf{e}_i-\mathbf{e}_i^TEXEX^T\mathbf{e}_i]\\
-=E[\mathbf{e}_i^T(XX^T)\mathbf{e}_i]\\
-=\mathbf{e}_i^T[E(XX^T)-E(X)E(X^T)]\mathbf{e}_i\\
-=\mathbf{e}_i^T\Sigma \mathbf{e}_i
-\end{gather}
-\]</span> Since <span class="math inline">\(\Sigma \mathbf{e}_i=\lambda_i\mathbf{e}_i\)</span> in spectral decomposition <span class="math display">\[
-var(Y_i)=e_i^T\lambda_ie_i=\lambda_ie_i^Te_i=\lambda_i
-\]</span></p>
 
       
     </div>
