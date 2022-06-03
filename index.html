@@ -205,7 +205,7 @@
       <span class="post-meta-item-text">Posted on</span>
       
 
-      <time title="Created: 2022-06-02 17:35:23 / Modified: 19:11:34" itemprop="dateCreated datePublished" datetime="2022-06-02T17:35:23-04:00">2022-06-02</time>
+      <time title="Created: 2022-06-02 17:35:23 / Modified: 20:59:36" itemprop="dateCreated datePublished" datetime="2022-06-02T17:35:23-04:00">2022-06-02</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -236,7 +236,7 @@ f(x)\approx f(a)+\frac{f&#39;(a)}{1}(x-a)+\frac{f&#39;&#39;(a)}{2!}(x-a)^2+\frac
 <li>The approximation would be more closer to the original value of <span class="math inline">\(f(x)\)</span> if we add more terms</li>
 <li>As <span class="math inline">\(x\)</span> is more closer to the <span class="math inline">\(a\)</span>, the approximation will be more accurate</li>
 </ul>
-<p>We will show two examples to illustrate above two properties <span class="math display">\[
+<p>We provide the following example to illustrate above two properties <span class="math display">\[
 \begin{gather*}
 f(x)=lnx(x\in(0,1))\\
 f(x)\approx lnx_0+(x-x_0)\frac{1}{x_0}(\text{first order})\\
@@ -245,6 +245,21 @@ f(x)\approx lnx_0+(x-x_0)\frac{1}{x_0}-\frac{1}{2}(x-x_0)^2\frac{1}{x_0^2}(\text
 \]</span></p>
 <figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">c1 &lt;- curve(<span class="built_in">log</span>(x))</span><br><span class="line">c2 &lt;- curve(<span class="built_in">log</span>(<span class="number">0.5</span>)+<span class="number">2</span>*(x-<span class="number">0.5</span>))</span><br><span class="line">plot(curve(<span class="built_in">log</span>(<span class="number">0.5</span>)+<span class="number">2</span>*(x-<span class="number">0.5</span>)-<span class="number">0.5</span>*(x-<span class="number">0.5</span>)^<span class="number">2</span>*<span class="number">4</span>),</span><br><span class="line">     col = <span class="string">&#x27;red&#x27;</span>,type = <span class="string">&#x27;l&#x27;</span>,xlab = <span class="string">&#x27;x&#x27;</span>,ylab = <span class="string">&#x27;y&#x27;</span>,</span><br><span class="line">     ylim = <span class="built_in">c</span>(-<span class="number">3</span>,<span class="number">0</span>),main = <span class="string">&#x27;Taylor approximation for lnx at point 0.5&#x27;</span>)</span><br><span class="line">lines(c1$x,c1$y,col = <span class="string">&#x27;green&#x27;</span>)</span><br><span class="line">lines(c2$x,c2$y,col = <span class="string">&#x27;blue&#x27;</span>)</span><br><span class="line">legend(<span class="string">&#x27;topleft&#x27;</span>,</span><br><span class="line">       <span class="built_in">c</span>(<span class="string">&#x27;lnx&#x27;</span>,<span class="string">&#x27;first order&#x27;</span>,<span class="string">&#x27;second order&#x27;</span>),</span><br><span class="line">       inset = <span class="number">0.001</span>,</span><br><span class="line">       cex = <span class="number">0.5</span>,</span><br><span class="line">       lty = <span class="built_in">c</span>(<span class="number">1</span>,<span class="number">1</span>),</span><br><span class="line">       col = <span class="built_in">c</span>(<span class="string">&#x27;green&#x27;</span>,<span class="string">&#x27;blue&#x27;</span>,<span class="string">&#x27;red&#x27;</span>))</span><br></pre></td></tr></table></figure>
 <p><img src="https://res.cloudinary.com/djd9gr1bu/image/upload/v1654211309/github_page/Plot1_dmycpa.png" alt="hi" class="inline"/></p>
+<p>Below is a good tip for explaining the delta method, from <a target="_blank" rel="noopener" href="https://www.stata.com/support/faqs/statistics/delta-method/">(Alan. H. Feiveson, NASA)</a></p>
+<p>The delta method, in its essence, expands a function of a random variable about its mean, usually with a one-step Taylor approximation, and then takes the variance. For example, if we want to approximate the variance of <span class="math inline">\(f(X)\)</span> where <span class="math inline">\(X\)</span> is a random variable with mean <span class="math inline">\(\mu\)</span> and <span class="math inline">\(f()\)</span> is differentiable, we can try <span class="math display">\[
+f(x)=f(\mu)+(x-\mu)f&#39;(\mu)
+\]</span> so that <span class="math display">\[
+\begin{gather*}
+var[f(X)]=var(f(\mu)+(X-\mu)f&#39;(\mu))\\
+=var(X-\mu)[f&#39;(\mu)]^2\\
+=var(X)[f&#39;(\mu)]^2
+\end{gather*}
+\]</span> <strong>This is a good approximation only if <span class="math inline">\(X\)</span> has a high probability of being close enough to its mean(<span class="math inline">\(\mu\)</span>) so that the Taylor approximation is still good.</strong></p>
+<h1 id="reference">Reference</h1>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Delta_method">Wikipedia</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.stata.com/support/faqs/statistics/delta-method/">What is the delta method and how is it used to estimate the standard error of a transformed parameter?</a></li>
+</ul>
 
       
     </div>
