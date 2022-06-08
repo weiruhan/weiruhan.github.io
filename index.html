@@ -304,7 +304,7 @@ E[\frac{1}{Y}]\geq\frac{1}{E[Y]}
       <span class="post-meta-item-text">Posted on</span>
       
 
-      <time title="Created: 2022-06-07 21:50:51 / Modified: 22:16:54" itemprop="dateCreated datePublished" datetime="2022-06-07T21:50:51-04:00">2022-06-07</time>
+      <time title="Created: 2022-06-07 21:50:51 / Modified: 23:38:19" itemprop="dateCreated datePublished" datetime="2022-06-07T21:50:51-04:00">2022-06-07</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -345,13 +345,14 @@ M_Z(t)=E[e^{tz}]\\
 =e^{\frac{1}{2}t^2}\int\frac{1}{\sqrt{2\pi}}e^{-\frac{1}{2}(z-t)^2}dz\\
 =e^{\frac{1}{2}t^2}
 \end{gather*}
-\]</span> Using the mgf we obtain the <span class="math inline">\(E[Z^3]\)</span> as $$ <span class="math display">\[\begin{gather*}
+\]</span> Using the mgf we obtain the <span class="math inline">\(E[Z^3]\)</span> as <span class="math display">\[
+\begin{gather*}
 E[Z^3]=M_Z&#39;&#39;&#39;(t=0)\\
 =(0)e^{\frac{1}{2}(0)^2}+2(0)e^{\frac{1}{2}(0)^2}+(0)^3e^{\frac{1}{2}(0)^2}=0
-
-\end{gather*}\]</span> <span class="math display">\[
-Thus
-\]</span> Cov(X,Y)=E[Z^3]=0 $$ <span class="math inline">\(X,Y\)</span> are <strong>uncorrelated</strong>, but they are <strong>dependent</strong></p>
+\end{gather*}
+\]</span> Therefore <span class="math display">\[
+Cov(X,Y)=E[Z^3]=0
+\]</span> This implies <span class="math inline">\(X,Y\)</span> are <strong>uncorrelated</strong>, but they are <strong>dependent</strong></p>
 <h1 id="reference">Reference</h1>
 <ul>
 <li><p><a target="_blank" rel="noopener" href="https://towardsdatascience.com/uncorrelated-vs-independent-random-variables-definitions-proofs-examples-26422589a5d6">Uncorrelated vs Independent Random variables - Definitions, Proofs &amp; Examples</a></p></li>
