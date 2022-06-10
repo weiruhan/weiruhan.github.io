@@ -20,29 +20,29 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css" integrity="sha256-mUZM63G8m73Mcidfrv5E+Y61y7a12O5mW4ezU3bxqW4=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.8.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"manual","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
-<meta name="description" content="Uncorrelation means there is no linear dependence between the two random variables, while independence means no types of dependence exist between the two random variables. Uncorrelated random variable">
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.8.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+<meta name="description" content="Definition of Levy process A Levy process, \(\{L(t),t\in \mathbb{R}\}\) is a process with the following \(4\) properties:  \(L(0)&#x3D;0\) \(L(t)-L(s)\) has the same distribution as \(L(t-s)\) for \(\foral">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Uncorrelated vs independent">
-<meta property="og:url" content="http://example.com/2022/06/07/Uncorrelated-vs-independent/index.html">
+<meta property="og:title" content="Levy process">
+<meta property="og:url" content="http://example.com/2021/11/29/Levy-process/index.html">
 <meta property="og:site_name" content="Weiru Han&#39;s blog">
-<meta property="og:description" content="Uncorrelation means there is no linear dependence between the two random variables, while independence means no types of dependence exist between the two random variables. Uncorrelated random variable">
+<meta property="og:description" content="Definition of Levy process A Levy process, \(\{L(t),t\in \mathbb{R}\}\) is a process with the following \(4\) properties:  \(L(0)&#x3D;0\) \(L(t)-L(s)\) has the same distribution as \(L(t-s)\) for \(\foral">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2022-06-08T01:50:51.000Z">
-<meta property="article:modified_time" content="2022-06-08T03:38:19.009Z">
+<meta property="article:published_time" content="2021-11-29T06:19:34.000Z">
+<meta property="article:modified_time" content="2022-02-21T08:08:13.399Z">
 <meta property="article:author" content="Weiru Han">
-<meta property="article:tag" content="Math statistics">
+<meta property="article:tag" content="levy process">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="http://example.com/2022/06/07/Uncorrelated-vs-independent/">
+<link rel="canonical" href="http://example.com/2021/11/29/Levy-process/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/2022/06/07/Uncorrelated-vs-independent/","path":"2022/06/07/Uncorrelated-vs-independent/","title":"Uncorrelated vs independent"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/2021/11/29/Levy-process/","path":"2021/11/29/Levy-process/","title":"Levy process"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>Uncorrelated vs independent | Weiru Han's blog</title>
+<title>Levy process | Weiru Han's blog</title>
   
 
 
@@ -149,7 +149,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#reference"><span class="nav-number">1.</span> <span class="nav-text">Reference</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#definition-of-levy-process"><span class="nav-number">1.</span> <span class="nav-text">Definition of Levy process</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#brownian-motion"><span class="nav-number">1.1.</span> <span class="nav-text">Brownian motion</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#reference"><span class="nav-number">2.</span> <span class="nav-text">Reference</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -212,7 +212,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/06/07/Uncorrelated-vs-independent/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/11/29/Levy-process/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -225,7 +225,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Uncorrelated vs independent
+          Levy process
         </h1>
 
         <div class="post-meta-container">
@@ -235,17 +235,23 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
-      
 
-      <time title="Created: 2022-06-07 21:50:51 / Modified: 23:38:19" itemprop="dateCreated datePublished" datetime="2022-06-07T21:50:51-04:00">2022-06-07</time>
+      <time title="Created: 2021-11-29 01:19:34" itemprop="dateCreated datePublished" datetime="2021-11-29T01:19:34-05:00">2021-11-29</time>
     </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2022-02-21 03:08:13" itemprop="dateModified" datetime="2022-02-21T03:08:13-05:00">2022-02-21</time>
+      </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
       </span>
       <span class="post-meta-item-text">In</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/statistics/" itemprop="url" rel="index"><span itemprop="name">statistics</span></a>
+          <a href="/categories/time-series-analysis/" itemprop="url" rel="index"><span itemprop="name">time series analysis</span></a>
         </span>
     </span>
 
@@ -259,39 +265,56 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <p><strong>Uncorrelation</strong> means there is no <strong>linear dependence</strong> between the two random variables, while <strong>independence</strong> means no types of dependence exist between the two random variables.</p>
-<p>Uncorrelated random variables may not be independent, but independent random variables must be uncorrelated.</p>
-<p>For example, <span class="math inline">\(Z\sim N(0,1),X=Z,Y=Z^2\)</span> <span class="math display">\[
-\begin{gather*}
-Cov(X,Y)=E[XY]-E[X]E[Y]\\
-=E[Z^3]-E[Z]E[Z^2]\\
-=E[Z^3]-0\\
-=E[Z^3]
-\end{gather*}
-\]</span> The moment generating function of distribution of <span class="math inline">\(Z\)</span> is <span class="math display">\[
-\begin{gather*}
-M_Z(t)=E[e^{tz}]\\
-=\int e^{tx}\frac{1}{\sqrt{2\pi}}e^{-\frac{z^2}{2}}dz\\
-=\int \frac{1}{\sqrt{2\pi}}e^{-\frac{1}{2}(z^2-2tz)}dz\\
-=\int \frac{1}{\sqrt{2\pi}}e^{-\frac{1}{2}(z^2-2tz+t^2)+\frac{1}{2}t^2}dz\\
-=\int \frac{1}{\sqrt{2\pi}}e^{-\frac{1}{2}(z-t)^2+\frac{1}{2}t^2}dz\\
-=e^{\frac{1}{2}t^2}\int\frac{1}{\sqrt{2\pi}}e^{-\frac{1}{2}(z-t)^2}dz\\
-=e^{\frac{1}{2}t^2}
-\end{gather*}
-\]</span> Using the mgf we obtain the <span class="math inline">\(E[Z^3]\)</span> as <span class="math display">\[
-\begin{gather*}
-E[Z^3]=M_Z&#39;&#39;&#39;(t=0)\\
-=(0)e^{\frac{1}{2}(0)^2}+2(0)e^{\frac{1}{2}(0)^2}+(0)^3e^{\frac{1}{2}(0)^2}=0
-\end{gather*}
-\]</span> Therefore <span class="math display">\[
-Cov(X,Y)=E[Z^3]=0
-\]</span> This implies <span class="math inline">\(X,Y\)</span> are <strong>uncorrelated</strong>, but they are <strong>dependent</strong></p>
+        <h1 id="definition-of-levy-process">Definition of Levy process</h1>
+<p>A <b>Levy process</b>, <span class="math inline">\(\{L(t),t\in \mathbb{R}\}\)</span> is a process with the following <span class="math inline">\(4\)</span> properties:</p>
+<ol type="i">
+<li><p><span class="math inline">\(L(0)=0\)</span></p></li>
+<li><p><span class="math inline">\(L(t)-L(s)\)</span> has the same distribution as <span class="math inline">\(L(t-s)\)</span> for <span class="math inline">\(\forall\ s,t\)</span> such that <span class="math inline">\(s\leq t\)</span></p></li>
+<li><p>If <span class="math inline">\((s,t)\)</span> and <span class="math inline">\((u,v)\)</span> are disjoint intervals then <span class="math inline">\(L(t)-L(s)\)</span> and <span class="math inline">\(L(v)-L(u)\)</span> are independent</p></li>
+<li><p><span class="math inline">\(\{L(t)\}\)</span> is continuous in probability, that is, for <span class="math inline">\(\forall\ \epsilon&gt;0\)</span> and for <span class="math inline">\(\forall\ t\in \mathbb{R}\)</span> <span class="math display">\[
+\underset{s\rightarrow t}{lim}P(\left|L(t)-L(s)\right|&gt;\epsilon)=0
+\]</span></p></li>
+</ol>
+<h2 id="brownian-motion">Brownian motion</h2>
+<p>A well-known example of the levy process is the <strong>Brownian Motion</strong> <span class="math display">\[
+\begin{gather}
+L(t)\sim N(\mu t,\sigma^2t)\\
+t\geq0,\ \mu\in \mathbb{R}\ and\ \sigma&gt;0
+\end{gather}
+\]</span> To show that it satisfies property (ii) of <strong>Levy process</strong>, we can calculate the corresponding expectation and variance <span class="math display">\[
+\begin{gather}
+E[L(t)-L(s)]\\
+=E[L(t)]-E[L(s)]\\
+=\mu(t-s)\\
+=E[L(t-s)]
+\end{gather}
+\]</span></p>
+<p><span class="math display">\[
+\begin{gather}
+Var[L(t)-L(s)]\\
+=E[(L(t)-L(s)-E[L(t)-L(s)])^2]\\
+=E[[L(t)-L(s)]^2-2[L(t)-L(s)]\mu(t-s)+\mu^2(t-s)^2]\\
+=E[L^2(t)+L^2(s)-2L(t)L(s)]-\mu^2(t-s)^2\\
+=\sigma^2t+\mu^2t^2+\sigma^2s+\mu^2s^2-\mu^2(t-s)^2-2E[L(t)L(s)]\\
+=\sigma^2(t+s)+\mu^2(t^2+s^2-t^2-s^2+2ts)-2E[L(t)L(s)]\\
+=\sigma^2(t+s)+2\mu^2ts-2E[L(t)L(s)]\\
+=\sigma^2(t+s)+2\mu^2ts-2E[[L(s)+L(t)-L(s)]L(s)]
+\end{gather}
+\]</span></p>
+<p>Since <span class="math inline">\(L(t)-L(s)\text{ is independent to }L(s)\)</span>, we have <span class="math display">\[
+\begin{gather}
+Var[L(t)-L(s)]\\
+=\sigma^2(t+s)+2\mu^2ts-2[E[L^2(s)]+E[L(t)-L(s)]E[L(s)]]\\
+=\sigma^2(t+s)+2\mu^2ts-2(\mu^2s^2+\sigma^2s+\mu(t-s)\mu s)\\
+=\sigma^2(t+s)-2\sigma^2s\\
+=\sigma^2(t-s)\\
+=Var[L(t-s)]\
+\end{gather}
+\]</span> Hence <span class="math inline">\(L(t)-L(s)\)</span> has the same distribution of <span class="math inline">\(L(t-s)\)</span></p>
 <h1 id="reference">Reference</h1>
-<ul>
-<li><p><a target="_blank" rel="noopener" href="https://towardsdatascience.com/uncorrelated-vs-independent-random-variables-definitions-proofs-examples-26422589a5d6">Uncorrelated vs Independent Random variables - Definitions, Proofs &amp; Examples</a></p></li>
-<li><p><a target="_blank" rel="noopener" href="https://math.stackexchange.com/questions/96451/how-to-calculate-the-expectation-of-xy">How to calculate the expectation of <span class="math inline">\(XY\)</span></a></p></li>
-<li><p><a target="_blank" rel="noopener" href="https://math.stackexchange.com/questions/537438/prove-that-fx-and-gy-are-independent-if-x-and-y-are-independent">Prove that <span class="math inline">\(f(X)\)</span> and <span class="math inline">\(g(Y)\)</span> are independent if <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are independent</a></p></li>
-</ul>
+<ol type="1">
+<li><strong>Brockwell, P. J., &amp; Davis, R. A. (2002). <em>Introduction to time series and forecasting</em>. New York: Springer.</strong></li>
+</ol>
 
     </div>
 
@@ -301,20 +324,20 @@ Cov(X,Y)=E[Z^3]=0
 
     <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/Math-statistics/" rel="tag"># Math statistics</a>
+              <a href="/tags/levy-process/" rel="tag"># levy process</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2022/06/06/Jensen-s-inequality/" rel="prev" title="Jensen's inequality">
-                  <i class="fa fa-chevron-left"></i> Jensen's inequality
+                <a href="/2021/11/25/hexo_tutorial/" rel="prev" title="Basic command of hexo">
+                  <i class="fa fa-chevron-left"></i> Basic command of hexo
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2022/06/07/E-X-E-Y-and-E-X-Y/" rel="next" title="E(X)/E(Y) and E(X/Y)">
-                  E(X)/E(Y) and E(X/Y) <i class="fa fa-chevron-right"></i>
+                <a href="/2022/02/21/Principal-component-analysis/" rel="next" title="Principal component analysis">
+                  Principal component analysis <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>
