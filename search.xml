@@ -1032,6 +1032,33 @@ p_{(i)}^{BH}=min\{\underset{j\geq i}{min}\{\frac{mp_{(j)}}{j}\},1\}
       </tags>
   </entry>
   <entry>
+    <title>shell command</title>
+    <url>/2022/06/11/shell-command/</url>
+    <content><![CDATA[<p>Command to the ~./bash_logout so that the history will get cleared when you logout</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">echo</span> `<span class="built_in">history</span> -c` &gt;&gt; ~/.bash_logout</span><br></pre></td></tr></table></figure>
+<p>Get the name of the history file</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&quot;<span class="variable">$HISTFILE</span>&quot;</span></span><br></pre></td></tr></table></figure>
+<p>See the current history</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">history</span></span><br><span class="line"><span class="built_in">history</span> | grep <span class="string">&#x27;du&#x27;</span></span><br></pre></td></tr></table></figure>
+<p>Hide and display the cursor in the shell</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Hide the cursor</span></span><br><span class="line"><span class="built_in">echo</span> -e <span class="string">&quot;\033[?25l&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Display the cursor</span></span><br><span class="line"><span class="built_in">echo</span> -e <span class="string">&quot;\033[?25h&quot;</span></span><br></pre></td></tr></table></figure>
+<p>Three ways of multiple line annotation</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">:&lt;&lt;<span class="string">EOF</span></span><br><span class="line"><span class="string">annotation text...</span></span><br><span class="line"><span class="string">annotation text...</span></span><br><span class="line"><span class="string">annotation text...</span></span><br><span class="line"><span class="string">EOF</span></span><br><span class="line"></span><br><span class="line">:&lt;&lt;<span class="string">&#x27;</span></span><br><span class="line"><span class="string">annotation text...</span></span><br><span class="line"><span class="string">annotation text...</span></span><br><span class="line"><span class="string">annotation text...</span></span><br><span class="line"><span class="string">&#x27;</span></span><br><span class="line"></span><br><span class="line">:&lt;&lt;!</span><br><span class="line">annotation text...</span><br><span class="line">annotation text...</span><br><span class="line">annotation text...</span><br><span class="line">!</span><br></pre></td></tr></table></figure>
+<p>Make file executable</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">chmod +x &lt;file.name&gt;</span><br></pre></td></tr></table></figure>
+<p>Use math equation in shell script (example)</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"></span><br><span class="line">val=`expr 2 + 2`</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;sum of two numbers: <span class="variable">$val</span>&quot;</span></span><br></pre></td></tr></table></figure>
+<p><strong>Operators in shell script</strong></p>
+<p><code>https://www.runoob.com/linux/linux-shell-basic-operators.html</code></p>
+]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Shell language</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>About me</title>
     <url>/about/index.html</url>
     <content><![CDATA[<p><img src="https://res.cloudinary.com/djd9gr1bu/image/upload/v1637834720/2770F1B8-6DC8-4BBD-BC76-AA9756C6D8AF_1_201_a_grh7po.jpg" alt="hi" class="inline"/></p>
