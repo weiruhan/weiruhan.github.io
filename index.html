@@ -158,18 +158,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">19</span>
+          <span class="site-state-item-count">20</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-count">7</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-count">11</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -198,6 +198,81 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/06/12/Count-unique-words/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Weiru Han">
+      <meta itemprop="description" content="The journey of a thousand miles begins with one step">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Weiru Han's blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/06/12/Count-unique-words/" class="post-title-link" itemprop="url">Count unique words</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2022-06-12 02:02:19 / Modified: 02:09:46" itemprop="dateCreated datePublished" datetime="2022-06-12T02:02:19-04:00">2022-06-12</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/R/" itemprop="url" rel="index"><span itemprop="name">R</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>Below is some R code that could be employed to summarize the unique words from the text.</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">words &lt;- read.table(file.choose(), header = <span class="literal">FALSE</span>,fill = <span class="literal">TRUE</span>) <span class="comment"># import txt file</span></span><br><span class="line"></span><br><span class="line">words &lt;- apply(words,<span class="built_in">c</span>(<span class="number">1</span>,<span class="number">2</span>),<span class="keyword">function</span>(x) gsub(<span class="string">&quot;[[:punct:]]&quot;</span>, <span class="string">&quot;&quot;</span>, x)) <span class="comment"># remove all special characters</span></span><br><span class="line"></span><br><span class="line">words &lt;- words[(words !=<span class="string">&#x27;&#x27;</span>) ] <span class="comment"># remove all NA content</span></span><br><span class="line"></span><br><span class="line">x_numbers &lt;- unlist(regmatches(words, gregexpr(<span class="string">&quot;[[:digit:]]+&quot;</span>, words))) <span class="comment"># extract numbers from string</span></span><br><span class="line"></span><br><span class="line">words &lt;- gsub(<span class="string">&#x27;[[:digit:]]+&#x27;</span>, <span class="string">&#x27;&#x27;</span>, words) <span class="comment"># remove all content containing numbers</span></span><br><span class="line"></span><br><span class="line">words &lt;- words[(words !=<span class="string">&#x27;&#x27;</span>) ] <span class="comment"># remove all NA content</span></span><br><span class="line"></span><br><span class="line">x_numbers &lt;- unlist(regmatches(words, gregexpr(<span class="string">&quot;[[:digit:]]+&quot;</span>, words))) <span class="comment"># extract numbers from string</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">length</span>(unique(words)) <span class="comment"># count unique words</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1101,107 +1176,6 @@ p(\theta)\approx \frac{1}{\int f(\theta)d\theta}f(\theta)\\
 <li><a target="_blank" rel="noopener" href="https://www.cs.cmu.edu/~tom/10-702/laplace.pdf">Azevedo-Filho,A. 1994</a></li>
 <li><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Laplace&#39;s_method#cite_note-2">Amaral Turkman 2019</a></li>
 <li><a target="_blank" rel="noopener" href="http://www2.stat.duke.edu/~st118/sta250/laplace.pdf">Duke lecture notes</a></li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/05/29/log-normal-distribution/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Weiru Han">
-      <meta itemprop="description" content="The journey of a thousand miles begins with one step">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Weiru Han's blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/05/29/log-normal-distribution/" class="post-title-link" itemprop="url">log-normal distribution</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2022-05-29 17:08:06" itemprop="dateCreated datePublished" datetime="2022-05-29T17:08:06-04:00">2022-05-29</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2022-06-02 19:11:59" itemprop="dateModified" datetime="2022-06-02T19:11:59-04:00">2022-06-02</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/statistics/" itemprop="url" rel="index"><span itemprop="name">statistics</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>The p.d.f. of log-normal distribution is <span class="math display">\[
-f_X(x)=\frac{1}{x\sigma\sqrt{2\pi}}e^{-\frac{1}{2}(\frac{lnx-\mu}{\sigma})^2}
-\]</span></p>
-<blockquote>
-<p><a target="_blank" rel="noopener" href="https://towardsdatascience.com/log-normal-distribution-a-simple-explanation-7605864fb67c">The log-normal distribution is a right skewed continuous probability distribution, meaning it has a long tail towards the right. It is used for modelling various natural phenomena such as income distributions, the length of chess games or the time to repair a maintainable system and more.</a></p>
-</blockquote>
-<p>If the random variable <span class="math inline">\(X\)</span> is log-normally distributed, then <span class="math inline">\(Y=\ln(X)\)</span> has a normal distribution. We can apply the same rule from <a target="_blank" rel="noopener" href="https://weiruhan.github.io/2022/05/09/Density-of-transformed-random-variable/">Density of transformed random variable</a> to prove this statement. <span class="math display">\[
-\begin{gather*}
-X\sim LogNormal(\mu,\sigma^2)\\
-Y=lnX\\
-X=\psi(Y)=e^Y\\
-\Rightarrow g_Y(y)=f(\psi(y))|\frac{dx}{dy}|\\
-=\frac{1}{e^y\sigma\sqrt{2\pi}}e^{-\frac{1}{2}(\frac{y-\mu}{\sigma})^2}e^y\\
-=\frac{1}{\sigma\sqrt{2\pi}}e^{-\frac{1}{2}(\frac{y-\mu}{\sigma})^2}\\
-\Rightarrow Y\sim N(\mu,\sigma^2)
-\end{gather*}
-\]</span></p>
-<h2 id="reference">Reference</h2>
-<ul>
-<li><a target="_blank" rel="noopener" href="https://towardsdatascience.com/log-normal-distribution-a-simple-explanation-7605864fb67c">Log-normal Distribution - A simple explanation</a></li>
-<li><a target="_blank" rel="noopener" href="https://weiruhan.github.io/2022/05/09/Density-of-transformed-random-variable/">Density of transformed random variable</a></li>
 </ul>
 
       

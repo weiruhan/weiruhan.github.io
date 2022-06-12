@@ -1071,6 +1071,19 @@ p_{(i)}^{BH}=min\{\underset{j\geq i}{min}\{\frac{mp_{(j)}}{j}\},1\}
       </tags>
   </entry>
   <entry>
+    <title>Count unique words</title>
+    <url>/2022/06/12/Count-unique-words/</url>
+    <content><![CDATA[<p>Below is some R code that could be employed to summarize the unique words from the text.</p>
+<figure class="highlight r"><table><tr><td class="code"><pre><span class="line">words &lt;- read.table(file.choose(), header = <span class="literal">FALSE</span>,fill = <span class="literal">TRUE</span>) <span class="comment"># import txt file</span></span><br><span class="line"></span><br><span class="line">words &lt;- apply(words,<span class="built_in">c</span>(<span class="number">1</span>,<span class="number">2</span>),<span class="keyword">function</span>(x) gsub(<span class="string">&quot;[[:punct:]]&quot;</span>, <span class="string">&quot;&quot;</span>, x)) <span class="comment"># remove all special characters</span></span><br><span class="line"></span><br><span class="line">words &lt;- words[(words !=<span class="string">&#x27;&#x27;</span>) ] <span class="comment"># remove all NA content</span></span><br><span class="line"></span><br><span class="line">x_numbers &lt;- unlist(regmatches(words, gregexpr(<span class="string">&quot;[[:digit:]]+&quot;</span>, words))) <span class="comment"># extract numbers from string</span></span><br><span class="line"></span><br><span class="line">words &lt;- gsub(<span class="string">&#x27;[[:digit:]]+&#x27;</span>, <span class="string">&#x27;&#x27;</span>, words) <span class="comment"># remove all content containing numbers</span></span><br><span class="line"></span><br><span class="line">words &lt;- words[(words !=<span class="string">&#x27;&#x27;</span>) ] <span class="comment"># remove all NA content</span></span><br><span class="line"></span><br><span class="line">x_numbers &lt;- unlist(regmatches(words, gregexpr(<span class="string">&quot;[[:digit:]]+&quot;</span>, words))) <span class="comment"># extract numbers from string</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">length</span>(unique(words)) <span class="comment"># count unique words</span></span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>R</category>
+      </categories>
+      <tags>
+        <tag>fun</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>categories</title>
     <url>/categories/index.html</url>
     <content><![CDATA[
