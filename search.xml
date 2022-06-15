@@ -1084,6 +1084,25 @@ p_{(i)}^{BH}=min\{\underset{j\geq i}{min}\{\frac{mp_{(j)}}{j}\},1\}
       </tags>
   </entry>
   <entry>
+    <title>Some default beginning in python</title>
+    <url>/2022/06/14/Some-default-beginning-in-python/</url>
+    <content><![CDATA[<ul>
+<li>Allow multiple results during one execution for one cell</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> Ipython.core.interactiveshell <span class="keyword">import</span> InteractiveShell</span><br><span class="line">InteractiveShell.ast_node_interactivity = <span class="string">&quot;all&quot;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>Tell python interpreter to read code based on utf-8</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python3</span></span><br><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>python</category>
+      </categories>
+      <tags>
+        <tag>Python environment</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>categories</title>
     <url>/categories/index.html</url>
     <content><![CDATA[
