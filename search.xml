@@ -1106,23 +1106,41 @@ p_{(i)}^{BH}=min\{\underset{j\geq i}{min}\{\frac{mp_{(j)}}{j}\},1\}
     <title>Fall technical conference 2021</title>
     <url>/2022/06/27/Fall-technical-conference-2021/</url>
     <content><![CDATA[<p><a href="https://falltechnicalconference.org/">FTC homepage</a></p>
-<p><a href="https://falltechnicalconference.org/wp-content/uploads/2021/10/FTC-Webinar-Series-Talk-1-Hamada-2021-10-13-final.pdf">On Reading Youden: Learning about the Practice of Statistics and Applied Statistical Research from a Master Applied Statistician</a></p>
+<ul>
+<li><a href="https://falltechnicalconference.org/wp-content/uploads/2021/10/FTC-Webinar-Series-Talk-1-Hamada-2021-10-13-final.pdf">On Reading Youden: Learning about the Practice of Statistics and Applied Statistical Research from a Master Applied Statistician</a></li>
+</ul>
 <p><a href="https://youtu.be/O729iqnUEKc">FTC 2021 Webinar Series Talk 1: Michael Hamada - On Reading Youden</a></p>
-<p><a href="https://falltechnicalconference.org/wp-content/uploads/2021/10/FTC-Webinar-Series-Talk-2-Stevens-2021-10-15.pdf">Bayesian Probability of Agreement for Comparing Survival or Reliability Function with Parametric Lifetime Regression Models</a></p>
+<ul>
+<li><a href="https://falltechnicalconference.org/wp-content/uploads/2021/10/FTC-Webinar-Series-Talk-2-Stevens-2021-10-15.pdf">Bayesian Probability of Agreement for Comparing Survival or Reliability Function with Parametric Lifetime Regression Models</a></li>
+</ul>
 <p><a href="https://youtu.be/Yt-bUQ8g1u4">FTC 2021 Webinar Series Talk 2: Nathaniel Stevens - Probability of Agreement</a></p>
-<p><a href="https://falltechnicalconference.org/wp-content/uploads/2021/10/FTC-2021-Data-Ethics.pdf">The Importance of Data Ethics</a></p>
+<ul>
+<li><a href="https://falltechnicalconference.org/wp-content/uploads/2021/10/FTC-2021-Data-Ethics.pdf">The Importance of Data Ethics</a></li>
+</ul>
 <p><a href="https://youtu.be/g6P2qqZmahk">FTC 2021 Webinar Series Talk 3: Wendy Martinez - The Importance of Data Ethics</a></p>
-<p><a href="https://falltechnicalconference.org/wp-content/uploads/2021/10/MaxPro.pdf">Designing computer experiments with multiple types of factors: The MaxPro approach</a></p>
+<ul>
+<li><a href="https://falltechnicalconference.org/wp-content/uploads/2021/10/MaxPro.pdf">Designing computer experiments with multiple types of factors: The MaxPro approach</a></li>
+</ul>
 <p><a href="https://youtu.be/wYUEx2onosQ">FTC 2021 Webinar Series Talk 4: Roshan Joseph - MaxPro Designs for Computer Experiments</a></p>
-<p><a href="https://falltechnicalconference.org/wp-content/uploads/2021/10/FTC-Webinar-Series-Talk-5-Anderson-Cook-2021-10-29.pdf">Practical Necessity as the Mother of Statistical Innovation</a></p>
+<ul>
+<li><a href="https://falltechnicalconference.org/wp-content/uploads/2021/10/FTC-Webinar-Series-Talk-5-Anderson-Cook-2021-10-29.pdf">Practical Necessity as the Mother of Statistical Innovation</a></li>
+</ul>
 <p><a href="https://youtu.be/s_XCPI3nk8I">FTC 2021 Webinar Series Talk 5: Christine Anderson-Cook - Statistical Innovation</a></p>
-<p><a href="https://falltechnicalconference.org/wp-content/uploads/2021/11/FTC-Webinar-Series-Talk-6-Nachtsheim-et-al-2021-11-03.pdf">Multivariate Design of Experiments for Engineering Dimensional Analysis</a></p>
+<ul>
+<li><a href="https://falltechnicalconference.org/wp-content/uploads/2021/11/FTC-Webinar-Series-Talk-6-Nachtsheim-et-al-2021-11-03.pdf">Multivariate Design of Experiments for Engineering Dimensional Analysis</a></li>
+</ul>
 <p><a href="https://youtu.be/eaojfm_I15k">FTC 2021 Webinar Series Talk 6: Nachtsheim, Eck, and Albrecht - DOE for Dimensional Analysis</a></p>
-<p><a href="https://falltechnicalconference.org/wp-content/uploads/2021/11/Hunter-Award-Brad-Jones-FTC-2021.pptx">The Joy of Collaboration</a></p>
+<ul>
+<li><a href="https://falltechnicalconference.org/wp-content/uploads/2021/11/Hunter-Award-Brad-Jones-FTC-2021.pptx">The Joy of Collaboration</a></li>
+</ul>
 <p><a href="https://youtu.be/Ptk2yR6f3Dk">FTC 2021 Webinar Series Talk 7: Brad Jones - The Joy of Collaboration</a></p>
-<p><a href="https://falltechnicalconference.org/wp-content/uploads/2021/11/FTC-Webinar-Series-Talk-8-Stallrich-2021-11-12.pdf">Optimal EMG Sensor Placement for Robotic Prosthetics with Sequential Adaptive Functional Estimation</a></p>
+<ul>
+<li><a href="https://falltechnicalconference.org/wp-content/uploads/2021/11/FTC-Webinar-Series-Talk-8-Stallrich-2021-11-12.pdf">Optimal EMG Sensor Placement for Robotic Prosthetics with Sequential Adaptive Functional Estimation</a></li>
+</ul>
 <p><a href="https://youtu.be/7bJNxFvk78k">FTC 2021 Webinar Series Talk 8: Jon Stallrich - Optimal EMG Sensor Placement for Robot Prosthetics</a></p>
-<p><a href="https://falltechnicalconference.org/wp-content/uploads/2021/11/FTC-Webinar-Series-Talk-9-Pourmohamad-2021-11-17.pdf">The Statistical Filter Approach to Constrained Optimization</a></p>
+<ul>
+<li><a href="https://falltechnicalconference.org/wp-content/uploads/2021/11/FTC-Webinar-Series-Talk-9-Pourmohamad-2021-11-17.pdf">The Statistical Filter Approach to Constrained Optimization</a></li>
+</ul>
 <p><a href="https://youtu.be/z4LnvIEtbUU">FTC 2021 Webinar Series Talk 9: Tony Pourmohamad - Stat Filter Approach to Constrained Optimization</a></p>
 ]]></content>
       <categories>
