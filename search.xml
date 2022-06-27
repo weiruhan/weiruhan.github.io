@@ -1151,6 +1151,32 @@ p_{(i)}^{BH}=min\{\underset{j\geq i}{min}\{\frac{mp_{(j)}}{j}\},1\}
       </tags>
   </entry>
   <entry>
+    <title>Project management</title>
+    <url>/2022/06/27/Project-management/</url>
+    <content><![CDATA[<h1 id="imperatives-for-good-project-management-and-delivery">8 Imperatives for Good project Management and Delivery</h1>
+<pre class="mermaid">graph TB
+A[Set expectations] --> B[Make projects as small as possible]
+B --> C[Isolate the unknown from the known]
+C --> D[Manage from the end backward]
+D --> E[Have everything in writing]
+E --> F[Deal with everthing as early as possible]
+F --> G[Verify you have met all requirements]
+G --> H[Measure and analyze yourself]</pre>
+<h2 id="reference">Reference</h2>
+<ul>
+<li><a href="https://msightanalytics.com/">Msight Analytics</a></li>
+<li><a href="https://www.usf.edu/arts-sciences/conferences/asa2022/index.aspx">ASA2022 Florida meeting</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>Conference</category>
+      </categories>
+      <tags>
+        <tag>Conference</tag>
+        <tag>Project Management</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>categories</title>
     <url>/categories/index.html</url>
     <content><![CDATA[
