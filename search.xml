@@ -1177,6 +1177,50 @@ G --> H[Measure and analyze yourself]</pre>
       </tags>
   </entry>
   <entry>
+    <title>hidden jargon in statistics</title>
+    <url>/2022/06/28/hidden-jargon-in-statistics/</url>
+    <content><![CDATA[<h2 id="randomization-replication-repeated-measurement-blocking">Randomization, replication, repeated measurement, blocking</h2>
+<p><strong>randomization</strong> means both the allocation of the experimental material and the order in which the individual runs of the experiment are to be performed randomly. Randomization could meet the requirement of the statistical methods that the observations (or errors) are independently distributed random variables. By using randomization, extraneous errors could be averaged out.</p>
+<p><strong>replication</strong> means an independent <strong>repeat run</strong> of each factor combination. First it allows the experimenter to obtain an estimate of the experimental error; this estimate of error becomes a basic unit of measurement for determining whether observed differences in the data are really <em>statistically</em> different. Second if the sample mean is used to estimate the true mean response for one of the factor levels in the experiment, replication permits the experimenter to obtain a more precise estimate of this parameter.</p>
+<p><strong>Repeated measurement</strong> involves measuring the same subject multiple times; <strong>Replication</strong> involves running the same study on different subjects with identical conditions (same factor combination),</p>
+<p><strong>Blocking</strong> is a design technique used to improve the precision with which comparisons among the factors of interest are made. Often blocking is used to reduce or eliminate the variability transmitted from <strong>nuisance factors</strong>, which may influence the experimental response but in which we are not directly interested.</p>
+<h2 id="standard-deviation-and-standard-error">standard deviation and standard error</h2>
+<ul>
+<li><strong>Standard deviation</strong> describes variability within a <strong>single sample</strong>, while <strong>standard error</strong> describes variability across multiple samples of a population</li>
+<li><strong>Standard deviation</strong> is a descriptive statistic that can be calculated from sample data, while <strong>standard error</strong> is an inferential statistic that can only be estimated</li>
+</ul>
+<p><strong>Standard deviation</strong> involves population standard deviation <span class="math inline">\(\sigma\)</span> and sample standard deviation <span class="math inline">\(s_n\)</span>. Sample standard deviation <span class="math inline">\(s_n\)</span> includes biased estimator of <span class="math inline">\(\sigma\)</span> as <span class="math inline">\(s_n=\sqrt{\frac{1}{n}\sum_i^n(x_i-\bar{x})^2}\)</span> and unbiased estimator of <span class="math inline">\(\sigma\)</span> as <span class="math inline">\(s_{n-1}=\sqrt{\frac{n}{n-1}s_n^2}=\sqrt{\frac{1}{n-1}\sum_{i=1}^n(x_i-\bar{x})^2}\)</span></p>
+<p><strong>Standard error</strong> is the <strong>standard deviation</strong> of the means, and can be said as the <strong>standard deviation</strong> of the sampling distribution. <strong>Standard error</strong> of the mean <span class="math inline">\(\bar{x}\)</span> is equal to the population standard deviation divided by the square root of number of samples <span class="math inline">\(n\)</span></p>
+<p>Suppose <span class="math inline">\(X_1,X_2,\cdots,X_n\)</span> are a random sample from an <span class="math inline">\(N(\mu,\sigma^2)\)</span> distribution. Then the standard deviation of <span class="math inline">\(\bar{X}\)</span> is the standard error, as <span class="math inline">\(SD(\bar{X})=\sigma/\sqrt{n}\)</span>. Usually the <span class="math inline">\(\sigma\)</span> is unknown, and is estimated by <span class="math inline">\(s_n\)</span> or <span class="math inline">\(s_{n-1}\)</span>. Therefore, by giving the observed sample standard deviation <span class="math inline">\(s_n\)</span> or <span class="math inline">\(s_{n-1}\)</span>, the standard error of the mean <span class="math inline">\(\bar{X}\)</span> could be estimated by <span class="math inline">\(SE(\bar{X})=\frac{s_n}{\sqrt{n}}\)</span> or <span class="math inline">\(SE(\bar{X})=\frac{s_{n-1}}{\sqrt{n}}\)</span></p>
+<h2 id="confidence-interval-and-credible-interval">Confidence interval and credible interval</h2>
+<p>A great explanation of the difference between confidence interval and credible interval can be found in <a href="https://stats.stackexchange.com/questions/2272/whats-the-difference-between-a-confidence-interval-and-a-credible-interval">What's the difference between a confidence interval and a credible interval?</a></p>
+<h2 id="sufficient-statistic">Sufficient statistic</h2>
+<p>Here is an useful <strong>Q&amp;A</strong> explaining the definition of <strong>sufficient statistic</strong></p>
+<p><a href="https://math.stackexchange.com/questions/1186645/understanding-sufficient-statistic">Understanding Sufficient statistic.</a></p>
+<h2 id="power-sample-size-and-effect-size">Power, sample size, and effect size</h2>
+<p>Here is a great blog explaining the definition of power, sample size calculation and effect size calculation</p>
+<p><a href="https://sphweb.bumc.bu.edu/otlt/mph-modules/bs/bs704_power/bs704_power_print.html#:~:text=In%20order%20to%20estimate%20the,%2C%20or%20largest%2C%20sample%20sizes.">power and sample size determination</a></p>
+<h2 id="reference">Reference</h2>
+<ul>
+<li><p><a href="https://www.wiley.com/en-us/Design+and+Analysis+of+Experiments%2C+10th+Edition-p-9781119492443">Design and analysis of experiments</a></p></li>
+<li><p><a href="https://stats.stackexchange.com/questions/62312/difference-between-replication-and-repeated-measurements">Difference between replication and repeated measurements</a></p></li>
+<li><p><a href="https://www.pearson.com/us/higher-education/program/Tamhane-Statistics-and-Data-Analysis-From-Elementary-to-Intermediate/PGM227786.html">Statistics and Data Analysis: From Elementary to Intermediate</a></p></li>
+<li><p><a href="https://stats.stackexchange.com/questions/2272/whats-the-difference-between-a-confidence-interval-and-a-credible-interval">What's the difference between a confidence interval and a credible interval?</a></p></li>
+<li><p><a href="https://math.stackexchange.com/questions/1186645/understanding-sufficient-statistic">Understanding Sufficient statistic.</a></p></li>
+<li><p><a href="https://sphweb.bumc.bu.edu/otlt/mph-modules/bs/bs704_power/bs704_power_print.html#:~:text=In%20order%20to%20estimate%20the,%2C%20or%20largest%2C%20sample%20sizes.">power and sample size determination</a></p></li>
+</ul>
+]]></content>
+      <categories>
+        <category>design of experiment</category>
+        <category>Bayesian data analysis</category>
+      </categories>
+      <tags>
+        <tag>Math statistics</tag>
+        <tag>Bayes</tag>
+        <tag>Design of experiment</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>categories</title>
     <url>/categories/index.html</url>
     <content><![CDATA[
