@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css" integrity="sha256-AbA177XfpSnFEvgpYu1jMygiLabzPCJCRIBtR5jGc0k=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.13.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":true,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="The Laplace technique can be used to approximate the reasonably well behaved functions that have most of their mass concentrated in a small area of their domain.(Laplace approximation) Technically, it">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Laplace approximation">
+<meta property="og:url" content="http://example.com/2022/05/29/laplace-approximation/index.html">
+<meta property="og:site_name" content="Weiru Han&#39;s blog">
+<meta property="og:description" content="The Laplace technique can be used to approximate the reasonably well behaved functions that have most of their mass concentrated in a small area of their domain.(Laplace approximation) Technically, it">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-05-30T02:34:29.000Z">
+<meta property="article:modified_time" content="2022-11-07T05:39:59.556Z">
+<meta property="article:author" content="Weiru Han">
+<meta property="article:tag" content="Math statistics">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://example.com/2022/05/29/laplace-approximation/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/2022/05/29/laplace-approximation/","path":"2022/05/29/laplace-approximation/","title":"Laplace approximation"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Laplace approximation | Weiru Han's blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Weiru Han's blog</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">Less is more</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#reference"><span class="nav-number">1.</span> <span class="nav-text">Reference</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Weiru Han</p>
+  <div class="site-description" itemprop="description">The journey of a thousand miles begins with one step</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">26</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/05/29/laplace-approximation/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Weiru Han">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Weiru Han's blog">
+      <meta itemprop="description" content="The journey of a thousand miles begins with one step">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Laplace approximation | Weiru Han's blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Laplace approximation
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2022-05-29 22:34:29" itemprop="dateCreated datePublished" datetime="2022-05-29T22:34:29-04:00">2022-05-29</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2022-11-07 00:39:59" itemprop="dateModified" datetime="2022-11-07T00:39:59-05:00">2022-11-07</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/statistics/" itemprop="url" rel="index"><span itemprop="name">statistics</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>The Laplace technique can be used to approximate the reasonably well behaved functions that have most of their mass concentrated in a small area of their domain.<a target="_blank" rel="noopener" href="https://bookdown.org/rdpeng/advstatcomp/laplace-approximation.html#computing-the-posterior-mean">(Laplace approximation)</a> Technically, it works for functions that are in the class of <span class="math inline">\(\mathcal{L}^2\)</span>, which is also called the square integrable function, meaning <span class="math display">\[
+\int g(x)^2dx &lt;\infty
+\]</span> Such a function generally has a very rapid decreasing tails so that in the far reaches of the domain we would not expect to see large spikes.</p>
+<p>The Laplace approximation framework is a simple but widely used framework, and aims to find a Gaussian approximation to a probability density <strong>defined over a set of continuous variables</strong>. (<a target="_blank" rel="noopener" href="https://cedar.buffalo.edu/~srihari/CSE574/Chap4/4.4-Laplace.pdf">Laplace approximation</a>)</p>
+<p>In <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Bayesian_statistics">Bayesian statistics</a>, <strong>Laplace approximation</strong> can refer to either approximating the <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Normalizing_constant">posterior normalizing constant</a> with <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Laplace&#39;s_method#cite_note-1">Laplace's method</a> or approximating the posterior distribution with a <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Normal_distribution">Gaussian</a> centered at the <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Maximum_a_posteriori_estimation">maximum a posteriori estimate</a>.<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Laplace&#39;s_method#cite_note-2">(Amaral Turkman 2019)</a></p>
+<p>Suppose we want to approximate the pdf <span class="math inline">\(p(\theta)\)</span>, which doesn't belong to any known distribution. The density curve is smooth and well peaked around its point of maxima <span class="math inline">\(\hat{\theta}\)</span>. Thereby, <span class="math inline">\(\frac{dp(\theta)}{d\theta}|_{\hat{\theta}}=0\)</span> and <span class="math inline">\(\frac{d^2p(\theta)}{d\theta^2}|_{\hat{\theta}}&lt;0\)</span>; thus we can conclude that <span class="math inline">\(\frac{dlnp(\theta)}{d\theta}|_{\hat{\theta}}=0\)</span> and <span class="math inline">\(\frac{d^2lnp(\theta)}{d\theta^2}|_{\hat{\theta}}&lt;0\)</span></p>
+<p>Then we can approximate it by a normal pdf. Denote <span class="math inline">\(h(\theta)=lnp(\theta)\)</span> <span class="math display">\[
+\begin{gather*}
+h(\theta)\approx lnp(\hat{\theta})+(\theta-\hat{\theta})\frac{dlnp(\theta)}{d\theta}|_{\hat{\theta}}+\frac{1}{2}(\theta-\hat{\theta})^2\frac{d^2lnp(\theta)}{d\theta^2}|_{\hat{\theta}}\\
+=lnp(\hat{\theta})-\frac{1}{2}(\theta-\hat{\theta})^2\frac{-d^2lnp(\theta)}{d\theta^2}|_{\hat{\theta}}\ (\frac{dlnp(\theta)}{d\theta}|_{\hat{\theta}}=0)\\
+=lnp(\hat{\theta})-\frac{(\theta-\hat{\theta})^2}{2\sigma^2}\ (\sigma^2=(\frac{-d^2lnp(\theta)}{d\theta^2}|_{\hat{\theta}})^{-1}&gt;0)\\
+\Rightarrow p(\theta)=e^{h(\theta)}\approx p(\hat{\theta})e^{-\frac{(\theta-\hat{\theta})^2}{2\sigma^2}}\\
+\Rightarrow p(\theta)\propto e^{-\frac{(\theta-\hat{\theta})^2}{2\sigma^2}}
+\end{gather*}
+\]</span> Suppose <span class="math inline">\(f(\theta)=e^{-\frac{(\theta-\hat{\theta})^2}{2\sigma^2}}\)</span>, then we can approximate <span class="math inline">\(p(\theta)\)</span> as <span class="math display">\[
+\begin{gather*}
+p(\theta)\approx \frac{1}{\int f(\theta)d\theta}f(\theta)\\
+=\frac{1}{\sqrt{2\pi}\sigma\int \frac{1}{\sqrt{2\pi}\sigma}e^{-\frac{(\theta-\hat{\theta})^2}{2\sigma^2}}d\theta}e^{-\frac{(\theta-\hat{\theta})^2}{2\sigma^2}}\\
+=\frac{1}{\sqrt{2\pi}\sigma}e^{-\frac{(\theta-\hat{\theta})^2}{2\sigma^2}}\\
+\text{where }\int f(\theta)d\theta\text{ is the normalizing term}
+\end{gather*}
+\]</span> As a result, pdf of <span class="math inline">\(\theta\)</span> is approximated by a normal distribution using Laplace method, which can be shown as below <span class="math display">\[
+\begin{gather*}
+\theta\sim N(\hat{\theta},\sigma^2)\\
+\sigma^2=(\frac{-d^2lnp(\theta)}{d\theta^2}|_{\hat{\theta}})^{-1}&gt;0
+\end{gather*}
+\]</span></p>
+<h1 id="reference">Reference</h1>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Laplace%27s_method#cite_note-2">Laplace's method</a></li>
+<li><a target="_blank" rel="noopener" href="https://cedar.buffalo.edu/~srihari/CSE574/Chap4/4.4-Laplace.pdf">SUNY buffalo lecture notes</a></li>
+<li><a target="_blank" rel="noopener" href="https://bookdown.org/rdpeng/advstatcomp/laplace-approximation.html#computing-the-posterior-mean">Advanced statistical computing</a></li>
+<li><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Normalizing_constant">Normalizing constant</a></li>
+<li><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Taylor%27s_theorem">Taylor's theorem</a></li>
+<li><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Bayesian_statistics">Bayesian statistics</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.cs.cmu.edu/~tom/10-702/laplace.pdf">Azevedo-Filho,A. 1994</a></li>
+<li><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Laplace&#39;s_method#cite_note-2">Amaral Turkman 2019</a></li>
+<li><a target="_blank" rel="noopener" href="http://www2.stat.duke.edu/~st118/sta250/laplace.pdf">Duke lecture notes</a></li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Math-statistics/" rel="tag"># Math statistics</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/05/29/log-normal-distribution/" rel="prev" title="log-normal distribution">
+                  <i class="fa fa-chevron-left"></i> log-normal distribution
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2022/05/29/use-of-log-in-likelihood/" rel="next" title="Use of log in likelihood">
+                  Use of log in likelihood <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Weiru Han</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@next-theme/pjax@0.5.0/pjax.min.js" integrity="sha256-3NkoLDrmHLTYj7csHIZSr0MHAFTXth7Ua/DDt4MRUAg=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
+
+  
+<script src="https://cdn.jsdelivr.net/npm/hexo-generator-searchdb@1.4.1/dist/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+<script class="next-config" data-name="chatra" type="application/json">{"enable":true,"async":true,"id":"DWYLFGF8d2dgPGfdG"}</script>
+<script src="/js/third-party/chat/chatra.js"></script>
+<script async src="https://call.chatra.io/chatra.js"></script>
+
+  <script class="next-config" data-name="pdf" type="application/json">{"object_url":{"url":"https://cdn.jsdelivr.net/npm/pdfobject@2.2.8/pdfobject.min.js","integrity":"sha256-tu9j5pBilBQrWSDePOOajCUdz6hWsid/lBNzK4KgEPM="},"url":"/lib/pdf/web/viewer.html"}</script>
+  <script src="/js/third-party/tags/pdf.js"></script>
+
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"default","dark":"dark"},"js":{"url":"https://cdn.jsdelivr.net/npm/mermaid@9.1.7/dist/mermaid.min.js","integrity":"sha256-G58AID1YoX5YaEtWfXSI0VLrZ6N4kvNvwg0BI8zUFxE="}}</script>
+  <script src="/js/third-party/tags/mermaid.js"></script>
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+
+</body>
+</html>

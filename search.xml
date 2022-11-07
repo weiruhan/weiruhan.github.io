@@ -1,0 +1,1360 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>Density of transformed random variable</title>
+    <url>/2022/05/09/Density-of-transformed-random-variable/</url>
+    <content><![CDATA[<p>Suppose we are given the distribution of a <strong>continuous</strong> random variable <span class="math inline">\(X\)</span>. Let <span class="math inline">\(Y=\phi(X)\)</span>, where <span class="math inline">\(\phi\)</span> is an invertible (one-to-one) function. Let <span class="math inline">\(\psi=\phi^{-1}\)</span> so that <span class="math inline">\(X=\psi(Y)\)</span>. Furthermore,suppose <span class="math inline">\(\psi\)</span> is differentiable. Then the p.d.f. of <span class="math inline">\(Y\)</span> is <span class="math display">\[
+\begin{gather}
+g(y)=f(\psi(y))|\frac{dx}{dy}|\\
+\text{where }x=\psi(y)
+\end{gather}
+\]</span> From the equation, we can easily observe that <span class="math inline">\(|\frac{dx}{dy}|\)</span> is the dispersion of <span class="math inline">\(Y\)</span> when random variable <span class="math inline">\(X\)</span> is transformed to random variable <span class="math inline">\(Y\)</span>. Thus one cannot simply replace <span class="math inline">\(X\)</span> with <span class="math inline">\(\psi(y)\)</span> to derive the density of <span class="math inline">\(Y\)</span> without considering the difference of dispersion between <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>.</p>
+<p><strong>Proof:</strong></p>
+<p>Let <span class="math inline">\(G(y)\)</span> represents the c.d.f. of <span class="math inline">\(Y\)</span>. first suppose <span class="math inline">\(\phi\)</span> is a strictly increasing function. Then <span class="math inline">\(\psi=\phi^{-1}\)</span> is also a strictly increasing function and <span class="math inline">\(d\psi(y)/dy&gt;0\)</span>. Therefore <span class="math display">\[
+\begin{gather}\\
+G(y)=P[Y\leq y]=P[\phi(X)\leq y]\\
+=P(X\leq \phi^{-1}(y))=F(\psi(y))
+\end{gather}
+\]</span> Differentiating <span class="math inline">\(G(y)\)</span> by using the chain rule, it follows that <span class="math display">\[
+\begin{gather}
+g(y)=\frac{dG(y)}{dy}=\frac{dF(\psi(y))}{dy}\\
+=f(\psi(y))\frac{d\psi(y)}{dy}=f(\psi(y))\frac{dx}{dy}
+\end{gather}
+\]</span> Next suppose <span class="math inline">\(\phi\)</span> is a strictly decreasing function. Then <span class="math inline">\(\psi=\phi^{-1}\)</span> is also a strictly decreasing function and <span class="math inline">\(d\psi(y)/dy&lt;0\)</span>. Therefore <span class="math display">\[
+G(y)=P[Y\leq y] = P[\phi(X)\leq y]=P[X\geq\phi^{-1}(y)]=1-F(\psi(y))
+\]</span> Differentiating <span class="math inline">\(G(y)\)</span> by using the chain rule, it follows that <span class="math display">\[
+\begin{gather}
+g(y)=\frac{dG(y)}{dy} = -\frac{dF(\psi(y))}{dy}\\
+=-f(\psi(y))\frac{d\psi(y)}{dy}\\
+=f(\psi(y))|\frac{dx}{dy}|
+\end{gather}
+\]</span></p>
+<h2 id="example">Example</h2>
+<p>Suppose <span class="math inline">\(Y=lnX\)</span>, where <span class="math inline">\(X\sim Beta(a,b)\)</span>.</p>
+<ul>
+<li>Then we have p.d.f. of <span class="math inline">\(X\)</span></li>
+</ul>
+<p><span class="math display">\[
+\begin{gather}
+f_X(x)=\frac{x^{a-1}(1-x)^{b-1}}{B(a,b)}\\
+\text{where }B(a,b)=\frac{\Gamma(a)\Gamma(b)}{\Gamma(a+b)}\\
+x\in[0,1]
+\end{gather}
+\]</span></p>
+<p><span class="math display">\[
+\begin{gather}
+Y=\phi(X)=lnX\\
+Y\in(-\infty,0]\\
+X=\psi(Y)=e^Y\\
+X\in[0,1]
+\end{gather}
+\]</span></p>
+<ul>
+<li>Then we have p.d.f. of <span class="math inline">\(Y\)</span></li>
+</ul>
+<p><span class="math display">\[
+\begin{gather}
+g_Y(y)=f_X(\psi(y))|\frac{dx}{dy}|\\
+=\frac{e^{y(a-1)}(1-e^y)^{b-1}}{B(a,b)}e^y\ (\frac{dx}{dy}=\frac{de^y}{dy}=e^y)\\
+=\frac{e^{ay}(1-e^y)^{b-1}}{B(a,b)}
+\end{gather}
+\]</span></p>
+<ul>
+<li>Next we derive the m.g.f. (moment generating function) of <span class="math inline">\(Y\)</span></li>
+</ul>
+<p><span class="math display">\[
+\begin{gather}
+M_Y(t)=E[e^{tY}]\\
+=\int_{-\infty}^0e^{ty}g_Y(y)dy\\
+=\int_{-\infty}^0\frac{e^{ay}(1-e^y)^{b-1}}{B(a,b)}e^{ty}dy\\
+=\frac{\Gamma(a+b)}{\Gamma(a)\Gamma(b)}\int_{-\infty}^0(e^y)^{a+t}(1-e^y)^{b-1}dy\\
+=\frac{\Gamma(a+b)}{\Gamma(a)\Gamma(b)}\int_0^1x^{a+t}(1-x)^{b-1}dlnx\ (e^y=e^{lnx}=x)\\
+=\frac{\Gamma(a+b)}{\Gamma(a)\Gamma(b)}\int_0^1x^{a+t}(1-x)^{b-1}\frac{1}{x}dx\\(\frac{dy}{dx}=\frac{dlnx}{dx}=\frac{1}{x}\Rightarrow dlnx=\frac{1}{x}dx)\\
+=\frac{\Gamma(a+b)}{\Gamma(a)\Gamma(b)}\int_0^1x^{a+t-1}(1-x)^{b-1}dx\\
+=\frac{\Gamma(a+b)}{\Gamma(a)\Gamma(b)}B(a+t,b)\int_0^1\frac{x^{a+t-1}(1-x)^{b-1}}{B(a+t,b)}dx\\
+=\frac{\Gamma(a+b)}{\Gamma(a)\Gamma(b)}B(a+t,b)\\
+(\int_0^1\frac{x^{a+t-1}(1-x)^{b-1}}{B(a+t,b)}dx\text{ is the integration of distribution }Beta(a+t,b)\text{ which is 1})\\
+=\frac{\Gamma(a+b)\Gamma(a+t)\Gamma(b)}{\Gamma(a)\Gamma(b)\Gamma(a+b+t)}\\
+=\frac{\Gamma(a+b)\Gamma(a+t)}{\Gamma(a+b+t)\Gamma(a)}
+\end{gather}
+\]</span></p>
+]]></content>
+      <categories>
+        <category>statistics</category>
+      </categories>
+      <tags>
+        <tag>Statistics and Data analysis from elementary to intermediate</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Fall technical conference 2021</title>
+    <url>/2022/06/27/Fall-technical-conference-2021/</url>
+    <content><![CDATA[<p><a href="https://falltechnicalconference.org/">FTC homepage</a></p>
+<ul>
+<li><a href="https://falltechnicalconference.org/wp-content/uploads/2021/10/FTC-Webinar-Series-Talk-1-Hamada-2021-10-13-final.pdf">On Reading Youden: Learning about the Practice of Statistics and Applied Statistical Research from a Master Applied Statistician</a></li>
+</ul>
+<p><a href="https://youtu.be/O729iqnUEKc">FTC 2021 Webinar Series Talk 1: Michael Hamada - On Reading Youden</a></p>
+<ul>
+<li><a href="https://falltechnicalconference.org/wp-content/uploads/2021/10/FTC-Webinar-Series-Talk-2-Stevens-2021-10-15.pdf">Bayesian Probability of Agreement for Comparing Survival or Reliability Function with Parametric Lifetime Regression Models</a></li>
+</ul>
+<p><a href="https://youtu.be/Yt-bUQ8g1u4">FTC 2021 Webinar Series Talk 2: Nathaniel Stevens - Probability of Agreement</a></p>
+<ul>
+<li><a href="https://falltechnicalconference.org/wp-content/uploads/2021/10/FTC-2021-Data-Ethics.pdf">The Importance of Data Ethics</a></li>
+</ul>
+<p><a href="https://youtu.be/g6P2qqZmahk">FTC 2021 Webinar Series Talk 3: Wendy Martinez - The Importance of Data Ethics</a></p>
+<ul>
+<li><a href="https://falltechnicalconference.org/wp-content/uploads/2021/10/MaxPro.pdf">Designing computer experiments with multiple types of factors: The MaxPro approach</a></li>
+</ul>
+<p><a href="https://youtu.be/wYUEx2onosQ">FTC 2021 Webinar Series Talk 4: Roshan Joseph - MaxPro Designs for Computer Experiments</a></p>
+<ul>
+<li><a href="https://falltechnicalconference.org/wp-content/uploads/2021/10/FTC-Webinar-Series-Talk-5-Anderson-Cook-2021-10-29.pdf">Practical Necessity as the Mother of Statistical Innovation</a></li>
+</ul>
+<p><a href="https://youtu.be/s_XCPI3nk8I">FTC 2021 Webinar Series Talk 5: Christine Anderson-Cook - Statistical Innovation</a></p>
+<ul>
+<li><a href="https://falltechnicalconference.org/wp-content/uploads/2021/11/FTC-Webinar-Series-Talk-6-Nachtsheim-et-al-2021-11-03.pdf">Multivariate Design of Experiments for Engineering Dimensional Analysis</a></li>
+</ul>
+<p><a href="https://youtu.be/eaojfm_I15k">FTC 2021 Webinar Series Talk 6: Nachtsheim, Eck, and Albrecht - DOE for Dimensional Analysis</a></p>
+<ul>
+<li><a href="https://falltechnicalconference.org/wp-content/uploads/2021/11/Hunter-Award-Brad-Jones-FTC-2021.pptx">The Joy of Collaboration</a></li>
+</ul>
+<p><a href="https://youtu.be/Ptk2yR6f3Dk">FTC 2021 Webinar Series Talk 7: Brad Jones - The Joy of Collaboration</a></p>
+<ul>
+<li><a href="https://falltechnicalconference.org/wp-content/uploads/2021/11/FTC-Webinar-Series-Talk-8-Stallrich-2021-11-12.pdf">Optimal EMG Sensor Placement for Robotic Prosthetics with Sequential Adaptive Functional Estimation</a></li>
+</ul>
+<p><a href="https://youtu.be/7bJNxFvk78k">FTC 2021 Webinar Series Talk 8: Jon Stallrich - Optimal EMG Sensor Placement for Robot Prosthetics</a></p>
+<ul>
+<li><a href="https://falltechnicalconference.org/wp-content/uploads/2021/11/FTC-Webinar-Series-Talk-9-Pourmohamad-2021-11-17.pdf">The Statistical Filter Approach to Constrained Optimization</a></li>
+</ul>
+<p><a href="https://youtu.be/z4LnvIEtbUU">FTC 2021 Webinar Series Talk 9: Tony Pourmohamad - Stat Filter Approach to Constrained Optimization</a></p>
+]]></content>
+      <categories>
+        <category>Conference</category>
+      </categories>
+      <tags>
+        <tag>Conference</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>E(X)/E(Y) and E(X/Y)</title>
+    <url>/2022/06/07/E-X-E-Y-and-E-X-Y/</url>
+    <content><![CDATA[<p>In this part we aim to discover the relationship between <span class="math inline">\(E[\frac{X}{Y}]\)</span> and <span class="math inline">\(\frac{EX}{EY}\)</span> under the assumption that</p>
+<p><span class="math inline">\(X,Y\)</span> are independent</p>
+<p>Since <span class="math inline">\(X,Y\)</span> are independent, then <span class="math display">\[
+\begin{gather*}
+P(X\leq x, \frac{1}{Y}\leq y)\\
+=P(X\leq x, Y\geq \frac{1}{y})\\
+=P(X\leq x)P(Y\geq \frac{1}{y})\\
+=P(X\leq x)P(\frac{1}{Y}\leq y)\\
+\end{gather*}
+\]</span> We know that event <span class="math inline">\(A,B\)</span> are independent <strong>if and only if</strong> <span class="math inline">\(P(A,B)=P(A)P(B)\)</span>;</p>
+<p>Thus <span class="math inline">\(X,\frac{1}{Y}\)</span> are independent. This implies that <span class="math display">\[
+E[\frac{X}{Y}]=E(X)E(\frac{1}{Y})
+\]</span> Assume <span class="math inline">\(E[X],E[\frac{1}{Y}]\)</span> are finite.</p>
+<p>The function <span class="math inline">\(\frac{1}{y}\)</span> is strictly convex over the domain <span class="math inline">\(y&gt;0\)</span>. So if <span class="math inline">\(Y&gt;0\)</span> with prob <span class="math inline">\(1\)</span>, then by <strong>Jensen's</strong> inequality we have: <span class="math display">\[
+E[\frac{1}{Y}]\geq\frac{1}{E[Y]}
+\]</span> with equality <strong>if and only if</strong> <span class="math inline">\(Var(Y)=0\)</span> which is when <span class="math inline">\(Y\)</span> is a constant.</p>
+<p>Thus if <span class="math inline">\(X,Y\)</span> are indepenent and if <span class="math inline">\(Y&gt;0\)</span> with prob <span class="math inline">\(1\)</span> then</p>
+<ul>
+<li><span class="math inline">\(E[X]=0\Rightarrow E[\frac{X}{Y}]=0=\frac{EX}{EY}\)</span></li>
+<li><span class="math inline">\(E[X]&gt;0\Rightarrow E[\frac{X}{Y}]\geq \frac{EX}{EY}\)</span> with equality <strong>if and only if</strong> <span class="math inline">\(Var(Y)=0\)</span></li>
+<li><span class="math inline">\(E[X]&lt;0\Rightarrow E[\frac{X}{Y}]\leq \frac{EX}{EY}\)</span> with equality <strong>if and only if</strong> <span class="math inline">\(Var(Y)=0\)</span></li>
+</ul>
+<h1 id="reference">Reference</h1>
+<ul>
+<li><a href="https://math.stackexchange.com/questions/2707044/ex-ey-compared-to-ex-y"><span class="math inline">\(E(X)/E(Y)\)</span> compared to <span class="math inline">\(E(X/Y)\)</span></a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>Mathematics</category>
+      </categories>
+      <tags>
+        <tag>Expectations</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Linear regression Part</title>
+    <url>/2022/04/21/Linear%20regression/</url>
+    <content><![CDATA[<h1 id="prove-mean-of-predicted-values-in-ols-regression-is-equal-to-the-mean-of-original-values">Prove mean of predicted values in OLS regression is equal to the mean of original values</h1>
+<p>In <strong>OLS</strong> estimation, we can summarize response <span class="math inline">\(y\)</span> as <span class="math display">\[
+y_i=\hat{y}_i+e_i
+\]</span> where residual <span class="math inline">\(e_i\)</span> is assumed to follow a normal distribution <span class="math inline">\(N(0,\sigma^2)\)</span> <span class="math display">\[
+\sum e_i=\overline{e}=0
+\]</span> thereby, we have <span class="math display">\[
+\sum_{i=1}^ny_i=\sum_{i=1}^n(\hat{y}_i+e_i)\\
+=\sum_{i=1}^n\hat{y}_i
+\]</span></p>
+<figure class="highlight r"><table><tr><td class="code"><pre><span class="line"><span class="operator">&gt;</span> iris_model <span class="operator">&lt;-</span> lm<span class="punctuation">(</span>Petal.Width<span class="operator">~</span>Sepal.Length<span class="operator">+</span>Sepal.Width<span class="operator">+</span>Petal.Length<span class="punctuation">,</span>data <span class="operator">=</span> iris<span class="punctuation">)</span></span><br><span class="line"><span class="operator">&gt;</span> summary<span class="punctuation">(</span>iris_model<span class="punctuation">)</span></span><br><span class="line"></span><br><span class="line">Call<span class="operator">:</span></span><br><span class="line">lm<span class="punctuation">(</span>formula <span class="operator">=</span> Petal.Width <span class="operator">~</span> Sepal.Length <span class="operator">+</span> Sepal.Width <span class="operator">+</span> Petal.Length<span class="punctuation">,</span> </span><br><span class="line">    data <span class="operator">=</span> iris<span class="punctuation">)</span></span><br><span class="line"></span><br><span class="line">Residuals<span class="operator">:</span></span><br><span class="line">     Min       <span class="number">1</span>Q   Median       <span class="number">3</span>Q      Max </span><br><span class="line"><span class="operator">-</span><span class="number">0.60959</span> <span class="operator">-</span><span class="number">0.10134</span> <span class="operator">-</span><span class="number">0.01089</span>  <span class="number">0.09825</span>  <span class="number">0.60685</span> </span><br><span class="line"></span><br><span class="line">Coefficients<span class="operator">:</span></span><br><span class="line">             Estimate Std. Error t value Pr<span class="punctuation">(</span><span class="operator">&gt;</span><span class="operator">|</span>t<span class="operator">|</span><span class="punctuation">)</span>    </span><br><span class="line"><span class="punctuation">(</span>Intercept<span class="punctuation">)</span>  <span class="operator">-</span><span class="number">0.24031</span>    <span class="number">0.17837</span>  <span class="operator">-</span><span class="number">1.347</span>     <span class="number">0.18</span>    </span><br><span class="line">Sepal.Length <span class="operator">-</span><span class="number">0.20727</span>    <span class="number">0.04751</span>  <span class="operator">-</span><span class="number">4.363</span> <span class="number">2.41e-05</span> <span class="operator">*</span><span class="operator">*</span><span class="operator">*</span></span><br><span class="line">Sepal.Width   <span class="number">0.22283</span>    <span class="number">0.04894</span>   <span class="number">4.553</span> <span class="number">1.10e-05</span> <span class="operator">*</span><span class="operator">*</span><span class="operator">*</span></span><br><span class="line">Petal.Length  <span class="number">0.52408</span>    <span class="number">0.02449</span>  <span class="number">21.399</span>  <span class="operator">&lt;</span> <span class="number">2e-16</span> <span class="operator">*</span><span class="operator">*</span><span class="operator">*</span></span><br><span class="line"><span class="operator">-</span><span class="operator">-</span><span class="operator">-</span></span><br><span class="line">Signif. codes<span class="operator">:</span>  <span class="number">0</span> ‘<span class="operator">*</span><span class="operator">*</span><span class="operator">*</span>’ <span class="number">0.001</span> ‘<span class="operator">*</span><span class="operator">*</span>’ <span class="number">0.01</span> ‘<span class="operator">*</span>’ <span class="number">0.05</span> ‘.’ <span class="number">0.1</span> ‘ ’ <span class="number">1</span></span><br><span class="line"></span><br><span class="line">Residual standard error<span class="operator">:</span> <span class="number">0.192</span> on <span class="number">146</span> degrees of freedom</span><br><span class="line">Multiple R<span class="operator">-</span>squared<span class="operator">:</span>  <span class="number">0.9379</span><span class="punctuation">,</span>	Adjusted R<span class="operator">-</span>squared<span class="operator">:</span>  <span class="number">0.9366</span> </span><br><span class="line"><span class="built_in">F</span><span class="operator">-</span>statistic<span class="operator">:</span> <span class="number">734.4</span> on <span class="number">3</span> and <span class="number">146</span> DF<span class="punctuation">,</span>  p<span class="operator">-</span>value<span class="operator">:</span> <span class="operator">&lt;</span> <span class="number">2.2e-16</span></span><br><span class="line"></span><br><span class="line"><span class="operator">&gt;</span> mean<span class="punctuation">(</span>iris_model<span class="operator">$</span>fitted.values<span class="punctuation">)</span></span><br><span class="line"><span class="punctuation">[</span><span class="number">1</span><span class="punctuation">]</span> <span class="number">1.199333</span></span><br><span class="line"><span class="operator">&gt;</span> mean<span class="punctuation">(</span>iris<span class="operator">$</span>Petal.Width<span class="punctuation">)</span></span><br><span class="line"><span class="punctuation">[</span><span class="number">1</span><span class="punctuation">]</span> <span class="number">1.199333</span></span><br></pre></td></tr></table></figure>
+<h2 id="related-qa">Related Q&amp;A</h2>
+<ul>
+<li><a href="https://stats.stackexchange.com/questions/469212/proof-that-the-mean-of-predicted-values-in-ols-regression-is-equal-to-the-mean-o">Proof that the mean of predicted values in OLS regression is equal to the mean of original values?</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>statistics</category>
+      </categories>
+      <tags>
+        <tag>Statistics and Data analysis from elementary to intermediate</tag>
+        <tag>Linear regression</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Jensen&#39;s inequality</title>
+    <url>/2022/06/06/Jensen-s-inequality/</url>
+    <content><![CDATA[<p>The expression of variance <span class="math display">\[
+Var(X)=E[(X-EX)^2]=EX^2-(EX)^2\geq 0
+\]</span> Implies that <span class="math display">\[
+EX^2\geq (EX)^2
+\]</span> Here <span class="math inline">\(X^2\)</span> is an example of the <strong>convex function</strong>. The definition of <strong>convex function</strong> is</p>
+<blockquote>
+<p>A twice-differentiable function <span class="math inline">\(g:I\rightarrow \mathbb{R}\)</span> is <strong>convex</strong> if and only if <span class="math inline">\(g&#39;&#39;(x)\geq 0\)</span> for all <span class="math inline">\(x\in I\)</span></p>
+</blockquote>
+<p>Below is a typical example of the convex function. The function is convex if the line segment between two points from the curve lies above the curve. On the other hand, if the line segment aloways lies below the curve, then the function is said to be <strong>concave.</strong></p>
+<p><img src="https://res.cloudinary.com/djd9gr1bu/image/upload/v1654494279/github_page/Rplot_d207et.png" alt="hi" class="inline"/></p>
+<p>The <strong>Jensen's</strong> inequality states that for any <strong>convex function</strong> <span class="math inline">\(g\)</span>, we have <span class="math inline">\(E[g(X)]\geq g(E(X))\)</span>. To be specific.</p>
+<blockquote>
+<p>If <span class="math inline">\(g(x)\)</span> is a <strong>convex function</strong> on <span class="math inline">\(R_X\)</span>, and <span class="math inline">\(E[g(X)]\)</span> and <span class="math inline">\(g[E(X)]\)</span> are finite, then <span class="math display">\[
+E[g(X)]\geq g[E(X)]
+\]</span></p>
+</blockquote>
+<h1 id="reference">Reference</h1>
+<p><a href="https://www.probabilitycourse.com/chapter6/6_2_5_jensen&#39;s_inequality.php">Jensen's Inequality</a></p>
+]]></content>
+      <categories>
+        <category>Mathematics</category>
+      </categories>
+      <tags>
+        <tag>Functions</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Project management</title>
+    <url>/2022/06/27/Project-management/</url>
+    <content><![CDATA[<h1 id="imperatives-for-good-project-management-and-delivery">8 Imperatives for Good project Management and Delivery</h1>
+<pre><code class="highlight mermaid">graph TB
+A[Set expectations] --&gt; B[Make projects as small as possible]
+B --&gt; C[Isolate the unknown from the known]
+C --&gt; D[Manage from the end backward]
+D --&gt; E[Have everything in writing]
+E --&gt; F[Deal with everthing as early as possible]
+F --&gt; G[Verify you have met all requirements]
+G --&gt; H[Measure and analyze yourself]
+</code></pre>
+<h2 id="reference">Reference</h2>
+<ul>
+<li><a href="https://msightanalytics.com/">Msight Analytics</a></li>
+<li><a href="https://www.usf.edu/arts-sciences/conferences/asa2022/index.aspx">ASA2022 Florida meeting</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>Conference</category>
+      </categories>
+      <tags>
+        <tag>Conference</tag>
+        <tag>Project Management</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Principal component analysis</title>
+    <url>/2022/02/21/Principal-component-analysis/</url>
+    <content><![CDATA[<h1 id="principal-component-analysis">Principal Component analysis</h1>
+<h2 id="pca-deduction-using-spectral-decomposition">PCA deduction using Spectral decomposition</h2>
+<p>Suppose we have a random vector <span class="math display">\[
+\begin{gather}
+X = \begin{pmatrix}X_1\\X_2\\ \vdots\\\ X_p\end{pmatrix}\\
+var(X) = \Sigma=\begin{bmatrix}\sigma_1^2 &amp; \sigma_{21}^2&amp; \cdots &amp; \sigma_{1p}^2\\
+\sigma_{21}^2&amp; \sigma_{22}^2 &amp; \cdots &amp; \sigma_{2p}^2\\
+\vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+\sigma_{p1}^2&amp;\sigma_{p2}^2&amp; \cdots &amp; \sigma_{p}^2
+\end{bmatrix}\\
+\end{gather}
+\]</span> We need to augment the spread between the data, so we need to consider linear combination <span class="math display">\[
+Y_i = e_{11}X_1+e_{12}X_2+\cdots+e_{1p}X_p=\mathbf{e}_i^TX
+\]</span> and maximize the variance of linear combination <span class="math display">\[
+\begin{gather}
+var(Y_i)=E[(\mathbf{e}_i^TX-E(\mathbf{e}_i^TX))^2]\\
+E[(\mathbf{e}_i^TX-E(\mathbf{e}_i^TX))^T(\mathbf{e}_i^TX-E(\mathbf{e}_i^TX))]\\
+=E[(\mathbf{e}_i^TX-E(\mathbf{e}_i^TX))(\mathbf{e}_i^TX-E(\mathbf{e}_i^TX))^T](\text{variance is a scalar})\\
+=E[\mathbf{e}_i^TXX^T\mathbf{e}_i-\mathbf{e}_i^TEXEX^T\mathbf{e}_i]\\
+=E[\mathbf{e}_i^T(XX^T)\mathbf{e}_i]\\
+=\mathbf{e}_i^T[E(XX^T)-E(X)E(X^T)]\mathbf{e}_i\\
+=\mathbf{e}_i^T\Sigma \mathbf{e}_i
+\end{gather}
+\]</span> Since <span class="math inline">\(\Sigma \mathbf{e}_i=\lambda_i\mathbf{e}_i\)</span> in spectral decomposition <span class="math display">\[
+var(Y_i)=e_i^T\lambda_ie_i=\lambda_ie_i^Te_i=\lambda_i
+\]</span></p>
+]]></content>
+      <categories>
+        <category>PCA</category>
+      </categories>
+      <tags>
+        <tag>PCA</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Count unique words</title>
+    <url>/2022/06/12/Count-unique-words/</url>
+    <content><![CDATA[<p>Below is some R code that could be employed to summarize the unique words from the text.</p>
+<figure class="highlight r"><table><tr><td class="code"><pre><span class="line">words <span class="operator">&lt;-</span> read.table<span class="punctuation">(</span>file.choose<span class="punctuation">(</span><span class="punctuation">)</span><span class="punctuation">,</span> header <span class="operator">=</span> <span class="literal">FALSE</span><span class="punctuation">,</span>fill <span class="operator">=</span> <span class="literal">TRUE</span><span class="punctuation">)</span> <span class="comment"># import txt file</span></span><br><span class="line"></span><br><span class="line">words <span class="operator">&lt;-</span> apply<span class="punctuation">(</span>words<span class="punctuation">,</span><span class="built_in">c</span><span class="punctuation">(</span><span class="number">1</span><span class="punctuation">,</span><span class="number">2</span><span class="punctuation">)</span><span class="punctuation">,</span><span class="keyword">function</span><span class="punctuation">(</span>x<span class="punctuation">)</span> gsub<span class="punctuation">(</span><span class="string">&quot;[[:punct:]]&quot;</span><span class="punctuation">,</span> <span class="string">&quot;&quot;</span><span class="punctuation">,</span> x<span class="punctuation">)</span><span class="punctuation">)</span> <span class="comment"># remove all special characters</span></span><br><span class="line"></span><br><span class="line">words <span class="operator">&lt;-</span> words<span class="punctuation">[</span><span class="punctuation">(</span>words <span class="operator">!=</span><span class="string">&#x27;&#x27;</span><span class="punctuation">)</span> <span class="punctuation">]</span> <span class="comment"># remove all NA content</span></span><br><span class="line"></span><br><span class="line">x_numbers <span class="operator">&lt;-</span> unlist<span class="punctuation">(</span>regmatches<span class="punctuation">(</span>words<span class="punctuation">,</span> gregexpr<span class="punctuation">(</span><span class="string">&quot;[[:digit:]]+&quot;</span><span class="punctuation">,</span> words<span class="punctuation">)</span><span class="punctuation">)</span><span class="punctuation">)</span> <span class="comment"># extract numbers from string</span></span><br><span class="line"></span><br><span class="line">words <span class="operator">&lt;-</span> gsub<span class="punctuation">(</span><span class="string">&#x27;[[:digit:]]+&#x27;</span><span class="punctuation">,</span> <span class="string">&#x27;&#x27;</span><span class="punctuation">,</span> words<span class="punctuation">)</span> <span class="comment"># remove all content containing numbers</span></span><br><span class="line"></span><br><span class="line">words <span class="operator">&lt;-</span> words<span class="punctuation">[</span><span class="punctuation">(</span>words <span class="operator">!=</span><span class="string">&#x27;&#x27;</span><span class="punctuation">)</span> <span class="punctuation">]</span> <span class="comment"># remove all NA content</span></span><br><span class="line"></span><br><span class="line">x_numbers <span class="operator">&lt;-</span> unlist<span class="punctuation">(</span>regmatches<span class="punctuation">(</span>words<span class="punctuation">,</span> gregexpr<span class="punctuation">(</span><span class="string">&quot;[[:digit:]]+&quot;</span><span class="punctuation">,</span> words<span class="punctuation">)</span><span class="punctuation">)</span><span class="punctuation">)</span> <span class="comment"># extract numbers from string</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">length</span><span class="punctuation">(</span>unique<span class="punctuation">(</span>words<span class="punctuation">)</span><span class="punctuation">)</span> <span class="comment"># count unique words</span></span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>R</category>
+      </categories>
+      <tags>
+        <tag>fun</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Relationship between R-square and correlation coefficient</title>
+    <url>/2022/04/21/Relationship-between-R-square-and-correlation-coefficient/</url>
+    <content><![CDATA[<h1 id="the-coefficient-of-determination-of-r2">The coefficient of determination of <span class="math inline">\(R^2\)</span></h1>
+<p>To begin with, we need to mention several terms that we must define</p>
+<ul>
+<li><p><strong>SST</strong>: sum of squares total, as the squared difference between the observed dependent variable and its mean <span class="math display">\[
+\sum(y_i-\overline{y})^2
+\]</span></p></li>
+<li><p><strong>SSR/ESS</strong>: sum of squares due to regression or explained sum of squares, as the sum of the differences between the predicted value and the mean of the dependent variable <span class="math display">\[
+\sum(\hat{y}_i-\overline{y})^2=\sum(\hat{y}_i-\overline{\hat{y}})^2
+\]</span></p></li>
+<li><p><strong>SSE/RSS</strong>: sum of square error or residual sum of squares, as the difference between the observed value and the predicted value, and as the <em>unexplained variability</em> <span class="math display">\[
+\sum(y_i-\hat{y}_i)^2=\sum e_i^2
+\]</span></p></li>
+</ul>
+<p>The coefficient of determination of <span class="math inline">\(R^2\)</span> shows how much of the variation of the dependent variable <code>Var(y)</code> can be explained by the model; In <strong>OLS</strong> estimate, <span class="math inline">\(R^2\)</span> can also be calculated as the ratio of Explained sum of square (ESS) to total sum squared(TSS) <span class="math display">\[
+R^2=\frac{ESS}{SST}=1-\frac{SSE}{SST}=1-\frac{\sum e_i^2}{\sum(y_i-\overline{y})^2}
+\]</span></p>
+<h2 id="formulate-r2">Formulate <span class="math inline">\(R^2\)</span></h2>
+<p>Suppose <span class="math inline">\(y_i=\hat{y}_i+e_i\)</span> <span class="math display">\[
+\begin{gather}
+Var(y)=Var(y)+Var(e)+2Cov(\hat{y},e)\\
+=Var(\hat{y})+Var(e)\ (Cov(\hat{y},e)=0)\\
+\Rightarrow\sum(y_i-\overline{y})^2=\sum(\hat{y}_i-\overline{\hat{y}})^2+\sum(e_i-\overline{e})^2\\
+=\sum(\hat{y}_i-\overline{\hat{y}})^2+\sum e_i^2\ (\overline{e}=0)\\
+=\sum(\hat{y}_i-\overline{y})^2+\sum e_i^2
+\end{gather}
+\]</span></p>
+<h2 id="relationship-between-r2-and-pearson-correlation-coefficient">Relationship between <span class="math inline">\(R^2\)</span> and Pearson correlation coefficient</h2>
+<p><span class="math display">\[
+\begin{gather}
+r^2_{y,\hat{y}}=(\frac{Cov(y,\hat{y})}{\sqrt{Var(y)Var(\hat{y})}})^2\\
+=\frac{Cov(y,\hat{y})Cov(y,\hat{y})}{Var(y)Var(\hat{y})}\\
+=\frac{Cov(\hat{y}+e,\hat{y})^2}{Var(y)Var(\hat{y})}\\
+=\frac{Cov(\hat{y},\hat{y})^2}{Var(y)Var(\hat{y})}\ (Cov(\hat{y},e)=0)\\
+=\frac{Var(\hat{y})}{Var(y)}\\
+=\frac{\sum(\hat{y}_i-\overline{\hat{y}})^2}{\sum(y_i-\overline{y})^2}\\
+=\frac{SSR}{SST}\\
+=R^2
+\end{gather}
+\]</span></p>
+<blockquote>
+<p>Conclusion: <span class="math inline">\(R^2\)</span> is equal to the squared Pearson correlation coefficient between observed response variable and predicted response variable</p>
+</blockquote>
+<figure class="highlight r"><table><tr><td class="code"><pre><span class="line"><span class="operator">&gt;</span> iris_model <span class="operator">&lt;-</span> lm<span class="punctuation">(</span>Petal.Width<span class="operator">~</span>Sepal.Length<span class="operator">+</span>Sepal.Width<span class="operator">+</span>Petal.Length<span class="punctuation">,</span>data <span class="operator">=</span> iris<span class="punctuation">)</span></span><br><span class="line"><span class="operator">&gt;</span> summary<span class="punctuation">(</span>iris_model<span class="punctuation">)</span></span><br><span class="line"></span><br><span class="line">Call<span class="operator">:</span></span><br><span class="line">lm<span class="punctuation">(</span>formula <span class="operator">=</span> Petal.Width <span class="operator">~</span> Sepal.Length <span class="operator">+</span> Sepal.Width <span class="operator">+</span> Petal.Length<span class="punctuation">,</span> </span><br><span class="line">    data <span class="operator">=</span> iris<span class="punctuation">)</span></span><br><span class="line"></span><br><span class="line">Residuals<span class="operator">:</span></span><br><span class="line">     Min       <span class="number">1</span>Q   Median       <span class="number">3</span>Q      Max </span><br><span class="line"><span class="operator">-</span><span class="number">0.60959</span> <span class="operator">-</span><span class="number">0.10134</span> <span class="operator">-</span><span class="number">0.01089</span>  <span class="number">0.09825</span>  <span class="number">0.60685</span> </span><br><span class="line"></span><br><span class="line">Coefficients<span class="operator">:</span></span><br><span class="line">             Estimate Std. Error t value Pr<span class="punctuation">(</span><span class="operator">&gt;</span><span class="operator">|</span>t<span class="operator">|</span><span class="punctuation">)</span>    </span><br><span class="line"><span class="punctuation">(</span>Intercept<span class="punctuation">)</span>  <span class="operator">-</span><span class="number">0.24031</span>    <span class="number">0.17837</span>  <span class="operator">-</span><span class="number">1.347</span>     <span class="number">0.18</span>    </span><br><span class="line">Sepal.Length <span class="operator">-</span><span class="number">0.20727</span>    <span class="number">0.04751</span>  <span class="operator">-</span><span class="number">4.363</span> <span class="number">2.41e-05</span> <span class="operator">*</span><span class="operator">*</span><span class="operator">*</span></span><br><span class="line">Sepal.Width   <span class="number">0.22283</span>    <span class="number">0.04894</span>   <span class="number">4.553</span> <span class="number">1.10e-05</span> <span class="operator">*</span><span class="operator">*</span><span class="operator">*</span></span><br><span class="line">Petal.Length  <span class="number">0.52408</span>    <span class="number">0.02449</span>  <span class="number">21.399</span>  <span class="operator">&lt;</span> <span class="number">2e-16</span> <span class="operator">*</span><span class="operator">*</span><span class="operator">*</span></span><br><span class="line"><span class="operator">-</span><span class="operator">-</span><span class="operator">-</span></span><br><span class="line">Signif. codes<span class="operator">:</span>  <span class="number">0</span> ‘<span class="operator">*</span><span class="operator">*</span><span class="operator">*</span>’ <span class="number">0.001</span> ‘<span class="operator">*</span><span class="operator">*</span>’ <span class="number">0.01</span> ‘<span class="operator">*</span>’ <span class="number">0.05</span> ‘.’ <span class="number">0.1</span> ‘ ’ <span class="number">1</span></span><br><span class="line"></span><br><span class="line">Residual standard error<span class="operator">:</span> <span class="number">0.192</span> on <span class="number">146</span> degrees of freedom</span><br><span class="line">Multiple R<span class="operator">-</span>squared<span class="operator">:</span>  <span class="number">0.9379</span><span class="punctuation">,</span>	Adjusted R<span class="operator">-</span>squared<span class="operator">:</span>  <span class="number">0.9366</span> </span><br><span class="line"><span class="built_in">F</span><span class="operator">-</span>statistic<span class="operator">:</span> <span class="number">734.4</span> on <span class="number">3</span> and <span class="number">146</span> DF<span class="punctuation">,</span>  p<span class="operator">-</span>value<span class="operator">:</span> <span class="operator">&lt;</span> <span class="number">2.2e-16</span></span><br><span class="line"></span><br><span class="line"><span class="operator">&gt;</span> <span class="punctuation">(</span>cor<span class="punctuation">(</span>iris_model<span class="operator">$</span>fitted.values<span class="punctuation">,</span>iris<span class="operator">$</span>Petal.Width<span class="punctuation">)</span><span class="punctuation">)</span><span class="operator">^</span><span class="number">2</span></span><br><span class="line"><span class="punctuation">[</span><span class="number">1</span><span class="punctuation">]</span> <span class="number">0.9378503</span></span><br></pre></td></tr></table></figure>
+<h2 id="reference">Reference</h2>
+<ul>
+<li><p><a href="https://365datascience.com/tutorials/statistics-tutorials/sum-squares/">Sum of squares Total, Sum of Squares Regression and Sum of Squares Error</a></p></li>
+<li><p><a href="https://economictheoryblog.com/2014/11/05/the-coefficient-of-determination-latex-r2/">The coefficient of determination of R2</a></p></li>
+<li><p><a href="https://economictheoryblog.com/2014/11/05/proof/">Relationship between coefficient of determination and squared pearson correlation coefficient</a></p></li>
+<li><p><a href="https://stats.stackexchange.com/questions/187734/relationship-between-r2-and-correlation-coefficient">Relationship between R2 and correlation coefficient</a></p></li>
+<li><p><a href="https://stats.stackexchange.com/questions/83347/relationship-between-r2-and-correlation-coefficient">Relationship between R2 and correlation coefficient</a></p></li>
+</ul>
+]]></content>
+      <categories>
+        <category>statistics</category>
+      </categories>
+      <tags>
+        <tag>Statistics and Data analysis from elementary to intermediate</tag>
+        <tag>Linear regression</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Beta distribution</title>
+    <url>/2022/05/29/Beta-distribution/</url>
+    <content><![CDATA[<p>A good interpretation of Beta distribution can be referred to a thread from <a href="https://stats.stackexchange.com/questions/47771/what-is-the-intuition-behind-beta-distribution?noredirect=1&amp;lq=1">What is the intuition behind beta distribution</a></p>
+<blockquote>
+<p>The short version is that the Beta distribution can be understood as representing a distribution <em>of probabilities</em>, that is, it represents all the possible values of a probability when we don't know what that probability is.</p>
+</blockquote>
+<p>For <span class="math inline">\(\theta\sim Beta(\alpha,\beta)\)</span> <span class="math display">\[
+\begin{gather*}
+p(\theta)=\frac{\theta^{\alpha-1}(1-\theta)^{\beta-1}}{B(\alpha,\beta)}\\
+=\frac{\Gamma(\alpha+\beta)}{\Gamma(\alpha)\Gamma(\beta)}\theta^{\alpha-1}(1-\theta)^{\beta-1}\\
+\theta\in[0,1]
+\end{gather*}
+\]</span> The expectation and variance of Beta distribution is <span class="math display">\[
+\begin{gather*}
+E(\theta)=\frac{\alpha}{\alpha+\beta}\\
+var(\theta)=\frac{\alpha\beta}{(\alpha+\beta)^2(\alpha+\beta+1)}
+\end{gather*}
+\]</span> When <span class="math inline">\(\alpha=\beta=1\)</span>, Beta distribution is equivalent to the uniform distribution <span class="math display">\[
+\begin{gather*}
+p(\theta)=\frac{\Gamma(2)}{\Gamma(1)\Gamma(1)}\theta^0(1-\theta)^0\\
+=\frac{1\Gamma(1)}{1*1}\\
+=1\\
+F_{\Theta}(x)=\int_0^x 1d\theta=x\in[0,1]\\
+\Rightarrow \theta\sim U(0,1)
+\end{gather*}
+\]</span></p>
+<h2 id="reference">Reference</h2>
+<ul>
+<li><a href="https://stats.stackexchange.com/questions/47771/what-is-the-intuition-behind-beta-distribution?noredirect=1&amp;lq=1">What is the intution behind beta distribution?</a></li>
+<li><a href="https://stats.stackexchange.com/questions/318541/uniform-vs-beta1-1-prior">Uniform vs Beta(1,1) prior</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>statistics</category>
+      </categories>
+      <tags>
+        <tag>Statistics and Data analysis from elementary to intermediate</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Terminologies in collecting data</title>
+    <url>/2022/04/25/Terminologies-in-collecting-data/</url>
+    <content><![CDATA[<h2 id="types-of-statistical-studies">Types of Statistical studies</h2>
+<ul>
+<li><p>Study with different purposes</p>
+<ul>
+<li><p>Comparative (analytical) study</p>
+<p>A study whose purpose is to compare two or more alternative methods or groups distinguished by some attribute is called a comparative (analytical) study</p></li>
+<li><p>Noncomparative (descriptive) study</p>
+<p>A study whose purpose is to learn about the characteristics of a group, but no necessarily to make comparasions, is called a noncomparative (descriptive) study</p></li>
+</ul></li>
+<li><p>Study with or without intervention</p>
+<ul>
+<li><p>Observational study</p>
+<p>The researcher is a passive observer who documents the process</p></li>
+<li><p>Experimental study</p>
+<p>The researcher actively intervenes to control the study conditions and records the response</p></li>
+</ul>
+<blockquote>
+<p>Remark: Both study types can be either comparative or noncomparative</p>
+</blockquote></li>
+</ul>
+<h2 id="confounding-variable">Confounding variable</h2>
+<p>If the effects of predictor variables cannot be separated from the effects of the uncontrolled variables, those uncontrolled variables are called confounding variables. A variable must meet two conditions to be a confounder:</p>
+<ul>
+<li>It must be correlatedd with the independent variable. This <strong>may be</strong> a causal relationship, but it does not have to be.</li>
+<li>It <strong>must be</strong> causally related to the dependent variable</li>
+</ul>
+<p>Sometimes the presence of these variables is not recognized after the fact, in which case they are referred to as <strong>lurking variables</strong></p>
+<pre><code class="highlight mermaid">graph TD
+A[Confounding variable]-.-&gt;B[predictor variable];
+B --&gt;C[response variable];
+A --&gt;C;</code></pre>
+<p><a href="https://www.scribbr.com/methodology/confounding-variables/">See more info</a></p>
+<h2 id="comparative-study">Comparative study</h2>
+<blockquote>
+<p>The goal of the simplest and most common comparative studies is to evaluate how a "change" from a <code>"baseline"</code> or <code>"normal"</code> condition affects a response variable.</p>
+</blockquote>
+<ul>
+<li><p>The changed condition is called a <strong>treatment</strong> or an <strong>intervention</strong> and the normal condition is called a <strong>control</strong></p></li>
+<li><p>The <strong>treatment</strong> and <strong>control</strong> group should be similar in all other respects excepty for the changed condition to provide a valid comparison</p></li>
+</ul>
+<h2 id="observational-study">Observational study</h2>
+<ul>
+<li>A <strong>sample survey</strong> provides a snapshot of the population based on a sample observed at a point <code>in time</code></li>
+<li>A <strong>prospective study</strong> follows a sample <code>forward in time</code></li>
+<li>A <strong>retrospective study</strong> follows a sample <code>backward in time</code></li>
+</ul>
+<h3 id="sample-survey">Sample survey</h3>
+<ul>
+<li>A numerical characteristic of a <strong>population</strong> defined for a specific variable is called a <strong>parameter</strong></li>
+<li>A numerical function of the <code>sample data</code>, called a <strong>statistic</strong>, is used to estimate the unknown <strong>population parameter</strong></li>
+<li>It is possible to list all units in a <strong>finite population</strong>; a list of all units in a finite population is called a <strong>sampling frame</strong>;</li>
+<li>It is impossible to list all units of an <strong>infinite population</strong> as there is no upper limit on the number of units in a population</li>
+<li>The population of interest is called the <strong>target population</strong>; sometimes the target population is difficult to study, so sampling is done using another easily accessible population, called the <strong>sampled population</strong></li>
+<li>The deviation between a sample estimate and the true parameter value is called the <strong>sampling error</strong>; <strong>nonsampling error</strong> often cause <strong>bias</strong>, which is a <code>systematic deviation</code> between the sample estimate and the population parameter; <strong>bias</strong> is a more serious problem than sampling errors because it doesn't disappear by increasing the sample size. For example, <strong>measurement bias</strong> affects all measurements. <strong>Nonsampling error</strong> includes other types such as <strong>self-selection bias</strong> and <strong>response bias</strong></li>
+</ul>
+<h2 id="basic-sampling-designs">Basic sampling designs</h2>
+<ul>
+<li><p><strong>Simple random sample(SRS)</strong></p>
+<p>Draw a sample of size <span class="math inline">\(n\)</span> from a population of size <span class="math inline">\(N\)</span> <strong>Without replacement</strong></p></li>
+<li><p><strong>Stratified Random sampling</strong></p>
+<p>Divide a population into homogeneous subpopulations and draw <strong>SRS</strong> from each one</p></li>
+<li><p><strong>Multistage cluster sampling</strong></p>
+<p>Draw SRS layer by layer from the top to the bottom</p></li>
+<li><p><strong>Systematic sampling</strong></p>
+<p>A <code>1-in-k</code> <strong>systematic sampling</strong> consists of selecting one unit at random from the first <span class="math inline">\(k\)</span> Unit and selecting every <span class="math inline">\(kth\)</span> Unit thereafter; mainly useful for cases such as assembly line or cars entering a toll booth on a highway</p></li>
+</ul>
+<h2 id="experimental-studies">Experimental studies</h2>
+<ul>
+<li><strong>Treatment factors</strong> are controlled in an experiment, effects of the response variable are of primary interest</li>
+<li><strong>Nuisance factors</strong>, or <strong>noise factors</strong> are all the other factors that might affect the response variable</li>
+<li>The different possible values of a factor are called <strong>levels</strong>, and each treatment is a particular combination of the levels of different treatment factors</li>
+<li>Subjects or items receiving treatments are called <strong>experimental units</strong>; all experimental units receiving the same treatment form a <strong>treatment group</strong></li>
+<li><strong>A run</strong> is an observation made on an experimental unit after a particular treatment condition; a <strong>replicate</strong> is another independent run carried out under a particular identical conditions; <strong>repeat measurements</strong> of the same response is not replicate</li>
+</ul>
+<h3 id="strategies-to-reduce-experimental-error-variation">Strategies to reduce experimental error variation</h3>
+<blockquote>
+<p>Main components of experimental error:</p>
+<ul>
+<li><p>Systematic error</p>
+<p>Caused by difference between experimental units; the nuisance factors on which the experimental units differ are said to <strong>confound</strong> or <strong>bias</strong> the treatment comparisons</p></li>
+<li><p>Random error</p>
+<p>Caused by the inherent variability in the response of similar experimental units <code>given the same treatment</code></p></li>
+<li><p>Measurement error</p>
+<p>Caused by imprecise measurement instruments</p></li>
+</ul>
+</blockquote>
+<ul>
+<li><p><code>Strategies</code> to reduce the <code>systematic error</code> with respect to type of <code>nuisance factor</code></p>
+<blockquote>
+<ul>
+<li>Blocking: nuisance factor is <b>controllable</b></li>
+<li>Regression Analysis: nuisance factors cannot be used as <b>blocking factor</b> because they are <b>not controllable</b>; such nuisance factors are called <b>covariates</b>. A <b>covariate</b> should be measured before the treatment are applied to experimental units because it could also be affected by the treatment</li>
+<li>Randomization: in terms of additional known or unknown nuisance factors, the experimental units may <b>well differ</b> on these factors, thus biasing the results. Randomization doesn't imply experimental units are equal for each treatment, but that no one treatment is favored</li>
+</ul>
+<p><code>Note:</code> A covariates can be an independent variable (i.e. of direct interest) or it can be unwanted, confounding variable. Adding a covariate to a model can increase the accuracy of the results <a href="https://www.statisticshowto.com/covariate/">See more info</a></p>
+<p><code>In summary</code>: Block over those nuisance factors that can be easily controlled, randomize over the rest</p>
+</blockquote></li>
+<li><p>Strategy to reduce the <code>random error</code></p>
+<blockquote>
+<p>Replicating the experimental runs; making multiple independent runs under identical treatment conditions</p>
+</blockquote></li>
+<li><p>Strategy to reduce the measurement error</p>
+<blockquote>
+<p>Repeat measurements, including having different subjects make the measurements;</p>
+<p>Variation within each group of measurements can be used to estimate random and measurement errors.</p>
+</blockquote></li>
+</ul>
+<h3 id="basic-experimental-designs">Basic experimental designs</h3>
+<ul>
+<li><p>Completely randomized design (CRD)</p>
+<blockquote>
+<p>All experimental units are assigned at random to the treatment</p>
+</blockquote>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Batch 1</th>
+<th style="text-align: center;">Batch 2</th>
+<th style="text-align: center;">Batch 3</th>
+<th style="text-align: center;">Batch 4</th>
+<th style="text-align: center;">Batch 5</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">A</td>
+<td style="text-align: center;">C</td>
+<td style="text-align: center;">D</td>
+<td style="text-align: center;">D</td>
+<td style="text-align: center;">B</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">B</td>
+<td style="text-align: center;">A</td>
+<td style="text-align: center;">A</td>
+<td style="text-align: center;">C</td>
+<td style="text-align: center;">D</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">C</td>
+<td style="text-align: center;">D</td>
+<td style="text-align: center;">B</td>
+<td style="text-align: center;">A</td>
+<td style="text-align: center;">C</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">B</td>
+<td style="text-align: center;">C</td>
+<td style="text-align: center;">D</td>
+<td style="text-align: center;">B</td>
+<td style="text-align: center;">A</td>
+</tr>
+</tbody>
+</table>
+<p><em>Randomly assign <span class="math inline">\(20\)</span> samples to the <span class="math inline">\(4\)</span> treatments <span class="math inline">\(ABCD\)</span> without considering the batchs they are from</em></p></li>
+<li><p>Randomized block design (RBD)</p>
+<blockquote>
+<p>Forming blocks of units which are similar (in terms of chosen blocking factors)</p>
+<p>Two special cases:</p>
+<ul>
+<li>Matched pairs design: Match subjects on the nuisance factors (controllable)</li>
+<li>Cross-over design: the order in which the methods are administered may introduce bias due to the learning effect</li>
+</ul>
+</blockquote>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Batch 1</th>
+<th style="text-align: center;">Batch 2</th>
+<th style="text-align: center;">Batch 3</th>
+<th style="text-align: center;">Batch 4</th>
+<th style="text-align: center;">Batch 5</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">A</td>
+<td style="text-align: center;">D</td>
+<td style="text-align: center;">C</td>
+<td style="text-align: center;">D</td>
+<td style="text-align: center;">B</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">C</td>
+<td style="text-align: center;">A</td>
+<td style="text-align: center;">B</td>
+<td style="text-align: center;">C</td>
+<td style="text-align: center;">C</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">B</td>
+<td style="text-align: center;">C</td>
+<td style="text-align: center;">D</td>
+<td style="text-align: center;">B</td>
+<td style="text-align: center;">A</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">D</td>
+<td style="text-align: center;">B</td>
+<td style="text-align: center;">A</td>
+<td style="text-align: center;">A</td>
+<td style="text-align: center;">D</td>
+</tr>
+</tbody>
+</table>
+<p><em>Randomly assign <span class="math inline">\(4\)</span> treatments to the experiments within each block</em></p></li>
+</ul>
+]]></content>
+      <categories>
+        <category>statistics</category>
+      </categories>
+      <tags>
+        <tag>Statistics and Data analysis from elementary to intermediate</tag>
+        <tag>Collecting Data</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Levy process</title>
+    <url>/2021/11/29/Levy-process/</url>
+    <content><![CDATA[<h1 id="definition-of-levy-process">Definition of Levy process</h1>
+<p>A <b>Levy process</b>, <span class="math inline">\(\{L(t),t\in \mathbb{R}\}\)</span> is a process with the following <span class="math inline">\(4\)</span> properties:</p>
+<ol type="i">
+<li><p><span class="math inline">\(L(0)=0\)</span></p></li>
+<li><p><span class="math inline">\(L(t)-L(s)\)</span> has the same distribution as <span class="math inline">\(L(t-s)\)</span> for <span class="math inline">\(\forall\ s,t\)</span> such that <span class="math inline">\(s\leq t\)</span></p></li>
+<li><p>If <span class="math inline">\((s,t)\)</span> and <span class="math inline">\((u,v)\)</span> are disjoint intervals then <span class="math inline">\(L(t)-L(s)\)</span> and <span class="math inline">\(L(v)-L(u)\)</span> are independent</p></li>
+<li><p><span class="math inline">\(\{L(t)\}\)</span> is continuous in probability, that is, for <span class="math inline">\(\forall\ \epsilon&gt;0\)</span> and for <span class="math inline">\(\forall\ t\in \mathbb{R}\)</span> <span class="math display">\[
+\underset{s\rightarrow t}{lim}P(\left|L(t)-L(s)\right|&gt;\epsilon)=0
+\]</span></p></li>
+</ol>
+<h2 id="brownian-motion">Brownian motion</h2>
+<p>A well-known example of the levy process is the <strong>Brownian Motion</strong> <span class="math display">\[
+\begin{gather}
+L(t)\sim N(\mu t,\sigma^2t)\\
+t\geq0,\ \mu\in \mathbb{R}\ and\ \sigma&gt;0
+\end{gather}
+\]</span> To show that it satisfies property (ii) of <strong>Levy process</strong>, we can calculate the corresponding expectation and variance <span class="math display">\[
+\begin{gather}
+E[L(t)-L(s)]\\
+=E[L(t)]-E[L(s)]\\
+=\mu(t-s)\\
+=E[L(t-s)]
+\end{gather}
+\]</span></p>
+<p><span class="math display">\[
+\begin{gather}
+Var[L(t)-L(s)]\\
+=E[(L(t)-L(s)-E[L(t)-L(s)])^2]\\
+=E[[L(t)-L(s)]^2-2[L(t)-L(s)]\mu(t-s)+\mu^2(t-s)^2]\\
+=E[L^2(t)+L^2(s)-2L(t)L(s)]-\mu^2(t-s)^2\\
+=\sigma^2t+\mu^2t^2+\sigma^2s+\mu^2s^2-\mu^2(t-s)^2-2E[L(t)L(s)]\\
+=\sigma^2(t+s)+\mu^2(t^2+s^2-t^2-s^2+2ts)-2E[L(t)L(s)]\\
+=\sigma^2(t+s)+2\mu^2ts-2E[L(t)L(s)]\\
+=\sigma^2(t+s)+2\mu^2ts-2E[[L(s)+L(t)-L(s)]L(s)]
+\end{gather}
+\]</span></p>
+<p>Since <span class="math inline">\(L(t)-L(s)\text{ is independent to }L(s)\)</span>, we have <span class="math display">\[
+\begin{gather}
+Var[L(t)-L(s)]\\
+=\sigma^2(t+s)+2\mu^2ts-2[E[L^2(s)]+E[L(t)-L(s)]E[L(s)]]\\
+=\sigma^2(t+s)+2\mu^2ts-2(\mu^2s^2+\sigma^2s+\mu(t-s)\mu s)\\
+=\sigma^2(t+s)-2\sigma^2s\\
+=\sigma^2(t-s)\\
+=Var[L(t-s)]\
+\end{gather}
+\]</span> Hence <span class="math inline">\(L(t)-L(s)\)</span> has the same distribution of <span class="math inline">\(L(t-s)\)</span></p>
+<h1 id="reference">Reference</h1>
+<ol type="1">
+<li><strong>Brockwell, P. J., &amp; Davis, R. A. (2002). <em>Introduction to time series and forecasting</em>. New York: Springer.</strong></li>
+</ol>
+]]></content>
+      <categories>
+        <category>time series analysis</category>
+      </categories>
+      <tags>
+        <tag>levy process</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Uncorrelated vs independent</title>
+    <url>/2022/06/07/Uncorrelated-vs-independent/</url>
+    <content><![CDATA[<p><strong>Uncorrelation</strong> means there is no <strong>linear dependence</strong> between the two random variables, while <strong>independence</strong> means no types of dependence exist between the two random variables.</p>
+<p>Uncorrelated random variables may not be independent, but independent random variables must be uncorrelated.</p>
+<p>For example, <span class="math inline">\(Z\sim N(0,1),X=Z,Y=Z^2\)</span> <span class="math display">\[
+\begin{gather*}
+Cov(X,Y)=E[XY]-E[X]E[Y]\\
+=E[Z^3]-E[Z]E[Z^2]\\
+=E[Z^3]-0\\
+=E[Z^3]
+\end{gather*}
+\]</span> The moment generating function of distribution of <span class="math inline">\(Z\)</span> is <span class="math display">\[
+\begin{gather*}
+M_Z(t)=E[e^{tz}]\\
+=\int e^{tx}\frac{1}{\sqrt{2\pi}}e^{-\frac{z^2}{2}}dz\\
+=\int \frac{1}{\sqrt{2\pi}}e^{-\frac{1}{2}(z^2-2tz)}dz\\
+=\int \frac{1}{\sqrt{2\pi}}e^{-\frac{1}{2}(z^2-2tz+t^2)+\frac{1}{2}t^2}dz\\
+=\int \frac{1}{\sqrt{2\pi}}e^{-\frac{1}{2}(z-t)^2+\frac{1}{2}t^2}dz\\
+=e^{\frac{1}{2}t^2}\int\frac{1}{\sqrt{2\pi}}e^{-\frac{1}{2}(z-t)^2}dz\\
+=e^{\frac{1}{2}t^2}
+\end{gather*}
+\]</span> Using the mgf we obtain the <span class="math inline">\(E[Z^3]\)</span> as <span class="math display">\[
+\begin{gather*}
+E[Z^3]=M_Z&#39;&#39;&#39;(t=0)\\
+=(0)e^{\frac{1}{2}(0)^2}+2(0)e^{\frac{1}{2}(0)^2}+(0)^3e^{\frac{1}{2}(0)^2}=0
+\end{gather*}
+\]</span> Therefore <span class="math display">\[
+Cov(X,Y)=E[Z^3]=0
+\]</span> This implies <span class="math inline">\(X,Y\)</span> are <strong>uncorrelated</strong>, but they are <strong>dependent</strong></p>
+<h1 id="reference">Reference</h1>
+<ul>
+<li><p><a href="https://towardsdatascience.com/uncorrelated-vs-independent-random-variables-definitions-proofs-examples-26422589a5d6">Uncorrelated vs Independent Random variables - Definitions, Proofs &amp; Examples</a></p></li>
+<li><p><a href="https://math.stackexchange.com/questions/96451/how-to-calculate-the-expectation-of-xy">How to calculate the expectation of <span class="math inline">\(XY\)</span></a></p></li>
+<li><p><a href="https://math.stackexchange.com/questions/537438/prove-that-fx-and-gy-are-independent-if-x-and-y-are-independent">Prove that <span class="math inline">\(f(X)\)</span> and <span class="math inline">\(g(Y)\)</span> are independent if <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are independent</a></p></li>
+</ul>
+]]></content>
+      <categories>
+        <category>statistics</category>
+      </categories>
+      <tags>
+        <tag>Math statistics</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>lnE(X) and E(lnX)</title>
+    <url>/2022/06/08/lnE-X-and-E-lnX/</url>
+    <content><![CDATA[<p>Since <span class="math inline">\(lnx\)</span> is the concave function, by <strong>Jensen's inequality</strong>, we know that <span class="math display">\[
+ln[E(X)]&gt;E[lnX]
+\]</span> Another proof can be displayed as follows:</p>
+<blockquote>
+<p>From <a href="https://math.stackexchange.com/questions/504663/simplest-or-nicest-proof-that-1x-le-ex">Simplest or nicest proof that <span class="math inline">\(1+x \le e^x\)</span></a>, we can prove that</p>
+</blockquote>
+<p><span class="math display">\[
+e^x\geq 1+x
+\]</span></p>
+<p>Expectation of <span class="math inline">\(e^x\)</span> is <span class="math display">\[
+\begin{gather*}
+E(e^Y)=e^{E(Y)}E(e^{Y-E(Y)})\\
+\geq e^{EY}E(1+Y-EY)\\
+=e^{EY}
+\end{gather*}
+\]</span> Therefore, we have <span class="math display">\[
+e^{EY}\leq E[e^Y]
+\]</span> Denote <span class="math inline">\(Y=lnX\)</span>, we have <span class="math display">\[
+e^{ElnX}\leq E(e^{lnX})=EX\\
+\Rightarrow E(lnX)\geq ln(EX)
+\]</span> The equality holds <strong>if and only if</strong> <span class="math inline">\(X\)</span> is almost surely constant.</p>
+<h1 id="reference">Reference</h1>
+<ul>
+<li><p>[<a href="https://stats.stackexchange.com/questions/302902/why-is-lnex-elnx">Why is <span class="math inline">\(ln[E(x)] &gt; E[ln(x)]?\)</span></a>]</p></li>
+<li><p><a href="https://math.stackexchange.com/questions/504663/simplest-or-nicest-proof-that-1x-le-ex">Simplest or nicest proof that <span class="math inline">\(1+x \le e^x\)</span></a></p></li>
+<li><p>[<a href="https://math.stackexchange.com/questions/21063/difference-between-logarithm-of-an-expectation-value-and-expectation-value-of-a">Difference between logarithm of an expectation value and expectation value of a logarithm</a>]</p></li>
+</ul>
+]]></content>
+      <categories>
+        <category>Mathematics</category>
+      </categories>
+      <tags>
+        <tag>Expectations</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>hidden jargon in statistics</title>
+    <url>/2022/09/28/hidden%20jargon%20in%20statistics/</url>
+    <content><![CDATA[<h1 id="randomization-replication-repeated-measurement-blocking">Randomization, replication, repeated measurement, blocking</h1>
+<p><strong>randomization</strong> means both the allocation of the experimental material and the order in which the individual runs of the experiment are to be performed randomly. Randomization could meet the requirement of the statistical methods that the observations (or errors) are independently distributed random variables. By using randomization, extraneous errors could be averaged out.</p>
+<p><strong>replication</strong> means an independent <strong>repeat run</strong> of each factor combination. First it allows the experimenter to obtain an estimate of the experimental error; this estimate of error becomes a basic unit of measurement for determining whether observed differences in the data are really <em>statistically</em> different. Second if the sample mean is used to estimate the true mean response for one of the factor levels in the experiment, replication permits the experimenter to obtain a more precise estimate of this parameter.</p>
+<p><strong>Repeated measurement</strong> involves measuring the same subject multiple times; <strong>Replication</strong> involves running the same study on different subjects with identical conditions (same factor combination)</p>
+<p><strong>Blocking</strong> is a design technique used to improve the precision with which comparisons among the factors of interest are made. Often blocking is used to reduce or eliminate the variability transmitted from <strong>nuisance factors</strong>, which may influence the experimental response but in which we are not directly interested.</p>
+<h1 id="standard-deviation-and-standard-error">standard deviation and standard error</h1>
+<ul>
+<li><strong>Standard deviation</strong> describes variability within a <strong>single sample</strong>, while <strong>standard error</strong> describes variability across multiple samples of a population</li>
+<li><strong>Standard deviation</strong> is a descriptive statistic that can be calculated from sample data, while <strong>standard error</strong> is an inferential statistic that can only be estimated</li>
+</ul>
+<p><strong>Standard deviation</strong> involves population standard deviation <span class="math inline">\(\sigma\)</span> and sample standard deviation <span class="math inline">\(s_n\)</span>. Sample standard deviation <span class="math inline">\(s_n\)</span> includes biased estimator of <span class="math inline">\(\sigma\)</span> as <span class="math inline">\(s_n=\sqrt{\frac{1}{n}\sum_i^n(x_i-\bar{x})^2}\)</span> and unbiased estimator of <span class="math inline">\(\sigma\)</span> as <span class="math inline">\(s_{n-1}=\sqrt{\frac{n}{n-1}s_n^2}=\sqrt{\frac{1}{n-1}\sum_{i=1}^n(x_i-\bar{x})^2}\)</span></p>
+<p><strong>Standard error</strong> is the <strong>standard deviation</strong> of the means, and can be said as the <strong>standard deviation</strong> of the sampling distribution. <strong>Standard error</strong> of the mean <span class="math inline">\(\bar{x}\)</span> is equal to the population standard deviation divided by the square root of number of samples <span class="math inline">\(n\)</span></p>
+<p>Suppose <span class="math inline">\(X_1,X_2,\cdots,X_n\)</span> are a random sample from an <span class="math inline">\(N(\mu,\sigma^2)\)</span> distribution. Then the standard deviation of <span class="math inline">\(\bar{X}\)</span> is the standard error, as <span class="math inline">\(SD(\bar{X})=\sigma/\sqrt{n}\)</span>. Usually the <span class="math inline">\(\sigma\)</span> is unknown, and is estimated by <span class="math inline">\(s_n\)</span> or <span class="math inline">\(s_{n-1}\)</span>. Therefore, by giving the observed sample standard deviation <span class="math inline">\(s_n\)</span> or <span class="math inline">\(s_{n-1}\)</span>, the standard error of the mean <span class="math inline">\(\bar{X}\)</span> could be estimated by <span class="math inline">\(SE(\bar{X})=\frac{s_n}{\sqrt{n}}\)</span> or <span class="math inline">\(SE(\bar{X})=\frac{s_{n-1}}{\sqrt{n}}\)</span></p>
+<h1 id="confidence-interval-and-credible-interval">Confidence interval and credible interval</h1>
+<p>A great explanation of the difference between confidence interval and credible interval can be found in <a href="https://stats.stackexchange.com/questions/2272/whats-the-difference-between-a-confidence-interval-and-a-credible-interval">What's the difference between a confidence interval and a credible interval?</a></p>
+<h1 id="sufficient-statistic">Sufficient statistic</h1>
+<p>Here is an useful <strong>Q&amp;A</strong> explaining the definition of <strong>sufficient statistic</strong></p>
+<p><a href="https://math.stackexchange.com/questions/1186645/understanding-sufficient-statistic">Understanding Sufficient statistic.</a></p>
+<h1 id="power-sample-size-and-effect-size">Power, sample size, and effect size</h1>
+<p>Here is a great blog explaining the definition of power, sample size calculation and effect size calculation</p>
+<p><a href="https://sphweb.bumc.bu.edu/otlt/mph-modules/bs/bs704_power/bs704_power_print.html#:~:text=In%20order%20to%20estimate%20the,%2C%20or%20largest%2C%20sample%20sizes.">power and sample size determination</a></p>
+<h1 id="reference">Reference</h1>
+<ul>
+<li><p><a href="https://www.wiley.com/en-us/Design+and+Analysis+of+Experiments%2C+10th+Edition-p-9781119492443">Design and analysis of experiments</a></p></li>
+<li><p><a href="https://stats.stackexchange.com/questions/62312/difference-between-replication-and-repeated-measurements">Difference between replication and repeated measurements</a></p></li>
+<li><p><a href="https://www.pearson.com/us/higher-education/program/Tamhane-Statistics-and-Data-Analysis-From-Elementary-to-Intermediate/PGM227786.html">Statistics and Data Analysis: From Elementary to Intermediate</a></p></li>
+<li><p><a href="https://stats.stackexchange.com/questions/2272/whats-the-difference-between-a-confidence-interval-and-a-credible-interval">What's the difference between a confidence interval and a credible interval?</a></p></li>
+<li><p><a href="https://math.stackexchange.com/questions/1186645/understanding-sufficient-statistic">Understanding Sufficient statistic.</a></p></li>
+<li><p><a href="https://sphweb.bumc.bu.edu/otlt/mph-modules/bs/bs704_power/bs704_power_print.html#:~:text=In%20order%20to%20estimate%20the,%2C%20or%20largest%2C%20sample%20sizes.">power and sample size determination</a></p></li>
+</ul>
+]]></content>
+      <categories>
+        <category>experiment design</category>
+      </categories>
+      <tags>
+        <tag>Math statistics</tag>
+        <tag>Bayes</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Mind thinking</title>
+    <url>/2022/10/31/mind-thinking/</url>
+    <content><![CDATA[<p>There is a strong possibility that we were created by an unknown entity or entities (I choose to switch between singular and plural for not knowing if there are a group of entities). Assuming this to be true, the following question can be posed: who creates the mysterious entity or entities that create us?</p>
+<p>Following this line of reasoning, one would conclude that the entire universe is a simulation, functioning like Matryoshka dolls, and is replete with unending circulation.</p>
+<p><img src="https://res.cloudinary.com/djd9gr1bu/image/upload/v1667201189/github_page/parallel_potzkz.jpg" alt="hi" class="inline"/></p>
+<p>Given the notion that we are simulated with an extraordinarily high probability, emotions have lost their significance. In reality, the level of chemical compounds such as dopamine is closely connected with the degree of depression or happiness. However, not only feelings are pointless. According to this idea, intelligence, physical characteristics, and a variety of other factors are determined before birth.</p>
+<p>From what I've seen, it's easy for people to accept that they're not strong or tall based on their genes and nutrition during adolescence, but it's often excruciatingly painful to accept that their fluid intelligence may not get better with time. <em>To avoid depression, it would be advantageous to be a complete and absolute rationalist in the truest sense of the term, while at the same time accepting some dogmas.</em></p>
+<p><img src="https://res.cloudinary.com/djd9gr1bu/image/upload/v1667201074/github_page/brain_image_pocqns.webp" alt="hi" class="inline"/></p>
+<p>It is possible that we are modifiable modules. In this simulation experiment, the traits were allocated at the beginning of the birth, but the roads to our fate are countless. As a result, we could compare ourselves to humanoid robotics by employing various algorithms to traverse the final uncertainty. Bayes's rule might be used to determine the local optimal path, and reinforcement learning could be used to continuously adjust daily strategy.</p>
+<p>This blog entry serves as a reminder to consider my weaknesses from the past to the present. Knowing every failure I've encountered, stupid decision I've made, and wrong verbal response or body language I've displayed has been the primary discipline in my life, and will remain so in the future.</p>
+]]></content>
+      <categories>
+        <category>random thoughts</category>
+      </categories>
+      <tags>
+        <tag>random thoughts</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Laplace approximation</title>
+    <url>/2022/05/29/laplace-approximation/</url>
+    <content><![CDATA[<p>The Laplace technique can be used to approximate the reasonably well behaved functions that have most of their mass concentrated in a small area of their domain.<a href="https://bookdown.org/rdpeng/advstatcomp/laplace-approximation.html#computing-the-posterior-mean">(Laplace approximation)</a> Technically, it works for functions that are in the class of <span class="math inline">\(\mathcal{L}^2\)</span>, which is also called the square integrable function, meaning <span class="math display">\[
+\int g(x)^2dx &lt;\infty
+\]</span> Such a function generally has a very rapid decreasing tails so that in the far reaches of the domain we would not expect to see large spikes.</p>
+<p>The Laplace approximation framework is a simple but widely used framework, and aims to find a Gaussian approximation to a probability density <strong>defined over a set of continuous variables</strong>. (<a href="https://cedar.buffalo.edu/~srihari/CSE574/Chap4/4.4-Laplace.pdf">Laplace approximation</a>)</p>
+<p>In <a href="https://en.wikipedia.org/wiki/Bayesian_statistics">Bayesian statistics</a>, <strong>Laplace approximation</strong> can refer to either approximating the <a href="https://en.wikipedia.org/wiki/Normalizing_constant">posterior normalizing constant</a> with <a href="https://en.wikipedia.org/wiki/Laplace&#39;s_method#cite_note-1">Laplace's method</a> or approximating the posterior distribution with a <a href="https://en.wikipedia.org/wiki/Normal_distribution">Gaussian</a> centered at the <a href="https://en.wikipedia.org/wiki/Maximum_a_posteriori_estimation">maximum a posteriori estimate</a>.<a href="https://en.wikipedia.org/wiki/Laplace&#39;s_method#cite_note-2">(Amaral Turkman 2019)</a></p>
+<p>Suppose we want to approximate the pdf <span class="math inline">\(p(\theta)\)</span>, which doesn't belong to any known distribution. The density curve is smooth and well peaked around its point of maxima <span class="math inline">\(\hat{\theta}\)</span>. Thereby, <span class="math inline">\(\frac{dp(\theta)}{d\theta}|_{\hat{\theta}}=0\)</span> and <span class="math inline">\(\frac{d^2p(\theta)}{d\theta^2}|_{\hat{\theta}}&lt;0\)</span>; thus we can conclude that <span class="math inline">\(\frac{dlnp(\theta)}{d\theta}|_{\hat{\theta}}=0\)</span> and <span class="math inline">\(\frac{d^2lnp(\theta)}{d\theta^2}|_{\hat{\theta}}&lt;0\)</span></p>
+<p>Then we can approximate it by a normal pdf. Denote <span class="math inline">\(h(\theta)=lnp(\theta)\)</span> <span class="math display">\[
+\begin{gather*}
+h(\theta)\approx lnp(\hat{\theta})+(\theta-\hat{\theta})\frac{dlnp(\theta)}{d\theta}|_{\hat{\theta}}+\frac{1}{2}(\theta-\hat{\theta})^2\frac{d^2lnp(\theta)}{d\theta^2}|_{\hat{\theta}}\\
+=lnp(\hat{\theta})-\frac{1}{2}(\theta-\hat{\theta})^2\frac{-d^2lnp(\theta)}{d\theta^2}|_{\hat{\theta}}\ (\frac{dlnp(\theta)}{d\theta}|_{\hat{\theta}}=0)\\
+=lnp(\hat{\theta})-\frac{(\theta-\hat{\theta})^2}{2\sigma^2}\ (\sigma^2=(\frac{-d^2lnp(\theta)}{d\theta^2}|_{\hat{\theta}})^{-1}&gt;0)\\
+\Rightarrow p(\theta)=e^{h(\theta)}\approx p(\hat{\theta})e^{-\frac{(\theta-\hat{\theta})^2}{2\sigma^2}}\\
+\Rightarrow p(\theta)\propto e^{-\frac{(\theta-\hat{\theta})^2}{2\sigma^2}}
+\end{gather*}
+\]</span> Suppose <span class="math inline">\(f(\theta)=e^{-\frac{(\theta-\hat{\theta})^2}{2\sigma^2}}\)</span>, then we can approximate <span class="math inline">\(p(\theta)\)</span> as <span class="math display">\[
+\begin{gather*}
+p(\theta)\approx \frac{1}{\int f(\theta)d\theta}f(\theta)\\
+=\frac{1}{\sqrt{2\pi}\sigma\int \frac{1}{\sqrt{2\pi}\sigma}e^{-\frac{(\theta-\hat{\theta})^2}{2\sigma^2}}d\theta}e^{-\frac{(\theta-\hat{\theta})^2}{2\sigma^2}}\\
+=\frac{1}{\sqrt{2\pi}\sigma}e^{-\frac{(\theta-\hat{\theta})^2}{2\sigma^2}}\\
+\text{where }\int f(\theta)d\theta\text{ is the normalizing term}
+\end{gather*}
+\]</span> As a result, pdf of <span class="math inline">\(\theta\)</span> is approximated by a normal distribution using Laplace method, which can be shown as below <span class="math display">\[
+\begin{gather*}
+\theta\sim N(\hat{\theta},\sigma^2)\\
+\sigma^2=(\frac{-d^2lnp(\theta)}{d\theta^2}|_{\hat{\theta}})^{-1}&gt;0
+\end{gather*}
+\]</span></p>
+<h1 id="reference">Reference</h1>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Laplace%27s_method#cite_note-2">Laplace's method</a></li>
+<li><a href="https://cedar.buffalo.edu/~srihari/CSE574/Chap4/4.4-Laplace.pdf">SUNY buffalo lecture notes</a></li>
+<li><a href="https://bookdown.org/rdpeng/advstatcomp/laplace-approximation.html#computing-the-posterior-mean">Advanced statistical computing</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Normalizing_constant">Normalizing constant</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Taylor%27s_theorem">Taylor's theorem</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Bayesian_statistics">Bayesian statistics</a></li>
+<li><a href="https://www.cs.cmu.edu/~tom/10-702/laplace.pdf">Azevedo-Filho,A. 1994</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Laplace&#39;s_method#cite_note-2">Amaral Turkman 2019</a></li>
+<li><a href="http://www2.stat.duke.edu/~st118/sta250/laplace.pdf">Duke lecture notes</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>statistics</category>
+      </categories>
+      <tags>
+        <tag>Math statistics</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Prove $\bar{X}$ and $X_i-\bar{X}$ are independent if $X_i&#39;s$ are normally distributed</title>
+    <url>/2022/09/01/independent-random-vectors/</url>
+    <content><![CDATA[<p>To Prove <span class="math inline">\(\bar{X}\)</span> and <span class="math inline">\(X_i-\bar{X}\)</span> are independent if <span class="math inline">\(X_i&#39;s\)</span> are normally distributed and <span class="math inline">\(\bar{X}\)</span> and <span class="math inline">\(X_i-\bar{X}\)</span> are uncorrelated, two conditions are needed to be fulfilled:</p>
+<ul>
+<li>Prove that given a joint MGF <span class="math inline">\(M_{X,Y}(s,t)\)</span>, <span class="math inline">\(M_{X,Y}(s,t)=M_X(s)\cdot M_Y(t)\)</span> is the sufficient condition for independence of <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span></li>
+<li>Prove MGF of <span class="math inline">\((\bar{X},X_i-\bar{X})\)</span> can be expressed as product of MGF of <span class="math inline">\(\bar{X}\)</span> and MGF of <span class="math inline">\(X_i-\bar{X}\)</span></li>
+</ul>
+<p>It's worth mentioning the <strong>uniqueness theorem of MGFS</strong>:</p>
+<blockquote>
+<p><strong>Theorem 1:</strong></p>
+<p>Suppose <span class="math inline">\(\exists\mathbf{t}&gt;0\)</span> such that <span class="math inline">\(M_{\mathbf{X}}(\mathbf{t})&lt;\infty\)</span> for all <span class="math inline">\(\mathbf{t}\in\mathbb{R}^n\)</span> with <span class="math inline">\(||\mathbf{t}||\leq r\)</span>. Then, the distribution of <span class="math inline">\(\mathbf{X}\)</span></p>
+<p>is determined uniquely by the function <span class="math inline">\(M_{\mathbf{X}}\)</span>. That is, if <span class="math inline">\(\mathbf{Y}\)</span> is any random vector whose MGF is the same as <span class="math inline">\(M_{\mathbf{X}}\)</span>, then <span class="math inline">\(\mathbf{Y}\)</span> has the same distribution as <span class="math inline">\(\mathbf{X}\)</span></p>
+</blockquote>
+<p>Let <span class="math inline">\(\mathbf{X}\)</span> be a random <span class="math inline">\(n-\)</span>vector with a MGF that is finite in an open neighborhood of the origin <span class="math inline">\(0\in \mathbb{R}^n\)</span>. Let <span class="math inline">\(\tilde{X}\)</span> denote an <strong>independent</strong> copy of <span class="math inline">\(\mathbf{X}\)</span>. Define a new random vector <span class="math inline">\(\mathbf{Y}\)</span> as follows: <span class="math display">\[
+\mathbf{Y:=}\begin{bmatrix}X_1\\ \vdots \\ X_r\\\tilde{X}_{r+1}\\
+\vdots\\ \tilde{X}_n\end{bmatrix}
+\]</span> Then, <span class="math display">\[
+\begin{gather*}
+M_{\mathbf{Y}}(\mathbf{t})=Ee^{\sum_{i=1}^rt_iX_i}\cdot Ee^{\sum_{j=r+1}^nt_jX_j}\\
+=M_{\mathbf{X}}(t_1,\cdots,t_r,0\cdots,0)\cdot M_{\mathbf{X}}(0,\cdots,0,t_{r+1},\cdots,t_n)
+\end{gather*}
+\]</span> Suppose there exists <span class="math inline">\(r=1,\cdots,n\)</span> such that <span class="math display">\[
+M_{\mathbf{X}}(\mathbf{t})=M_{\mathbf{X}}(t_1,\cdots,t_r,0,\cdots,0)\cdot M_{\mathbf{X}}(0,\cdots,0,t_{r+1},\cdots,t_n)
+\]</span> for all <span class="math inline">\(\mathbf{t}\in \mathbb{R}^n\)</span>.</p>
+<p>Then according to the <strong>theorem 1</strong>, <span class="math inline">\(\mathbf{X}\)</span> and <span class="math inline">\(\mathbf{Y}\)</span> have the same MGF’s, and therefore have the same distribution. That is, for all sets <span class="math inline">\(A_1,\cdots,A_n,\)</span> there is <span class="math display">\[
+P\{X_1\in A_1,\cdots,X_n\in A_j\}=P\{Y_1\in A_1,\cdots,Y_n\in A_n\}
+\]</span> which is, by construction equal to <span class="math display">\[
+P\{X_1\in A_1,\cdots,X_r\in A_r\}\cdot P\{\tilde{X}_{r+1}\in A_{r+1},\cdots,\tilde{X}_n\in A_n\}
+\]</span> Since <span class="math inline">\(\tilde{X}\)</span> has the same distribution as <span class="math inline">\(\mathbf{X}\)</span>, this proves that <span class="math display">\[
+P\{X_1\in A_1,\cdots, X_n\in A_n\}=P\{X_1\in A_1,\cdots,X_r\in A_r\}\cdot P\{X_{r+1}\in A_{r+1},\cdots,X_n\in A_n\}
+\]</span> Which implies that <span class="math inline">\((X_1,\cdots,X_r)\)</span> and <span class="math inline">\((X_{r+1},\cdots,X_n)\)</span> are independent.</p>
+<p>Then we have the second theorem</p>
+<blockquote>
+<p><strong>Theorem 2</strong>:</p>
+<p>(Independence theorem of MGFs). Let <span class="math inline">\(X\)</span> be a random n-vector with a MGF that is finite in an open neighborhood of the origin <span class="math inline">\(\mathbf{0}\in \mathbb{R}^n\)</span>. Suppose there exists <span class="math inline">\(r=1,\cdots,n\)</span> such that <span class="math display">\[
+M_{\mathbf{X}}(\mathbf{t})=M_{\mathbf{X}}(t_1,\cdots,t_r,0,\cdots,0)\cdot M_{\mathbf{X}}(0,\cdots,0,X_{r+1},\cdots,X_n)
+\]</span> for all <span class="math inline">\(\mathbf{t}\in\mathbb{R}^n\)</span>. Then <span class="math inline">\((X_1,\cdots,X_r)\)</span> and <span class="math inline">\((X_{r+1},\cdots,X_n)\)</span> are independent</p>
+</blockquote>
+<p>By now, we have proved the first statement that</p>
+<blockquote>
+<p>Given a joint MGF <span class="math inline">\(M_{X,Y}(s,t)\)</span>, <span class="math inline">\(M_{X,Y}(s,t)=M_X(s)\cdot M_Y(t)\)</span> is the sufficient condition for independence of <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span></p>
+</blockquote>
+<p>Next we prove the second statement, by utilizing the first statement.</p>
+<p>The proof process is given by the answer to my posted question <a href="https://math.stackexchange.com/questions/4521956/prove-barx-and-x-i-barx-are-independent-if-x-is-are-normally-distri">Prove <span class="math inline">\(\bar{X}\)</span> and <span class="math inline">\(X_i-\bar{X}\)</span> are independent if <span class="math inline">\(X_i&#39;s\)</span> are independently normally distributed</a></p>
+<p>I hereby paste this elegant answer in my blog, and also give thanks to <a href="https://math.stackexchange.com/users/154826/damian-pavlyshyn">Damian Pavlyshyn</a></p>
+<p>(Note: In this answer I'll only consider standard normal <span class="math inline">\(X_i\)</span>s, since it's no harder to do when they have other means and variances)</p>
+<p>One way of doing this is with moment generating functions. For a bivariate random variable <span class="math inline">\(Z = (Z_1, Z_2)\)</span>, <span class="math inline">\(Z_1\)</span> and <span class="math inline">\(Z_2\)</span> are independent if and only if the moment generating function <span class="math inline">\(M_Z(\mathbf{s}) = \mathbf{E} e^{\mathbf{s}^T Z}\)</span> factors into a product of a functions of <span class="math inline">\(s_1\)</span> and <span class="math inline">\(s_2\)</span> only, where <span class="math inline">\(\mathbf{s} = (s_1, s_2)\)</span>.</p>
+<p>Now, the thing to notice is that <span class="math inline">\((\bar{X}, X_i - \bar{X})\)</span> is a linear transformation of the whole sample <span class="math inline">\(X = (X_1, \dotsc, X_n)\)</span>. Namely, <span class="math display">\[
+\begin{pmatrix}\bar{X} \\ X_i - \bar{X}\end{pmatrix}
+= \begin{pmatrix}\mathbf{1}^T/n \\ e_i^T - \mathbf{1}^T/n\end{pmatrix} X
+:= H X
+\]</span> where <span class="math inline">\(\mathbf{1}\)</span> is a vector of all <span class="math inline">\(1\)</span>s and <span class="math inline">\(e_i\)</span> is the vector of all <span class="math inline">\(0\)</span>s with a <span class="math inline">\(1\)</span> in the <span class="math inline">\(i\)</span>th entry.</p>
+<p>We can use this to write down the MGF: <span class="math display">\[
+\begin{align*}
+\mathbf{E} \exp\biggl\{\mathbf{s}^T \begin{pmatrix}\bar{X} \\ X_i - \bar{X}\end{pmatrix}\biggr\}
+= \mathbf{E} \exp\{\mathbf{s}^T H X\} 
+= \mathbf{E} \exp\{(H^T\mathbf{s})^T X\} 
+\end{align*}
+\]</span> Then we can use the known moment generating function of a vector of <strong>iid normals</strong> (<span class="math inline">\(\mathbf{E} e^{\mathbf{t}^T X} = \exp\{\frac{1}{2}\mathbf{t}^T \mathbf{t}\}\)</span>) to conclude that <span class="math display">\[
+\mathbf{E} \exp\{(H^T\mathbf{s})^T X\} 
+= \exp\{\frac{1}{2}(H^T\mathbf{s})^T(H^T\mathbf{s})\}
+= \exp\{\frac{1}{2}\mathbf{s}^T HH^T \mathbf{s}\}.
+\]</span></p>
+<p>Now, we can multiply <span class="math display">\[
+\begin{gather*}
+HH^T = \begin{pmatrix}\mathbf{1}^T/n \\ e_i^T - \mathbf{1}^T/n\end{pmatrix} \begin{pmatrix}\mathbf{1}/n , &amp; e_i - \mathbf{1}/n\end{pmatrix} \\
+= \begin{pmatrix}
+\mathbf{1}^T/n \mathbf{1}/n &amp; \mathbf{1}^T/n (e_i - \mathbf{1}/n) \\
+(e_i - \mathbf{1}/n)^T \mathbf{1}/n &amp; (e_i - \mathbf{1}/n)^T(e_i - \mathbf{1}/n)
+\end{pmatrix} \\
+= \begin{pmatrix}
+1/n &amp; 0 \\
+0 &amp; 1 - 1/n
+\end{pmatrix}
+\end{gather*}
+\]</span></p>
+<p>so that the MGF becomes <span class="math display">\[
+\exp\biggl\{\frac{1}{2}\mathbf{s}^T HH^T \mathbf{s}\biggr\}
+= \exp\biggl\{\frac{1}{2}\biggl(\frac{1}{n}s_1^2 + \frac{n-1}{n}s_2^2\biggr)\biggr\}
+= e^{\frac{1}{2n}s_1^2} e^{\frac{n-1}{2n} s_2^2}.
+\]</span></p>
+<p>Since this factors into terms containing only <span class="math inline">\(s_1\)</span> and <span class="math inline">\(s_2\)</span> respectively, we conclude that <span class="math inline">\(\bar{X}\)</span> and <span class="math inline">\(X_i - \bar{X}\)</span> are independent (and also that they have <span class="math inline">\(N(0, 1/n)\)</span> and <span class="math inline">\(N(0, 1 - 1/n)\)</span> distributions respectively).</p>
+<h2 id="reference">Reference</h2>
+<ul>
+<li><p><a href="https://drive.google.com/file/d/1OpCqfbBYdXLlstIkWCTPoGAyS-6B-yTJ/view">Moment generating function, multivariate normal</a></p></li>
+<li><p><a href="https://drive.google.com/file/d/1-M0Y2A365Xn1TX3Eo7mbZwVoSKfM8nDL/view?usp=sharing">Moment generating function and independence</a></p></li>
+<li><p><a href="https://stats.stackexchange.com/questions/74711/necessary-and-sufficient-condition-on-joint-mgf-for-independence">Necessary and sufficient condition on joint MGF for independence</a></p></li>
+<li><p><a href="https://math.stackexchange.com/questions/4521956/prove-barx-and-x-i-barx-are-independent-if-x-is-are-normally-distri">Prove <span class="math inline">\(\bar{X}\)</span> and <span class="math inline">\(X_i-\bar{X}\)</span> are independent if <span class="math inline">\(X_i&#39;s\)</span> are independently normally distributed</a></p></li>
+<li><p><a href="https://stats.stackexchange.com/questions/519827/why-does-bary-y-i-bary-being-normally-distributed-imply-that-bar">Why does <span class="math inline">\((\bar{Y}, Y_i - \bar{Y})\)</span> being normally distributed imply that <span class="math inline">\(\bar{Y}\)</span> and <span class="math inline">\(Y_i - \bar{Y}\)</span> are independent for all <span class="math inline">\(i\)</span>?</a></p></li>
+<li><p><a href="https://math.stackexchange.com/questions/609732/jointly-gaussian-uncorrelated-random-variables-are-independent">Jointly Gaussian uncorrelated random variables are independent</a></p></li>
+</ul>
+]]></content>
+      <categories>
+        <category>statistics</category>
+      </categories>
+      <tags>
+        <tag>Math statistics</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>log-normal distribution</title>
+    <url>/2022/05/29/log-normal-distribution/</url>
+    <content><![CDATA[<p>The p.d.f. of log-normal distribution is <span class="math display">\[
+f_X(x)=\frac{1}{x\sigma\sqrt{2\pi}}e^{-\frac{1}{2}(\frac{lnx-\mu}{\sigma})^2}
+\]</span></p>
+<blockquote>
+<p><a href="https://towardsdatascience.com/log-normal-distribution-a-simple-explanation-7605864fb67c">The log-normal distribution is a right skewed continuous probability distribution, meaning it has a long tail towards the right. It is used for modelling various natural phenomena such as income distributions, the length of chess games or the time to repair a maintainable system and more.</a></p>
+</blockquote>
+<p>If the random variable <span class="math inline">\(X\)</span> is log-normally distributed, then <span class="math inline">\(Y=\ln(X)\)</span> has a normal distribution. We can apply the same rule from <a href="https://weiruhan.github.io/2022/05/09/Density-of-transformed-random-variable/">Density of transformed random variable</a> to prove this statement. <span class="math display">\[
+\begin{gather*}
+X\sim LogNormal(\mu,\sigma^2)\\
+Y=lnX\\
+X=\psi(Y)=e^Y\\
+\Rightarrow g_Y(y)=f(\psi(y))|\frac{dx}{dy}|\\
+=\frac{1}{e^y\sigma\sqrt{2\pi}}e^{-\frac{1}{2}(\frac{y-\mu}{\sigma})^2}e^y\\
+=\frac{1}{\sigma\sqrt{2\pi}}e^{-\frac{1}{2}(\frac{y-\mu}{\sigma})^2}\\
+\Rightarrow Y\sim N(\mu,\sigma^2)
+\end{gather*}
+\]</span></p>
+<h2 id="reference">Reference</h2>
+<ul>
+<li><a href="https://towardsdatascience.com/log-normal-distribution-a-simple-explanation-7605864fb67c">Log-normal Distribution - A simple explanation</a></li>
+<li><a href="https://weiruhan.github.io/2022/05/09/Density-of-transformed-random-variable/">Density of transformed random variable</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>statistics</category>
+      </categories>
+      <tags>
+        <tag>Statistics and Data analysis from elementary to intermediate</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>q-value</title>
+    <url>/2022/05/28/q-value/</url>
+    <content><![CDATA[<h1 id="q-value">Q value</h1>
+<p>From <a href="https://en.wikipedia.org/wiki/Q-value_(statistics)">wikipedia</a>, q value is phrased as follows</p>
+<blockquote>
+<p>In <a href="https://en.wikipedia.org/wiki/Statistical_hypothesis_testing">statistical hypothesis testing</a>, specifically <a href="https://en.wikipedia.org/wiki/Multiple_comparisons_problem">multiple hypothesis testing</a>, the <strong>q-value</strong> provides a means to control the <a href="https://en.wikipedia.org/wiki/False_discovery_rate#Related_error_rates">positive false discovery rate</a> (pFDR).<a href="https://en.wikipedia.org/wiki/Q-value_(statistics)#cite_note-:0-1">John D. 2003</a> Just as the <a href="https://en.wikipedia.org/wiki/P-value">p-value</a> gives the expected <a href="https://en.wikipedia.org/wiki/False_positive_rate">false positive rate</a> obtained by rejecting the <a href="https://en.wikipedia.org/wiki/Null_hypothesis">null hypothesis</a> for any result with an equal or smaller p-value, the q-value gives the expected pFDR obtained by rejecting the null hypothesis for any result with an equal or smaller q-value.</p>
+</blockquote>
+<p>From <a href="https://www.pearson.com/us/higher-education/program/Tamhane-Statistics-and-Data-Analysis-From-Elementary-to-Intermediate/PGM227786.html">Statistics and Data analysis: From elementary to Intermediate</a>, we can find the explicit definition of <strong>p-value</strong></p>
+<blockquote>
+<p>Simply rejecting or not rejecting <span class="math inline">\(H_0\)</span> at a specified <span class="math inline">\(\alpha\)</span> does not fully convey the information in the data. It is more useful to report the <em>smallest</em> a-level at which the observed test result is significant. This smallest <span class="math inline">\(\alpha\)</span>-level is called the <strong>observed level of significance</strong> or the <strong>P-value.</strong> The smaller the <strong>P-value</strong>, the more significant is the test result. Once the <strong>P-value</strong> is computed, a test at any specified <span class="math inline">\(\alpha\)</span> can be conducted by rejecting <span class="math inline">\(H_0\)</span> if <strong>P-value</strong><span class="math inline">\(&lt;\alpha\)</span>. <code>An alternative definition of the <strong>P-value</strong> is that it is the probability under Null hypothesis of obtaining a test statistic at least as "extreme" as the observed value. </code></p>
+</blockquote>
+<p>We can provide an example to enhance the understanding of <strong>p-value</strong> and <strong>q-value</strong>. Assume we have <span class="math inline">\(1000\)</span> tests. Each test will produce a <strong>p-value</strong>. We can order these <strong>p-values</strong> from the smallest to the largest. A <strong>p-value</strong> of <span class="math inline">\(0.05\)</span> means <span class="math inline">\(5\%\)</span> of <strong>all tests</strong> which is 50 tests are expected to output false positive results. A <strong>q-value</strong> of <span class="math inline">\(0.05\)</span> means tests with <strong>q-value</strong> less than <span class="math inline">\(0.05\)</span> are all considered to be significant, and <span class="math inline">\(5\%\)</span> of these significant tests are expected to output false positive results.</p>
+<p>One of the methods that adjust <strong>p-value</strong> to <strong>q-value</strong> is the <a href="%5B10.1111/j.2517-6161.1995.tb02031.x%5D(https://doi.org/10.1111%2Fj.2517-6161.1995.tb02031.x)">Benjamini-Hochberg method</a>, (short for <strong>BH</strong>). The <strong>BH-adjusted p-values</strong> are defined as <span class="math display">\[
+p_{(i)}^{BH}=min\{\underset{j\geq i}{min}\{\frac{mp_{(j)}}{j}\},1\}
+\]</span> The process is as follows.</p>
+<blockquote>
+<ol type="1">
+<li>Order all <strong>p-values</strong> in an ascending sequence. Then multiply each <strong>p-value</strong> by the total number of test <span class="math inline">\(m\)</span> and divide by its rank order</li>
+<li>For the first <strong>p-value</strong>, find the minimum value of <span class="math inline">\(\frac{mp_{(j)}}{j}\)</span>for <span class="math inline">\(j=1,2,\cdots,m\)</span>; compare with <span class="math inline">\(1\)</span>, assign <strong>q-value</strong> as <span class="math inline">\(1\)</span> if it is larger than <span class="math inline">\(1\)</span>. This value would be the smallest <strong>q-value</strong> among all tests; For the second <strong>p-value</strong>, find the minimum value of <span class="math inline">\(\frac{mp_{(j)}}{j}\)</span>for <span class="math inline">\(j=2,\cdots,m\)</span>, this <strong>q-value</strong> must be less than the first <strong>q-value</strong>. We begin this procedure until all <strong>p-values</strong> are adjusted to <strong>q-values</strong></li>
+</ol>
+</blockquote>
+<p>We can write <strong>BH method</strong> using R code</p>
+<figure class="highlight r"><table><tr><td class="code"><pre><span class="line"><span class="operator">&gt;</span> BH <span class="operator">&lt;-</span> <span class="keyword">function</span><span class="punctuation">(</span>p.values<span class="punctuation">)</span></span><br><span class="line"><span class="operator">+</span> <span class="punctuation">&#123;</span></span><br><span class="line"><span class="operator">+</span>   p <span class="operator">&lt;-</span> p.values</span><br><span class="line"><span class="operator">+</span>   lp <span class="operator">&lt;-</span> <span class="built_in">length</span><span class="punctuation">(</span>p<span class="punctuation">)</span></span><br><span class="line"><span class="operator">+</span>   i <span class="operator">&lt;-</span> lp<span class="operator">:</span><span class="number">1L</span></span><br><span class="line"><span class="operator">+</span>   <span class="comment"># key to the p.values (key1)</span></span><br><span class="line"><span class="operator">+</span>   o <span class="operator">&lt;-</span> order<span class="punctuation">(</span>p<span class="punctuation">,</span>decreasing <span class="operator">=</span> <span class="literal">TRUE</span><span class="punctuation">)</span></span><br><span class="line"><span class="operator">+</span>   <span class="comment"># key to the key1 (key2)</span></span><br><span class="line"><span class="operator">+</span>   ro <span class="operator">&lt;-</span> order<span class="punctuation">(</span>o<span class="punctuation">)</span></span><br><span class="line"><span class="operator">+</span>   pmin<span class="punctuation">(</span><span class="number">1</span><span class="punctuation">,</span><span class="built_in">cummin</span><span class="punctuation">(</span>lp<span class="operator">/</span>i <span class="operator">*</span> p<span class="punctuation">[</span>o<span class="punctuation">]</span><span class="punctuation">)</span><span class="punctuation">)</span><span class="punctuation">[</span>ro<span class="punctuation">]</span></span><br><span class="line"><span class="operator">+</span> <span class="punctuation">&#125;</span></span><br><span class="line"><span class="operator">&gt;</span> BH<span class="punctuation">(</span><span class="built_in">c</span><span class="punctuation">(</span><span class="number">0.05</span><span class="punctuation">,</span><span class="number">0.02</span><span class="punctuation">,</span><span class="number">0.2</span><span class="punctuation">,</span><span class="number">0.4</span><span class="punctuation">,</span><span class="number">0.5</span><span class="punctuation">)</span><span class="punctuation">)</span></span><br><span class="line"><span class="punctuation">[</span><span class="number">1</span><span class="punctuation">]</span> <span class="number">0.1250000</span> <span class="number">0.1000000</span> <span class="number">0.3333333</span> <span class="number">0.5000000</span> <span class="number">0.5000000</span></span><br></pre></td></tr></table></figure>
+<p>We can visualize this process</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">p.value</th>
+<th style="text-align: center;">0.05</th>
+<th style="text-align: center;">0.02</th>
+<th style="text-align: center;">0.2</th>
+<th style="text-align: center;">0.4</th>
+<th style="text-align: center;">0.5</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">p.value position (key1)</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">5</td>
+</tr>
+</tbody>
+</table>
+<p><span class="math display">\[
+\downarrow
+\]</span></p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">p.value position(key1)</th>
+<th style="text-align: center;">5</th>
+<th style="text-align: center;">4</th>
+<th style="text-align: center;">3</th>
+<th style="text-align: center;">1</th>
+<th style="text-align: center;">2</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">q.value</td>
+<td style="text-align: center;">0.5</td>
+<td style="text-align: center;">0.5</td>
+<td style="text-align: center;">1/3</td>
+<td style="text-align: center;">0.125</td>
+<td style="text-align: center;">0.1</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Position of key (key2)</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">5</td>
+</tr>
+</tbody>
+</table>
+<p><span class="math display">\[
+\downarrow
+\]</span></p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">position of key (key2)</th>
+<th style="text-align: center;">4</th>
+<th style="text-align: center;">5</th>
+<th style="text-align: center;">3</th>
+<th style="text-align: center;">2</th>
+<th style="text-align: center;">1</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">p.value position (key1)</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">5</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">p.value</td>
+<td style="text-align: center;">0.05</td>
+<td style="text-align: center;">0.02</td>
+<td style="text-align: center;">0.2</td>
+<td style="text-align: center;">0.4</td>
+<td style="text-align: center;">0.5</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">q.value</td>
+<td style="text-align: center;">0.125</td>
+<td style="text-align: center;">0.1</td>
+<td style="text-align: center;">1/3</td>
+<td style="text-align: center;">1/2</td>
+<td style="text-align: center;">1/2</td>
+</tr>
+</tbody>
+</table>
+<h2 id="reference">Reference</h2>
+<ul>
+<li><p><a href="https://en.wikipedia.org/wiki/Q-value_(statistics)">wikipedia</a></p></li>
+<li><p><a href="https://www.pearson.com/us/higher-education/program/Tamhane-Statistics-and-Data-Analysis-From-Elementary-to-Intermediate/PGM227786.html">Statistics and Data analysis: From elementary to Intermediate</a></p></li>
+<li><p><a href="https://stats.stackexchange.com/questions/238458/whats-the-formula-for-the-benjamini-hochberg-adjusted-p-value">what's the formula for the Benjamini-Hochberg adjusted p-value?</a></p></li>
+<li><p><a href="https://www.jstor.org/stable/2346101">Benjamini &amp; Hochberg (1995)</a></p></li>
+</ul>
+]]></content>
+      <categories>
+        <category>statistics</category>
+      </categories>
+      <tags>
+        <tag>Statistics and Data analysis from elementary to intermediate</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Use of log in likelihood</title>
+    <url>/2022/05/29/use-of-log-in-likelihood/</url>
+    <content><![CDATA[<p>Below is an interesting question about likelihood from a thread in <a href="https://www.quora.com/Why-do-we-always-put-log-in-Maximum-Likelihood-estimation-before-estimate-the-parameter">quora</a></p>
+<p><strong>Why do we always put log() in Maximum likelihood estimatioon before estimate the parameter?</strong></p>
+<p>The answer to this question is</p>
+<blockquote>
+<p><span class="math inline">\(log(x)\)</span> is an increasing function. Therefore solving the following two problems gives the same result: <span class="math display">\[
+\begin{gather*}
+\underset{\theta}{max}\ f(x;\theta)\\
+\underset{\theta}{max}\ log(f(x;\theta))
+\end{gather*}
+\]</span></p>
+</blockquote>
+<p>From above two equations, it seems there is no necessity to put log to solve the problem. The reason to put log is because most of the times it's faster to deal with sums than the products in the objective since it is more convenient to differentiate the sums than produces. For example, suppose we have <span class="math inline">\(n\)</span> data points <span class="math inline">\(x_1,x_2,\cdots,x_n\)</span> which are iid drawn from <span class="math inline">\(f(x;\theta)\)</span> with unknown <span class="math inline">\(\theta\)</span>. MLE of <span class="math inline">\(\theta\)</span> will solve the following problems:</p>
+<blockquote>
+<p><span class="math display">\[
+\begin{gather*}
+\underset{\theta}{max}\ \underset{i=1}{\overset{n}{\prod}}f(x_i;\theta)\\
+\underset{\theta}{max}\ \underset{i=1}{\overset{n}{\sum}}log(f(x_i;\theta))
+\end{gather*}
+\]</span></p>
+</blockquote>
+<p>Two equations are equivalent, but it may take few addtional steps to reach the same condition if we use the product</p>
+<h1 id="reference">Reference</h1>
+<ul>
+<li><a href="https://www.quora.com/Why-do-we-always-put-log-in-Maximum-Likelihood-estimation-before-estimate-the-parameter"><strong>Why do we always put log() in Maximum Likelihood estimation before estimate the parameter?</strong></a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>statistics</category>
+      </categories>
+      <tags>
+        <tag>Math statistics</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>shell command</title>
+    <url>/2022/06/11/shell-command/</url>
+    <content><![CDATA[<p>Command to the ~./bash_logout so that the history will get cleared when you logout</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">echo</span> `<span class="built_in">history</span> -c` &gt;&gt; ~/.bash_logout</span><br></pre></td></tr></table></figure>
+<p>Get the name of the history file</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&quot;<span class="variable">$HISTFILE</span>&quot;</span></span><br></pre></td></tr></table></figure>
+<p>See the current history</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">history</span></span><br><span class="line"><span class="built_in">history</span> | grep <span class="string">&#x27;du&#x27;</span></span><br></pre></td></tr></table></figure>
+<p>Hide and display the cursor in the shell</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Hide the cursor</span></span><br><span class="line"><span class="built_in">echo</span> -e <span class="string">&quot;\033[?25l&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Display the cursor</span></span><br><span class="line"><span class="built_in">echo</span> -e <span class="string">&quot;\033[?25h&quot;</span></span><br></pre></td></tr></table></figure>
+<p>Three ways of multiple line annotation</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">:&lt;&lt;<span class="string">EOF</span></span><br><span class="line"><span class="string">annotation text...</span></span><br><span class="line"><span class="string">annotation text...</span></span><br><span class="line"><span class="string">annotation text...</span></span><br><span class="line"><span class="string">EOF</span></span><br><span class="line"></span><br><span class="line">:&lt;&lt;<span class="string">&#x27;</span></span><br><span class="line"><span class="string">annotation text...</span></span><br><span class="line"><span class="string">annotation text...</span></span><br><span class="line"><span class="string">annotation text...</span></span><br><span class="line"><span class="string">&#x27;</span></span><br><span class="line"></span><br><span class="line">:&lt;&lt;!</span><br><span class="line">annotation text...</span><br><span class="line">annotation text...</span><br><span class="line">annotation text...</span><br><span class="line">!</span><br></pre></td></tr></table></figure>
+<p>Make file executable</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">chmod</span> +x &lt;file.name&gt;</span><br></pre></td></tr></table></figure>
+<p>Use math equation in shell script (example)</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"></span><br><span class="line">val=`<span class="built_in">expr</span> 2 + 2`</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;sum of two numbers: <span class="variable">$val</span>&quot;</span></span><br></pre></td></tr></table></figure>
+<p><a href="https://www.runoob.com/linux/linux-shell-basic-operators.html"><strong>Operators in shell script</strong></a></p>
+<p>Enable interpretation of the backslash escapes</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">echo</span> -e</span><br></pre></td></tr></table></figure>
+<p>Read varable and assign to a variable <code>&lt;variable.name&gt;</code></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">read</span> &lt;variable.name&gt;</span><br></pre></td></tr></table></figure>
+<p><a href="https://www.runoob.com/linux/linux-vim.html"><strong>vi/vim</strong> language and affiliated shortcuts</a></p>
+<p><a href="https://www.runoob.com/linux/linux-shell-io-redirections.html">Shell I/O redirection</a></p>
+<h1 id="reference">Reference</h1>
+<ul>
+<li><a href="https://www.runoob.com/linux/linux-tutorial.html">Linux tutorial</a></li>
+<li><a href="https://www.jianshu.com/p/7fd317a45be5">How shell defines variables and assigns values to variables</a></li>
+<li><a href="https://www.cyberciti.biz/faq/clear-the-shell-history-in-ubuntu-linux/">How to clear shell history in Ubuntu Linux</a></li>
+<li><a href="https://askubuntu.com/questions/443789/what-does-chmod-x-filename-do-and-how-do-i-use-it">What does "chmod +x " do and how do I use it?</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Shell language</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>sum of normal random variables</title>
+    <url>/2022/06/08/sum-of-normal-random-variables/</url>
+    <content><![CDATA[<p>Suppose <span class="math inline">\(X,Y\)</span> are independent random variables from normal distributions, then sum of these two random variables is also a normal random variable. The proof of this statement could be referred to</p>
+<p><a href="https://en.wikipedia.org/wiki/Sum_of_normally_distributed_random_variables">Wikipedia-Proof using convolutions</a></p>
+<p>We could also generate graphs to elucidate this process</p>
+<figure class="highlight r"><table><tr><td class="code"><pre><span class="line"><span class="operator">&gt;</span> x <span class="operator">&lt;-</span> rnorm<span class="punctuation">(</span><span class="number">10000</span><span class="punctuation">,</span><span class="number">1</span><span class="punctuation">,</span><span class="number">10</span><span class="punctuation">)</span></span><br><span class="line"><span class="operator">&gt;</span> y <span class="operator">&lt;-</span> rnorm<span class="punctuation">(</span><span class="number">10000</span><span class="punctuation">,</span><span class="operator">-</span><span class="number">10</span><span class="punctuation">,</span><span class="number">10</span><span class="punctuation">)</span></span><br><span class="line"><span class="operator">&gt;</span> par<span class="punctuation">(</span>mfrow <span class="operator">=</span> <span class="built_in">c</span><span class="punctuation">(</span><span class="number">3</span><span class="punctuation">,</span><span class="number">1</span><span class="punctuation">)</span><span class="punctuation">)</span></span><br><span class="line"><span class="operator">&gt;</span> plot<span class="punctuation">(</span>density<span class="punctuation">(</span>x<span class="punctuation">)</span><span class="punctuation">)</span></span><br><span class="line"><span class="operator">&gt;</span> plot<span class="punctuation">(</span>density<span class="punctuation">(</span>y<span class="punctuation">)</span><span class="punctuation">)</span></span><br><span class="line"><span class="operator">&gt;</span> plot<span class="punctuation">(</span>density<span class="punctuation">(</span>x<span class="operator">+</span>y<span class="punctuation">)</span><span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+<p><img src="https://res.cloudinary.com/djd9gr1bu/image/upload/v1654722154/github_page/Rplot_qjknkd.png" alt="hi" class="inline"/></p>
+<h1 id="reference">Reference</h1>
+<ul>
+<li><a href="https://stats.libretexts.org/Bookshelves/Probability_Theory/Book%3A_Introductory_Probability_(Grinstead_and_Snell)/07%3A_Sums_of_Random_Variables/7.02%3A_Sums_of_Continuous_Random_Variables">sum of random variables</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Sum_of_normally_distributed_random_variables">Wikipedia-Proof using convolutions</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>Mathematics</category>
+      </categories>
+      <tags>
+        <tag>Math statistics</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Some default beginning in python</title>
+    <url>/2022/06/14/Some-default-beginning-in-python/</url>
+    <content><![CDATA[<ul>
+<li>Allow multiple results during one execution for one cell</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> IPython.core.interactiveshell <span class="keyword">import</span> InteractiveShell</span><br><span class="line">InteractiveShell.ast_node_interactivity = <span class="string">&quot;all&quot;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>Tell python interpreter to read code based on utf-8</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python3</span></span><br><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>python</category>
+      </categories>
+      <tags>
+        <tag>Python environment</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Basic command of hexo</title>
+    <url>/2022/11/07/hexo_tutorial/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="quick-start">Quick Start</h2>
+<h3 id="create-a-new-post">Create a new post</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="run-server">Run server</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="generate-static-files">Generate static files</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="deploy-to-remote-sites">Deploy to remote sites</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+<h2 id="reference">Reference</h2>
+<ul>
+<li><a href="https://theme-next.js.org/">Configure Hexo Next page from scratch</a></li>
+<li><a href="https://clarkchen.com/Hexo/Hexo%E4%B8%AD%E6%8F%92%E5%85%A5mermaid-diagrams/">Insert mermaid</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>hexo</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>delta method</title>
+    <url>/2022/06/02/delta-method/</url>
+    <content><![CDATA[<p>The Taylor series of a <a href="https://en.wikipedia.org/wiki/Real-valued_function">real</a> or <a href="https://en.wikipedia.org/wiki/Complex-valued_function">complex-valued function</a> <em>f</em> (<em>x</em>) that is <a href="https://en.wikipedia.org/wiki/Infinitely_differentiable_function">infinitely differentiable</a> at a <a href="https://en.wikipedia.org/wiki/Real_number">real</a> or <a href="https://en.wikipedia.org/wiki/Complex_number">complex number</a> <span class="math inline">\(a\)</span> is the <a href="https://en.wikipedia.org/wiki/Power_series">power series</a> <span class="math display">\[
+f(x)\approx f(a)+\frac{f&#39;(a)}{1}(x-a)+\frac{f&#39;&#39;(a)}{2!}(x-a)^2+\frac{f&#39;&#39;&#39;(a)}{3!}(x-a)^3+\cdots
+\]</span> Where <span class="math inline">\(n!\)</span> denotes the factorial of <span class="math inline">\(n\)</span>. In the more compact sigma notation, this can be written as <span class="math display">\[
+\underset{n=0}{\overset{\infty}{\sum}}\frac{f^{(n)}(a)}{n!}(x-a)^n
+\]</span> The property of taylor series determines two things:</p>
+<ul>
+<li>The approximation would be more closer to the original value of <span class="math inline">\(f(x)\)</span> if we add more terms</li>
+<li>As <span class="math inline">\(x\)</span> is more closer to the <span class="math inline">\(a\)</span>, the approximation will be more accurate</li>
+</ul>
+<p>We provide the following example to illustrate above two properties <span class="math display">\[
+\begin{gather*}
+f(x)=lnx(x\in(0,1))\\
+f(x)\approx lnx_0+(x-x_0)\frac{1}{x_0}(\text{first order})\\
+f(x)\approx lnx_0+(x-x_0)\frac{1}{x_0}-\frac{1}{2}(x-x_0)^2\frac{1}{x_0^2}(\text{second order})
+\end{gather*}
+\]</span></p>
+<figure class="highlight r"><table><tr><td class="code"><pre><span class="line">c1 <span class="operator">&lt;-</span> curve<span class="punctuation">(</span><span class="built_in">log</span><span class="punctuation">(</span>x<span class="punctuation">)</span><span class="punctuation">)</span></span><br><span class="line">c2 <span class="operator">&lt;-</span> curve<span class="punctuation">(</span><span class="built_in">log</span><span class="punctuation">(</span><span class="number">0.5</span><span class="punctuation">)</span><span class="operator">+</span><span class="number">2</span><span class="operator">*</span><span class="punctuation">(</span>x<span class="operator">-</span><span class="number">0.5</span><span class="punctuation">)</span><span class="punctuation">)</span></span><br><span class="line">plot<span class="punctuation">(</span>curve<span class="punctuation">(</span><span class="built_in">log</span><span class="punctuation">(</span><span class="number">0.5</span><span class="punctuation">)</span><span class="operator">+</span><span class="number">2</span><span class="operator">*</span><span class="punctuation">(</span>x<span class="operator">-</span><span class="number">0.5</span><span class="punctuation">)</span><span class="operator">-</span><span class="number">0.5</span><span class="operator">*</span><span class="punctuation">(</span>x<span class="operator">-</span><span class="number">0.5</span><span class="punctuation">)</span><span class="operator">^</span><span class="number">2</span><span class="operator">*</span><span class="number">4</span><span class="punctuation">)</span><span class="punctuation">,</span></span><br><span class="line">     col <span class="operator">=</span> <span class="string">&#x27;red&#x27;</span><span class="punctuation">,</span>type <span class="operator">=</span> <span class="string">&#x27;l&#x27;</span><span class="punctuation">,</span>xlab <span class="operator">=</span> <span class="string">&#x27;x&#x27;</span><span class="punctuation">,</span>ylab <span class="operator">=</span> <span class="string">&#x27;y&#x27;</span><span class="punctuation">,</span></span><br><span class="line">     ylim <span class="operator">=</span> <span class="built_in">c</span><span class="punctuation">(</span><span class="operator">-</span><span class="number">3</span><span class="punctuation">,</span><span class="number">0</span><span class="punctuation">)</span><span class="punctuation">,</span>main <span class="operator">=</span> <span class="string">&#x27;Taylor approximation for lnx at point 0.5&#x27;</span><span class="punctuation">)</span></span><br><span class="line">lines<span class="punctuation">(</span>c1<span class="operator">$</span>x<span class="punctuation">,</span>c1<span class="operator">$</span>y<span class="punctuation">,</span>col <span class="operator">=</span> <span class="string">&#x27;green&#x27;</span><span class="punctuation">)</span></span><br><span class="line">lines<span class="punctuation">(</span>c2<span class="operator">$</span>x<span class="punctuation">,</span>c2<span class="operator">$</span>y<span class="punctuation">,</span>col <span class="operator">=</span> <span class="string">&#x27;blue&#x27;</span><span class="punctuation">)</span></span><br><span class="line">legend<span class="punctuation">(</span><span class="string">&#x27;topleft&#x27;</span><span class="punctuation">,</span></span><br><span class="line">       <span class="built_in">c</span><span class="punctuation">(</span><span class="string">&#x27;lnx&#x27;</span><span class="punctuation">,</span><span class="string">&#x27;first order&#x27;</span><span class="punctuation">,</span><span class="string">&#x27;second order&#x27;</span><span class="punctuation">)</span><span class="punctuation">,</span></span><br><span class="line">       inset <span class="operator">=</span> <span class="number">0.001</span><span class="punctuation">,</span></span><br><span class="line">       cex <span class="operator">=</span> <span class="number">0.5</span><span class="punctuation">,</span></span><br><span class="line">       lty <span class="operator">=</span> <span class="built_in">c</span><span class="punctuation">(</span><span class="number">1</span><span class="punctuation">,</span><span class="number">1</span><span class="punctuation">)</span><span class="punctuation">,</span></span><br><span class="line">       col <span class="operator">=</span> <span class="built_in">c</span><span class="punctuation">(</span><span class="string">&#x27;green&#x27;</span><span class="punctuation">,</span><span class="string">&#x27;blue&#x27;</span><span class="punctuation">,</span><span class="string">&#x27;red&#x27;</span><span class="punctuation">)</span><span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+<p><img src="https://res.cloudinary.com/djd9gr1bu/image/upload/v1654211309/github_page/Plot1_dmycpa.png" alt="hi" class="inline"/></p>
+<p>Below is a good tip for explaining the delta method, from <a href="https://www.stata.com/support/faqs/statistics/delta-method/">(Alan. H. Feiveson, NASA)</a></p>
+<p>The delta method, in its essence, expands a function of a random variable about its mean, usually with a one-step Taylor approximation, and then takes the variance. For example, if we want to approximate the variance of <span class="math inline">\(f(X)\)</span> where <span class="math inline">\(X\)</span> is a random variable with mean <span class="math inline">\(\mu\)</span> and <span class="math inline">\(f()\)</span> is differentiable, we can try <span class="math display">\[
+f(x)=f(\mu)+(x-\mu)f&#39;(\mu)
+\]</span> so that <span class="math display">\[
+\begin{gather*}
+var[f(X)]=var(f(\mu)+(X-\mu)f&#39;(\mu))\\
+=var(X-\mu)[f&#39;(\mu)]^2\\
+=var(X)[f&#39;(\mu)]^2
+\end{gather*}
+\]</span> <strong>This is a good approximation only if <span class="math inline">\(X\)</span> has a high probability of being close enough to its mean(<span class="math inline">\(\mu\)</span>) so that the Taylor approximation is still good.</strong></p>
+<h1 id="reference">Reference</h1>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Delta_method">Wikipedia</a></li>
+<li><a href="https://www.stata.com/support/faqs/statistics/delta-method/">What is the delta method and how is it used to estimate the standard error of a transformed parameter?</a></li>
+<li><a href="https://bookdown.org/ts_robinson1994/10_fundamental_theorems_for_econometrics/dm.html">Delta method</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>statistics</category>
+      </categories>
+      <tags>
+        <tag>Math statistics</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>About me</title>
+    <url>/about/index.html</url>
+    <content><![CDATA[<p><img src="https://res.cloudinary.com/djd9gr1bu/image/upload/v1637834720/2770F1B8-6DC8-4BBD-BC76-AA9756C6D8AF_1_201_a_grh7po.jpg" alt="hi" class="inline"/></p>
+<p>Hello, welcome to my blog. I'm currently a Ph.D. candidate in the statistics department of the University of South Florida. My research fields mainly include the design of experiments, compressive sensing, functional data analysis, machine learning, and deep learning. My daily work as a research assistant is to employ machine learning and deep learning to assist physicists, biologists, and medical scientists in analyzing the data either from physical experiments such as spectrum data or from U.S. Food and Drug Administration so that scientists can further understand the underlying mechanism behind them.</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>categories</title>
+    <url>/categories/index.html</url>
+    <content><![CDATA[
+]]></content>
+  </entry>
+  <entry>
+    <title>tags</title>
+    <url>/tags/index.html</url>
+    <content><![CDATA[
+]]></content>
+  </entry>
+</search>
