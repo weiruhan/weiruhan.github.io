@@ -862,7 +862,7 @@ HH^T = \begin{pmatrix}\mathbf{1}^T/n \\ e_i^T - \mathbf{1}^T/n\end{pmatrix} \beg
   </entry>
   <entry>
     <title>Basic command of hexo</title>
-    <url>/2022/11/07/hexo_tutorial/</url>
+    <url>/2021/11/29/hexo_tutorial/</url>
     <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
 <h2 id="quick-start">Quick Start</h2>
 <h3 id="create-a-new-post">Create a new post</h3>
