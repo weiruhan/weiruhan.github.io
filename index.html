@@ -154,7 +154,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">27</span>
+          <span class="site-state-item-count">28</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -165,7 +165,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-count">17</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -194,6 +194,142 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/11/07/Different-methods-of-generating-qqplot/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Weiru Han">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Weiru Han's blog">
+      <meta itemprop="description" content="The journey of a thousand miles begins with one step">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Weiru Han's blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/11/07/Different-methods-of-generating-qqplot/" class="post-title-link" itemprop="url">Different methods of generating qqplot</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2022-11-07 22:36:50" itemprop="dateCreated datePublished" datetime="2022-11-07T22:36:50-05:00">2022-11-07</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2022-11-08 12:43:19" itemprop="dateModified" datetime="2022-11-08T12:43:19-05:00">2022-11-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/R/" itemprop="url" rel="index"><span itemprop="name">R</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>The Q-Q plot, also known as the quantile-quantile plot, is a graphical tool that helps us determine whether a set of data originated from a Normal or exponential distribution. For instance, if a statistical analysis assumes that residuals are normally distributed, a Normal Q-Q plot can be used to verify this assumption. This is merely a visual inspection and not a conclusive proof, so it is somewhat subjective. However, it enables us to see at a glance whether our assumption is plausible, and if not, how the assumption is violated and which data points contribute to the violation. A Q-Q plot is a scatterplot created by superimposing two quantile distributions. If both sets of quantiles came from the same distribution, the points should form a roughly straight line.</p>
+<p>This post focuses primarily on introducing functions that can reproduce the Q-Q plot.</p>
+<blockquote>
+<p><code>qqnorm</code> is a generic function whose default method generates a standard QQ plot of the y values.</p>
+</blockquote>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator">&gt;</span> <span class="comment"># generate points from normal distribution</span></span><br><span class="line"><span class="operator">&gt;</span> x <span class="operator">&lt;-</span> qnorm<span class="punctuation">(</span>seq<span class="punctuation">(</span><span class="number">0.01</span><span class="punctuation">,</span><span class="number">0.99</span><span class="punctuation">,</span><span class="number">0.01</span><span class="punctuation">)</span><span class="punctuation">)</span><span class="operator">+</span><span class="number">10</span></span><br><span class="line"><span class="operator">&gt;</span> qqnorm<span class="punctuation">(</span>x<span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+<p><img src="https://res.cloudinary.com/djd9gr1bu/image/upload/v1667883208/github_page/qqnorm_plot_ykulkv.png" alt="hi" class="inline"/></p>
+<p>This can be reproduced using the function <code>ppoints</code>, which generates the sequence of probability points, as follows:</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator">&gt;</span> <span class="comment"># generate points from normal distribution</span></span><br><span class="line"><span class="operator">&gt;</span> x <span class="operator">&lt;-</span> qnorm<span class="punctuation">(</span>seq<span class="punctuation">(</span><span class="number">0.01</span><span class="punctuation">,</span><span class="number">0.99</span><span class="punctuation">,</span><span class="number">0.01</span><span class="punctuation">)</span><span class="punctuation">)</span><span class="operator">+</span><span class="number">10</span></span><br><span class="line"><span class="operator">&gt;</span> plot<span class="punctuation">(</span>x <span class="operator">=</span> qnorm<span class="punctuation">(</span>ppoints<span class="punctuation">(</span><span class="built_in">length</span><span class="punctuation">(</span>x<span class="punctuation">)</span><span class="punctuation">)</span><span class="punctuation">)</span><span class="punctuation">,</span>y <span class="operator">=</span> x<span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+<p><img src="https://res.cloudinary.com/djd9gr1bu/image/upload/v1667883777/github_page/plot_qqnorm_mct4ot.png" class="inline"/></p>
+<p><code>qqplot</code> could also reproduce the above</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator">&gt;</span> <span class="comment"># generate points from normal distribution</span></span><br><span class="line"><span class="operator">&gt;</span> x <span class="operator">&lt;-</span> qnorm<span class="punctuation">(</span>seq<span class="punctuation">(</span><span class="number">0.01</span><span class="punctuation">,</span><span class="number">0.99</span><span class="punctuation">,</span><span class="number">0.01</span><span class="punctuation">)</span><span class="punctuation">)</span><span class="operator">+</span><span class="number">10</span></span><br><span class="line"><span class="operator">&gt;</span> qqplot<span class="punctuation">(</span>x <span class="operator">=</span> qnorm<span class="punctuation">(</span>ppoints<span class="punctuation">(</span><span class="built_in">length</span><span class="punctuation">(</span>x<span class="punctuation">)</span><span class="punctuation">)</span><span class="punctuation">)</span><span class="punctuation">,</span>y <span class="operator">=</span> x<span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+<p><img src="https://res.cloudinary.com/djd9gr1bu/image/upload/v1667883777/github_page/plot_qqnorm_mct4ot.png" class="inline"/></p>
+<p><code>qplot</code> could also reproduce the above</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator">&gt;</span> library<span class="punctuation">(</span>ggplot2<span class="punctuation">)</span></span><br><span class="line"><span class="operator">&gt;</span> x <span class="operator">&lt;-</span> qnorm<span class="punctuation">(</span>seq<span class="punctuation">(</span><span class="number">0.01</span><span class="punctuation">,</span><span class="number">0.99</span><span class="punctuation">,</span><span class="number">0.01</span><span class="punctuation">)</span><span class="punctuation">)</span><span class="operator">+</span><span class="number">10</span></span><br><span class="line"><span class="operator">&gt;</span> qplot<span class="punctuation">(</span>x <span class="operator">=</span> qnorm<span class="punctuation">(</span>ppoints<span class="punctuation">(</span><span class="built_in">length</span><span class="punctuation">(</span>x<span class="punctuation">)</span><span class="punctuation">)</span><span class="punctuation">)</span><span class="punctuation">,</span>y <span class="operator">=</span> x<span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+<p><img src="https://res.cloudinary.com/djd9gr1bu/image/upload/v1667884471/github_page/qplot_wosbz4.png" class="inline"/></p>
+<blockquote>
+<p>For residual plot, however, we may choose to plot standardized residuals against theoretical quantiles in Q-Q plot.</p>
+<p>We can use the R dataset <em>randu</em> as an illustration.</p>
+</blockquote>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator">&gt;</span> str<span class="punctuation">(</span>randu<span class="punctuation">)</span></span><br><span class="line"><span class="string">&#x27;data.frame&#x27;</span><span class="operator">:</span>	<span class="number">400</span> obs. of  <span class="number">3</span> variables<span class="operator">:</span></span><br><span class="line"> <span class="operator">$</span> x<span class="operator">:</span> num  <span class="number">0.000031</span> <span class="number">0.044495</span> <span class="number">0.82244</span> <span class="number">0.322291</span> <span class="number">0.393595</span> ...</span><br><span class="line"> <span class="operator">$</span> y<span class="operator">:</span> num  <span class="number">0.000183</span> <span class="number">0.155732</span> <span class="number">0.873416</span> <span class="number">0.648545</span> <span class="number">0.826873</span> ...</span><br><span class="line"> <span class="operator">$</span> z<span class="operator">:</span> num  <span class="number">0.000824</span> <span class="number">0.533939</span> <span class="number">0.838542</span> <span class="number">0.990648</span> <span class="number">0.418881</span> ...</span><br></pre></td></tr></table></figure>
+<ul>
+<li>If dependent variable is scaled, normal residual <em>qqplot</em> could be different</li>
+</ul>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator">&gt;</span> model <span class="operator">&lt;-</span> lm<span class="punctuation">(</span>z <span class="operator">~</span>x<span class="operator">+</span>y<span class="punctuation">,</span> data <span class="operator">=</span> randu<span class="punctuation">)</span></span><br><span class="line"><span class="operator">&gt;</span> var<span class="punctuation">(</span>resid<span class="punctuation">(</span>model<span class="punctuation">)</span><span class="punctuation">)</span></span><br><span class="line"><span class="punctuation">[</span><span class="number">1</span><span class="punctuation">]</span> <span class="number">0.07731478</span></span><br><span class="line"><span class="operator">&gt;</span> qqnorm<span class="punctuation">(</span>resid<span class="punctuation">(</span>model<span class="punctuation">)</span><span class="punctuation">,</span> main <span class="operator">=</span> <span class="string">&#x27;normal qqplot when z is not scaled&#x27;</span><span class="punctuation">)</span></span><br><span class="line"></span><br><span class="line"><span class="operator">&gt;</span> model <span class="operator">&lt;-</span> lm<span class="punctuation">(</span><span class="number">10</span><span class="operator">*</span>z<span class="operator">~</span>x<span class="operator">+</span>y<span class="punctuation">,</span> data <span class="operator">=</span>randu<span class="punctuation">)</span></span><br><span class="line"><span class="operator">&gt;</span> var<span class="punctuation">(</span>resid<span class="punctuation">(</span>model<span class="punctuation">)</span><span class="punctuation">)</span></span><br><span class="line"><span class="operator">&gt;</span> qqnorm<span class="punctuation">(</span>resid<span class="punctuation">(</span>model<span class="punctuation">)</span><span class="punctuation">,</span> main <span class="operator">=</span> <span class="string">&#x27;normal qqplot when z is scaled&#x27;</span><span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+<p><img src="https://res.cloudinary.com/djd9gr1bu/image/upload/v1667928296/github_page/qqplot_notscale_vs_scale_ok9oh8.png" class="inline"/></p>
+<p>Clearly, scaling the dependent variable <em>z</em> affects the residual.</p>
+<blockquote>
+<p>Before scaling</p>
+</blockquote>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator">&gt;</span> model <span class="operator">&lt;-</span> lm<span class="punctuation">(</span>z <span class="operator">~</span>x<span class="operator">+</span>y<span class="punctuation">,</span>data <span class="operator">=</span> randu<span class="punctuation">)</span></span><br><span class="line"><span class="operator">&gt;</span> summary<span class="punctuation">(</span>model<span class="punctuation">)</span></span><br><span class="line"></span><br><span class="line">Call<span class="operator">:</span></span><br><span class="line">lm<span class="punctuation">(</span>formula <span class="operator">=</span> z <span class="operator">~</span> x <span class="operator">+</span> y<span class="punctuation">,</span> data <span class="operator">=</span> randu<span class="punctuation">)</span></span><br><span class="line"></span><br><span class="line">Residuals<span class="operator">:</span></span><br><span class="line">     Min       <span class="number">1</span>Q   Median       <span class="number">3</span>Q      Max </span><br><span class="line"><span class="operator">-</span><span class="number">0.51260</span> <span class="operator">-</span><span class="number">0.23114</span> <span class="operator">-</span><span class="number">0.01989</span>  <span class="number">0.22893</span>  <span class="number">0.56084</span> </span><br><span class="line"></span><br><span class="line">Coefficients<span class="operator">:</span></span><br><span class="line">            Estimate Std. Error t value Pr<span class="punctuation">(</span><span class="operator">&gt;</span><span class="operator">|</span>t<span class="operator">|</span><span class="punctuation">)</span>    </span><br><span class="line"><span class="punctuation">(</span>Intercept<span class="punctuation">)</span>  <span class="number">0.48017</span>    <span class="number">0.03811</span>  <span class="number">12.598</span>   <span class="operator">&lt;</span><span class="number">2e-16</span> <span class="operator">*</span><span class="operator">*</span><span class="operator">*</span></span><br><span class="line">x            <span class="number">0.05424</span>    <span class="number">0.04902</span>   <span class="number">1.106</span>    <span class="number">0.269</span>    </span><br><span class="line">y           <span class="operator">-</span><span class="number">0.05713</span>    <span class="number">0.04757</span>  <span class="operator">-</span><span class="number">1.201</span>    <span class="number">0.230</span>    </span><br><span class="line"><span class="operator">-</span><span class="operator">-</span><span class="operator">-</span></span><br><span class="line">Signif. codes<span class="operator">:</span>  <span class="number">0</span> ‘<span class="operator">*</span><span class="operator">*</span><span class="operator">*</span>’ <span class="number">0.001</span> ‘<span class="operator">*</span><span class="operator">*</span>’ <span class="number">0.01</span> ‘<span class="operator">*</span>’ <span class="number">0.05</span> ‘.’ <span class="number">0.1</span> ‘ ’ <span class="number">1</span></span><br><span class="line"></span><br><span class="line">Residual standard error<span class="operator">:</span> <span class="number">0.2788</span> on <span class="number">397</span> degrees of freedom</span><br><span class="line">Multiple R<span class="operator">-</span>squared<span class="operator">:</span>  <span class="number">0.007008</span><span class="punctuation">,</span>	Adjusted R<span class="operator">-</span>squared<span class="operator">:</span>  <span class="number">0.002006</span> </span><br><span class="line"><span class="built_in">F</span><span class="operator">-</span>statistic<span class="operator">:</span> <span class="number">1.401</span> on <span class="number">2</span> and <span class="number">397</span> DF<span class="punctuation">,</span>  p<span class="operator">-</span>value<span class="operator">:</span> <span class="number">0.2476</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>After scaling</p>
+</blockquote>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator">&gt;</span> model <span class="operator">&lt;-</span> lm<span class="punctuation">(</span><span class="number">10</span><span class="operator">*</span>z<span class="operator">~</span>x<span class="operator">+</span>y<span class="punctuation">,</span>data <span class="operator">=</span>randu<span class="punctuation">)</span></span><br><span class="line"><span class="operator">&gt;</span> summary<span class="punctuation">(</span>model<span class="punctuation">)</span></span><br><span class="line"></span><br><span class="line">Call<span class="operator">:</span></span><br><span class="line">lm<span class="punctuation">(</span>formula <span class="operator">=</span> <span class="number">10</span> <span class="operator">*</span> z <span class="operator">~</span> x <span class="operator">+</span> y<span class="punctuation">,</span> data <span class="operator">=</span> randu<span class="punctuation">)</span></span><br><span class="line"></span><br><span class="line">Residuals<span class="operator">:</span></span><br><span class="line">    Min      <span class="number">1</span>Q  Median      <span class="number">3</span>Q     Max </span><br><span class="line"><span class="operator">-</span><span class="number">5.1260</span> <span class="operator">-</span><span class="number">2.3114</span> <span class="operator">-</span><span class="number">0.1989</span>  <span class="number">2.2893</span>  <span class="number">5.6084</span> </span><br><span class="line"></span><br><span class="line">Coefficients<span class="operator">:</span></span><br><span class="line">            Estimate Std. Error t value Pr<span class="punctuation">(</span><span class="operator">&gt;</span><span class="operator">|</span>t<span class="operator">|</span><span class="punctuation">)</span>    </span><br><span class="line"><span class="punctuation">(</span>Intercept<span class="punctuation">)</span>   <span class="number">4.8017</span>     <span class="number">0.3811</span>  <span class="number">12.598</span>   <span class="operator">&lt;</span><span class="number">2e-16</span> <span class="operator">*</span><span class="operator">*</span><span class="operator">*</span></span><br><span class="line">x             <span class="number">0.5424</span>     <span class="number">0.4902</span>   <span class="number">1.106</span>    <span class="number">0.269</span>    </span><br><span class="line">y            <span class="operator">-</span><span class="number">0.5713</span>     <span class="number">0.4757</span>  <span class="operator">-</span><span class="number">1.201</span>    <span class="number">0.230</span>    </span><br><span class="line"><span class="operator">-</span><span class="operator">-</span><span class="operator">-</span></span><br><span class="line">Signif. codes<span class="operator">:</span>  <span class="number">0</span> ‘<span class="operator">*</span><span class="operator">*</span><span class="operator">*</span>’ <span class="number">0.001</span> ‘<span class="operator">*</span><span class="operator">*</span>’ <span class="number">0.01</span> ‘<span class="operator">*</span>’ <span class="number">0.05</span> ‘.’ <span class="number">0.1</span> ‘ ’ <span class="number">1</span></span><br><span class="line"></span><br><span class="line">Residual standard error<span class="operator">:</span> <span class="number">2.788</span> on <span class="number">397</span> degrees of freedom</span><br><span class="line">Multiple R<span class="operator">-</span>squared<span class="operator">:</span>  <span class="number">0.007008</span><span class="punctuation">,</span>	Adjusted R<span class="operator">-</span>squared<span class="operator">:</span>  <span class="number">0.002006</span> </span><br><span class="line"><span class="built_in">F</span><span class="operator">-</span>statistic<span class="operator">:</span> <span class="number">1.401</span> on <span class="number">2</span> and <span class="number">397</span> DF<span class="punctuation">,</span>  p<span class="operator">-</span>value<span class="operator">:</span> <span class="number">0.2476</span></span><br></pre></td></tr></table></figure>
+<p>Using standardized residuals, the expected value of the residuals is zero, while the variance is (approximately) one. This has two benefits:</p>
+<ol type="1">
+<li>If you rescale one of your variables, the residual plots will not change.</li>
+<li>The residuals in the <em>qqplot</em> should lie on the line y = x</li>
+<li>The residuals in the <em>qqplot</em> should lie on the line y = x You anticipate that 95% of your residuals will fall between -1.96 and 1.96. This makes it simpler to identify outliers.</li>
+</ol>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator">&gt;</span> model <span class="operator">&lt;-</span> lm<span class="punctuation">(</span>z <span class="operator">~</span>x<span class="operator">+</span>y<span class="punctuation">,</span>data <span class="operator">=</span> randu<span class="punctuation">)</span></span><br><span class="line"><span class="operator">&gt;</span> var<span class="punctuation">(</span>rstandard<span class="punctuation">(</span>model<span class="punctuation">)</span><span class="punctuation">)</span></span><br><span class="line"><span class="punctuation">[</span><span class="number">1</span><span class="punctuation">]</span> <span class="number">1.002759</span></span><br><span class="line"><span class="operator">&gt;</span> qqnorm<span class="punctuation">(</span>rstandard<span class="punctuation">(</span>model<span class="punctuation">)</span><span class="punctuation">,</span>main <span class="operator">=</span> <span class="string">&#x27;standardized residual qqplot before scaling&#x27;</span><span class="punctuation">)</span></span><br><span class="line"></span><br><span class="line"><span class="operator">&gt;</span> model <span class="operator">&lt;-</span> lm<span class="punctuation">(</span><span class="number">10</span><span class="operator">*</span>z<span class="operator">~</span>x<span class="operator">+</span>y<span class="punctuation">,</span>data <span class="operator">=</span>randu<span class="punctuation">)</span></span><br><span class="line"><span class="operator">&gt;</span> var<span class="punctuation">(</span>rstandard<span class="punctuation">(</span>model<span class="punctuation">)</span><span class="punctuation">)</span></span><br><span class="line"><span class="punctuation">[</span><span class="number">1</span><span class="punctuation">]</span> <span class="number">1.002759</span></span><br><span class="line"><span class="operator">&gt;</span> qqnorm<span class="punctuation">(</span>rstandard<span class="punctuation">(</span>model<span class="punctuation">)</span><span class="punctuation">,</span> main <span class="operator">=</span> <span class="string">&#x27;standardized residual qqplot after scaling&#x27;</span><span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+<p><img src="https://res.cloudinary.com/djd9gr1bu/image/upload/v1667929101/github_page/stan_res_qqplot_gnnmo8.png" class="inline"/></p>
+<h1 id="reference">Reference</h1>
+<ul>
+<li><p><a target="_blank" rel="noopener" href="https://stats.stackexchange.com/questions/571762/what-exactly-does-ppoints-in-r-do">What exactly does ppoints() in R do?</a></p></li>
+<li><p><a target="_blank" rel="noopener" href="https://data.library.virginia.edu/understanding-q-q-plots/">Understanding Q-Q Plots</a></p></li>
+<li><p><a target="_blank" rel="noopener" href="https://stats.stackexchange.com/questions/260872/why-does-scaling-the-features-affect-the-prediction-of-a-regression">Why does scaling the features affect the prediction of a regression?</a></p></li>
+<li><p><a target="_blank" rel="noopener" href="https://www.statology.org/standardized-residuals-in-r/">How to Calculate Standardized Residuals in R</a></p></li>
+<li><p><a target="_blank" rel="noopener" href="https://stats.stackexchange.com/questions/12395/why-is-r-plotting-standardized-residuals-against-theoretical-quantiles-in-a-q-q">Why is R plotting standardized residuals against theoretical quantiles in a Q-Q plot?</a></p></li>
+<li><p><a target="_blank" rel="noopener" href="https://boostedml.com/2019/03/linear-regression-plots-how-to-read-a-qq-plot.html">The QQ Plot in Linear Regression</a></p></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -233,7 +369,7 @@
       <span class="post-meta-item-text">Posted on</span>
       
 
-      <time title="Created: 2022-11-07 20:33:19 / Modified: 21:14:39" itemprop="dateCreated datePublished" datetime="2022-11-07T20:33:19-05:00">2022-11-07</time>
+      <time title="Created: 2022-11-07 20:33:19 / Modified: 23:14:12" itemprop="dateCreated datePublished" datetime="2022-11-07T20:33:19-05:00">2022-11-07</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -285,7 +421,7 @@
 <p>then run Hexo using <code>hexo &lt;command&gt;</code></p>
 </blockquote></li>
 <li><p>Initialize webpage folder</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo init &lt;web_name&gt;</span><br><span class="line"><span class="built_in">cd</span> &lt;webname_page&gt;</span><br></pre></td></tr></table></figure></li>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo init &lt;webpage_name&gt;</span><br><span class="line"><span class="built_in">cd</span> &lt;webpage_name&gt;</span><br></pre></td></tr></table></figure></li>
 <li><p>Download configuration packages</p>
 <p>For example</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Download local search toolkit</span></span><br><span class="line">npm install hexo-generator-searchdb</span><br><span class="line"><span class="comment"># Download NEXT theme</span></span><br><span class="line">npm install hexo-theme-next</span><br></pre></td></tr></table></figure></li>
@@ -1168,118 +1304,6 @@ G --&gt; H[Measure and analyze yourself]
     <div class="post-body" itemprop="articleBody">
           <p>Below is some R code that could be employed to summarize the unique words from the text.</p>
 <figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">words <span class="operator">&lt;-</span> read.table<span class="punctuation">(</span>file.choose<span class="punctuation">(</span><span class="punctuation">)</span><span class="punctuation">,</span> header <span class="operator">=</span> <span class="literal">FALSE</span><span class="punctuation">,</span>fill <span class="operator">=</span> <span class="literal">TRUE</span><span class="punctuation">)</span> <span class="comment"># import txt file</span></span><br><span class="line"></span><br><span class="line">words <span class="operator">&lt;-</span> apply<span class="punctuation">(</span>words<span class="punctuation">,</span><span class="built_in">c</span><span class="punctuation">(</span><span class="number">1</span><span class="punctuation">,</span><span class="number">2</span><span class="punctuation">)</span><span class="punctuation">,</span><span class="keyword">function</span><span class="punctuation">(</span>x<span class="punctuation">)</span> gsub<span class="punctuation">(</span><span class="string">&quot;[[:punct:]]&quot;</span><span class="punctuation">,</span> <span class="string">&quot;&quot;</span><span class="punctuation">,</span> x<span class="punctuation">)</span><span class="punctuation">)</span> <span class="comment"># remove all special characters</span></span><br><span class="line"></span><br><span class="line">words <span class="operator">&lt;-</span> words<span class="punctuation">[</span><span class="punctuation">(</span>words <span class="operator">!=</span><span class="string">&#x27;&#x27;</span><span class="punctuation">)</span> <span class="punctuation">]</span> <span class="comment"># remove all NA content</span></span><br><span class="line"></span><br><span class="line">x_numbers <span class="operator">&lt;-</span> unlist<span class="punctuation">(</span>regmatches<span class="punctuation">(</span>words<span class="punctuation">,</span> gregexpr<span class="punctuation">(</span><span class="string">&quot;[[:digit:]]+&quot;</span><span class="punctuation">,</span> words<span class="punctuation">)</span><span class="punctuation">)</span><span class="punctuation">)</span> <span class="comment"># extract numbers from string</span></span><br><span class="line"></span><br><span class="line">words <span class="operator">&lt;-</span> gsub<span class="punctuation">(</span><span class="string">&#x27;[[:digit:]]+&#x27;</span><span class="punctuation">,</span> <span class="string">&#x27;&#x27;</span><span class="punctuation">,</span> words<span class="punctuation">)</span> <span class="comment"># remove all content containing numbers</span></span><br><span class="line"></span><br><span class="line">words <span class="operator">&lt;-</span> words<span class="punctuation">[</span><span class="punctuation">(</span>words <span class="operator">!=</span><span class="string">&#x27;&#x27;</span><span class="punctuation">)</span> <span class="punctuation">]</span> <span class="comment"># remove all NA content</span></span><br><span class="line"></span><br><span class="line">x_numbers <span class="operator">&lt;-</span> unlist<span class="punctuation">(</span>regmatches<span class="punctuation">(</span>words<span class="punctuation">,</span> gregexpr<span class="punctuation">(</span><span class="string">&quot;[[:digit:]]+&quot;</span><span class="punctuation">,</span> words<span class="punctuation">)</span><span class="punctuation">)</span><span class="punctuation">)</span> <span class="comment"># extract numbers from string</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">length</span><span class="punctuation">(</span>unique<span class="punctuation">(</span>words<span class="punctuation">)</span><span class="punctuation">)</span> <span class="comment"># count unique words</span></span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/06/11/shell-command/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Weiru Han">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Weiru Han's blog">
-      <meta itemprop="description" content="The journey of a thousand miles begins with one step">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Weiru Han's blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/06/11/shell-command/" class="post-title-link" itemprop="url">shell command</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2022-06-11 01:58:46" itemprop="dateCreated datePublished" datetime="2022-06-11T01:58:46-04:00">2022-06-11</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-11-07 00:39:59" itemprop="dateModified" datetime="2022-11-07T00:39:59-05:00">2022-11-07</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>Command to the ~./bash_logout so that the history will get cleared when you logout</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> `<span class="built_in">history</span> -c` &gt;&gt; ~/.bash_logout</span><br></pre></td></tr></table></figure>
-<p>Get the name of the history file</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&quot;<span class="variable">$HISTFILE</span>&quot;</span></span><br></pre></td></tr></table></figure>
-<p>See the current history</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">history</span></span><br><span class="line"><span class="built_in">history</span> | grep <span class="string">&#x27;du&#x27;</span></span><br></pre></td></tr></table></figure>
-<p>Hide and display the cursor in the shell</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Hide the cursor</span></span><br><span class="line"><span class="built_in">echo</span> -e <span class="string">&quot;\033[?25l&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Display the cursor</span></span><br><span class="line"><span class="built_in">echo</span> -e <span class="string">&quot;\033[?25h&quot;</span></span><br></pre></td></tr></table></figure>
-<p>Three ways of multiple line annotation</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">:&lt;&lt;<span class="string">EOF</span></span><br><span class="line"><span class="string">annotation text...</span></span><br><span class="line"><span class="string">annotation text...</span></span><br><span class="line"><span class="string">annotation text...</span></span><br><span class="line"><span class="string">EOF</span></span><br><span class="line"></span><br><span class="line">:&lt;&lt;<span class="string">&#x27;</span></span><br><span class="line"><span class="string">annotation text...</span></span><br><span class="line"><span class="string">annotation text...</span></span><br><span class="line"><span class="string">annotation text...</span></span><br><span class="line"><span class="string">&#x27;</span></span><br><span class="line"></span><br><span class="line">:&lt;&lt;!</span><br><span class="line">annotation text...</span><br><span class="line">annotation text...</span><br><span class="line">annotation text...</span><br><span class="line">!</span><br></pre></td></tr></table></figure>
-<p>Make file executable</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">chmod</span> +x &lt;file.name&gt;</span><br></pre></td></tr></table></figure>
-<p>Use math equation in shell script (example)</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"></span><br><span class="line">val=`<span class="built_in">expr</span> 2 + 2`</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;sum of two numbers: <span class="variable">$val</span>&quot;</span></span><br></pre></td></tr></table></figure>
-<p><a target="_blank" rel="noopener" href="https://www.runoob.com/linux/linux-shell-basic-operators.html"><strong>Operators in shell script</strong></a></p>
-<p>Enable interpretation of the backslash escapes</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> -e</span><br></pre></td></tr></table></figure>
-<p>Read varable and assign to a variable <code>&lt;variable.name&gt;</code></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">read</span> &lt;variable.name&gt;</span><br></pre></td></tr></table></figure>
-<p><a target="_blank" rel="noopener" href="https://www.runoob.com/linux/linux-vim.html"><strong>vi/vim</strong> language and affiliated shortcuts</a></p>
-<p><a target="_blank" rel="noopener" href="https://www.runoob.com/linux/linux-shell-io-redirections.html">Shell I/O redirection</a></p>
-<h1 id="reference">Reference</h1>
-<ul>
-<li><a target="_blank" rel="noopener" href="https://www.runoob.com/linux/linux-tutorial.html">Linux tutorial</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/7fd317a45be5">How shell defines variables and assigns values to variables</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.cyberciti.biz/faq/clear-the-shell-history-in-ubuntu-linux/">How to clear shell history in Ubuntu Linux</a></li>
-<li><a target="_blank" rel="noopener" href="https://askubuntu.com/questions/443789/what-does-chmod-x-filename-do-and-how-do-i-use-it">What does "chmod +x " do and how do I use it?</a></li>
-</ul>
 
       
     </div>
