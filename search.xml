@@ -1339,6 +1339,57 @@ var[f(X)]=var(f(\mu)+(X-\mu)f&#39;(\mu))\\
       </tags>
   </entry>
   <entry>
+    <title>Set up hexo page in WSL system</title>
+    <url>/2022/11/07/Set-up-hexo-page-in-WSL-system/</url>
+    <content><![CDATA[<p>This post mainly introduces how to build up a webpage from scratch using Hexo framework based on WSL system.</p>
+<h1 id="install-and-configuration-procedure">Install and configuration procedure</h1>
+<ul>
+<li><p>Install <a href="https://github.com/nvm-sh/nvm#troubleshooting-on-linux">nvm</a></p>
+<p><code>$ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.2/install.sh | bash</code></p>
+<blockquote>
+<p>Running either of the above commands downloads a script and runs it. The script clones the nvm repository to <code>~/.nvm</code>, and attempts to add the source lines from the snippet below to the correct profile file (<code>~/.bash_profile</code>, <code>~/.zshrc</code>, <code>~/.profile</code>, or <code>~/.bashrc</code>).</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">export</span> NVM_DIR=<span class="string">&quot;<span class="subst">$([ -z <span class="string">&quot;<span class="variable">$&#123;XDG_CONFIG_HOME-&#125;</span>&quot;</span> ] &amp;&amp; printf %s <span class="string">&quot;<span class="variable">$&#123;HOME&#125;</span>/.nvm&quot;</span> || printf %s <span class="string">&quot;<span class="variable">$&#123;XDG_CONFIG_HOME&#125;</span>/nvm&quot;</span>)</span>&quot;</span></span><br><span class="line">[ -s <span class="string">&quot;<span class="variable">$NVM_DIR</span>/nvm.sh&quot;</span> ] &amp;&amp; \. <span class="string">&quot;<span class="variable">$NVM_DIR</span>/nvm.sh&quot;</span> <span class="comment"># This loads nvm</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>On Linux, after running the install script, if you get <code>nvm: command not found</code> or see no feedback from your terminal after you type <code>command -v nvm</code>, simply close your current terminal, open a new terminal, and try verifying again. Alternatively, you can run the following commands for the different shells on the command line:</p>
+<p><em>bash</em>: <code>source ~/.bashrc</code></p>
+<p><em>zsh</em>: <code>source ~/.zshrc</code></p>
+<p><em>ksh</em>: <code>. ~/.profile</code></p>
+<p>These should pick up the <code>nvm</code> command.</p>
+</blockquote></li>
+<li><p>Install <a href="https://hexo.io/docs/">hexo</a></p>
+<p><code>$ npm install -g hexo-cli</code></p>
+<blockquote>
+<p>Advanced users may prefer to install and use <code>hexo</code> package instead.</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install hexo</span><br></pre></td></tr></table></figure>
+<p>Once installed, you can run Hexo in two ways:</p>
+<ol type="1">
+<li><code>npx hexo &lt;command&gt;</code></li>
+<li>Linux users can set relative path of <code>node_modules/</code> folder:</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;PATH=&quot;$PATH:./node_modules/.bin&quot;&#x27;</span> &gt;&gt; ~/.profile</span><br></pre></td></tr></table></figure>
+<p>then run Hexo using <code>hexo &lt;command&gt;</code></p>
+</blockquote></li>
+<li><p>Initialize webpage folder</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo init &lt;web_name&gt;</span><br><span class="line"><span class="built_in">cd</span> &lt;webname_page&gt;</span><br></pre></td></tr></table></figure></li>
+<li><p>Download configuration packages</p>
+<p>For example</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Download local search toolkit</span></span><br><span class="line">npm install hexo-generator-searchdb</span><br><span class="line"><span class="comment"># Download NEXT theme</span></span><br><span class="line">npm install hexo-theme-next</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h1 id="troubleshooting">Troubleshooting</h1>
+<ul>
+<li><p><a href="https://github.com/theme-next/hexo-theme-next/issues/1454">Mathjax configuration problem</a></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># install pandoc</span></span><br><span class="line">sudo apt-get install pandoc</span><br><span class="line">npm un hexo-renderer-marked</span><br><span class="line">npm i hexo-renderer-pandoc</span><br></pre></td></tr></table></figure></li>
+</ul>
+]]></content>
+      <categories>
+        <category>hexo</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>About me</title>
     <url>/about/index.html</url>
     <content><![CDATA[<p><img src="https://res.cloudinary.com/djd9gr1bu/image/upload/v1637834720/2770F1B8-6DC8-4BBD-BC76-AA9756C6D8AF_1_201_a_grh7po.jpg" alt="hi" class="inline"/></p>

@@ -154,7 +154,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">26</span>
+          <span class="site-state-item-count">27</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -194,6 +194,124 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/11/07/Set-up-hexo-page-in-WSL-system/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Weiru Han">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Weiru Han's blog">
+      <meta itemprop="description" content="The journey of a thousand miles begins with one step">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Weiru Han's blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/11/07/Set-up-hexo-page-in-WSL-system/" class="post-title-link" itemprop="url">Set up hexo page in WSL system</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2022-11-07 20:33:19 / Modified: 21:14:39" itemprop="dateCreated datePublished" datetime="2022-11-07T20:33:19-05:00">2022-11-07</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/hexo/" itemprop="url" rel="index"><span itemprop="name">hexo</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>This post mainly introduces how to build up a webpage from scratch using Hexo framework based on WSL system.</p>
+<h1 id="install-and-configuration-procedure">Install and configuration procedure</h1>
+<ul>
+<li><p>Install <a target="_blank" rel="noopener" href="https://github.com/nvm-sh/nvm#troubleshooting-on-linux">nvm</a></p>
+<p><code>$ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.2/install.sh | bash</code></p>
+<blockquote>
+<p>Running either of the above commands downloads a script and runs it. The script clones the nvm repository to <code>~/.nvm</code>, and attempts to add the source lines from the snippet below to the correct profile file (<code>~/.bash_profile</code>, <code>~/.zshrc</code>, <code>~/.profile</code>, or <code>~/.bashrc</code>).</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> NVM_DIR=<span class="string">&quot;<span class="subst">$([ -z <span class="string">&quot;<span class="variable">$&#123;XDG_CONFIG_HOME-&#125;</span>&quot;</span> ] &amp;&amp; printf %s <span class="string">&quot;<span class="variable">$&#123;HOME&#125;</span>/.nvm&quot;</span> || printf %s <span class="string">&quot;<span class="variable">$&#123;XDG_CONFIG_HOME&#125;</span>/nvm&quot;</span>)</span>&quot;</span></span><br><span class="line">[ -s <span class="string">&quot;<span class="variable">$NVM_DIR</span>/nvm.sh&quot;</span> ] &amp;&amp; \. <span class="string">&quot;<span class="variable">$NVM_DIR</span>/nvm.sh&quot;</span> <span class="comment"># This loads nvm</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>On Linux, after running the install script, if you get <code>nvm: command not found</code> or see no feedback from your terminal after you type <code>command -v nvm</code>, simply close your current terminal, open a new terminal, and try verifying again. Alternatively, you can run the following commands for the different shells on the command line:</p>
+<p><em>bash</em>: <code>source ~/.bashrc</code></p>
+<p><em>zsh</em>: <code>source ~/.zshrc</code></p>
+<p><em>ksh</em>: <code>. ~/.profile</code></p>
+<p>These should pick up the <code>nvm</code> command.</p>
+</blockquote></li>
+<li><p>Install <a target="_blank" rel="noopener" href="https://hexo.io/docs/">hexo</a></p>
+<p><code>$ npm install -g hexo-cli</code></p>
+<blockquote>
+<p>Advanced users may prefer to install and use <code>hexo</code> package instead.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo</span><br></pre></td></tr></table></figure>
+<p>Once installed, you can run Hexo in two ways:</p>
+<ol type="1">
+<li><code>npx hexo &lt;command&gt;</code></li>
+<li>Linux users can set relative path of <code>node_modules/</code> folder:</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;PATH=&quot;$PATH:./node_modules/.bin&quot;&#x27;</span> &gt;&gt; ~/.profile</span><br></pre></td></tr></table></figure>
+<p>then run Hexo using <code>hexo &lt;command&gt;</code></p>
+</blockquote></li>
+<li><p>Initialize webpage folder</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo init &lt;web_name&gt;</span><br><span class="line"><span class="built_in">cd</span> &lt;webname_page&gt;</span><br></pre></td></tr></table></figure></li>
+<li><p>Download configuration packages</p>
+<p>For example</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Download local search toolkit</span></span><br><span class="line">npm install hexo-generator-searchdb</span><br><span class="line"><span class="comment"># Download NEXT theme</span></span><br><span class="line">npm install hexo-theme-next</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h1 id="troubleshooting">Troubleshooting</h1>
+<ul>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/theme-next/hexo-theme-next/issues/1454">Mathjax configuration problem</a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># install pandoc</span></span><br><span class="line">sudo apt-get install pandoc</span><br><span class="line">npm un hexo-renderer-marked</span><br><span class="line">npm i hexo-renderer-pandoc</span><br></pre></td></tr></table></figure></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1161,100 +1279,6 @@ G --&gt; H[Measure and analyze yourself]
 <li><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/7fd317a45be5">How shell defines variables and assigns values to variables</a></li>
 <li><a target="_blank" rel="noopener" href="https://www.cyberciti.biz/faq/clear-the-shell-history-in-ubuntu-linux/">How to clear shell history in Ubuntu Linux</a></li>
 <li><a target="_blank" rel="noopener" href="https://askubuntu.com/questions/443789/what-does-chmod-x-filename-do-and-how-do-i-use-it">What does "chmod +x " do and how do I use it?</a></li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/06/08/sum-of-normal-random-variables/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Weiru Han">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Weiru Han's blog">
-      <meta itemprop="description" content="The journey of a thousand miles begins with one step">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Weiru Han's blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/06/08/sum-of-normal-random-variables/" class="post-title-link" itemprop="url">sum of normal random variables</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2022-06-08 16:49:01" itemprop="dateCreated datePublished" datetime="2022-06-08T16:49:01-04:00">2022-06-08</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-11-07 00:39:59" itemprop="dateModified" datetime="2022-11-07T00:39:59-05:00">2022-11-07</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Mathematics/" itemprop="url" rel="index"><span itemprop="name">Mathematics</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>Suppose <span class="math inline">\(X,Y\)</span> are independent random variables from normal distributions, then sum of these two random variables is also a normal random variable. The proof of this statement could be referred to</p>
-<p><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Sum_of_normally_distributed_random_variables">Wikipedia-Proof using convolutions</a></p>
-<p>We could also generate graphs to elucidate this process</p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator">&gt;</span> x <span class="operator">&lt;-</span> rnorm<span class="punctuation">(</span><span class="number">10000</span><span class="punctuation">,</span><span class="number">1</span><span class="punctuation">,</span><span class="number">10</span><span class="punctuation">)</span></span><br><span class="line"><span class="operator">&gt;</span> y <span class="operator">&lt;-</span> rnorm<span class="punctuation">(</span><span class="number">10000</span><span class="punctuation">,</span><span class="operator">-</span><span class="number">10</span><span class="punctuation">,</span><span class="number">10</span><span class="punctuation">)</span></span><br><span class="line"><span class="operator">&gt;</span> par<span class="punctuation">(</span>mfrow <span class="operator">=</span> <span class="built_in">c</span><span class="punctuation">(</span><span class="number">3</span><span class="punctuation">,</span><span class="number">1</span><span class="punctuation">)</span><span class="punctuation">)</span></span><br><span class="line"><span class="operator">&gt;</span> plot<span class="punctuation">(</span>density<span class="punctuation">(</span>x<span class="punctuation">)</span><span class="punctuation">)</span></span><br><span class="line"><span class="operator">&gt;</span> plot<span class="punctuation">(</span>density<span class="punctuation">(</span>y<span class="punctuation">)</span><span class="punctuation">)</span></span><br><span class="line"><span class="operator">&gt;</span> plot<span class="punctuation">(</span>density<span class="punctuation">(</span>x<span class="operator">+</span>y<span class="punctuation">)</span><span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
-<p><img src="https://res.cloudinary.com/djd9gr1bu/image/upload/v1654722154/github_page/Rplot_qjknkd.png" alt="hi" class="inline"/></p>
-<h1 id="reference">Reference</h1>
-<ul>
-<li><a target="_blank" rel="noopener" href="https://stats.libretexts.org/Bookshelves/Probability_Theory/Book%3A_Introductory_Probability_(Grinstead_and_Snell)/07%3A_Sums_of_Random_Variables/7.02%3A_Sums_of_Continuous_Random_Variables">sum of random variables</a></li>
-<li><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Sum_of_normally_distributed_random_variables">Wikipedia-Proof using convolutions</a></li>
 </ul>
 
       
