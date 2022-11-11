@@ -1569,6 +1569,11 @@ log \ y=log\alpha_0+\alpha_1logz_1+\alpha_2logz_2+log\eta\\
 <li>Another possibility is to run a regression between Age and Age2 to see that the R2 is close to zero. This indicates, as mentioned before by other colleagues, that collinearity is very low and can be overlooked from a econometric perspective.</li>
 </ul>
 </blockquote>
+<h1 id="reference">Reference</h1>
+<ul>
+<li><p><a href="https://stats.stackexchange.com/questions/16381/what-is-a-complete-list-of-the-usual-assumptions-for-linear-regression">What is a complete list of the usual assumptions for linear regression?</a></p></li>
+<li><p><a href="https://www.researchgate.net/post/Is_it_necessary_to_correct_collinearity_when_square_terms_are_in_a_model">Is it necessary to correct collinearity when square terms are in a model?</a></p></li>
+</ul>
 ]]></content>
       <categories>
         <category>statistics</category>
