@@ -154,13 +154,13 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">29</span>
+          <span class="site-state-item-count">30</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-count">13</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
@@ -1011,7 +1011,7 @@ A --&gt;C;</code></pre>
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-11-07 00:39:59" itemprop="dateModified" datetime="2022-11-07T00:39:59-05:00">2022-11-07</time>
+      <time title="Modified: 2022-11-11 02:44:30" itemprop="dateModified" datetime="2022-11-11T02:44:30-05:00">2022-11-11</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -1062,27 +1062,49 @@ Var(y)=Var(y)+Var(e)+2Cov(\hat{y},e)\\
 <h2 id="relationship-between-r2-and-pearson-correlation-coefficient">Relationship between <span class="math inline">\(R^2\)</span> and Pearson correlation coefficient</h2>
 <p><span class="math display">\[
 \begin{gather}
-r^2_{y,\hat{y}}=(\frac{Cov(y,\hat{y})}{\sqrt{Var(y)Var(\hat{y})}})^2\\
+r^2_{y,\hat{y}}=(\frac{Cov(y,\hat{y})}{\sqrt{Var(y)Var(\hat{y})}})^2
 =\frac{Cov(y,\hat{y})Cov(y,\hat{y})}{Var(y)Var(\hat{y})}\\
-=\frac{Cov(\hat{y}+e,\hat{y})^2}{Var(y)Var(\hat{y})}\\
+=\frac{Cov(\hat{y}+e,\hat{y})^2}{Var(y)Var(\hat{y})}
 =\frac{Cov(\hat{y},\hat{y})^2}{Var(y)Var(\hat{y})}\ (Cov(\hat{y},e)=0)\\
-=\frac{Var(\hat{y})}{Var(y)}\\
+=\frac{Var(\hat{y})}{Var(y)}
 =\frac{\sum(\hat{y}_i-\overline{\hat{y}})^2}{\sum(y_i-\overline{y})^2}\\
 =\frac{SSR}{SST}\\
 =R^2
 \end{gather}
 \]</span></p>
 <blockquote>
-<p>Conclusion: <span class="math inline">\(R^2\)</span> is equal to the squared Pearson correlation coefficient between observed response variable and predicted response variable</p>
+<p>Conclusion: <span class="math inline">\(R^2\)</span> is equal to the squared Pearson correlation coefficient between observed response variable <span class="math inline">\(y\)</span> and predicted response variable <span class="math inline">\(\hat{y}\)</span></p>
 </blockquote>
 <figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator">&gt;</span> iris_model <span class="operator">&lt;-</span> lm<span class="punctuation">(</span>Petal.Width<span class="operator">~</span>Sepal.Length<span class="operator">+</span>Sepal.Width<span class="operator">+</span>Petal.Length<span class="punctuation">,</span>data <span class="operator">=</span> iris<span class="punctuation">)</span></span><br><span class="line"><span class="operator">&gt;</span> summary<span class="punctuation">(</span>iris_model<span class="punctuation">)</span></span><br><span class="line"></span><br><span class="line">Call<span class="operator">:</span></span><br><span class="line">lm<span class="punctuation">(</span>formula <span class="operator">=</span> Petal.Width <span class="operator">~</span> Sepal.Length <span class="operator">+</span> Sepal.Width <span class="operator">+</span> Petal.Length<span class="punctuation">,</span> </span><br><span class="line">    data <span class="operator">=</span> iris<span class="punctuation">)</span></span><br><span class="line"></span><br><span class="line">Residuals<span class="operator">:</span></span><br><span class="line">     Min       <span class="number">1</span>Q   Median       <span class="number">3</span>Q      Max </span><br><span class="line"><span class="operator">-</span><span class="number">0.60959</span> <span class="operator">-</span><span class="number">0.10134</span> <span class="operator">-</span><span class="number">0.01089</span>  <span class="number">0.09825</span>  <span class="number">0.60685</span> </span><br><span class="line"></span><br><span class="line">Coefficients<span class="operator">:</span></span><br><span class="line">             Estimate Std. Error t value Pr<span class="punctuation">(</span><span class="operator">&gt;</span><span class="operator">|</span>t<span class="operator">|</span><span class="punctuation">)</span>    </span><br><span class="line"><span class="punctuation">(</span>Intercept<span class="punctuation">)</span>  <span class="operator">-</span><span class="number">0.24031</span>    <span class="number">0.17837</span>  <span class="operator">-</span><span class="number">1.347</span>     <span class="number">0.18</span>    </span><br><span class="line">Sepal.Length <span class="operator">-</span><span class="number">0.20727</span>    <span class="number">0.04751</span>  <span class="operator">-</span><span class="number">4.363</span> <span class="number">2.41e-05</span> <span class="operator">*</span><span class="operator">*</span><span class="operator">*</span></span><br><span class="line">Sepal.Width   <span class="number">0.22283</span>    <span class="number">0.04894</span>   <span class="number">4.553</span> <span class="number">1.10e-05</span> <span class="operator">*</span><span class="operator">*</span><span class="operator">*</span></span><br><span class="line">Petal.Length  <span class="number">0.52408</span>    <span class="number">0.02449</span>  <span class="number">21.399</span>  <span class="operator">&lt;</span> <span class="number">2e-16</span> <span class="operator">*</span><span class="operator">*</span><span class="operator">*</span></span><br><span class="line"><span class="operator">-</span><span class="operator">-</span><span class="operator">-</span></span><br><span class="line">Signif. codes<span class="operator">:</span>  <span class="number">0</span> ‘<span class="operator">*</span><span class="operator">*</span><span class="operator">*</span>’ <span class="number">0.001</span> ‘<span class="operator">*</span><span class="operator">*</span>’ <span class="number">0.01</span> ‘<span class="operator">*</span>’ <span class="number">0.05</span> ‘.’ <span class="number">0.1</span> ‘ ’ <span class="number">1</span></span><br><span class="line"></span><br><span class="line">Residual standard error<span class="operator">:</span> <span class="number">0.192</span> on <span class="number">146</span> degrees of freedom</span><br><span class="line">Multiple R<span class="operator">-</span>squared<span class="operator">:</span>  <span class="number">0.9379</span><span class="punctuation">,</span>	Adjusted R<span class="operator">-</span>squared<span class="operator">:</span>  <span class="number">0.9366</span> </span><br><span class="line"><span class="built_in">F</span><span class="operator">-</span>statistic<span class="operator">:</span> <span class="number">734.4</span> on <span class="number">3</span> and <span class="number">146</span> DF<span class="punctuation">,</span>  p<span class="operator">-</span>value<span class="operator">:</span> <span class="operator">&lt;</span> <span class="number">2.2e-16</span></span><br><span class="line"></span><br><span class="line"><span class="operator">&gt;</span> <span class="punctuation">(</span>cor<span class="punctuation">(</span>iris_model<span class="operator">$</span>fitted.values<span class="punctuation">,</span>iris<span class="operator">$</span>Petal.Width<span class="punctuation">)</span><span class="punctuation">)</span><span class="operator">^</span><span class="number">2</span></span><br><span class="line"><span class="punctuation">[</span><span class="number">1</span><span class="punctuation">]</span> <span class="number">0.9378503</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>Particularly, for simple linear regression, the coefficient of determination also equals the square of the sample correlation coefficient <span class="math inline">\(r_{xy}\)</span></p>
+</blockquote>
+<p>Assume <span class="math inline">\(y_i=\beta_0+\beta_1x_i\)</span>, then the best linear unbiased estimates of <span class="math inline">\(\beta_0\)</span> and <span class="math inline">\(\beta_1\)</span> are <span class="math display">\[
+\begin{gather*}
+\hat{\beta_0}=\bar{y}-\hat{\beta_1}\bar{x}\\
+\hat{\beta_1}=\frac{S_{xy}}{S_{xx}}
+\end{gather*}
+\]</span> where <span class="math display">\[
+\begin{gather*}
+S_{xy}=\sum_{i=1}^n(x_i-\bar{x})(y_i-\bar{y})\\
+S_{xx}=\sum_{i=1}^n(x_i-\bar{x})^2\\
+S_{yy}=\sum_{i=1}^n(y_i-\bar{y})^2
+\end{gather*}
+\]</span> Then we could easily obtain the relationship between <span class="math inline">\(R^2\)</span> and the <span class="math inline">\(r_{xy}\)</span> as <span class="math display">\[
+\begin{gather*}
+R^2 = \frac{ESS}{SST}=\frac{\hat{\beta_1}^2S_{xx}}{S_{yy}}\\
+=(\frac{S_{xy}}{S_xS_y})^2\\
+=r^2_{xy}
+\end{gather*}
+\]</span> We could also test this by running R code</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator">&gt;</span> model <span class="operator">&lt;-</span> lm<span class="punctuation">(</span>Petal.Width <span class="operator">~</span> Sepal.Length<span class="punctuation">,</span>data <span class="operator">=</span> iris<span class="punctuation">)</span></span><br><span class="line"><span class="operator">&gt;</span> summary<span class="punctuation">(</span>model<span class="punctuation">)</span></span><br><span class="line"></span><br><span class="line">Call<span class="operator">:</span></span><br><span class="line">lm<span class="punctuation">(</span>formula <span class="operator">=</span> Petal.Width <span class="operator">~</span> Sepal.Length<span class="punctuation">,</span> data <span class="operator">=</span> iris<span class="punctuation">)</span></span><br><span class="line"></span><br><span class="line">Residuals<span class="operator">:</span></span><br><span class="line">     Min       <span class="number">1</span>Q   Median       <span class="number">3</span>Q      Max </span><br><span class="line"><span class="operator">-</span><span class="number">0.96671</span> <span class="operator">-</span><span class="number">0.35936</span> <span class="operator">-</span><span class="number">0.01787</span>  <span class="number">0.28388</span>  <span class="number">1.23329</span> </span><br><span class="line"></span><br><span class="line">Coefficients<span class="operator">:</span></span><br><span class="line">             Estimate Std. Error t value Pr<span class="punctuation">(</span><span class="operator">&gt;</span><span class="operator">|</span>t<span class="operator">|</span><span class="punctuation">)</span>    </span><br><span class="line"><span class="punctuation">(</span>Intercept<span class="punctuation">)</span>  <span class="operator">-</span><span class="number">3.20022</span>    <span class="number">0.25689</span>  <span class="operator">-</span><span class="number">12.46</span>   <span class="operator">&lt;</span><span class="number">2e-16</span> <span class="operator">*</span><span class="operator">*</span><span class="operator">*</span></span><br><span class="line">Sepal.Length  <span class="number">0.75292</span>    <span class="number">0.04353</span>   <span class="number">17.30</span>   <span class="operator">&lt;</span><span class="number">2e-16</span> <span class="operator">*</span><span class="operator">*</span><span class="operator">*</span></span><br><span class="line"><span class="operator">-</span><span class="operator">-</span><span class="operator">-</span></span><br><span class="line">Signif. codes<span class="operator">:</span>  <span class="number">0</span> ‘<span class="operator">*</span><span class="operator">*</span><span class="operator">*</span>’ <span class="number">0.001</span> ‘<span class="operator">*</span><span class="operator">*</span>’ <span class="number">0.01</span> ‘<span class="operator">*</span>’ <span class="number">0.05</span> ‘.’ <span class="number">0.1</span> ‘ ’ <span class="number">1</span></span><br><span class="line"></span><br><span class="line">Residual standard error<span class="operator">:</span> <span class="number">0.44</span> on <span class="number">148</span> degrees of freedom</span><br><span class="line">Multiple R<span class="operator">-</span>squared<span class="operator">:</span>  <span class="number">0.669</span><span class="punctuation">,</span>	Adjusted R<span class="operator">-</span>squared<span class="operator">:</span>  <span class="number">0.6668</span> </span><br><span class="line"><span class="built_in">F</span><span class="operator">-</span>statistic<span class="operator">:</span> <span class="number">299.2</span> on <span class="number">1</span> and <span class="number">148</span> DF<span class="punctuation">,</span>  p<span class="operator">-</span>value<span class="operator">:</span> <span class="operator">&lt;</span> <span class="number">2.2e-16</span></span><br><span class="line"></span><br><span class="line"><span class="operator">&gt;</span> cor<span class="punctuation">(</span>model<span class="operator">$</span>fitted.values<span class="punctuation">,</span>iris<span class="operator">$</span>Petal.Width<span class="punctuation">)</span><span class="operator">^</span><span class="number">2</span></span><br><span class="line"><span class="punctuation">[</span><span class="number">1</span><span class="punctuation">]</span> <span class="number">0.6690277</span></span><br><span class="line"><span class="operator">&gt;</span> cor<span class="punctuation">(</span>iris<span class="operator">$</span>Petal.Width<span class="punctuation">,</span>iris<span class="operator">$</span>Sepal.Length<span class="punctuation">)</span><span class="operator">^</span><span class="number">2</span></span><br><span class="line"><span class="punctuation">[</span><span class="number">1</span><span class="punctuation">]</span> <span class="number">0.6690277</span></span><br></pre></td></tr></table></figure>
 <h2 id="reference">Reference</h2>
 <ul>
 <li><p><a target="_blank" rel="noopener" href="https://365datascience.com/tutorials/statistics-tutorials/sum-squares/">Sum of squares Total, Sum of Squares Regression and Sum of Squares Error</a></p></li>
 <li><p><a target="_blank" rel="noopener" href="https://economictheoryblog.com/2014/11/05/the-coefficient-of-determination-latex-r2/">The coefficient of determination of R2</a></p></li>
 <li><p><a target="_blank" rel="noopener" href="https://economictheoryblog.com/2014/11/05/proof/">Relationship between coefficient of determination and squared pearson correlation coefficient</a></p></li>
 <li><p><a target="_blank" rel="noopener" href="https://stats.stackexchange.com/questions/187734/relationship-between-r2-and-correlation-coefficient">Relationship between R2 and correlation coefficient</a></p></li>
-<li><p><a target="_blank" rel="noopener" href="https://stats.stackexchange.com/questions/83347/relationship-between-r2-and-correlation-coefficient">Relationship between R2 and correlation coefficient</a></p></li>
+<li><p><a target="_blank" rel="noopener" href="https://stats.stackexchange.com/questions/83347/relationship-between-r2-and-correlation-coefficient">Relationship between rsquare and correlation coefficient</a></p></li>
 </ul>
 
       
@@ -1182,6 +1204,154 @@ y_i=\hat{y}_i+e_i
 <ul>
 <li><a target="_blank" rel="noopener" href="https://stats.stackexchange.com/questions/469212/proof-that-the-mean-of-predicted-values-in-ols-regression-is-equal-to-the-mean-o">Proof that the mean of predicted values in OLS regression is equal to the mean of original values?</a></li>
 </ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/04/21/Assumption-of-linear-regression/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Weiru Han">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Weiru Han's blog">
+      <meta itemprop="description" content="The journey of a thousand miles begins with one step">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Weiru Han's blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/04/21/Assumption-of-linear-regression/" class="post-title-link" itemprop="url">Assumption of linear regression</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2022-04-21 16:46:09" itemprop="dateCreated datePublished" datetime="2022-04-21T16:46:09-04:00">2022-04-21</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2022-11-11 03:09:00" itemprop="dateModified" datetime="2022-11-11T03:09:00-05:00">2022-11-11</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Linear-regression/" itemprop="url" rel="index"><span itemprop="name">Linear regression</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Linear-regression/statistics/" itemprop="url" rel="index"><span itemprop="name">statistics</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>The model is called “linear” not because it is linear in <span class="math inline">\(x\)</span>, but rather because it is <strong>linear in the parameters</strong>.</p>
+<blockquote>
+<p>The following are the examples of linear models:</p>
+</blockquote>
+<p><span class="math display">\[
+\begin{gather*}
+y =\beta_0+\beta_1x_1+\beta_2x_2+\epsilon\\
+y =\beta_0+\beta_1x_1+\beta_2x_2^2+\epsilon\\
+y =\beta_0+\beta_1x_1+\beta_2x_2+\beta_3x_1^2+\beta_4x_2^2+\beta_5x_1x_2+\epsilon
+\end{gather*}
+\]</span></p>
+<p>A model that can be transformed so that it becomes linear in its unknown parameters is called <strong>intrinsically linear</strong>; Otherwise it is called a <strong>nonlinear model</strong></p>
+<blockquote>
+<p>The following are nonlinear models</p>
+</blockquote>
+<p><span class="math display">\[
+\begin{gather*}
+y =\beta_0+\beta_1x_1+\beta_2x_2^{\beta_3}+\epsilon\\
+y = \alpha_0z_1^{\alpha_1}z_2^{\alpha_2}\eta
+\end{gather*}
+\]</span></p>
+<blockquote>
+<p>The following are some nonlinear models that can be made linear by transformation</p>
+</blockquote>
+<p><span class="math display">\[
+\begin{gather*}
+log \ y=log\alpha_0+\alpha_1logz_1+\alpha_2logz_2+log\eta\\
+\Rightarrow y*=\beta_0+\beta_1x_1+\beta_2x_2+\epsilon
+\end{gather*}
+\]</span></p>
+<p>There are four key assumptions for <strong>Simple Linear regression</strong></p>
+<blockquote>
+<ul>
+<li>Linear relationship between dependent variable and independent variable</li>
+<li>The variance of the residuals is constant (constant variance errors, homoscedasticity)</li>
+<li>Independence of observation (no autocorrelation). Simply put, the model assumes that the values of residuals are independent</li>
+<li>Normally distributed errors</li>
+</ul>
+</blockquote>
+<p>In addition to the four assumptions listed above, there is one more for <strong>Multiple Linear regression.</strong></p>
+<blockquote>
+<ul>
+<li>The data should not show multicollinearity.</li>
+</ul>
+</blockquote>
+<p>There is an interesting post about Multicollinearity that I'd like to mention here.</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://www.researchgate.net/post/Is_it_necessary_to_correct_collinearity_when_square_terms_are_in_a_model">Is it necessary to correct collinearity when square terms are in a model?</a></p>
+<ul>
+<li>Question: I had a regression model where one of the explanatory variable is "age". I added a "age-squared" variable since the distribution of age was in a quadratic form. It is obvious that the 'age' and 'age-squared' variables will be highly correlated. In that case, is it really necessary to deal the collinearity problem in the model?</li>
+</ul>
+</blockquote>
+<p>Several answers are great:</p>
+<blockquote>
+<ul>
+<li>Multicollinearity is NOT a problem in your case. Multicollinearity has to be checked and problems have to be solved when you want to estimate the independent effect of two variables which happen to be correlated by chance. This is NOT your problem with your age and age-squared variables since you should never be interested in evaluating the effect of changing age without changing agesquared. So do not care about multicollinearity between one variable and a second variable which is a deterministic non linear function of the first one. Except in the case of perfect multocillinearity, which would be the case if you had only two different values for your age variable.</li>
+<li>Age and age squared are correlated. However, one is not a linear transformation of the other by definition.</li>
+<li>Another possibility is to run a regression between Age and Age2 to see that the R2 is close to zero. This indicates, as mentioned before by other colleagues, that collinearity is very low and can be overlooked from a econometric perspective.</li>
+</ul>
+</blockquote>
 
       
     </div>
