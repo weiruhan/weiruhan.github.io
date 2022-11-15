@@ -1509,7 +1509,8 @@ var(Y_i)=e_i^T\lambda_ie_i=\lambda_ie_i^Te_i=\lambda_i
   <entry>
     <title>Assumption of linear regression</title>
     <url>/2022/04/21/Assumption-of-linear-regression/</url>
-    <content><![CDATA[<p>The model is called “linear” not because it is linear in <span class="math inline">\(x\)</span>, but rather because it is <strong>linear in the parameters</strong>.</p>
+    <content><![CDATA[<h1 id="definition">Definition</h1>
+<p>The model is called “linear” not because it is linear in <span class="math inline">\(x\)</span>, but rather because it is <strong>linear in the parameters</strong>.</p>
 <blockquote>
 <p>The following are the examples of linear models:</p>
 </blockquote>
@@ -1542,10 +1543,11 @@ log \ y=log\alpha_0+\alpha_1logz_1+\alpha_2logz_2+log\eta\\
 <p>There are four key assumptions for <strong>Simple Linear regression</strong></p>
 <blockquote>
 <ul>
-<li>Linear relationship between dependent variable and independent variable</li>
-<li>The variance of the residuals is constant (constant variance errors, homoscedasticity)</li>
-<li>Independence of observation (no autocorrelation). Simply put, the model assumes that the values of residuals are independent</li>
-<li>Normally distributed errors</li>
+<li><p>Linear relationship between dependent variable and independent variable</p></li>
+<li><p>The variance of the residuals is constant (constant variance errors, homoscedasticity)</p></li>
+<li><p>Independence of observation (no autocorrelation). Simply put, the model assumes that the values of residuals are independent</p>
+<p>sample error is dependent,</p></li>
+<li><p>Normally distributed errors</p></li>
 </ul>
 </blockquote>
 <p>In addition to the four assumptions listed above, there is one more for <strong>Multiple Linear regression.</strong></p>
@@ -1554,25 +1556,32 @@ log \ y=log\alpha_0+\alpha_1logz_1+\alpha_2logz_2+log\eta\\
 <li>The data should not show multicollinearity.</li>
 </ul>
 </blockquote>
+<h1 id="useful-blogs">Useful blogs</h1>
 <p>There is an interesting post about Multicollinearity that I'd like to mention here.</p>
 <blockquote>
 <p><a href="https://www.researchgate.net/post/Is_it_necessary_to_correct_collinearity_when_square_terms_are_in_a_model">Is it necessary to correct collinearity when square terms are in a model?</a></p>
+</blockquote>
 <ul>
 <li>Question: I had a regression model where one of the explanatory variable is "age". I added a "age-squared" variable since the distribution of age was in a quadratic form. It is obvious that the 'age' and 'age-squared' variables will be highly correlated. In that case, is it really necessary to deal the collinearity problem in the model?</li>
 </ul>
-</blockquote>
 <p>Several answers are great:</p>
-<blockquote>
 <ul>
 <li>Multicollinearity is NOT a problem in your case. Multicollinearity has to be checked and problems have to be solved when you want to estimate the independent effect of two variables which happen to be correlated by chance. This is NOT your problem with your age and age-squared variables since you should never be interested in evaluating the effect of changing age without changing agesquared. So do not care about multicollinearity between one variable and a second variable which is a deterministic non linear function of the first one. Except in the case of perfect multocillinearity, which would be the case if you had only two different values for your age variable.</li>
 <li>Age and age squared are correlated. However, one is not a linear transformation of the other by definition.</li>
 <li>Another possibility is to run a regression between Age and Age2 to see that the R2 is close to zero. This indicates, as mentioned before by other colleagues, that collinearity is very low and can be overlooked from a econometric perspective.</li>
 </ul>
+<blockquote>
+<p><a href="https://stats.stackexchange.com/questions/298/in-linear-regression-when-is-it-appropriate-to-use-the-log-of-an-independent-va">In linear regression, when is it appropriate to use the log of an independent variable instead of the actual values?</a></p>
+</blockquote>
+<blockquote>
+<p>https://stats.stackexchange.com/questions/310003/why-in-box-cox-method-we-try-to-make-x-and-y-normally-distributed-but-thats-no?noredirect=1&amp;lq=1</p>
 </blockquote>
 <h1 id="reference">Reference</h1>
 <ul>
 <li><p><a href="https://stats.stackexchange.com/questions/16381/what-is-a-complete-list-of-the-usual-assumptions-for-linear-regression">What is a complete list of the usual assumptions for linear regression?</a></p></li>
 <li><p><a href="https://www.researchgate.net/post/Is_it_necessary_to_correct_collinearity_when_square_terms_are_in_a_model">Is it necessary to correct collinearity when square terms are in a model?</a></p></li>
+<li><p><a href="https://stats.stackexchange.com/questions/298/in-linear-regression-when-is-it-appropriate-to-use-the-log-of-an-independent-va">In linear regression, when is it appropriate to use the log of an independent variable instead of the actual values?</a></p></li>
+<li><p>https://stats.stackexchange.com/questions/310003/why-in-box-cox-method-we-try-to-make-x-and-y-normally-distributed-but-thats-no?noredirect=1&amp;lq=1</p></li>
 </ul>
 ]]></content>
       <categories>
