@@ -20,14 +20,17 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.13.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":true,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta property="og:type" content="article">
+    <meta name="description" content="chi2 is mainly used for binary indicator or term counts, so one needs to be really careful when doing Pearson chi-square test. I will provide several functions to compare these differences, the datase">
+<meta property="og:type" content="article">
 <meta property="og:title" content="chi2 is not appropriate">
 <meta property="og:url" content="http://example.com/2022/12/07/chi2-is-not-appropriate/index.html">
 <meta property="og:site_name" content="Weiru Han&#39;s blog">
+<meta property="og:description" content="chi2 is mainly used for binary indicator or term counts, so one needs to be really careful when doing Pearson chi-square test. I will provide several functions to compare these differences, the datase">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-12-07T05:05:21.000Z">
-<meta property="article:modified_time" content="2022-12-07T05:05:21.203Z">
+<meta property="article:modified_time" content="2022-12-08T01:33:51.495Z">
 <meta property="article:author" content="Weiru Han">
+<meta property="article:tag" content="python">
 <meta name="twitter:card" content="summary">
 
 
@@ -129,7 +132,7 @@
 
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           Table of Contents
@@ -142,6 +145,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#a-peek-of-the-dataset"><span class="nav-number">1.</span> <span class="nav-text">A peek of the dataset</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#use-function-chi2"><span class="nav-number">2.</span> <span class="nav-text">Use function chi2</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#accumulate-values-under-the-same-class"><span class="nav-number">3.</span> <span class="nav-text">Accumulate values under the same class</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#use-function-chi2_contigency"><span class="nav-number">4.</span> <span class="nav-text">Use function chi2_contigency</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#use-regular-formula"><span class="nav-number">5.</span> <span class="nav-text">Use regular formula</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#conclusion"><span class="nav-number">6.</span> <span class="nav-text">Conclusion</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#reference"><span class="nav-number">7.</span> <span class="nav-text">Reference</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -165,7 +169,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">17</span>
+        <span class="site-state-item-count">18</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -232,8 +236,18 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
+      
 
-      <time title="Created: 2022-12-07 00:05:21" itemprop="dateCreated datePublished" datetime="2022-12-07T00:05:21-05:00">2022-12-07</time>
+      <time title="Created: 2022-12-07 00:05:21 / Modified: 20:33:51" itemprop="dateCreated datePublished" datetime="2022-12-07T00:05:21-05:00">2022-12-07</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a>
+        </span>
     </span>
 
   
@@ -246,7 +260,128 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        
+        <p><code>chi2</code> is mainly used for binary indicator or term counts, so one needs to be really careful when doing Pearson chi-square test. I will provide several functions to compare these differences, the dataset which I use is the pima dataset</p>
+<h1 id="a-peek-of-the-dataset">A peek of the dataset</h1>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pandas <span class="keyword">import</span> read_csv</span><br><span class="line"></span><br><span class="line"><span class="comment"># load data</span></span><br><span class="line">filename = <span class="string">&#x27;dataset/diabetes.csv&#x27;</span></span><br><span class="line">names = [<span class="string">&#x27;preg&#x27;</span>, <span class="string">&#x27;plas&#x27;</span>, <span class="string">&#x27;pres&#x27;</span>, <span class="string">&#x27;skin&#x27;</span>, <span class="string">&#x27;test&#x27;</span>, <span class="string">&#x27;mass&#x27;</span>, <span class="string">&#x27;pedi&#x27;</span>, <span class="string">&#x27;age&#x27;</span>, <span class="string">&#x27;class&#x27;</span>]</span><br><span class="line">dataframe = read_csv(filename)</span><br><span class="line">dataframe.columns = names</span><br><span class="line">dataframe.head(<span class="number">2</span>)</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr class="header">
+<th></th>
+<th>preg</th>
+<th>plas</th>
+<th>pres</th>
+<th>skin</th>
+<th>test</th>
+<th>mass</th>
+<th>pedi</th>
+<th>age</th>
+<th>class</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0</td>
+<td>6</td>
+<td>148</td>
+<td>72</td>
+<td>35</td>
+<td>0</td>
+<td>33.6</td>
+<td>0.627</td>
+<td>50</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>1</td>
+<td>85</td>
+<td>66</td>
+<td>29</td>
+<td>0</td>
+<td>26.6</td>
+<td>0.351</td>
+<td>31</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<h1 id="use-function-chi2">Use function <code>chi2</code></h1>
+<ul>
+<li>Convert data frame to the array</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">array = dataframe.values</span><br><span class="line">array</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">array([[  <span class="number">6.</span>   , <span class="number">148.</span>   ,  <span class="number">72.</span>   , ...,   <span class="number">0.627</span>,  <span class="number">50.</span>   ,   <span class="number">1.</span>   ],</span><br><span class="line">       [  <span class="number">1.</span>   ,  <span class="number">85.</span>   ,  <span class="number">66.</span>   , ...,   <span class="number">0.351</span>,  <span class="number">31.</span>   ,   <span class="number">0.</span>   ],</span><br><span class="line">       [  <span class="number">8.</span>   , <span class="number">183.</span>   ,  <span class="number">64.</span>   , ...,   <span class="number">0.672</span>,  <span class="number">32.</span>   ,   <span class="number">1.</span>   ],</span><br><span class="line">       ...,</span><br><span class="line">       [  <span class="number">5.</span>   , <span class="number">121.</span>   ,  <span class="number">72.</span>   , ...,   <span class="number">0.245</span>,  <span class="number">30.</span>   ,   <span class="number">0.</span>   ],</span><br><span class="line">       [  <span class="number">1.</span>   , <span class="number">126.</span>   ,  <span class="number">60.</span>   , ...,   <span class="number">0.349</span>,  <span class="number">47.</span>   ,   <span class="number">1.</span>   ],</span><br><span class="line">       [  <span class="number">1.</span>   ,  <span class="number">93.</span>   ,  <span class="number">70.</span>   , ...,   <span class="number">0.315</span>,  <span class="number">23.</span>   ,   <span class="number">0.</span>   ]])</span><br></pre></td></tr></table></figure>
+<ul>
+<li>Use chi2 to calculate chi-square values</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">from</span> sklearn.feature_selection <span class="keyword">import</span> chi2</span><br><span class="line"></span><br><span class="line"><span class="comment"># chi square values</span></span><br><span class="line">scores,pvalues = chi2(X,Y)</span><br><span class="line">scores</span><br><span class="line">pd.Series(scores,index = names[<span class="number">0</span>:<span class="number">8</span>])</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">preg     <span class="number">111.519691</span></span><br><span class="line">plas    <span class="number">1411.887041</span></span><br><span class="line">pres      <span class="number">17.605373</span></span><br><span class="line">skin      <span class="number">53.108040</span></span><br><span class="line">test    <span class="number">2175.565273</span></span><br><span class="line">mass     <span class="number">127.669343</span></span><br><span class="line">pedi       <span class="number">5.392682</span></span><br><span class="line">age      <span class="number">181.303689</span></span><br><span class="line">dtype: float64</span><br></pre></td></tr></table></figure>
+<h1 id="accumulate-values-under-the-same-class">Accumulate values under the same class</h1>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># %%</span></span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">from</span> scipy.sparse <span class="keyword">import</span> issparse</span><br><span class="line"><span class="keyword">from</span> sklearn.utils <span class="keyword">import</span> check_array</span><br><span class="line"><span class="keyword">from</span> sklearn.preprocessing <span class="keyword">import</span> LabelBinarizer</span><br><span class="line"><span class="keyword">from</span> sklearn.utils.extmath <span class="keyword">import</span> safe_sparse_dot</span><br><span class="line"></span><br><span class="line">label = <span class="string">&#x27;class&#x27;</span></span><br><span class="line">X,y = dataframe.drop(columns = label), dataframe[label]</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">preprocess_X_y</span>(<span class="params">X, y</span>):</span><br><span class="line">    X = check_array(X, accept_sparse=<span class="string">&quot;csr&quot;</span>)</span><br><span class="line">    <span class="keyword">if</span> np.<span class="built_in">any</span>((X.data <span class="keyword">if</span> issparse(X) <span class="keyword">else</span> X) &lt; <span class="number">0</span>):</span><br><span class="line">        <span class="keyword">raise</span> ValueError(<span class="string">&quot;Input X must be non-negative.&quot;</span>)</span><br><span class="line"></span><br><span class="line">    Y = LabelBinarizer().fit_transform(y)</span><br><span class="line">    <span class="keyword">if</span> Y.shape[<span class="number">1</span>] == <span class="number">1</span>:</span><br><span class="line">        Y = np.append(<span class="number">1</span> - Y, Y, axis=<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">    observed = safe_sparse_dot(Y.T, X)  <span class="comment"># n_classes * n_features</span></span><br><span class="line"></span><br><span class="line">    feature_count = X.<span class="built_in">sum</span>(axis=<span class="number">0</span>).reshape(<span class="number">1</span>, -<span class="number">1</span>)</span><br><span class="line">    class_prob = Y.mean(axis=<span class="number">0</span>).reshape(<span class="number">1</span>, -<span class="number">1</span>)</span><br><span class="line">    expected = np.dot(class_prob.T, feature_count)</span><br><span class="line">    <span class="keyword">return</span> observed, expected</span><br><span class="line"></span><br><span class="line">f_obs, f_exp = preprocess_X_y(X, y)</span><br><span class="line"></span><br><span class="line"><span class="comment"># %%</span></span><br><span class="line"><span class="keyword">from</span> scipy.stats <span class="keyword">import</span> chisquare</span><br><span class="line"></span><br><span class="line">pd.Series(chisquare(f_obs, f_exp).statistic, index=X.columns)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">preg     <span class="number">111.519691</span></span><br><span class="line">plas    <span class="number">1411.887041</span></span><br><span class="line">pres      <span class="number">17.605373</span></span><br><span class="line">skin      <span class="number">53.108040</span></span><br><span class="line">test    <span class="number">2175.565273</span></span><br><span class="line">mass     <span class="number">127.669343</span></span><br><span class="line">pedi       <span class="number">5.392682</span></span><br><span class="line">age      <span class="number">181.303689</span></span><br><span class="line">dtype: float64</span><br></pre></td></tr></table></figure>
+<h1 id="use-function-chi2_contigency">Use function <code>chi2_contigency</code></h1>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> scipy.stats <span class="keyword">import</span> chi2_contingency</span><br><span class="line">chi_square = pd.Series(<span class="built_in">float</span>(<span class="number">0</span>),index = names[<span class="number">0</span>:<span class="number">8</span>])</span><br><span class="line">columns = dataframe[<span class="string">&#x27;class&#x27;</span>].unique()</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> n <span class="keyword">in</span> names[<span class="number">0</span>:<span class="number">8</span>]:</span><br><span class="line">    <span class="comment"># Create contingency table</span></span><br><span class="line">    data_crosstab = pd.crosstab(dataframe[n], dataframe[<span class="string">&#x27;class&#x27;</span>],</span><br><span class="line">                            margins = <span class="literal">True</span>, margins_name = <span class="string">&quot;Total&quot;</span>)</span><br><span class="line">    score, pvalue, dof,expected = chi2_contingency(data_crosstab)</span><br><span class="line">    chi_square[n] = score</span><br><span class="line">chi_square</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">preg     <span class="number">64.594809</span></span><br><span class="line">plas    <span class="number">269.733242</span></span><br><span class="line">pres     <span class="number">54.933964</span></span><br><span class="line">skin     <span class="number">73.562894</span></span><br><span class="line">test    <span class="number">227.769830</span></span><br><span class="line">mass    <span class="number">286.470253</span></span><br><span class="line">pedi    <span class="number">533.024096</span></span><br><span class="line">age     <span class="number">140.937520</span></span><br><span class="line">dtype: float64</span><br></pre></td></tr></table></figure>
+<h1 id="use-regular-formula">Use regular formula</h1>
+<p>In this section I generate contingency table to calculate the chi-square scores</p>
+<ul>
+<li>Contingency table between <code>pregancy</code> and <code>class</code></li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">data_crosstab = pd.crosstab(dataframe[<span class="string">&#x27;preg&#x27;</span>], dataframe[<span class="string">&#x27;class&#x27;</span>],</span><br><span class="line">                            margins = <span class="literal">True</span>, margins_name = <span class="string">&quot;Total&quot;</span>)</span><br><span class="line">data_crosstab</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr class="header">
+<th>class (preg)</th>
+<th>0</th>
+<th>1</th>
+<th>Total</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0</td>
+<td>73</td>
+<td>38</td>
+<td>111</td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>106</td>
+<td>29</td>
+<td>135</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\vdots\)</span></td>
+<td><span class="math inline">\(\vdots\)</span></td>
+<td><span class="math inline">\(\vdots\)</span></td>
+<td><span class="math inline">\(\vdots\)</span></td>
+</tr>
+<tr class="even">
+<td>Total</td>
+<td>500</td>
+<td>268</td>
+<td>768</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Use chi-square formula to calculate chi-square scores for each variable</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"></span><br><span class="line">names = [<span class="string">&#x27;preg&#x27;</span>, <span class="string">&#x27;plas&#x27;</span>, <span class="string">&#x27;pres&#x27;</span>, <span class="string">&#x27;skin&#x27;</span>, <span class="string">&#x27;test&#x27;</span>, <span class="string">&#x27;mass&#x27;</span>, <span class="string">&#x27;pedi&#x27;</span>, <span class="string">&#x27;age&#x27;</span>, <span class="string">&#x27;class&#x27;</span>]</span><br><span class="line"><span class="comment"># set up float(0) so that the calculation is more accurate</span></span><br><span class="line">chi_square = pd.Series(<span class="built_in">float</span>(<span class="number">0</span>),index = names[<span class="number">0</span>:<span class="number">8</span>])</span><br><span class="line">columns = dataframe[<span class="string">&#x27;class&#x27;</span>].unique()</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> n <span class="keyword">in</span> names[<span class="number">0</span>:<span class="number">8</span>]:</span><br><span class="line">    <span class="comment"># Create contingency table</span></span><br><span class="line">    data_crosstab = pd.crosstab(dataframe[n], dataframe[<span class="string">&#x27;class&#x27;</span>],</span><br><span class="line">                            margins = <span class="literal">True</span>, margins_name = <span class="string">&quot;Total&quot;</span>)</span><br><span class="line">    rows = dataframe[n].unique()</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> columns:</span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> rows:</span><br><span class="line">            O = data_crosstab[i][j]</span><br><span class="line">            E = data_crosstab[i][<span class="string">&#x27;Total&#x27;</span>] * data_crosstab[<span class="string">&#x27;Total&#x27;</span>][j]/data_crosstab[<span class="string">&#x27;Total&#x27;</span>][<span class="string">&#x27;Total&#x27;</span>]</span><br><span class="line">            chi_square[n] += (O-E) **<span class="number">2</span>/E</span><br><span class="line">chi_square</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">preg     <span class="number">64.594809</span></span><br><span class="line">plas    <span class="number">269.733242</span></span><br><span class="line">pres     <span class="number">54.933964</span></span><br><span class="line">skin     <span class="number">73.562894</span></span><br><span class="line">test    <span class="number">227.769830</span></span><br><span class="line">mass    <span class="number">286.470253</span></span><br><span class="line">pedi    <span class="number">533.024096</span></span><br><span class="line">age     <span class="number">140.937520</span></span><br><span class="line">dtype: float64</span><br></pre></td></tr></table></figure>
+<hr />
+<h1 id="conclusion">Conclusion</h1>
+<p>For continuous variable, better not use <code>chi2</code> as the assumed distribution for the statistic may not be chi-square distribution.</p>
+<p>One could also refer to the help document of <code>chi2</code>, which indicates that this function is usually applied to binary indicators or term counts.</p>
+<h1 id="reference">Reference</h1>
+<ul>
+<li>https://github.com/scikit-learn/scikit-learn/issues/21455</li>
+<li>https://github.com/scikit-learn/scikit-learn/pull/24684</li>
+<li>https://stackoverflow.com/questions/50932433/scipy-and-sklearn-chi2-implementations-give-different-results</li>
+<li>https://stats.stackexchange.com/questions/549536/does-chi-square-test-for-independence-sklearn-feature-selection-selectkbest-pr</li>
+<li>https://github.com/scikit-learn/scikit-learn/issues/24593</li>
+<li><a target="_blank" rel="noopener" href="https://www.stat.berkeley.edu/~stark/SticiGui/Text/chiSquare.htm">derivation for chi-square test</a></li>
+</ul>
 
     </div>
 
@@ -255,6 +390,9 @@
     
 
     <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/python/" rel="tag"># python</a>
+          </div>
 
         
 
