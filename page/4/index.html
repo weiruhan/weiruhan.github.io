@@ -23,7 +23,7 @@
     <meta name="description" content="The journey of a thousand miles begins with one step">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Weiru Han&#39;s blog">
-<meta property="og:url" content="http://example.com/archives/page/3/index.html">
+<meta property="og:url" content="http://example.com/page/4/index.html">
 <meta property="og:site_name" content="Weiru Han&#39;s blog">
 <meta property="og:description" content="The journey of a thousand miles begins with one step">
 <meta property="og:locale" content="en_US">
@@ -31,14 +31,14 @@
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="http://example.com/archives/page/3/">
+<link rel="canonical" href="http://example.com/page/4/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":false,"lang":"en","comments":"","permalink":"","path":"archives/page/3/index.html","title":""}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":true,"isPost":false,"lang":"en","comments":"","permalink":"","path":"page/4/index.html","title":""}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>Archive | Weiru Han's blog</title>
+<title>Weiru Han's blog</title>
   
 
 
@@ -193,235 +193,144 @@
 </noscript>
 
 
-    <div class="main-inner archive posts-collapse">
+    <div class="main-inner index posts-expand">
+
+    
 
 
+<div class="post-block">
   
   
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/11/29/Levy-process/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Weiru Han">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Weiru Han's blog">
+      <meta itemprop="description" content="The journey of a thousand miles begins with one step">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Weiru Han's blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/11/29/Levy-process/" class="post-title-link" itemprop="url">Levy process</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2021-11-29 01:19:34" itemprop="dateCreated datePublished" datetime="2021-11-29T01:19:34-05:00">2021-11-29</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2022-11-07 00:39:59" itemprop="dateModified" datetime="2022-11-07T00:39:59-05:00">2022-11-07</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/time-series-analysis/" itemprop="url" rel="index"><span itemprop="name">time series analysis</span></a>
+        </span>
+    </span>
+
   
-  <div class="post-block">
-    <div class="post-content">
-      <div class="collection-title">
-        
-        <span class="collection-header">OK! 31 posts in total. Keep on posting.</span>
-      </div>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="definition-of-levy-process">Definition of Levy process</h1>
+<p>A <b>Levy process</b>, <span class="math inline">\(\{L(t),t\in \mathbb{R}\}\)</span> is a process with the following <span class="math inline">\(4\)</span> properties:</p>
+<ol type="i">
+<li><p><span class="math inline">\(L(0)=0\)</span></p></li>
+<li><p><span class="math inline">\(L(t)-L(s)\)</span> has the same distribution as <span class="math inline">\(L(t-s)\)</span> for <span class="math inline">\(\forall\ s,t\)</span> such that <span class="math inline">\(s\leq t\)</span></p></li>
+<li><p>If <span class="math inline">\((s,t)\)</span> and <span class="math inline">\((u,v)\)</span> are disjoint intervals then <span class="math inline">\(L(t)-L(s)\)</span> and <span class="math inline">\(L(v)-L(u)\)</span> are independent</p></li>
+<li><p><span class="math inline">\(\{L(t)\}\)</span> is continuous in probability, that is, for <span class="math inline">\(\forall\ \epsilon&gt;0\)</span> and for <span class="math inline">\(\forall\ t\in \mathbb{R}\)</span> <span class="math display">\[
+\underset{s\rightarrow t}{lim}P(\left|L(t)-L(s)\right|&gt;\epsilon)=0
+\]</span></p></li>
+</ol>
+<h2 id="brownian-motion">Brownian motion</h2>
+<p>A well-known example of the levy process is the <strong>Brownian Motion</strong> <span class="math display">\[
+\begin{gather}
+L(t)\sim N(\mu t,\sigma^2t)\\
+t\geq0,\ \mu\in \mathbb{R}\ and\ \sigma&gt;0
+\end{gather}
+\]</span> To show that it satisfies property (ii) of <strong>Levy process</strong>, we can calculate the corresponding expectation and variance <span class="math display">\[
+\begin{gather}
+E[L(t)-L(s)]\\
+=E[L(t)]-E[L(s)]\\
+=\mu(t-s)\\
+=E[L(t-s)]
+\end{gather}
+\]</span></p>
+<p><span class="math display">\[
+\begin{gather}
+Var[L(t)-L(s)]\\
+=E[(L(t)-L(s)-E[L(t)-L(s)])^2]\\
+=E[[L(t)-L(s)]^2-2[L(t)-L(s)]\mu(t-s)+\mu^2(t-s)^2]\\
+=E[L^2(t)+L^2(s)-2L(t)L(s)]-\mu^2(t-s)^2\\
+=\sigma^2t+\mu^2t^2+\sigma^2s+\mu^2s^2-\mu^2(t-s)^2-2E[L(t)L(s)]\\
+=\sigma^2(t+s)+\mu^2(t^2+s^2-t^2-s^2+2ts)-2E[L(t)L(s)]\\
+=\sigma^2(t+s)+2\mu^2ts-2E[L(t)L(s)]\\
+=\sigma^2(t+s)+2\mu^2ts-2E[[L(s)+L(t)-L(s)]L(s)]
+\end{gather}
+\]</span></p>
+<p>Since <span class="math inline">\(L(t)-L(s)\text{ is independent to }L(s)\)</span>, we have <span class="math display">\[
+\begin{gather}
+Var[L(t)-L(s)]\\
+=\sigma^2(t+s)+2\mu^2ts-2[E[L^2(s)]+E[L(t)-L(s)]E[L(s)]]\\
+=\sigma^2(t+s)+2\mu^2ts-2(\mu^2s^2+\sigma^2s+\mu(t-s)\mu s)\\
+=\sigma^2(t+s)-2\sigma^2s\\
+=\sigma^2(t-s)\\
+=Var[L(t-s)]\
+\end{gather}
+\]</span> Hence <span class="math inline">\(L(t)-L(s)\)</span> has the same distribution of <span class="math inline">\(L(t-s)\)</span></p>
+<h1 id="reference">Reference</h1>
+<ol type="1">
+<li><strong>Brockwell, P. J., &amp; Davis, R. A. (2002). <em>Introduction to time series and forecasting</em>. New York: Springer.</strong></li>
+</ol>
 
       
-    <div class="collection-year">
-      <span class="collection-header">2022</span>
     </div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2022-05-29T17:08:06-04:00"
-              content="2022-05-29">
-          05-29
-        </time>
-      </div>
+    
+    
+    
 
-      <div class="post-title">
-          <a class="post-title-link" href="/2022/05/29/log-normal-distribution/" itemprop="url">
-            <span itemprop="name">log-normal distribution</span>
-          </a>
-      </div>
-
+    <footer class="post-footer">
+        <div class="post-eof"></div>
       
-    </header>
+    </footer>
   </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2022-05-29T16:49:28-04:00"
-              content="2022-05-29">
-          05-29
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2022/05/29/Beta-distribution/" itemprop="url">
-            <span itemprop="name">Beta distribution</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2022-05-28T16:44:17-04:00"
-              content="2022-05-28">
-          05-28
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2022/05/28/q-value/" itemprop="url">
-            <span itemprop="name">q-value</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2022-05-09T02:27:40-04:00"
-              content="2022-05-09">
-          05-09
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2022/05/09/Density-of-transformed-random-variable/" itemprop="url">
-            <span itemprop="name">Density of transformed random variable</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2022-04-25T15:44:52-04:00"
-              content="2022-04-25">
-          04-25
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2022/04/25/Terminologies-in-collecting-data/" itemprop="url">
-            <span itemprop="name">Terminologies in collecting data</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2022-04-21T23:15:16-04:00"
-              content="2022-04-21">
-          04-21
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2022/04/21/Relationship-between-R-square-and-correlation-coefficient/" itemprop="url">
-            <span itemprop="name">Relationship between R-square and correlation coefficient</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2022-04-21T21:58:23-04:00"
-              content="2022-04-21">
-          04-21
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2022/04/21/Linear%20regression/" itemprop="url">
-            <span itemprop="name">Linear regression Part</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2022-04-21T16:46:09-04:00"
-              content="2022-04-21">
-          04-21
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2022/04/21/Assumption-of-linear-regression/" itemprop="url">
-            <span itemprop="name">Assumption of linear regression</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2022-02-21T03:04:30-05:00"
-              content="2022-02-21">
-          02-21
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2022/02/21/Principal-component-analysis/" itemprop="url">
-            <span itemprop="name">Principal component analysis</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-    <div class="collection-year">
-      <span class="collection-header">2021</span>
-    </div>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2021-11-29T22:36:50-05:00"
-              content="2021-11-29">
-          11-29
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/11/29/hexo_tutorial/" itemprop="url">
-            <span itemprop="name">Basic command of hexo</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
+</div>
 
 
-    </div>
-  </div>
-  
-  
-  
+
+
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/archives/page/2/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/archives/">1</a><a class="page-number" href="/archives/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/archives/page/4/">4</a><a class="extend next" rel="next" href="/archives/page/4/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+    <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span>
   </nav>
 
 </div>
