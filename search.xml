@@ -1709,11 +1709,11 @@ log \ y=log\alpha_0+\alpha_1logz_1+\alpha_2logz_2+log\eta\\
 <p>One could also refer to the help document of <code>chi2</code>, which indicates that this function is usually applied to binary indicators or term counts.</p>
 <h1 id="reference">Reference</h1>
 <ul>
-<li>https://github.com/scikit-learn/scikit-learn/issues/21455</li>
-<li>https://github.com/scikit-learn/scikit-learn/pull/24684</li>
-<li>https://stackoverflow.com/questions/50932433/scipy-and-sklearn-chi2-implementations-give-different-results</li>
-<li>https://stats.stackexchange.com/questions/549536/does-chi-square-test-for-independence-sklearn-feature-selection-selectkbest-pr</li>
-<li>https://github.com/scikit-learn/scikit-learn/issues/24593</li>
+<li><a href="https://github.com/scikit-learn/scikit-learn/issues/21455">chi2 should support categorical data other than binary or document count</a></li>
+<li><a href="https://github.com/scikit-learn/scikit-learn/pull/24684">DOC only use chi2 on binary and counts features</a></li>
+<li><a href="https://stackoverflow.com/questions/50932433/scipy-and-sklearn-chi2-implementations-give-different-results">Scipy and Sklearn chi2 implementations give different results</a></li>
+<li><a href="https://stats.stackexchange.com/questions/549536/does-chi-square-test-for-independence-sklearn-feature-selection-selectkbest-pr">Does Chi-square test for independence (sklearn.feature_selection.SelectKBest) produce incorect results?</a></li>
+<li><a href="https://github.com/scikit-learn/scikit-learn/issues/24593">Erroneous use of chi2 in the documentation</a></li>
 <li><a href="https://www.stat.berkeley.edu/~stark/SticiGui/Text/chiSquare.htm">derivation for chi-square test</a></li>
 </ul>
 ]]></content>
