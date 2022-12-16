@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css" integrity="sha256-AbA177XfpSnFEvgpYu1jMygiLabzPCJCRIBtR5jGc0k=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.13.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":true,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="How to train a final machine learning model This section relates mostly to the following several questions:  what is the purpose of k-fold cross validation? How to finalize a model?  What is the purpo">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Cross validation related">
+<meta property="og:url" content="http://example.com/2022/12/15/cross-validation-related/index.html">
+<meta property="og:site_name" content="Weiru Han&#39;s blog">
+<meta property="og:description" content="How to train a final machine learning model This section relates mostly to the following several questions:  what is the purpose of k-fold cross validation? How to finalize a model?  What is the purpo">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-12-15T21:17:11.000Z">
+<meta property="article:modified_time" content="2022-12-16T08:47:32.411Z">
+<meta property="article:author" content="Weiru Han">
+<meta property="article:tag" content="cross validation">
+<meta property="article:tag" content="caret">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://example.com/2022/12/15/cross-validation-related/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/2022/12/15/cross-validation-related/","path":"2022/12/15/cross-validation-related/","title":"Cross validation related"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Cross validation related | Weiru Han's blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Weiru Han's blog</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">Less is more</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#how-to-train-a-final-machine-learning-model"><span class="nav-number">1.</span> <span class="nav-text">How to train a final machine learning model</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#what-is-the-purpose-of-k-fold-cross-validation"><span class="nav-number">1.1.</span> <span class="nav-text">What is the purpose of k-fold cross validation?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#how-to-finalize-a-model"><span class="nav-number">1.2.</span> <span class="nav-text">How to finalize a model?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#finalize-the-model-in-caret"><span class="nav-number">1.3.</span> <span class="nav-text">Finalize the model in Caret</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#reference"><span class="nav-number">2.</span> <span class="nav-text">Reference</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Weiru Han</p>
+  <div class="site-description" itemprop="description">The journey of a thousand miles begins with one step</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">33</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">21</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/12/15/cross-validation-related/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Weiru Han">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Weiru Han's blog">
+      <meta itemprop="description" content="The journey of a thousand miles begins with one step">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Cross validation related | Weiru Han's blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Cross validation related
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2022-12-15 16:17:11" itemprop="dateCreated datePublished" datetime="2022-12-15T16:17:11-05:00">2022-12-15</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2022-12-16 03:47:32" itemprop="dateModified" datetime="2022-12-16T03:47:32-05:00">2022-12-16</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Data-science/" itemprop="url" rel="index"><span itemprop="name">Data science</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="how-to-train-a-final-machine-learning-model">How to train a final machine learning model</h1>
+<p>This section relates mostly to the following several questions:</p>
+<ul>
+<li>what is the purpose of k-fold cross validation?</li>
+<li>How to finalize a model?</li>
+</ul>
+<h2 id="what-is-the-purpose-of-k-fold-cross-validation">What is the purpose of k-fold cross validation?</h2>
+<p>Both train-test splits and k-fold cross validation are examples of resampling methods. <a target="_blank" rel="noopener" href="https://machinelearningmastery.com/train-final-machine-learning-model/">The purpose of these methods are to compute a performance measure for the model on test dataset.</a> <a target="_blank" rel="noopener" href="https://stats.stackexchange.com/questions/27627/normalization-prior-to-cross-validation">They are best viewed as methods to estimate the performance of a <strong>statistical procedure</strong>, rather than a <strong>statistical model</strong></a>.</p>
+<h2 id="how-to-finalize-a-model">How to finalize a model?</h2>
+<p><a target="_blank" rel="noopener" href="https://machinelearningmastery.com/train-final-machine-learning-model/">Once we have specified the estimated skills, we are finished with the resampling method</a></p>
+<ul>
+<li>If we are using a train-test split, that means we can <strong>discard</strong> the split datasets and the trained model.</li>
+<li>If we are using k-fold cross validation, that means we can <strong>throw away</strong> all of the trained models</li>
+</ul>
+<p>In other words, once we select the best tuned model by using resampling method, we can finalize the model by applying the chosen machine learning procedure on <strong>the whole dataset</strong></p>
+<p>This leads to another question:</p>
+<ul>
+<li>Why not withhold the model trained on the training dataset or the best model from the cross validation?</li>
+</ul>
+<p>In fact, we can apply sub-models as the final model, but it may take an indefinite amount of time to train before we obtain them; while cross validation and other resampling approaches can compare various procedures, they also prevent us from selecting an overfitting model.. Furthermore, <a target="_blank" rel="noopener" href="https://stats.stackexchange.com/questions/52274/how-to-choose-a-predictive-model-after-k-fold-cross-validation">overfitting has to do with model complexity, and it has nothing to do with the amount of data</a>. As such, the model will likely perform better when trained on all of the available data than just the subset used to estimate the performance of the model.</p>
+<p>If one really wants to employ models obtained from cross validation as the final models, there are still other ways to do so, which is to <a target="_blank" rel="noopener" href="https://machinelearningmastery.com/randomness-in-machine-learning/">create multiple final models and take the mean from an ensemble of predictions in order to reduce the variance</a>;</p>
+<p>It is not suggested to use k models from cross validation as the voting classifier if the true objective is to develop a voting classifier as the final model. In cross validation, each fold could only serve as the test dataset once; hence, k models derived by cross validation are incapable of aggregating results, providing the same purpose as a voting classifier.</p>
+<p>An alternate method for employing ensemble models would be to use an <a target="_blank" rel="noopener" href="https://stats.stackexchange.com/questions/411290/how-to-use-a-cross-validated-model-for-prediction/411366">ensemble-type estimation of performance or generalization error, such as out-of-bag or generalization error</a>. <a target="_blank" rel="noopener" href="https://link.springer.com/article/10.1007/s00216-007-1818-6">Using an un-aggregated cross validation estimate for an ensemble model can result in a pessimistic bias that can range from negligible to substantial</a>, depending on the stability of the CV surrogate models and the number of aggregated surrogate models. Another option may be to pick several models that appear to generalize well across various test sets. Each model would then be trained on the whole training data set with its best-tuned hyperparameters chosen to produce a final model. Finally, these final models can be combined to form the ensemble model.</p>
+<h2 id="finalize-the-model-in-caret">Finalize the model in Caret</h2>
+<p>In <code>Caret</code>, the <code>train</code> function will carry out cross validation experiment (if we choose to) to determine the best tuned <em>hyperparameters</em>, and use that to train on the entire dataset in order to get the final model.</p>
+<p>In this section, we will specify different parameters to see how cross validation works in <code>caret</code> functions</p>
+<blockquote>
+<p>Use iris data to apply 10-folds cross validation for <code>knn</code> algorithm</p>
+</blockquote>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator">&gt;</span> library<span class="punctuation">(</span>caret<span class="punctuation">)</span></span><br><span class="line"><span class="operator">&gt;</span> inTraining <span class="operator">&lt;-</span> createDataPartition<span class="punctuation">(</span>iris<span class="operator">$</span>Petal.Width<span class="punctuation">,</span> p <span class="operator">=</span> <span class="number">.75</span><span class="punctuation">,</span> <span class="built_in">list</span> <span class="operator">=</span> <span class="literal">FALSE</span><span class="punctuation">)</span></span><br><span class="line"><span class="operator">&gt;</span> training <span class="operator">&lt;-</span> iris<span class="punctuation">[</span> inTraining<span class="punctuation">,</span><span class="punctuation">]</span></span><br><span class="line"><span class="operator">&gt;</span> testing  <span class="operator">&lt;-</span> iris<span class="punctuation">[</span><span class="operator">-</span>inTraining<span class="punctuation">,</span><span class="punctuation">]</span></span><br><span class="line"><span class="operator">&gt;</span> <span class="built_in">dim</span><span class="punctuation">(</span>training<span class="punctuation">)</span></span><br><span class="line"><span class="punctuation">[</span><span class="number">1</span><span class="punctuation">]</span> <span class="number">114</span>   <span class="number">5</span></span><br><span class="line"><span class="operator">&gt;</span> fitControl <span class="operator">&lt;-</span> trainControl<span class="punctuation">(</span><span class="comment">## 10-fold CV</span></span><br><span class="line"><span class="operator">+</span>   method <span class="operator">=</span> <span class="string">&quot;cv&quot;</span><span class="punctuation">,</span></span><br><span class="line"><span class="operator">+</span>   number <span class="operator">=</span> <span class="number">10</span><span class="punctuation">,</span></span><br><span class="line"><span class="operator">+</span>   classProbs <span class="operator">=</span> <span class="literal">TRUE</span><span class="punctuation">,</span></span><br><span class="line"><span class="operator">+</span>   savePredictions <span class="operator">=</span> <span class="literal">TRUE</span><span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>Tuned hyperparameter length is 10, which means there are <span class="math inline">\(10*114\)</span> prediction dots</p>
+</blockquote>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator">&gt;</span> knnFit1 <span class="operator">&lt;-</span> train<span class="punctuation">(</span>Species <span class="operator">~</span> .<span class="punctuation">,</span> data <span class="operator">=</span> training<span class="punctuation">,</span> </span><br><span class="line"><span class="operator">+</span>                 method <span class="operator">=</span> <span class="string">&quot;knn&quot;</span><span class="punctuation">,</span> </span><br><span class="line"><span class="operator">+</span>                 trControl <span class="operator">=</span> fitControl<span class="punctuation">,</span></span><br><span class="line"><span class="operator">+</span>                 tuneLength <span class="operator">=</span> <span class="number">10</span><span class="punctuation">,</span></span><br><span class="line"><span class="operator">+</span>                 preProcess <span class="operator">=</span> <span class="built_in">c</span><span class="punctuation">(</span><span class="string">&#x27;center&#x27;</span><span class="punctuation">,</span><span class="string">&#x27;scale&#x27;</span><span class="punctuation">)</span><span class="punctuation">)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 10 groups of performance WRT 10 groups of tuned hyperparameters K</span></span><br><span class="line"><span class="operator">&gt;</span> knnFit1<span class="operator">$</span>results</span><br><span class="line">    k  Accuracy     Kappa AccuracySD    KappaSD</span><br><span class="line"><span class="number">1</span>   <span class="number">5</span> <span class="number">0.9500000</span> <span class="number">0.9250000</span> <span class="number">0.08958064</span> <span class="number">0.13437096</span></span><br><span class="line"><span class="number">2</span>   <span class="number">7</span> <span class="number">0.9583333</span> <span class="number">0.9375000</span> <span class="number">0.07081972</span> <span class="number">0.10622957</span></span><br><span class="line"><span class="number">3</span>   <span class="number">9</span> <span class="number">0.9575758</span> <span class="number">0.9362500</span> <span class="number">0.07135347</span> <span class="number">0.10711656</span></span><br><span class="line"><span class="number">4</span>  <span class="number">11</span> <span class="number">0.9575758</span> <span class="number">0.9362500</span> <span class="number">0.07135347</span> <span class="number">0.10711656</span></span><br><span class="line"><span class="number">5</span>  <span class="number">13</span> <span class="number">0.9659091</span> <span class="number">0.9487500</span> <span class="number">0.05903369</span> <span class="number">0.08867270</span></span><br><span class="line"><span class="number">6</span>  <span class="number">15</span> <span class="number">0.9659091</span> <span class="number">0.9487500</span> <span class="number">0.05903369</span> <span class="number">0.08867270</span></span><br><span class="line"><span class="number">7</span>  <span class="number">17</span> <span class="number">0.9575758</span> <span class="number">0.9362500</span> <span class="number">0.05956599</span> <span class="number">0.08945242</span></span><br><span class="line"><span class="number">8</span>  <span class="number">19</span> <span class="number">0.9325758</span> <span class="number">0.8987500</span> <span class="number">0.08626242</span> <span class="number">0.12942850</span></span><br><span class="line"><span class="number">9</span>  <span class="number">21</span> <span class="number">0.9225758</span> <span class="number">0.8838246</span> <span class="number">0.08332400</span> <span class="number">0.12498478</span></span><br><span class="line"><span class="number">10</span> <span class="number">23</span> <span class="number">0.9125758</span> <span class="number">0.8688993</span> <span class="number">0.06840424</span> <span class="number">0.10258360</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># A peek of cross validation prediction</span></span><br><span class="line"><span class="operator">&gt;</span> head<span class="punctuation">(</span>knnFit1<span class="operator">$</span>pred<span class="punctuation">)</span></span><br><span class="line">        pred        obs setosa versicolor virginica rowIndex k Resample</span><br><span class="line"><span class="number">1</span>     setosa     setosa      <span class="number">1</span>          <span class="number">0</span>         <span class="number">0</span>        <span class="number">1</span> <span class="number">5</span>   Fold01</span><br><span class="line"><span class="number">2</span>     setosa     setosa      <span class="number">1</span>          <span class="number">0</span>         <span class="number">0</span>        <span class="number">9</span> <span class="number">5</span>   Fold01</span><br><span class="line"><span class="number">3</span>     setosa     setosa      <span class="number">1</span>          <span class="number">0</span>         <span class="number">0</span>       <span class="number">12</span> <span class="number">5</span>   Fold01</span><br><span class="line"><span class="number">4</span>     setosa     setosa      <span class="number">1</span>          <span class="number">0</span>         <span class="number">0</span>       <span class="number">19</span> <span class="number">5</span>   Fold01</span><br><span class="line"><span class="number">5</span> versicolor versicolor      <span class="number">0</span>          <span class="number">1</span>         <span class="number">0</span>       <span class="number">40</span> <span class="number">5</span>   Fold01</span><br><span class="line"><span class="number">6</span> versicolor versicolor      <span class="number">0</span>          <span class="number">1</span>         <span class="number">0</span>       <span class="number">67</span> <span class="number">5</span>   Fold01</span><br><span class="line"></span><br><span class="line"><span class="comment"># Each observation is predicted 10 times</span></span><br><span class="line"><span class="operator">&gt;</span> <span class="built_in">dim</span><span class="punctuation">(</span>knnFit1<span class="operator">$</span>pred<span class="punctuation">)</span></span><br><span class="line"><span class="punctuation">[</span><span class="number">1</span><span class="punctuation">]</span> <span class="number">1140</span>    <span class="number">8</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>From 10-folds cross validation, the best tuned hyperparameter k is 15</p>
+</blockquote>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator">&gt;</span> knnFit1</span><br><span class="line">k<span class="operator">-</span>Nearest Neighbors </span><br><span class="line"></span><br><span class="line"><span class="number">114</span> samples</span><br><span class="line">  <span class="number">4</span> predictor</span><br><span class="line">  <span class="number">3</span> classes<span class="operator">:</span> <span class="string">&#x27;setosa&#x27;</span><span class="punctuation">,</span> <span class="string">&#x27;versicolor&#x27;</span><span class="punctuation">,</span> <span class="string">&#x27;virginica&#x27;</span> </span><br><span class="line"></span><br><span class="line">Pre<span class="operator">-</span>processing<span class="operator">:</span> centered <span class="punctuation">(</span><span class="number">4</span><span class="punctuation">)</span><span class="punctuation">,</span> scaled <span class="punctuation">(</span><span class="number">4</span><span class="punctuation">)</span> </span><br><span class="line">Resampling<span class="operator">:</span> Cross<span class="operator">-</span>Validated <span class="punctuation">(</span><span class="number">10</span> fold<span class="punctuation">)</span> </span><br><span class="line">Summary of sample sizes<span class="operator">:</span> <span class="number">103</span><span class="punctuation">,</span> <span class="number">102</span><span class="punctuation">,</span> <span class="number">102</span><span class="punctuation">,</span> <span class="number">102</span><span class="punctuation">,</span> <span class="number">102</span><span class="punctuation">,</span> <span class="number">104</span><span class="punctuation">,</span> ... </span><br><span class="line">Resampling results across tuning parameters<span class="operator">:</span></span><br><span class="line"></span><br><span class="line">  k   Accuracy   Kappa    </span><br><span class="line">   <span class="number">5</span>  <span class="number">0.9500000</span>  <span class="number">0.9250000</span></span><br><span class="line">   <span class="number">7</span>  <span class="number">0.9583333</span>  <span class="number">0.9375000</span></span><br><span class="line">   <span class="number">9</span>  <span class="number">0.9575758</span>  <span class="number">0.9362500</span></span><br><span class="line">  <span class="number">11</span>  <span class="number">0.9575758</span>  <span class="number">0.9362500</span></span><br><span class="line">  <span class="number">13</span>  <span class="number">0.9659091</span>  <span class="number">0.9487500</span></span><br><span class="line">  <span class="number">15</span>  <span class="number">0.9659091</span>  <span class="number">0.9487500</span></span><br><span class="line">  <span class="number">17</span>  <span class="number">0.9575758</span>  <span class="number">0.9362500</span></span><br><span class="line">  <span class="number">19</span>  <span class="number">0.9325758</span>  <span class="number">0.8987500</span></span><br><span class="line">  <span class="number">21</span>  <span class="number">0.9225758</span>  <span class="number">0.8838246</span></span><br><span class="line">  <span class="number">23</span>  <span class="number">0.9125758</span>  <span class="number">0.8688993</span></span><br><span class="line"></span><br><span class="line">Accuracy was used to select the optimal model using the largest value.</span><br><span class="line">The final value used <span class="keyword">for</span> the model was k <span class="operator">=</span> <span class="number">15.</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>The final model will use the best tuned hyperparameter(s) and train on the entire dataset; thus there will be 114 fitted values.</p>
+</blockquote>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator">&gt;</span> knnFit1<span class="operator">$</span>finalModel</span><br><span class="line"><span class="number">15</span><span class="operator">-</span>nearest neighbor model</span><br><span class="line">Training set outcome distribution<span class="operator">:</span></span><br><span class="line"></span><br><span class="line">    setosa versicolor  virginica </span><br><span class="line">        <span class="number">37</span>         <span class="number">39</span>         <span class="number">38</span> </span><br><span class="line"><span class="operator">&gt;</span> head<span class="punctuation">(</span>knnFit1<span class="operator">$</span>finalModel<span class="operator">$</span>learn<span class="operator">$</span>X<span class="punctuation">)</span></span><br><span class="line">   Sepal.Length Sepal.Width Petal.Length Petal.Width</span><br><span class="line">X1   <span class="operator">-</span><span class="number">0.9054682</span>  <span class="number">0.95513347</span>    <span class="operator">-</span><span class="number">1.337733</span>   <span class="operator">-</span><span class="number">1.313374</span></span><br><span class="line">X2   <span class="operator">-</span><span class="number">1.1395348</span> <span class="operator">-</span><span class="number">0.14029123</span>    <span class="operator">-</span><span class="number">1.337733</span>   <span class="operator">-</span><span class="number">1.313374</span></span><br><span class="line">X4   <span class="operator">-</span><span class="number">1.4906348</span>  <span class="number">0.07879371</span>    <span class="operator">-</span><span class="number">1.281974</span>   <span class="operator">-</span><span class="number">1.313374</span></span><br><span class="line">X5   <span class="operator">-</span><span class="number">1.0225015</span>  <span class="number">1.17421841</span>    <span class="operator">-</span><span class="number">1.337733</span>   <span class="operator">-</span><span class="number">1.313374</span></span><br><span class="line">X6   <span class="operator">-</span><span class="number">0.5543683</span>  <span class="number">1.83147324</span>    <span class="operator">-</span><span class="number">1.170455</span>   <span class="operator">-</span><span class="number">1.053210</span></span><br><span class="line">X7   <span class="operator">-</span><span class="number">1.4906348</span>  <span class="number">0.73604853</span>    <span class="operator">-</span><span class="number">1.337733</span>   <span class="operator">-</span><span class="number">1.183292</span></span><br><span class="line"></span><br><span class="line"><span class="operator">&gt;</span> <span class="built_in">dim</span><span class="punctuation">(</span>knnFit1<span class="operator">$</span>finalModel<span class="operator">$</span>learn<span class="operator">$</span>X<span class="punctuation">)</span></span><br><span class="line"><span class="punctuation">[</span><span class="number">1</span><span class="punctuation">]</span> <span class="number">114</span>   <span class="number">4</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://github.com/topepo/caret/issues/240">Set the parameter <code>savePredictions ="best"</code> will enable model display the cross validation results from the sub-model trained by the best tuned hyperparameter(s)</a></p>
+</blockquote>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator">&gt;</span> fitControl <span class="operator">&lt;-</span> trainControl<span class="punctuation">(</span><span class="comment">## 10-fold CV</span></span><br><span class="line"><span class="operator">+</span>   method <span class="operator">=</span> <span class="string">&quot;cv&quot;</span><span class="punctuation">,</span></span><br><span class="line"><span class="operator">+</span>   number <span class="operator">=</span> <span class="number">10</span><span class="punctuation">,</span></span><br><span class="line"><span class="operator">+</span>   classProbs <span class="operator">=</span> <span class="literal">TRUE</span><span class="punctuation">,</span></span><br><span class="line"><span class="operator">+</span>   savePredictions <span class="operator">=</span> <span class="string">&#x27;final&#x27;</span><span class="punctuation">)</span></span><br><span class="line"></span><br><span class="line"><span class="operator">&gt;</span> knnFit1 <span class="operator">&lt;-</span> train<span class="punctuation">(</span>Species <span class="operator">~</span> .<span class="punctuation">,</span> data <span class="operator">=</span> training<span class="punctuation">,</span> </span><br><span class="line"><span class="operator">+</span>                 method <span class="operator">=</span> <span class="string">&quot;knn&quot;</span><span class="punctuation">,</span> </span><br><span class="line"><span class="operator">+</span>                 trControl <span class="operator">=</span> fitControl<span class="punctuation">,</span></span><br><span class="line"><span class="operator">+</span>                 tuneLength <span class="operator">=</span> <span class="number">10</span><span class="punctuation">,</span></span><br><span class="line"><span class="operator">+</span>                 preProcess <span class="operator">=</span> <span class="built_in">c</span><span class="punctuation">(</span><span class="string">&#x27;center&#x27;</span><span class="punctuation">,</span><span class="string">&#x27;scale&#x27;</span><span class="punctuation">)</span><span class="punctuation">)</span></span><br><span class="line"></span><br><span class="line"><span class="operator">&gt;</span> head<span class="punctuation">(</span>knnFit1<span class="operator">$</span>pred<span class="punctuation">)</span></span><br><span class="line">   k       pred        obs     setosa versicolor  virginica rowIndex Resample</span><br><span class="line"><span class="number">1</span> <span class="number">15</span>     setosa     setosa <span class="number">1.00000000</span> <span class="number">0.00000000</span> <span class="number">0.00000000</span>        <span class="number">9</span>   Fold01</span><br><span class="line"><span class="number">2</span> <span class="number">15</span> versicolor versicolor <span class="number">0.06666667</span> <span class="number">0.86666667</span> <span class="number">0.06666667</span>       <span class="number">45</span>   Fold02</span><br><span class="line"><span class="number">3</span> <span class="number">15</span> versicolor versicolor <span class="number">0.00000000</span> <span class="number">0.93333333</span> <span class="number">0.06666667</span>       <span class="number">46</span>   Fold02</span><br><span class="line"><span class="number">4</span> <span class="number">15</span>     setosa     setosa <span class="number">1.00000000</span> <span class="number">0.00000000</span> <span class="number">0.00000000</span>        <span class="number">1</span>   Fold01</span><br><span class="line"><span class="number">5</span> <span class="number">15</span>  virginica  virginica <span class="number">0.00000000</span> <span class="number">0.06666667</span> <span class="number">0.93333333</span>       <span class="number">93</span>   Fold04</span><br><span class="line"><span class="number">6</span> <span class="number">15</span>  virginica  virginica <span class="number">0.00000000</span> <span class="number">0.33333333</span> <span class="number">0.66666667</span>       <span class="number">96</span>   Fold04</span><br><span class="line"></span><br><span class="line"><span class="operator">&gt;</span> <span class="built_in">dim</span><span class="punctuation">(</span>knnFit1<span class="operator">$</span>pred<span class="punctuation">)</span></span><br><span class="line"><span class="punctuation">[</span><span class="number">1</span><span class="punctuation">]</span> <span class="number">114</span>   <span class="number">8</span></span><br></pre></td></tr></table></figure>
+<hr />
+<h1 id="reference">Reference</h1>
+<ul>
+<li><p><a target="_blank" rel="noopener" href="https://stats.stackexchange.com/questions/27627/normalization-prior-to-cross-validation">Normalization prior to cross-validation</a></p></li>
+<li><p><a target="_blank" rel="noopener" href="https://machinelearningmastery.com/train-final-machine-learning-model/">How to Train a Final Machine Learning Model</a></p></li>
+<li><p><a target="_blank" rel="noopener" href="https://stats.stackexchange.com/questions/52274/how-to-choose-a-predictive-model-after-k-fold-cross-validation">How to choose a predictive model after k-fold cross-validation?</a></p></li>
+<li><p><a target="_blank" rel="noopener" href="https://machinelearningmastery.com/randomness-in-machine-learning/">Embrace Randomness in Machine learning</a></p></li>
+<li><p><a target="_blank" rel="noopener" href="https://scikit-learn.org/stable/modules/ensemble.html#voting-classifier">Voting classifier</a></p></li>
+<li><p><a target="_blank" rel="noopener" href="https://stats.stackexchange.com/questions/411290/how-to-use-a-cross-validated-model-for-prediction/411366">How to use a cross-validated model for prediction?</a></p></li>
+<li><p><a target="_blank" rel="noopener" href="https://link.springer.com/article/10.1007/s00216-007-1818-6">Assessing and improving the stability of chemometric models in small sample size situations</a></p></li>
+<li><p><a target="_blank" rel="noopener" href="https://stats.stackexchange.com/questions/254612/how-to-obtain-optimal-hyperparameters-after-nested-cross-validation">How to obtain optimal hyperparameters after nested cross validation?</a></p></li>
+<li><p><a target="_blank" rel="noopener" href="https://machinelearningmastery.com/nested-cross-validation-for-machine-learning-with-python/">Nested cross-validation for machine learning with python</a></p></li>
+<li><p><a target="_blank" rel="noopener" href="https://stats.stackexchange.com/questions/65128/nested-cross-validation-for-model-selection">Nested cross validation for model selection</a></p></li>
+<li><p><a target="_blank" rel="noopener" href="https://stats.stackexchange.com/questions/11602/training-on-the-full-dataset-after-cross-validation">Training on the full dataset after cross-validation</a></p></li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/topepo/caret/issues/240">savePredictions = "best" in trainControl</a></p></li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/cross-validation/" rel="tag"># cross validation</a>
+              <a href="/tags/caret/" rel="tag"># caret</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/12/14/ten-things-related-to-brain-function/" rel="prev" title="Ten things related to brain function">
+                  <i class="fa fa-chevron-left"></i> Ten things related to brain function
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Weiru Han</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@next-theme/pjax@0.5.0/pjax.min.js" integrity="sha256-3NkoLDrmHLTYj7csHIZSr0MHAFTXth7Ua/DDt4MRUAg=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
+
+  
+<script src="https://cdn.jsdelivr.net/npm/hexo-generator-searchdb@1.4.1/dist/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+<script class="next-config" data-name="chatra" type="application/json">{"enable":true,"async":true,"id":"DWYLFGF8d2dgPGfdG"}</script>
+<script src="/js/third-party/chat/chatra.js"></script>
+<script async src="https://call.chatra.io/chatra.js"></script>
+
+  <script class="next-config" data-name="pdf" type="application/json">{"object_url":{"url":"https://cdn.jsdelivr.net/npm/pdfobject@2.2.8/pdfobject.min.js","integrity":"sha256-tu9j5pBilBQrWSDePOOajCUdz6hWsid/lBNzK4KgEPM="},"url":"/lib/pdf/web/viewer.html"}</script>
+  <script src="/js/third-party/tags/pdf.js"></script>
+
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"default","dark":"dark"},"js":{"url":"https://cdn.jsdelivr.net/npm/mermaid@9.1.7/dist/mermaid.min.js","integrity":"sha256-G58AID1YoX5YaEtWfXSI0VLrZ6N4kvNvwg0BI8zUFxE="}}</script>
+  <script src="/js/third-party/tags/mermaid.js"></script>
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+
+</body>
+</html>
