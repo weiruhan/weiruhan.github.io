@@ -154,7 +154,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">33</span>
+          <span class="site-state-item-count">34</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -194,6 +194,164 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/04/21/Assumption-of-linear-regression/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Weiru Han">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Weiru Han's blog">
+      <meta itemprop="description" content="The journey of a thousand miles begins with one step">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Weiru Han's blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/04/21/Assumption-of-linear-regression/" class="post-title-link" itemprop="url">Assumption of linear regression</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2022-04-21 16:46:09" itemprop="dateCreated datePublished" datetime="2022-04-21T16:46:09-04:00">2022-04-21</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2022-12-20 23:34:22" itemprop="dateModified" datetime="2022-12-20T23:34:22-05:00">2022-12-20</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/statistics/" itemprop="url" rel="index"><span itemprop="name">statistics</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="definition">Definition</h1>
+<p>The model is called “linear” not because it is linear in <span class="math inline">\(x\)</span>, but rather because it is <strong>linear in the parameters</strong>.</p>
+<blockquote>
+<p>The following are the examples of linear models:</p>
+</blockquote>
+<p><span class="math display">\[
+\begin{gather*}
+y =\beta_0+\beta_1x_1+\beta_2x_2+\epsilon\\
+y =\beta_0+\beta_1x_1+\beta_2x_2^2+\epsilon\\
+y =\beta_0+\beta_1x_1+\beta_2x_2+\beta_3x_1^2+\beta_4x_2^2+\beta_5x_1x_2+\epsilon
+\end{gather*}
+\]</span></p>
+<p>A model that can be transformed so that it becomes linear in its unknown parameters is called <strong>intrinsically linear</strong>; Otherwise it is called a <strong>nonlinear model</strong></p>
+<blockquote>
+<p>The following are nonlinear models</p>
+</blockquote>
+<p><span class="math display">\[
+\begin{gather*}
+y =\beta_0+\beta_1x_1+\beta_2x_2^{\beta_3}+\epsilon\\
+y = \alpha_0z_1^{\alpha_1}z_2^{\alpha_2}\eta
+\end{gather*}
+\]</span></p>
+<blockquote>
+<p>The following are some nonlinear models that can be made linear by transformation</p>
+</blockquote>
+<p><span class="math display">\[
+\begin{gather*}
+log \ y=log\alpha_0+\alpha_1logz_1+\alpha_2logz_2+log\eta\\
+\Rightarrow y*=\beta_0+\beta_1x_1+\beta_2x_2+\epsilon
+\end{gather*}
+\]</span></p>
+<p>There are four key assumptions for <strong>Simple Linear regression</strong></p>
+<blockquote>
+<ul>
+<li><p>Linear relationship between dependent variable and independent variable</p></li>
+<li><p>The variance of the residuals is constant (constant variance errors, homoscedasticity)</p></li>
+<li><p>Independence of observation (no autocorrelation). Simply put, the model assumes that the values of residuals are independent</p>
+<p>sample error is dependent,</p></li>
+<li><p>Normally distributed errors</p></li>
+</ul>
+</blockquote>
+<p>In addition to the four assumptions listed above, there is one more for <strong>Multiple Linear regression.</strong></p>
+<blockquote>
+<ul>
+<li>The data should not show multicollinearity.</li>
+</ul>
+</blockquote>
+<h1 id="useful-blogs">Useful blogs</h1>
+<p>There is an interesting post about Multicollinearity that I'd like to mention here.</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://www.researchgate.net/post/Is_it_necessary_to_correct_collinearity_when_square_terms_are_in_a_model">Is it necessary to correct collinearity when square terms are in a model?</a></p>
+</blockquote>
+<ul>
+<li>Question: I had a regression model where one of the explanatory variable is "age". I added a "age-squared" variable since the distribution of age was in a quadratic form. It is obvious that the 'age' and 'age-squared' variables will be highly correlated. In that case, is it really necessary to deal the collinearity problem in the model?</li>
+</ul>
+<p>Several answers are great:</p>
+<ul>
+<li>Multicollinearity is NOT a problem in your case. Multicollinearity has to be checked and problems have to be solved when you want to estimate the independent effect of two variables which happen to be correlated by chance. This is NOT your problem with your age and age-squared variables since you should never be interested in evaluating the effect of changing age without changing agesquared. So do not care about multicollinearity between one variable and a second variable which is a deterministic non linear function of the first one. Except in the case of perfect multocillinearity, which would be the case if you had only two different values for your age variable.</li>
+<li>Age and age squared are correlated. However, one is not a linear transformation of the other by definition.</li>
+<li>Another possibility is to run a regression between Age and Age2 to see that the R2 is close to zero. This indicates, as mentioned before by other colleagues, that collinearity is very low and can be overlooked from a econometric perspective.</li>
+</ul>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://stats.stackexchange.com/questions/298/in-linear-regression-when-is-it-appropriate-to-use-the-log-of-an-independent-va">In linear regression, when is it appropriate to use the log of an independent variable instead of the actual values?</a></p>
+</blockquote>
+<blockquote>
+<p>https://stats.stackexchange.com/questions/310003/why-in-box-cox-method-we-try-to-make-x-and-y-normally-distributed-but-thats-no?noredirect=1&amp;lq=1</p>
+</blockquote>
+<h1 id="reference">Reference</h1>
+<ul>
+<li><p><a target="_blank" rel="noopener" href="https://stats.stackexchange.com/questions/16381/what-is-a-complete-list-of-the-usual-assumptions-for-linear-regression">What is a complete list of the usual assumptions for linear regression?</a></p></li>
+<li><p><a target="_blank" rel="noopener" href="https://www.researchgate.net/post/Is_it_necessary_to_correct_collinearity_when_square_terms_are_in_a_model">Is it necessary to correct collinearity when square terms are in a model?</a></p></li>
+<li><p><a target="_blank" rel="noopener" href="https://stats.stackexchange.com/questions/298/in-linear-regression-when-is-it-appropriate-to-use-the-log-of-an-independent-va">In linear regression, when is it appropriate to use the log of an independent variable instead of the actual values?</a></p></li>
+<li><p><a target="_blank" rel="noopener" href="https://stats.stackexchange.com/questions/310003/why-in-box-cox-method-we-try-to-make-x-and-y-normally-distributed-but-thats-no">Why in Box-Cox method we try to make x and y normally distributed, but that's not an assumption for linear regression?</a></p></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -555,7 +713,7 @@ Var[L(t)-L(s)]\\
 
 <div class="copyright">
   &copy; 
-  <span itemprop="copyrightYear">2022</span>
+  <span itemprop="copyrightYear">2023</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
