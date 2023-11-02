@@ -154,7 +154,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">34</span>
+          <span class="site-state-item-count">35</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -194,6 +194,108 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/06/06/Jensen-s-inequality/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Weiru Han">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Weiru Han's blog">
+      <meta itemprop="description" content="The journey of a thousand miles begins with one step">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Weiru Han's blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/06/06/Jensen-s-inequality/" class="post-title-link" itemprop="url">Jensen's inequality</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2022-06-06 01:31:49" itemprop="dateCreated datePublished" datetime="2022-06-06T01:31:49-04:00">2022-06-06</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2022-11-07 00:39:59" itemprop="dateModified" datetime="2022-11-07T00:39:59-05:00">2022-11-07</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Mathematics/" itemprop="url" rel="index"><span itemprop="name">Mathematics</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>The expression of variance <span class="math display">\[
+Var(X)=E[(X-EX)^2]=EX^2-(EX)^2\geq 0
+\]</span> Implies that <span class="math display">\[
+EX^2\geq (EX)^2
+\]</span> Here <span class="math inline">\(X^2\)</span> is an example of the <strong>convex function</strong>. The definition of <strong>convex function</strong> is</p>
+<blockquote>
+<p>A twice-differentiable function <span class="math inline">\(g:I\rightarrow \mathbb{R}\)</span> is <strong>convex</strong> if and only if <span class="math inline">\(g&#39;&#39;(x)\geq 0\)</span> for all <span class="math inline">\(x\in I\)</span></p>
+</blockquote>
+<p>Below is a typical example of the convex function. The function is convex if the line segment between two points from the curve lies above the curve. On the other hand, if the line segment aloways lies below the curve, then the function is said to be <strong>concave.</strong></p>
+<p><img src="https://res.cloudinary.com/djd9gr1bu/image/upload/v1654494279/github_page/Rplot_d207et.png" alt="hi" class="inline"/></p>
+<p>The <strong>Jensen's</strong> inequality states that for any <strong>convex function</strong> <span class="math inline">\(g\)</span>, we have <span class="math inline">\(E[g(X)]\geq g(E(X))\)</span>. To be specific.</p>
+<blockquote>
+<p>If <span class="math inline">\(g(x)\)</span> is a <strong>convex function</strong> on <span class="math inline">\(R_X\)</span>, and <span class="math inline">\(E[g(X)]\)</span> and <span class="math inline">\(g[E(X)]\)</span> are finite, then <span class="math display">\[
+E[g(X)]\geq g[E(X)]
+\]</span></p>
+</blockquote>
+<h1 id="reference">Reference</h1>
+<p><a target="_blank" rel="noopener" href="https://www.probabilitycourse.com/chapter6/6_2_5_jensen&#39;s_inequality.php">Jensen's Inequality</a></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1561,104 +1663,6 @@ R^2 = \frac{ESS}{SST}=\frac{\hat{\beta_1}^2S_{xx}}{S_{yy}}\\
 <li><p><a target="_blank" rel="noopener" href="https://economictheoryblog.com/2014/11/05/proof/">Relationship between coefficient of determination and squared pearson correlation coefficient</a></p></li>
 <li><p><a target="_blank" rel="noopener" href="https://stats.stackexchange.com/questions/187734/relationship-between-r2-and-correlation-coefficient">Relationship between R2 and correlation coefficient</a></p></li>
 <li><p><a target="_blank" rel="noopener" href="https://stats.stackexchange.com/questions/83347/relationship-between-r2-and-correlation-coefficient">Relationship between rsquare and correlation coefficient</a></p></li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/04/21/Linear%20regression/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Weiru Han">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Weiru Han's blog">
-      <meta itemprop="description" content="The journey of a thousand miles begins with one step">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Weiru Han's blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/04/21/Linear%20regression/" class="post-title-link" itemprop="url">Linear regression Part</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2022-04-21 21:58:23" itemprop="dateCreated datePublished" datetime="2022-04-21T21:58:23-04:00">2022-04-21</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-11-07 00:39:59" itemprop="dateModified" datetime="2022-11-07T00:39:59-05:00">2022-11-07</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/statistics/" itemprop="url" rel="index"><span itemprop="name">statistics</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="prove-mean-of-predicted-values-in-ols-regression-is-equal-to-the-mean-of-original-values">Prove mean of predicted values in OLS regression is equal to the mean of original values</h1>
-<p>In <strong>OLS</strong> estimation, we can summarize response <span class="math inline">\(y\)</span> as <span class="math display">\[
-y_i=\hat{y}_i+e_i
-\]</span> where residual <span class="math inline">\(e_i\)</span> is assumed to follow a normal distribution <span class="math inline">\(N(0,\sigma^2)\)</span> <span class="math display">\[
-\sum e_i=\overline{e}=0
-\]</span> thereby, we have <span class="math display">\[
-\sum_{i=1}^ny_i=\sum_{i=1}^n(\hat{y}_i+e_i)\\
-=\sum_{i=1}^n\hat{y}_i
-\]</span></p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator">&gt;</span> iris_model <span class="operator">&lt;-</span> lm<span class="punctuation">(</span>Petal.Width<span class="operator">~</span>Sepal.Length<span class="operator">+</span>Sepal.Width<span class="operator">+</span>Petal.Length<span class="punctuation">,</span>data <span class="operator">=</span> iris<span class="punctuation">)</span></span><br><span class="line"><span class="operator">&gt;</span> summary<span class="punctuation">(</span>iris_model<span class="punctuation">)</span></span><br><span class="line"></span><br><span class="line">Call<span class="operator">:</span></span><br><span class="line">lm<span class="punctuation">(</span>formula <span class="operator">=</span> Petal.Width <span class="operator">~</span> Sepal.Length <span class="operator">+</span> Sepal.Width <span class="operator">+</span> Petal.Length<span class="punctuation">,</span> </span><br><span class="line">    data <span class="operator">=</span> iris<span class="punctuation">)</span></span><br><span class="line"></span><br><span class="line">Residuals<span class="operator">:</span></span><br><span class="line">     Min       <span class="number">1</span>Q   Median       <span class="number">3</span>Q      Max </span><br><span class="line"><span class="operator">-</span><span class="number">0.60959</span> <span class="operator">-</span><span class="number">0.10134</span> <span class="operator">-</span><span class="number">0.01089</span>  <span class="number">0.09825</span>  <span class="number">0.60685</span> </span><br><span class="line"></span><br><span class="line">Coefficients<span class="operator">:</span></span><br><span class="line">             Estimate Std. Error t value Pr<span class="punctuation">(</span><span class="operator">&gt;</span><span class="operator">|</span>t<span class="operator">|</span><span class="punctuation">)</span>    </span><br><span class="line"><span class="punctuation">(</span>Intercept<span class="punctuation">)</span>  <span class="operator">-</span><span class="number">0.24031</span>    <span class="number">0.17837</span>  <span class="operator">-</span><span class="number">1.347</span>     <span class="number">0.18</span>    </span><br><span class="line">Sepal.Length <span class="operator">-</span><span class="number">0.20727</span>    <span class="number">0.04751</span>  <span class="operator">-</span><span class="number">4.363</span> <span class="number">2.41e-05</span> <span class="operator">*</span><span class="operator">*</span><span class="operator">*</span></span><br><span class="line">Sepal.Width   <span class="number">0.22283</span>    <span class="number">0.04894</span>   <span class="number">4.553</span> <span class="number">1.10e-05</span> <span class="operator">*</span><span class="operator">*</span><span class="operator">*</span></span><br><span class="line">Petal.Length  <span class="number">0.52408</span>    <span class="number">0.02449</span>  <span class="number">21.399</span>  <span class="operator">&lt;</span> <span class="number">2e-16</span> <span class="operator">*</span><span class="operator">*</span><span class="operator">*</span></span><br><span class="line"><span class="operator">-</span><span class="operator">-</span><span class="operator">-</span></span><br><span class="line">Signif. codes<span class="operator">:</span>  <span class="number">0</span> ‘<span class="operator">*</span><span class="operator">*</span><span class="operator">*</span>’ <span class="number">0.001</span> ‘<span class="operator">*</span><span class="operator">*</span>’ <span class="number">0.01</span> ‘<span class="operator">*</span>’ <span class="number">0.05</span> ‘.’ <span class="number">0.1</span> ‘ ’ <span class="number">1</span></span><br><span class="line"></span><br><span class="line">Residual standard error<span class="operator">:</span> <span class="number">0.192</span> on <span class="number">146</span> degrees of freedom</span><br><span class="line">Multiple R<span class="operator">-</span>squared<span class="operator">:</span>  <span class="number">0.9379</span><span class="punctuation">,</span>	Adjusted R<span class="operator">-</span>squared<span class="operator">:</span>  <span class="number">0.9366</span> </span><br><span class="line"><span class="built_in">F</span><span class="operator">-</span>statistic<span class="operator">:</span> <span class="number">734.4</span> on <span class="number">3</span> and <span class="number">146</span> DF<span class="punctuation">,</span>  p<span class="operator">-</span>value<span class="operator">:</span> <span class="operator">&lt;</span> <span class="number">2.2e-16</span></span><br><span class="line"></span><br><span class="line"><span class="operator">&gt;</span> mean<span class="punctuation">(</span>iris_model<span class="operator">$</span>fitted.values<span class="punctuation">)</span></span><br><span class="line"><span class="punctuation">[</span><span class="number">1</span><span class="punctuation">]</span> <span class="number">1.199333</span></span><br><span class="line"><span class="operator">&gt;</span> mean<span class="punctuation">(</span>iris<span class="operator">$</span>Petal.Width<span class="punctuation">)</span></span><br><span class="line"><span class="punctuation">[</span><span class="number">1</span><span class="punctuation">]</span> <span class="number">1.199333</span></span><br></pre></td></tr></table></figure>
-<h2 id="related-qa">Related Q&amp;A</h2>
-<ul>
-<li><a target="_blank" rel="noopener" href="https://stats.stackexchange.com/questions/469212/proof-that-the-mean-of-predicted-values-in-ols-regression-is-equal-to-the-mean-o">Proof that the mean of predicted values in OLS regression is equal to the mean of original values?</a></li>
 </ul>
 
       

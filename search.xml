@@ -1882,6 +1882,88 @@ log \ y=log\alpha_0+\alpha_1logz_1+\alpha_2logz_2+log\eta\\
       </tags>
   </entry>
   <entry>
+    <title>Thinking Framework</title>
+    <url>/2023/11/01/Thinking-Framework/</url>
+    <content><![CDATA[<h1 id="iogsmt">IOGSMT</h1>
+<table>
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 14%" />
+<col style="width: 20%" />
+<col style="width: 14%" />
+<col style="width: 11%" />
+<col style="width: 27%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Issue</th>
+<th>Objectives</th>
+<th>Goals</th>
+<th>Strategies</th>
+<th>Measurement</th>
+<th>Tactics</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Website lack users</td>
+<td>Increase number of users</td>
+<td>Increase users by 10% in one month</td>
+<td>Website SEO</td>
+<td>Increase users by 5%</td>
+<td>Screening out available SEO corporations</td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td></td>
+<td>Decrease subscription fee</td>
+<td>Increase users by 5%</td>
+<td>Calculate a subscription fee based on the cost</td>
+</tr>
+<tr class="odd">
+<td>Problem</td>
+<td>Goal</td>
+<td>Detailed Goal</td>
+<td>How to</td>
+<td>Measurement</td>
+<td>Detailed How to</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>Remark: <strong>IOGSMT</strong> is a blueprint to achieve our aspirations. While it focuses on the What and How, we can also incorporate the <strong>Why</strong> into it.</p>
+</blockquote>
+<h1 id="framework-of-learning-everything-in-a-short-period-time">Framework of learning everything in a short period time</h1>
+<p>Build structures</p>
+<p>Mark timelines</p>
+<p>Always ask <strong><em>what, how and why</em></strong></p>
+<h2 id="example">Example</h2>
+<p><strong>The framework of learning a new area</strong>:</p>
+<ul>
+<li>Build structure</li>
+<li>Mark timeline</li>
+<li>Find results-oriented data</li>
+</ul>
+<p>Several useful databases:</p>
+<ul>
+<li>https://www.oecd.org/unitedstates/</li>
+<li>http://www.stats.gov.cn/</li>
+<li>https://ourworldindata.org/</li>
+<li>https://tradingeconomics.com/</li>
+<li>Annual report</li>
+<li>Founder/CEO interview</li>
+<li>https://wallstreetcn.com/</li>
+</ul>
+]]></content>
+      <categories>
+        <category>random thoughts</category>
+      </categories>
+      <tags>
+        <tag>random thoughts</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>About me</title>
     <url>/about/index.html</url>
     <content><![CDATA[<p><img src="https://res.cloudinary.com/djd9gr1bu/image/upload/v1637834720/2770F1B8-6DC8-4BBD-BC76-AA9756C6D8AF_1_201_a_grh7po.jpg" alt="hi" class="inline"/></p>
