@@ -1947,13 +1947,13 @@ log \ y=log\alpha_0+\alpha_1logz_1+\alpha_2logz_2+log\eta\\
 </ul>
 <p>Several useful databases:</p>
 <ul>
-<li>https://www.oecd.org/unitedstates/</li>
-<li>http://www.stats.gov.cn/</li>
-<li>https://ourworldindata.org/</li>
-<li>https://tradingeconomics.com/</li>
+<li><a href="https://www.oecd.org/unitedstates/">OECD</a></li>
+<li><a href="http://www.stats.gov.cn/">https://www.stats.gov.cn/</a></li>
+<li><a href="https://ourworldindata.org/">Our world in Data</a></li>
+<li><a href="https://tradingeconomics.com/">Trading Economics</a></li>
 <li>Annual report</li>
 <li>Founder/CEO interview</li>
-<li>https://wallstreetcn.com/</li>
+<li><a href="https://wallstreetcn.com/">https://wallstreetcn.com/</a></li>
 </ul>
 ]]></content>
       <categories>
@@ -1961,6 +1961,57 @@ log \ y=log\alpha_0+\alpha_1logz_1+\alpha_2logz_2+log\eta\\
       </categories>
       <tags>
         <tag>random thoughts</tag>
+        <tag>Economics</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>First principle thinking about Frequentist VS Bayesian Partisans</title>
+    <url>/2023/12/09/First-principle-thinkings-about-Frequentist-VS-Bayesian-Partisans/</url>
+    <content><![CDATA[<p>The field of statistics essentially comprises two main branches: frequentist and Bayesian. The primary distinction between these two approaches, as articulated by Michael I. Jordan, lies in their respective viewpoints:</p>
+<blockquote>
+<p>Frequentists typically proceed by moving forward from the state of nature to the data, while Bayesians operate in the opposite direction, moving from the data back to the state of nature. This fundamental contrast is exemplified in concepts such as the false discovery rate, which considers the probability of a hypothesis given that a discovery has been made, conditioning it on the data.</p>
+</blockquote>
+<p>Contemplating these divergent perspectives gives rise to intriguing questions. Below are some inquiries I have formulated and explored:</p>
+<ol type="1">
+<li><p>What are the distinctions between confidence interval and credible interval? What are the distinctions between coverage probability and credible probability?</p>
+<blockquote>
+<p>[George Casella Statistical Inference p435] When describing the interactions between the confidence interval and the parameter, we should carefully say that the interval <em>covers</em> the parameter, not that the parameter <em>is inside</em> the interval. This was done on purpose. It’s imperative to stress that the random quantity in classical frequentist partisan is the interval, not the parameter. The parameter is fixed. When we say a 90% confidence interval for a parameter, say <span class="math inline">\(lambda\)</span> is <span class="math inline">\(a\leq \lambda \leq b\)</span>, we are tempting to say (and many experimenters do) that “The probability is 90% that $$ is in the interval <span class="math inline">\([a,b]\)</span>.” However, within classical statistics, such a statement is invalid since the parameter is assumed fixed. Formally, the interval <span class="math inline">\([a,b]\)</span> is one of the possible <em>realized values</em> of the random interval <span class="math inline">\([f(\alpha/2),g(1-\alpha/2)]\)</span>. And since the parameter <span class="math inline">\(\lambda\)</span> does not move, <span class="math inline">\(\lambda\)</span> is in the realized interval <span class="math inline">\([a,b]\)</span> with probability either <span class="math inline">\(0\)</span> or <span class="math inline">\(1\)</span>. When we say that the realized interval <span class="math inline">\([a,b]\)</span> has a 90% chance of coverage, we only mean that we know that 90% of the sample points of the random interval cover the true parameter.</p>
+<p>In contrast, the Bayesian setup allows us to say <span class="math inline">\(\lambda\)</span> is inside <span class="math inline">\([a,b]\)</span> with some probability, not <span class="math inline">\(0\)</span> or <span class="math inline">\(1\)</span>. This is because, under the Bayesian model, <span class="math inline">\(\lambda\)</span> is random variable with a probability distribution. All Bayesian claims of coverage are made with respect to the posterior distribution of the parameter.</p>
+<p>It’s important not to confuse incredible probability (The Bayes posterior probability) with coverage probability (The classical probability). The probabilities are very different entities, with different meanings and interpretations. Credible probability comes from the posterior distribution, which in turn gets its probability from the prior distribution. Thus, credible probabilities reflects the experimenter’s subjective beliefs, as expressed in the prior distribution and updated with the data to the posterior distribution. A Bayesian assertion of 90% coverage means that the experimenter, upon combining prior knowledge with data, is 90% sure of coverage</p>
+</blockquote></li>
+<li><p>How to calculate the credible interval?</p>
+<blockquote>
+<p>In Bayesian statistics, the posterior distribution of a parameter can be derived and used for inference about that parameter. Since the parameter is considered a random variable in this framework, this distribution can be divided into numerous intervals, each covering 95% of the distribution, thus having a credible probability of 95%. Importantly, while there are multiple ways to construct these 95% credible intervals, they are not considered random in Bayesian analysis. Typically, we would choose the intervals that are symmetrically constructed around the distribution's central point. Once an interval is established, we interpret it as having a 95% probability of containing the true parameter value.</p>
+</blockquote></li>
+<li><p>In a frequentist hypothesis testing framework, is it possible to compare the probabilities of the null hypothesis (H0) and the alternative hypothesis (H1) to make a decision about accepting or rejecting the hypothesis?</p>
+<blockquote>
+<p>[George Casella Statistics inference P379] The probabilities <span class="math inline">\(P(H_0 )\text{ is true}\)</span> and <span class="math inline">\(P(H_1 )\text{ is true}\)</span> are not meaningful to the classical statistician. The classical statistician considers <span class="math inline">\(\theta\)</span> to be a fixed number. Consequently, a hypothesis is <em>either true or false</em>. If <span class="math inline">\(\theta\in \theta_0\)</span>, <span class="math inline">\(P(H_0 )\text{ is true}=1\)</span> and <span class="math inline">\(P(H_1 )\text{ is true}=0\)</span> for all values of <span class="math inline">\(\mathbf{x}\)</span>. If <span class="math inline">\(\theta\in\theta_0^c\)</span>, these values are reversed. Since these probabilities are unknown (since <span class="math inline">\(\theta\)</span> is unknown) and do not depend on the sample <span class="math inline">\(\mathbf{x}\)</span>, methods of calculating the probabilities <span class="math inline">\(P(H_0 )\text{ is true}\)</span> and <span class="math inline">\(P(H_1 )\text{ is true}\)</span> are not used by the classical statistician. In a Bayesian formulation of a hypothesis testing problem, these probabilities depend on the sample <span class="math inline">\(\mathbf{x}\)</span> and can give useful information about the veracity of <span class="math inline">\(H_0\)</span> and <span class="math inline">\(H_1\)</span></p>
+</blockquote></li>
+<li><p>Is the Likelihood Ratio Test (LRT) specific to the Bayesian or frequentist statistical approach, or is it applicable to both methodologies?</p>
+<blockquote>
+<p>The likelihood ratio test is a method used within the frequentist statistical framework. It is a hypothesis test that compares two statistical models based on the ratio of their likelihoods. The test evaluates how well two models, typically one being a special case or a subset of the other (referred to as the null and alternative models), explain a set of observed data.</p>
+<p>The likelihood ratio test is not inherently Bayesian; it is primarily a frequentist approach. However, the concept of comparing likelihoods of different models or hypotheses is also fundamental in Bayesian statistics, except it's applied in a different context and with a different framework.</p>
+</blockquote></li>
+</ol>
+<h1 id="unsolved-questions">Unsolved questions</h1>
+<ol start="5" type="1">
+<li><p>What is the evalution method for bayesian test?</p></li>
+<li><p>What is the bayesian P value?</p></li>
+<li><p>How to calculate the power of the Bayesian tests?</p></li>
+<li><p>Does bayesian test has type I error when the parameter is assumed to come from a probability distribution.</p></li>
+<li><p>Why does the false discovery rate kind of like the bayesian thinking, going back from data to state of nature; Why FDR is unlike other metrics, such as Recall, Precision, Accuracy, or others?</p>
+<blockquote>
+<p>Refer to FDR paper 1995, and Brad efron book about empirical bayes</p>
+</blockquote></li>
+</ol>
+]]></content>
+      <categories>
+        <category>statistics</category>
+      </categories>
+      <tags>
+        <tag>Math statistics</tag>
+        <tag>Bayes</tag>
+        <tag>Frequentist</tag>
       </tags>
   </entry>
   <entry>

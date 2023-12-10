@@ -154,7 +154,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">35</span>
+          <span class="site-state-item-count">36</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -165,7 +165,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">21</span>
+        <span class="site-state-item-count">23</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -203,6 +203,127 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/12/09/First-principle-thinkings-about-Frequentist-VS-Bayesian-Partisans/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Weiru Han">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Weiru Han's blog">
+      <meta itemprop="description" content="The journey of a thousand miles begins with one step">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Weiru Han's blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2023/12/09/First-principle-thinkings-about-Frequentist-VS-Bayesian-Partisans/" class="post-title-link" itemprop="url">First principle thinking about Frequentist VS Bayesian Partisans</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2023-12-09 14:17:23" itemprop="dateCreated datePublished" datetime="2023-12-09T14:17:23-05:00">2023-12-09</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2023-12-10 16:45:14" itemprop="dateModified" datetime="2023-12-10T16:45:14-05:00">2023-12-10</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/statistics/" itemprop="url" rel="index"><span itemprop="name">statistics</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>The field of statistics essentially comprises two main branches: frequentist and Bayesian. The primary distinction between these two approaches, as articulated by Michael I. Jordan, lies in their respective viewpoints:</p>
+<blockquote>
+<p>Frequentists typically proceed by moving forward from the state of nature to the data, while Bayesians operate in the opposite direction, moving from the data back to the state of nature. This fundamental contrast is exemplified in concepts such as the false discovery rate, which considers the probability of a hypothesis given that a discovery has been made, conditioning it on the data.</p>
+</blockquote>
+<p>Contemplating these divergent perspectives gives rise to intriguing questions. Below are some inquiries I have formulated and explored:</p>
+<ol type="1">
+<li><p>What are the distinctions between confidence interval and credible interval? What are the distinctions between coverage probability and credible probability?</p>
+<blockquote>
+<p>[George Casella Statistical Inference p435] When describing the interactions between the confidence interval and the parameter, we should carefully say that the interval <em>covers</em> the parameter, not that the parameter <em>is inside</em> the interval. This was done on purpose. It’s imperative to stress that the random quantity in classical frequentist partisan is the interval, not the parameter. The parameter is fixed. When we say a 90% confidence interval for a parameter, say <span class="math inline">\(lambda\)</span> is <span class="math inline">\(a\leq \lambda \leq b\)</span>, we are tempting to say (and many experimenters do) that “The probability is 90% that $$ is in the interval <span class="math inline">\([a,b]\)</span>.” However, within classical statistics, such a statement is invalid since the parameter is assumed fixed. Formally, the interval <span class="math inline">\([a,b]\)</span> is one of the possible <em>realized values</em> of the random interval <span class="math inline">\([f(\alpha/2),g(1-\alpha/2)]\)</span>. And since the parameter <span class="math inline">\(\lambda\)</span> does not move, <span class="math inline">\(\lambda\)</span> is in the realized interval <span class="math inline">\([a,b]\)</span> with probability either <span class="math inline">\(0\)</span> or <span class="math inline">\(1\)</span>. When we say that the realized interval <span class="math inline">\([a,b]\)</span> has a 90% chance of coverage, we only mean that we know that 90% of the sample points of the random interval cover the true parameter.</p>
+<p>In contrast, the Bayesian setup allows us to say <span class="math inline">\(\lambda\)</span> is inside <span class="math inline">\([a,b]\)</span> with some probability, not <span class="math inline">\(0\)</span> or <span class="math inline">\(1\)</span>. This is because, under the Bayesian model, <span class="math inline">\(\lambda\)</span> is random variable with a probability distribution. All Bayesian claims of coverage are made with respect to the posterior distribution of the parameter.</p>
+<p>It’s important not to confuse incredible probability (The Bayes posterior probability) with coverage probability (The classical probability). The probabilities are very different entities, with different meanings and interpretations. Credible probability comes from the posterior distribution, which in turn gets its probability from the prior distribution. Thus, credible probabilities reflects the experimenter’s subjective beliefs, as expressed in the prior distribution and updated with the data to the posterior distribution. A Bayesian assertion of 90% coverage means that the experimenter, upon combining prior knowledge with data, is 90% sure of coverage</p>
+</blockquote></li>
+<li><p>How to calculate the credible interval?</p>
+<blockquote>
+<p>In Bayesian statistics, the posterior distribution of a parameter can be derived and used for inference about that parameter. Since the parameter is considered a random variable in this framework, this distribution can be divided into numerous intervals, each covering 95% of the distribution, thus having a credible probability of 95%. Importantly, while there are multiple ways to construct these 95% credible intervals, they are not considered random in Bayesian analysis. Typically, we would choose the intervals that are symmetrically constructed around the distribution's central point. Once an interval is established, we interpret it as having a 95% probability of containing the true parameter value.</p>
+</blockquote></li>
+<li><p>In a frequentist hypothesis testing framework, is it possible to compare the probabilities of the null hypothesis (H0) and the alternative hypothesis (H1) to make a decision about accepting or rejecting the hypothesis?</p>
+<blockquote>
+<p>[George Casella Statistics inference P379] The probabilities <span class="math inline">\(P(H_0 )\text{ is true}\)</span> and <span class="math inline">\(P(H_1 )\text{ is true}\)</span> are not meaningful to the classical statistician. The classical statistician considers <span class="math inline">\(\theta\)</span> to be a fixed number. Consequently, a hypothesis is <em>either true or false</em>. If <span class="math inline">\(\theta\in \theta_0\)</span>, <span class="math inline">\(P(H_0 )\text{ is true}=1\)</span> and <span class="math inline">\(P(H_1 )\text{ is true}=0\)</span> for all values of <span class="math inline">\(\mathbf{x}\)</span>. If <span class="math inline">\(\theta\in\theta_0^c\)</span>, these values are reversed. Since these probabilities are unknown (since <span class="math inline">\(\theta\)</span> is unknown) and do not depend on the sample <span class="math inline">\(\mathbf{x}\)</span>, methods of calculating the probabilities <span class="math inline">\(P(H_0 )\text{ is true}\)</span> and <span class="math inline">\(P(H_1 )\text{ is true}\)</span> are not used by the classical statistician. In a Bayesian formulation of a hypothesis testing problem, these probabilities depend on the sample <span class="math inline">\(\mathbf{x}\)</span> and can give useful information about the veracity of <span class="math inline">\(H_0\)</span> and <span class="math inline">\(H_1\)</span></p>
+</blockquote></li>
+<li><p>Is the Likelihood Ratio Test (LRT) specific to the Bayesian or frequentist statistical approach, or is it applicable to both methodologies?</p>
+<blockquote>
+<p>The likelihood ratio test is a method used within the frequentist statistical framework. It is a hypothesis test that compares two statistical models based on the ratio of their likelihoods. The test evaluates how well two models, typically one being a special case or a subset of the other (referred to as the null and alternative models), explain a set of observed data.</p>
+<p>The likelihood ratio test is not inherently Bayesian; it is primarily a frequentist approach. However, the concept of comparing likelihoods of different models or hypotheses is also fundamental in Bayesian statistics, except it's applied in a different context and with a different framework.</p>
+</blockquote></li>
+</ol>
+<h1 id="unsolved-questions">Unsolved questions</h1>
+<ol start="5" type="1">
+<li><p>What is the evalution method for bayesian test?</p></li>
+<li><p>What is the bayesian P value?</p></li>
+<li><p>How to calculate the power of the Bayesian tests?</p></li>
+<li><p>Does bayesian test has type I error when the parameter is assumed to come from a probability distribution.</p></li>
+<li><p>Why does the false discovery rate kind of like the bayesian thinking, going back from data to state of nature; Why FDR is unlike other metrics, such as Recall, Precision, Accuracy, or others?</p>
+<blockquote>
+<p>Refer to FDR paper 1995, and Brad efron book about empirical bayes</p>
+</blockquote></li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="http://example.com/2023/11/01/Thinking-Framework/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -231,9 +352,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
-      
 
-      <time title="Created: 2023-11-01 20:11:24 / Modified: 20:36:39" itemprop="dateCreated datePublished" datetime="2023-11-01T20:11:24-04:00">2023-11-01</time>
+      <time title="Created: 2023-11-01 20:11:24" itemprop="dateCreated datePublished" datetime="2023-11-01T20:11:24-04:00">2023-11-01</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2023-12-09 14:25:01" itemprop="dateModified" datetime="2023-12-09T14:25:01-05:00">2023-12-09</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -318,13 +445,13 @@
 </ul>
 <p>Several useful databases:</p>
 <ul>
-<li>https://www.oecd.org/unitedstates/</li>
-<li>http://www.stats.gov.cn/</li>
-<li>https://ourworldindata.org/</li>
-<li>https://tradingeconomics.com/</li>
+<li><a target="_blank" rel="noopener" href="https://www.oecd.org/unitedstates/">OECD</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.stats.gov.cn/">https://www.stats.gov.cn/</a></li>
+<li><a target="_blank" rel="noopener" href="https://ourworldindata.org/">Our world in Data</a></li>
+<li><a target="_blank" rel="noopener" href="https://tradingeconomics.com/">Trading Economics</a></li>
 <li>Annual report</li>
 <li>Founder/CEO interview</li>
-<li>https://wallstreetcn.com/</li>
+<li><a target="_blank" rel="noopener" href="https://wallstreetcn.com/">https://wallstreetcn.com/</a></li>
 </ul>
 
       
@@ -1351,121 +1478,6 @@
 <p><img src="https://res.cloudinary.com/djd9gr1bu/image/upload/v1667201074/github_page/brain_image_pocqns.webp" alt="hi" class="inline"/></p>
 <p>It is possible that we are modifiable modules. In this simulation experiment, the traits were allocated at the beginning of the birth, but the roads to our fate are countless. As a result, we could compare ourselves to humanoid robotics by employing various algorithms to traverse the final uncertainty. Bayes's rule might be used to determine the local optimal path, and reinforcement learning could be used to continuously adjust daily strategy.</p>
 <p>This blog entry serves as a reminder to consider my weaknesses from the past to the present. Knowing every failure I've encountered, stupid decision I've made, and wrong verbal response or body language I've displayed has been the primary discipline in my life, and will remain so in the future.</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/09/28/hidden%20jargon%20in%20statistics/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Weiru Han">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Weiru Han's blog">
-      <meta itemprop="description" content="The journey of a thousand miles begins with one step">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Weiru Han's blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/09/28/hidden%20jargon%20in%20statistics/" class="post-title-link" itemprop="url">hidden jargon in statistics</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2022-09-28 18:22:47" itemprop="dateCreated datePublished" datetime="2022-09-28T18:22:47-04:00">2022-09-28</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-12-25 19:11:48" itemprop="dateModified" datetime="2022-12-25T19:11:48-05:00">2022-12-25</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/experiment-design/" itemprop="url" rel="index"><span itemprop="name">experiment design</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="randomization-replication-repeated-measurement-blocking">Randomization, replication, repeated measurement, blocking</h1>
-<p><strong>randomization</strong> means both the allocation of the experimental material and the order in which the individual runs of the experiment are to be performed randomly. Randomization could meet the requirement of the statistical methods that the observations (or errors) are independently distributed random variables. By using randomization, extraneous errors could be averaged out.</p>
-<p><strong>replication</strong> means an independent <strong>repeat run</strong> of each factor combination. First it allows the experimenter to obtain an estimate of the experimental error; this estimate of error becomes a basic unit of measurement for determining whether observed differences in the data are really <em>statistically</em> different. Second if the sample mean is used to estimate the true mean response for one of the factor levels in the experiment, replication permits the experimenter to obtain a more precise estimate of this parameter.</p>
-<p><strong>Repeated measurement</strong> involves measuring the same subject multiple times; <strong>Replication</strong> involves running the same study on different subjects with identical conditions (same factor combination)</p>
-<p><strong>Blocking</strong> is a design technique used to improve the precision with which comparisons among the factors of interest are made. Often blocking is used to reduce or eliminate the variability transmitted from <strong>nuisance factors</strong>, which may influence the experimental response but in which we are not directly interested.</p>
-<h1 id="standard-deviation-and-standard-error">standard deviation and standard error</h1>
-<ul>
-<li><strong>Standard deviation</strong> describes variability within a <strong>single sample</strong>, while <strong>standard error</strong> describes variability across multiple samples of a population</li>
-<li><strong>Standard deviation</strong> is a descriptive statistic that can be calculated from sample data, while <strong>standard error</strong> is an inferential statistic that can only be estimated</li>
-</ul>
-<p><strong>Standard deviation</strong> involves population standard deviation <span class="math inline">\(\sigma\)</span> and sample standard deviation <span class="math inline">\(s_n\)</span>. Sample standard deviation <span class="math inline">\(s_n\)</span> includes biased estimator of <span class="math inline">\(\sigma\)</span> as <span class="math inline">\(s_n=\sqrt{\frac{1}{n}\sum_i^n(x_i-\bar{x})^2}\)</span> and unbiased estimator of <span class="math inline">\(\sigma\)</span> as <span class="math inline">\(s_{n-1}=\sqrt{\frac{n}{n-1}s_n^2}=\sqrt{\frac{1}{n-1}\sum_{i=1}^n(x_i-\bar{x})^2}\)</span></p>
-<p><strong>Standard error</strong> is the <strong>standard deviation</strong> of the estimator <span class="math inline">\(\hat{\theta}\)</span>, and can be said as the <strong>standard deviation</strong> of the sampling distribution. <strong>Standard error</strong> of the mean <span class="math inline">\(\bar{x}\)</span> (<strong>SEM</strong>) is equal to the population standard deviation divided by the square root of number of samples <span class="math inline">\(n\)</span>.</p>
-<p>Suppose <span class="math inline">\(X_1,X_2,\cdots,X_n\)</span> are a random sample from an <span class="math inline">\(N(\mu,\sigma^2)\)</span> distribution. Then the standard deviation of <span class="math inline">\(\bar{X}\)</span> is the standard error, as <span class="math inline">\(SD(\bar{X})=\sigma/\sqrt{n}\)</span>. Usually the <span class="math inline">\(\sigma\)</span> is unknown, and is estimated by <span class="math inline">\(s_n\)</span> or <span class="math inline">\(s_{n-1}\)</span>. Therefore, by giving the observed sample standard deviation <span class="math inline">\(s_n\)</span> or <span class="math inline">\(s_{n-1}\)</span>, the standard error of the mean <span class="math inline">\(\bar{X}\)</span> could be estimated by <span class="math inline">\(SE(\bar{X})=\frac{s_n}{\sqrt{n}}\)</span> or <span class="math inline">\(SE(\bar{X})=\frac{s_{n-1}}{\sqrt{n}}\)</span></p>
-<h1 id="confidence-interval-and-credible-interval">Confidence interval and credible interval</h1>
-<p>A great explanation of the difference between confidence interval and credible interval can be found in <a target="_blank" rel="noopener" href="https://stats.stackexchange.com/questions/2272/whats-the-difference-between-a-confidence-interval-and-a-credible-interval">What's the difference between a confidence interval and a credible interval?</a></p>
-<h1 id="sufficient-statistic">Sufficient statistic</h1>
-<p>Here is an useful <strong>Q&amp;A</strong> explaining the definition of <strong>sufficient statistic</strong></p>
-<p><a target="_blank" rel="noopener" href="https://math.stackexchange.com/questions/1186645/understanding-sufficient-statistic">Understanding Sufficient statistic.</a></p>
-<h1 id="power-sample-size-and-effect-size">Power, sample size, and effect size</h1>
-<p>Here is a great blog explaining the definition of power, sample size calculation and effect size calculation</p>
-<p><a target="_blank" rel="noopener" href="https://sphweb.bumc.bu.edu/otlt/mph-modules/bs/bs704_power/bs704_power_print.html#:~:text=In%20order%20to%20estimate%20the,%2C%20or%20largest%2C%20sample%20sizes.">power and sample size determination</a></p>
-<h1 id="reference">Reference</h1>
-<ul>
-<li><p><a target="_blank" rel="noopener" href="https://www.wiley.com/en-us/Design+and+Analysis+of+Experiments%2C+10th+Edition-p-9781119492443">Design and analysis of experiments</a></p></li>
-<li><p><a target="_blank" rel="noopener" href="https://stats.stackexchange.com/questions/62312/difference-between-replication-and-repeated-measurements">Difference between replication and repeated measurements</a></p></li>
-<li><p><a target="_blank" rel="noopener" href="https://www.pearson.com/us/higher-education/program/Tamhane-Statistics-and-Data-Analysis-From-Elementary-to-Intermediate/PGM227786.html">Statistics and Data Analysis: From Elementary to Intermediate</a></p></li>
-<li><p><a target="_blank" rel="noopener" href="https://stats.stackexchange.com/questions/2272/whats-the-difference-between-a-confidence-interval-and-a-credible-interval">What's the difference between a confidence interval and a credible interval?</a></p></li>
-<li><p><a target="_blank" rel="noopener" href="https://math.stackexchange.com/questions/1186645/understanding-sufficient-statistic">Understanding Sufficient statistic.</a></p></li>
-<li><p><a target="_blank" rel="noopener" href="https://sphweb.bumc.bu.edu/otlt/mph-modules/bs/bs704_power/bs704_power_print.html#:~:text=In%20order%20to%20estimate%20the,%2C%20or%20largest%2C%20sample%20sizes.">power and sample size determination</a></p></li>
-<li><p><a target="_blank" rel="noopener" href="https://stats.stackexchange.com/questions/156518/what-is-the-standard-error-of-the-sample-standard-deviation">What is the standard error of the sample standard deviation?</a></p></li>
-</ul>
 
       
     </div>

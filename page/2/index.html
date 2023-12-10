@@ -154,7 +154,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">35</span>
+          <span class="site-state-item-count">36</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -165,7 +165,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">21</span>
+        <span class="site-state-item-count">23</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -194,6 +194,121 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/09/28/hidden%20jargon%20in%20statistics/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Weiru Han">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Weiru Han's blog">
+      <meta itemprop="description" content="The journey of a thousand miles begins with one step">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Weiru Han's blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/09/28/hidden%20jargon%20in%20statistics/" class="post-title-link" itemprop="url">hidden jargon in statistics</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2022-09-28 18:22:47" itemprop="dateCreated datePublished" datetime="2022-09-28T18:22:47-04:00">2022-09-28</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2022-12-25 19:11:48" itemprop="dateModified" datetime="2022-12-25T19:11:48-05:00">2022-12-25</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/experiment-design/" itemprop="url" rel="index"><span itemprop="name">experiment design</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="randomization-replication-repeated-measurement-blocking">Randomization, replication, repeated measurement, blocking</h1>
+<p><strong>randomization</strong> means both the allocation of the experimental material and the order in which the individual runs of the experiment are to be performed randomly. Randomization could meet the requirement of the statistical methods that the observations (or errors) are independently distributed random variables. By using randomization, extraneous errors could be averaged out.</p>
+<p><strong>replication</strong> means an independent <strong>repeat run</strong> of each factor combination. First it allows the experimenter to obtain an estimate of the experimental error; this estimate of error becomes a basic unit of measurement for determining whether observed differences in the data are really <em>statistically</em> different. Second if the sample mean is used to estimate the true mean response for one of the factor levels in the experiment, replication permits the experimenter to obtain a more precise estimate of this parameter.</p>
+<p><strong>Repeated measurement</strong> involves measuring the same subject multiple times; <strong>Replication</strong> involves running the same study on different subjects with identical conditions (same factor combination)</p>
+<p><strong>Blocking</strong> is a design technique used to improve the precision with which comparisons among the factors of interest are made. Often blocking is used to reduce or eliminate the variability transmitted from <strong>nuisance factors</strong>, which may influence the experimental response but in which we are not directly interested.</p>
+<h1 id="standard-deviation-and-standard-error">standard deviation and standard error</h1>
+<ul>
+<li><strong>Standard deviation</strong> describes variability within a <strong>single sample</strong>, while <strong>standard error</strong> describes variability across multiple samples of a population</li>
+<li><strong>Standard deviation</strong> is a descriptive statistic that can be calculated from sample data, while <strong>standard error</strong> is an inferential statistic that can only be estimated</li>
+</ul>
+<p><strong>Standard deviation</strong> involves population standard deviation <span class="math inline">\(\sigma\)</span> and sample standard deviation <span class="math inline">\(s_n\)</span>. Sample standard deviation <span class="math inline">\(s_n\)</span> includes biased estimator of <span class="math inline">\(\sigma\)</span> as <span class="math inline">\(s_n=\sqrt{\frac{1}{n}\sum_i^n(x_i-\bar{x})^2}\)</span> and unbiased estimator of <span class="math inline">\(\sigma\)</span> as <span class="math inline">\(s_{n-1}=\sqrt{\frac{n}{n-1}s_n^2}=\sqrt{\frac{1}{n-1}\sum_{i=1}^n(x_i-\bar{x})^2}\)</span></p>
+<p><strong>Standard error</strong> is the <strong>standard deviation</strong> of the estimator <span class="math inline">\(\hat{\theta}\)</span>, and can be said as the <strong>standard deviation</strong> of the sampling distribution. <strong>Standard error</strong> of the mean <span class="math inline">\(\bar{x}\)</span> (<strong>SEM</strong>) is equal to the population standard deviation divided by the square root of number of samples <span class="math inline">\(n\)</span>.</p>
+<p>Suppose <span class="math inline">\(X_1,X_2,\cdots,X_n\)</span> are a random sample from an <span class="math inline">\(N(\mu,\sigma^2)\)</span> distribution. Then the standard deviation of <span class="math inline">\(\bar{X}\)</span> is the standard error, as <span class="math inline">\(SD(\bar{X})=\sigma/\sqrt{n}\)</span>. Usually the <span class="math inline">\(\sigma\)</span> is unknown, and is estimated by <span class="math inline">\(s_n\)</span> or <span class="math inline">\(s_{n-1}\)</span>. Therefore, by giving the observed sample standard deviation <span class="math inline">\(s_n\)</span> or <span class="math inline">\(s_{n-1}\)</span>, the standard error of the mean <span class="math inline">\(\bar{X}\)</span> could be estimated by <span class="math inline">\(SE(\bar{X})=\frac{s_n}{\sqrt{n}}\)</span> or <span class="math inline">\(SE(\bar{X})=\frac{s_{n-1}}{\sqrt{n}}\)</span></p>
+<h1 id="confidence-interval-and-credible-interval">Confidence interval and credible interval</h1>
+<p>A great explanation of the difference between confidence interval and credible interval can be found in <a target="_blank" rel="noopener" href="https://stats.stackexchange.com/questions/2272/whats-the-difference-between-a-confidence-interval-and-a-credible-interval">What's the difference between a confidence interval and a credible interval?</a></p>
+<h1 id="sufficient-statistic">Sufficient statistic</h1>
+<p>Here is an useful <strong>Q&amp;A</strong> explaining the definition of <strong>sufficient statistic</strong></p>
+<p><a target="_blank" rel="noopener" href="https://math.stackexchange.com/questions/1186645/understanding-sufficient-statistic">Understanding Sufficient statistic.</a></p>
+<h1 id="power-sample-size-and-effect-size">Power, sample size, and effect size</h1>
+<p>Here is a great blog explaining the definition of power, sample size calculation and effect size calculation</p>
+<p><a target="_blank" rel="noopener" href="https://sphweb.bumc.bu.edu/otlt/mph-modules/bs/bs704_power/bs704_power_print.html#:~:text=In%20order%20to%20estimate%20the,%2C%20or%20largest%2C%20sample%20sizes.">power and sample size determination</a></p>
+<h1 id="reference">Reference</h1>
+<ul>
+<li><p><a target="_blank" rel="noopener" href="https://www.wiley.com/en-us/Design+and+Analysis+of+Experiments%2C+10th+Edition-p-9781119492443">Design and analysis of experiments</a></p></li>
+<li><p><a target="_blank" rel="noopener" href="https://stats.stackexchange.com/questions/62312/difference-between-replication-and-repeated-measurements">Difference between replication and repeated measurements</a></p></li>
+<li><p><a target="_blank" rel="noopener" href="https://www.pearson.com/us/higher-education/program/Tamhane-Statistics-and-Data-Analysis-From-Elementary-to-Intermediate/PGM227786.html">Statistics and Data Analysis: From Elementary to Intermediate</a></p></li>
+<li><p><a target="_blank" rel="noopener" href="https://stats.stackexchange.com/questions/2272/whats-the-difference-between-a-confidence-interval-and-a-credible-interval">What's the difference between a confidence interval and a credible interval?</a></p></li>
+<li><p><a target="_blank" rel="noopener" href="https://math.stackexchange.com/questions/1186645/understanding-sufficient-statistic">Understanding Sufficient statistic.</a></p></li>
+<li><p><a target="_blank" rel="noopener" href="https://sphweb.bumc.bu.edu/otlt/mph-modules/bs/bs704_power/bs704_power_print.html#:~:text=In%20order%20to%20estimate%20the,%2C%20or%20largest%2C%20sample%20sizes.">power and sample size determination</a></p></li>
+<li><p><a target="_blank" rel="noopener" href="https://stats.stackexchange.com/questions/156518/what-is-the-standard-error-of-the-sample-standard-deviation">What is the standard error of the sample standard deviation?</a></p></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1174,123 +1289,6 @@ E[\frac{1}{Y}]\geq\frac{1}{E[Y]}
 <h1 id="reference">Reference</h1>
 <ul>
 <li><a target="_blank" rel="noopener" href="https://math.stackexchange.com/questions/2707044/ex-ey-compared-to-ex-y"><span class="math inline">\(E(X)/E(Y)\)</span> compared to <span class="math inline">\(E(X/Y)\)</span></a></li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/06/07/Uncorrelated-vs-independent/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Weiru Han">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Weiru Han's blog">
-      <meta itemprop="description" content="The journey of a thousand miles begins with one step">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Weiru Han's blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/06/07/Uncorrelated-vs-independent/" class="post-title-link" itemprop="url">Uncorrelated vs independent</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2022-06-07 21:50:51" itemprop="dateCreated datePublished" datetime="2022-06-07T21:50:51-04:00">2022-06-07</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-11-07 00:39:59" itemprop="dateModified" datetime="2022-11-07T00:39:59-05:00">2022-11-07</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/statistics/" itemprop="url" rel="index"><span itemprop="name">statistics</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p><strong>Uncorrelation</strong> means there is no <strong>linear dependence</strong> between the two random variables, while <strong>independence</strong> means no types of dependence exist between the two random variables.</p>
-<p>Uncorrelated random variables may not be independent, but independent random variables must be uncorrelated.</p>
-<p>For example, <span class="math inline">\(Z\sim N(0,1),X=Z,Y=Z^2\)</span> <span class="math display">\[
-\begin{gather*}
-Cov(X,Y)=E[XY]-E[X]E[Y]\\
-=E[Z^3]-E[Z]E[Z^2]\\
-=E[Z^3]-0\\
-=E[Z^3]
-\end{gather*}
-\]</span> The moment generating function of distribution of <span class="math inline">\(Z\)</span> is <span class="math display">\[
-\begin{gather*}
-M_Z(t)=E[e^{tz}]\\
-=\int e^{tx}\frac{1}{\sqrt{2\pi}}e^{-\frac{z^2}{2}}dz\\
-=\int \frac{1}{\sqrt{2\pi}}e^{-\frac{1}{2}(z^2-2tz)}dz\\
-=\int \frac{1}{\sqrt{2\pi}}e^{-\frac{1}{2}(z^2-2tz+t^2)+\frac{1}{2}t^2}dz\\
-=\int \frac{1}{\sqrt{2\pi}}e^{-\frac{1}{2}(z-t)^2+\frac{1}{2}t^2}dz\\
-=e^{\frac{1}{2}t^2}\int\frac{1}{\sqrt{2\pi}}e^{-\frac{1}{2}(z-t)^2}dz\\
-=e^{\frac{1}{2}t^2}
-\end{gather*}
-\]</span> Using the mgf we obtain the <span class="math inline">\(E[Z^3]\)</span> as <span class="math display">\[
-\begin{gather*}
-E[Z^3]=M_Z&#39;&#39;&#39;(t=0)\\
-=(0)e^{\frac{1}{2}(0)^2}+2(0)e^{\frac{1}{2}(0)^2}+(0)^3e^{\frac{1}{2}(0)^2}=0
-\end{gather*}
-\]</span> Therefore <span class="math display">\[
-Cov(X,Y)=E[Z^3]=0
-\]</span> This implies <span class="math inline">\(X,Y\)</span> are <strong>uncorrelated</strong>, but they are <strong>dependent</strong></p>
-<h1 id="reference">Reference</h1>
-<ul>
-<li><p><a target="_blank" rel="noopener" href="https://towardsdatascience.com/uncorrelated-vs-independent-random-variables-definitions-proofs-examples-26422589a5d6">Uncorrelated vs Independent Random variables - Definitions, Proofs &amp; Examples</a></p></li>
-<li><p><a target="_blank" rel="noopener" href="https://math.stackexchange.com/questions/96451/how-to-calculate-the-expectation-of-xy">How to calculate the expectation of <span class="math inline">\(XY\)</span></a></p></li>
-<li><p><a target="_blank" rel="noopener" href="https://math.stackexchange.com/questions/537438/prove-that-fx-and-gy-are-independent-if-x-and-y-are-independent">Prove that <span class="math inline">\(f(X)\)</span> and <span class="math inline">\(g(Y)\)</span> are independent if <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are independent</a></p></li>
 </ul>
 
       
