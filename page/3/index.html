@@ -154,7 +154,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">36</span>
+          <span class="site-state-item-count">37</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -194,6 +194,116 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/06/07/E-X-E-Y-and-E-X-Y/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Weiru Han">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Weiru Han's blog">
+      <meta itemprop="description" content="The journey of a thousand miles begins with one step">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Weiru Han's blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/06/07/E-X-E-Y-and-E-X-Y/" class="post-title-link" itemprop="url">E(X)/E(Y) and E(X/Y)</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2022-06-07 23:10:26" itemprop="dateCreated datePublished" datetime="2022-06-07T23:10:26-04:00">2022-06-07</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2022-11-07 00:39:59" itemprop="dateModified" datetime="2022-11-07T00:39:59-05:00">2022-11-07</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Mathematics/" itemprop="url" rel="index"><span itemprop="name">Mathematics</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>In this part we aim to discover the relationship between <span class="math inline">\(E[\frac{X}{Y}]\)</span> and <span class="math inline">\(\frac{EX}{EY}\)</span> under the assumption that</p>
+<p><span class="math inline">\(X,Y\)</span> are independent</p>
+<p>Since <span class="math inline">\(X,Y\)</span> are independent, then <span class="math display">\[
+\begin{gather*}
+P(X\leq x, \frac{1}{Y}\leq y)\\
+=P(X\leq x, Y\geq \frac{1}{y})\\
+=P(X\leq x)P(Y\geq \frac{1}{y})\\
+=P(X\leq x)P(\frac{1}{Y}\leq y)\\
+\end{gather*}
+\]</span> We know that event <span class="math inline">\(A,B\)</span> are independent <strong>if and only if</strong> <span class="math inline">\(P(A,B)=P(A)P(B)\)</span>;</p>
+<p>Thus <span class="math inline">\(X,\frac{1}{Y}\)</span> are independent. This implies that <span class="math display">\[
+E[\frac{X}{Y}]=E(X)E(\frac{1}{Y})
+\]</span> Assume <span class="math inline">\(E[X],E[\frac{1}{Y}]\)</span> are finite.</p>
+<p>The function <span class="math inline">\(\frac{1}{y}\)</span> is strictly convex over the domain <span class="math inline">\(y&gt;0\)</span>. So if <span class="math inline">\(Y&gt;0\)</span> with prob <span class="math inline">\(1\)</span>, then by <strong>Jensen's</strong> inequality we have: <span class="math display">\[
+E[\frac{1}{Y}]\geq\frac{1}{E[Y]}
+\]</span> with equality <strong>if and only if</strong> <span class="math inline">\(Var(Y)=0\)</span> which is when <span class="math inline">\(Y\)</span> is a constant.</p>
+<p>Thus if <span class="math inline">\(X,Y\)</span> are indepenent and if <span class="math inline">\(Y&gt;0\)</span> with prob <span class="math inline">\(1\)</span> then</p>
+<ul>
+<li><span class="math inline">\(E[X]=0\Rightarrow E[\frac{X}{Y}]=0=\frac{EX}{EY}\)</span></li>
+<li><span class="math inline">\(E[X]&gt;0\Rightarrow E[\frac{X}{Y}]\geq \frac{EX}{EY}\)</span> with equality <strong>if and only if</strong> <span class="math inline">\(Var(Y)=0\)</span></li>
+<li><span class="math inline">\(E[X]&lt;0\Rightarrow E[\frac{X}{Y}]\leq \frac{EX}{EY}\)</span> with equality <strong>if and only if</strong> <span class="math inline">\(Var(Y)=0\)</span></li>
+</ul>
+<h1 id="reference">Reference</h1>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://math.stackexchange.com/questions/2707044/ex-ey-compared-to-ex-y"><span class="math inline">\(E(X)/E(Y)\)</span> compared to <span class="math inline">\(E(X/Y)\)</span></a></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1351,297 +1461,6 @@ M_Y(t)=E[e^{tY}]\\
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/04/25/Terminologies-in-collecting-data/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Weiru Han">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Weiru Han's blog">
-      <meta itemprop="description" content="The journey of a thousand miles begins with one step">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Weiru Han's blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/04/25/Terminologies-in-collecting-data/" class="post-title-link" itemprop="url">Terminologies in collecting data</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2022-04-25 15:44:52" itemprop="dateCreated datePublished" datetime="2022-04-25T15:44:52-04:00">2022-04-25</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-11-07 00:39:59" itemprop="dateModified" datetime="2022-11-07T00:39:59-05:00">2022-11-07</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/statistics/" itemprop="url" rel="index"><span itemprop="name">statistics</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="types-of-statistical-studies">Types of Statistical studies</h2>
-<ul>
-<li><p>Study with different purposes</p>
-<ul>
-<li><p>Comparative (analytical) study</p>
-<p>A study whose purpose is to compare two or more alternative methods or groups distinguished by some attribute is called a comparative (analytical) study</p></li>
-<li><p>Noncomparative (descriptive) study</p>
-<p>A study whose purpose is to learn about the characteristics of a group, but no necessarily to make comparasions, is called a noncomparative (descriptive) study</p></li>
-</ul></li>
-<li><p>Study with or without intervention</p>
-<ul>
-<li><p>Observational study</p>
-<p>The researcher is a passive observer who documents the process</p></li>
-<li><p>Experimental study</p>
-<p>The researcher actively intervenes to control the study conditions and records the response</p></li>
-</ul>
-<blockquote>
-<p>Remark: Both study types can be either comparative or noncomparative</p>
-</blockquote></li>
-</ul>
-<h2 id="confounding-variable">Confounding variable</h2>
-<p>If the effects of predictor variables cannot be separated from the effects of the uncontrolled variables, those uncontrolled variables are called confounding variables. A variable must meet two conditions to be a confounder:</p>
-<ul>
-<li>It must be correlatedd with the independent variable. This <strong>may be</strong> a causal relationship, but it does not have to be.</li>
-<li>It <strong>must be</strong> causally related to the dependent variable</li>
-</ul>
-<p>Sometimes the presence of these variables is not recognized after the fact, in which case they are referred to as <strong>lurking variables</strong></p>
-<pre><code class="highlight mermaid">graph TD
-A[Confounding variable]-.-&gt;B[predictor variable];
-B --&gt;C[response variable];
-A --&gt;C;</code></pre>
-<p><a target="_blank" rel="noopener" href="https://www.scribbr.com/methodology/confounding-variables/">See more info</a></p>
-<h2 id="comparative-study">Comparative study</h2>
-<blockquote>
-<p>The goal of the simplest and most common comparative studies is to evaluate how a "change" from a <code>"baseline"</code> or <code>"normal"</code> condition affects a response variable.</p>
-</blockquote>
-<ul>
-<li><p>The changed condition is called a <strong>treatment</strong> or an <strong>intervention</strong> and the normal condition is called a <strong>control</strong></p></li>
-<li><p>The <strong>treatment</strong> and <strong>control</strong> group should be similar in all other respects excepty for the changed condition to provide a valid comparison</p></li>
-</ul>
-<h2 id="observational-study">Observational study</h2>
-<ul>
-<li>A <strong>sample survey</strong> provides a snapshot of the population based on a sample observed at a point <code>in time</code></li>
-<li>A <strong>prospective study</strong> follows a sample <code>forward in time</code></li>
-<li>A <strong>retrospective study</strong> follows a sample <code>backward in time</code></li>
-</ul>
-<h3 id="sample-survey">Sample survey</h3>
-<ul>
-<li>A numerical characteristic of a <strong>population</strong> defined for a specific variable is called a <strong>parameter</strong></li>
-<li>A numerical function of the <code>sample data</code>, called a <strong>statistic</strong>, is used to estimate the unknown <strong>population parameter</strong></li>
-<li>It is possible to list all units in a <strong>finite population</strong>; a list of all units in a finite population is called a <strong>sampling frame</strong>;</li>
-<li>It is impossible to list all units of an <strong>infinite population</strong> as there is no upper limit on the number of units in a population</li>
-<li>The population of interest is called the <strong>target population</strong>; sometimes the target population is difficult to study, so sampling is done using another easily accessible population, called the <strong>sampled population</strong></li>
-<li>The deviation between a sample estimate and the true parameter value is called the <strong>sampling error</strong>; <strong>nonsampling error</strong> often cause <strong>bias</strong>, which is a <code>systematic deviation</code> between the sample estimate and the population parameter; <strong>bias</strong> is a more serious problem than sampling errors because it doesn't disappear by increasing the sample size. For example, <strong>measurement bias</strong> affects all measurements. <strong>Nonsampling error</strong> includes other types such as <strong>self-selection bias</strong> and <strong>response bias</strong></li>
-</ul>
-<h2 id="basic-sampling-designs">Basic sampling designs</h2>
-<ul>
-<li><p><strong>Simple random sample(SRS)</strong></p>
-<p>Draw a sample of size <span class="math inline">\(n\)</span> from a population of size <span class="math inline">\(N\)</span> <strong>Without replacement</strong></p></li>
-<li><p><strong>Stratified Random sampling</strong></p>
-<p>Divide a population into homogeneous subpopulations and draw <strong>SRS</strong> from each one</p></li>
-<li><p><strong>Multistage cluster sampling</strong></p>
-<p>Draw SRS layer by layer from the top to the bottom</p></li>
-<li><p><strong>Systematic sampling</strong></p>
-<p>A <code>1-in-k</code> <strong>systematic sampling</strong> consists of selecting one unit at random from the first <span class="math inline">\(k\)</span> Unit and selecting every <span class="math inline">\(kth\)</span> Unit thereafter; mainly useful for cases such as assembly line or cars entering a toll booth on a highway</p></li>
-</ul>
-<h2 id="experimental-studies">Experimental studies</h2>
-<ul>
-<li><strong>Treatment factors</strong> are controlled in an experiment, effects of the response variable are of primary interest</li>
-<li><strong>Nuisance factors</strong>, or <strong>noise factors</strong> are all the other factors that might affect the response variable</li>
-<li>The different possible values of a factor are called <strong>levels</strong>, and each treatment is a particular combination of the levels of different treatment factors</li>
-<li>Subjects or items receiving treatments are called <strong>experimental units</strong>; all experimental units receiving the same treatment form a <strong>treatment group</strong></li>
-<li><strong>A run</strong> is an observation made on an experimental unit after a particular treatment condition; a <strong>replicate</strong> is another independent run carried out under a particular identical conditions; <strong>repeat measurements</strong> of the same response is not replicate</li>
-</ul>
-<h3 id="strategies-to-reduce-experimental-error-variation">Strategies to reduce experimental error variation</h3>
-<blockquote>
-<p>Main components of experimental error:</p>
-<ul>
-<li><p>Systematic error</p>
-<p>Caused by difference between experimental units; the nuisance factors on which the experimental units differ are said to <strong>confound</strong> or <strong>bias</strong> the treatment comparisons</p></li>
-<li><p>Random error</p>
-<p>Caused by the inherent variability in the response of similar experimental units <code>given the same treatment</code></p></li>
-<li><p>Measurement error</p>
-<p>Caused by imprecise measurement instruments</p></li>
-</ul>
-</blockquote>
-<ul>
-<li><p><code>Strategies</code> to reduce the <code>systematic error</code> with respect to type of <code>nuisance factor</code></p>
-<blockquote>
-<ul>
-<li>Blocking: nuisance factor is <b>controllable</b></li>
-<li>Regression Analysis: nuisance factors cannot be used as <b>blocking factor</b> because they are <b>not controllable</b>; such nuisance factors are called <b>covariates</b>. A <b>covariate</b> should be measured before the treatment are applied to experimental units because it could also be affected by the treatment</li>
-<li>Randomization: in terms of additional known or unknown nuisance factors, the experimental units may <b>well differ</b> on these factors, thus biasing the results. Randomization doesn't imply experimental units are equal for each treatment, but that no one treatment is favored</li>
-</ul>
-<p><code>Note:</code> A covariates can be an independent variable (i.e. of direct interest) or it can be unwanted, confounding variable. Adding a covariate to a model can increase the accuracy of the results <a target="_blank" rel="noopener" href="https://www.statisticshowto.com/covariate/">See more info</a></p>
-<p><code>In summary</code>: Block over those nuisance factors that can be easily controlled, randomize over the rest</p>
-</blockquote></li>
-<li><p>Strategy to reduce the <code>random error</code></p>
-<blockquote>
-<p>Replicating the experimental runs; making multiple independent runs under identical treatment conditions</p>
-</blockquote></li>
-<li><p>Strategy to reduce the measurement error</p>
-<blockquote>
-<p>Repeat measurements, including having different subjects make the measurements;</p>
-<p>Variation within each group of measurements can be used to estimate random and measurement errors.</p>
-</blockquote></li>
-</ul>
-<h3 id="basic-experimental-designs">Basic experimental designs</h3>
-<ul>
-<li><p>Completely randomized design (CRD)</p>
-<blockquote>
-<p>All experimental units are assigned at random to the treatment</p>
-</blockquote>
-<table>
-<thead>
-<tr class="header">
-<th style="text-align: center;">Batch 1</th>
-<th style="text-align: center;">Batch 2</th>
-<th style="text-align: center;">Batch 3</th>
-<th style="text-align: center;">Batch 4</th>
-<th style="text-align: center;">Batch 5</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;">A</td>
-<td style="text-align: center;">C</td>
-<td style="text-align: center;">D</td>
-<td style="text-align: center;">D</td>
-<td style="text-align: center;">B</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">B</td>
-<td style="text-align: center;">A</td>
-<td style="text-align: center;">A</td>
-<td style="text-align: center;">C</td>
-<td style="text-align: center;">D</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">C</td>
-<td style="text-align: center;">D</td>
-<td style="text-align: center;">B</td>
-<td style="text-align: center;">A</td>
-<td style="text-align: center;">C</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">B</td>
-<td style="text-align: center;">C</td>
-<td style="text-align: center;">D</td>
-<td style="text-align: center;">B</td>
-<td style="text-align: center;">A</td>
-</tr>
-</tbody>
-</table>
-<p><em>Randomly assign <span class="math inline">\(20\)</span> samples to the <span class="math inline">\(4\)</span> treatments <span class="math inline">\(ABCD\)</span> without considering the batchs they are from</em></p></li>
-<li><p>Randomized block design (RBD)</p>
-<blockquote>
-<p>Forming blocks of units which are similar (in terms of chosen blocking factors)</p>
-<p>Two special cases:</p>
-<ul>
-<li>Matched pairs design: Match subjects on the nuisance factors (controllable)</li>
-<li>Cross-over design: the order in which the methods are administered may introduce bias due to the learning effect</li>
-</ul>
-</blockquote>
-<table>
-<thead>
-<tr class="header">
-<th style="text-align: center;">Batch 1</th>
-<th style="text-align: center;">Batch 2</th>
-<th style="text-align: center;">Batch 3</th>
-<th style="text-align: center;">Batch 4</th>
-<th style="text-align: center;">Batch 5</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;">A</td>
-<td style="text-align: center;">D</td>
-<td style="text-align: center;">C</td>
-<td style="text-align: center;">D</td>
-<td style="text-align: center;">B</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">C</td>
-<td style="text-align: center;">A</td>
-<td style="text-align: center;">B</td>
-<td style="text-align: center;">C</td>
-<td style="text-align: center;">C</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">B</td>
-<td style="text-align: center;">C</td>
-<td style="text-align: center;">D</td>
-<td style="text-align: center;">B</td>
-<td style="text-align: center;">A</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">D</td>
-<td style="text-align: center;">B</td>
-<td style="text-align: center;">A</td>
-<td style="text-align: center;">A</td>
-<td style="text-align: center;">D</td>
-</tr>
-</tbody>
-</table>
-<p><em>Randomly assign <span class="math inline">\(4\)</span> treatments to the experiments within each block</em></p></li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
     <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
@@ -1655,7 +1474,7 @@ A --&gt;C;</code></pre>
 
 <div class="copyright">
   &copy; 
-  <span itemprop="copyrightYear">2023</span>
+  <span itemprop="copyrightYear">2024</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

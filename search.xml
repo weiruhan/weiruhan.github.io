@@ -2027,6 +2027,77 @@ log \ y=log\alpha_0+\alpha_1logz_1+\alpha_2logz_2+log\eta\\
       </tags>
   </entry>
   <entry>
+    <title>How to calculate the expected value of the logarithm of Gamma distribution?</title>
+    <url>/2024/01/09/How-to-calculate-the-expected-value-of-the-logarithm-of-Gamma-distribution/</url>
+    <content><![CDATA[<p>Note: This section contains notes on the derivations made while authoring my book. The derivation details originate from public Q&amp;A platforms and will naturally differ from those in the book chapters.</p>
+<p>The goal is to calculate the expected value of the logarithm of gamma distribution, which is <span class="math display">\[
+E[lnX]
+\]</span> Where <span class="math inline">\(X\sim Gamma(\alpha,\beta)\)</span></p>
+<h1 id="part-i">Part I</h1>
+<p>To deal with the problem, we need to first figure out how to calculate the density of the transformed variable, which is the density <span class="math inline">\(f_Y(y)\)</span> when <span class="math inline">\(Y=g(X)\)</span>.</p>
+<p>Suppose <span class="math inline">\(Y=g(X)\)</span>, <span class="math inline">\(X\)</span> is a random variable on probability space <span class="math inline">\((\Omega,\mathcal{F},\mathcal{P})\)</span>, and has continuous density <span class="math inline">\(f\)</span>.</p>
+<p><span class="math inline">\(\Rightarrow Y=g(X)\)</span> has the distribution function <span class="math inline">\(F(g^{-1}(y))\)</span>.</p>
+<p>Taking derivatives via the chain rule, we have <span class="math display">\[
+f_Y(y)=\frac{dF(g^{-1}(y))}{dy}\\=\frac{dF(g^{-1}(y))}{dx}\frac{dx}{dy}\\
+=\frac{dF(g^{-1}(y))}{dx}\frac{d[g^{-1}(y)]}{dy}\\
+=f(g^{-1}(y))\frac{d[g^{-1}(y)]}{dy}
+\]</span> Recall that the derivative of an inverse function is <span class="math display">\[
+\frac{d}{dy}[g^{-1}(y)]\\
+=\frac{dx}{d[g(g^{-1}(y))]}\\
+=\frac{1}{g&#39;(g^{-1}(y))}
+\]</span> The density function of <span class="math inline">\(g(X)\)</span> is then expressed as <span class="math display">\[
+f_Y(y)=f(g^{-1}(y))\frac{1}{g&#39;(g^{-1}(y))}\\
+=\frac{f(g^{-1}(y))}{g&#39;(g^{-1}(y))}
+\]</span></p>
+<h1 id="part-ii">Part II</h1>
+<p>Now that we have figured out how to calculate the density of the transformed variable, we can proceed to obtain the density of <span class="math inline">\(Y=lnX\)</span>.</p>
+<p>Since <span class="math inline">\(X\sim \Gamma(\alpha,\beta)\)</span>, <span class="math inline">\(Y=g(X)=ln(X)\)</span>, we have <span class="math inline">\(X=e^y\)</span>. Because <span class="math inline">\(\beta\)</span> is a scale parameter, its effect will be to shift the logarithm by <span class="math inline">\(log\beta\)</span>. Specifically, it will shift the logarithm by <span class="math inline">\(-log\beta\)</span>. So we can readily start with the case when <span class="math inline">\(\beta=1\)</span>.</p>
+<p>That gives us the distribution of <span class="math inline">\(X\)</span> as <span class="math display">\[
+f_X(x)=\frac{1}{\Gamma(\alpha)}x^{\alpha}e^{-x}\frac{1}{x}
+\]</span> Where <span class="math inline">\(\Gamma(\alpha)=\int_0^{\infty}x^{\alpha}e^{-x}\frac{dx}{x}\)</span> is the normalizing constant.</p>
+<p>Substituting <span class="math inline">\(x=e^y\)</span> entails <span class="math inline">\(dy=\frac{dx}{x}\)</span> as <span class="math inline">\(\frac{de^y}{dy}=e^y=x\)</span>, thus we have <span class="math display">\[
+f_Y(y)=\frac{f&#39;(g^{-1}(y))}{g&#39;(g^{-1}(y))}\\
+=\frac{1}{\Gamma(\alpha)}e^{\alpha y}e^{-e^y}\frac{1}{e^y}/(\frac{1}{e^y})\\
+=\frac{1}{\Gamma(\alpha)}e^{\alpha y-e^y}
+\]</span> The possible values of <span class="math inline">\(Y\)</span> now range over all the real numbers <span class="math inline">\(\mathbb{R}\)</span>.</p>
+<h1 id="part-iii">Part III</h1>
+<p>As <span class="math inline">\(f_Y\)</span> must integrate to unity, as <span class="math display">\[
+\int_{\mathbb{R}}f_Y(y)dy=\int_{\mathbb{R}}\frac{1}{\Gamma(\alpha)}e^{\alpha y-e^y}dy\\
+=\frac{1}{\Gamma(\alpha)}\int_{\mathbb{R}}e^{\alpha y-e^y}dy\\
+=1
+\]</span> we can obtain <span class="math display">\[
+\Gamma(\alpha)=\int_{\mathbb{R}}e^{\alpha y-e^y}dy
+\]</span> To calculate <span class="math inline">\(E(Y)=\int_{\mathbb{R}}yf_Y(y)dy\)</span>, we need to replace <span class="math inline">\(y\)</span> with <span class="math inline">\(\alpha\)</span> in order to eliminate the uncertainty.</p>
+<p>To do so, we notice that <span class="math inline">\(f_Y(y)\)</span> is a differentiable function of <span class="math inline">\(\alpha\)</span>, as <span class="math display">\[
+\frac{d}{d\alpha}e^{\alpha y-e^y}=ye^{\alpha y-e^y}\\
+=y\Gamma(\alpha)f_Y(y)\\
+\]</span> Since we can obtain <span class="math inline">\(e^{\alpha y-e^y}=\Gamma(\alpha)f_Y(y)\)</span> from <span class="math display">\[
+f_Y(y)=\frac{1}{\Gamma(\alpha)}e^{\alpha y-e^y}
+\]</span> Now that we can calculate the <span class="math inline">\(E(Y)\)</span>, as <span class="math display">\[
+E(Y)=\int_{\mathbb{R}}yf_Y(y)dy\\
+=\frac{1}{\Gamma(\alpha)}\int_{\mathbb{R}}\Gamma(\alpha)yf_Y(y)dy\\
+=\frac{1}{\Gamma(\alpha)}\int_{\mathbb{R}}\frac{d}{d\alpha}e^{\alpha y-e^y}dy\\
+=\frac{1}{\Gamma(\alpha)}\frac{d}{d\alpha}\int_{\mathbb{R}}e^{\alpha y-e^y}dy\\
+=\frac{1}{\Gamma(\alpha)}\frac{d}{d\alpha}\Gamma(\alpha)\\
+=\frac{d}{d\alpha}ln\Gamma(\alpha)\\
+=\Psi(\alpha)
+\]</span> <span class="math inline">\(\Psi(\cdot)\)</span> is the digamma function, which is the logarithmic derivative of the gamma function.</p>
+<p>By restoring the scale parameter <span class="math inline">\(\beta\)</span> value, we can obtain the general result of <span class="math inline">\(E[lnX]\)</span> as <span class="math display">\[
+E[lnX]=\Psi(\alpha)-ln\beta
+\]</span></p>
+<h1 id="reference">Reference</h1>
+<p><a href="https://math.stackexchange.com/questions/3838777/how-to-calculate-the-density-function-of-gx">How to calculate the density function of <span class="math inline">\(g(X)\)</span>?</a></p>
+<p><a href="https://stats.stackexchange.com/questions/370880/what-is-the-expected-value-of-the-logarithm-of-gamma-distribution">What is the expected value of the logarithm of Gamma distribution?</a></p>
+]]></content>
+      <categories>
+        <category>statistics</category>
+      </categories>
+      <tags>
+        <tag>Math statistics</tag>
+        <tag>Bayes</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>About me</title>
     <url>/about/index.html</url>
     <content><![CDATA[<p><img src="https://res.cloudinary.com/djd9gr1bu/image/upload/v1637834720/2770F1B8-6DC8-4BBD-BC76-AA9756C6D8AF_1_201_a_grh7po.jpg" alt="hi" class="inline"/></p>

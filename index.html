@@ -154,7 +154,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">36</span>
+          <span class="site-state-item-count">37</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -194,6 +194,143 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/01/09/How-to-calculate-the-expected-value-of-the-logarithm-of-Gamma-distribution/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Weiru Han">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Weiru Han's blog">
+      <meta itemprop="description" content="The journey of a thousand miles begins with one step">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Weiru Han's blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/01/09/How-to-calculate-the-expected-value-of-the-logarithm-of-Gamma-distribution/" class="post-title-link" itemprop="url">How to calculate the expected value of the logarithm of Gamma distribution?</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2024-01-09 00:04:02 / Modified: 01:10:52" itemprop="dateCreated datePublished" datetime="2024-01-09T00:04:02-05:00">2024-01-09</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/statistics/" itemprop="url" rel="index"><span itemprop="name">statistics</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>Note: This section contains notes on the derivations made while authoring my book. The derivation details originate from public Q&amp;A platforms and will naturally differ from those in the book chapters.</p>
+<p>The goal is to calculate the expected value of the logarithm of gamma distribution, which is <span class="math display">\[
+E[lnX]
+\]</span> Where <span class="math inline">\(X\sim Gamma(\alpha,\beta)\)</span></p>
+<h1 id="part-i">Part I</h1>
+<p>To deal with the problem, we need to first figure out how to calculate the density of the transformed variable, which is the density <span class="math inline">\(f_Y(y)\)</span> when <span class="math inline">\(Y=g(X)\)</span>.</p>
+<p>Suppose <span class="math inline">\(Y=g(X)\)</span>, <span class="math inline">\(X\)</span> is a random variable on probability space <span class="math inline">\((\Omega,\mathcal{F},\mathcal{P})\)</span>, and has continuous density <span class="math inline">\(f\)</span>.</p>
+<p><span class="math inline">\(\Rightarrow Y=g(X)\)</span> has the distribution function <span class="math inline">\(F(g^{-1}(y))\)</span>.</p>
+<p>Taking derivatives via the chain rule, we have <span class="math display">\[
+f_Y(y)=\frac{dF(g^{-1}(y))}{dy}\\=\frac{dF(g^{-1}(y))}{dx}\frac{dx}{dy}\\
+=\frac{dF(g^{-1}(y))}{dx}\frac{d[g^{-1}(y)]}{dy}\\
+=f(g^{-1}(y))\frac{d[g^{-1}(y)]}{dy}
+\]</span> Recall that the derivative of an inverse function is <span class="math display">\[
+\frac{d}{dy}[g^{-1}(y)]\\
+=\frac{dx}{d[g(g^{-1}(y))]}\\
+=\frac{1}{g&#39;(g^{-1}(y))}
+\]</span> The density function of <span class="math inline">\(g(X)\)</span> is then expressed as <span class="math display">\[
+f_Y(y)=f(g^{-1}(y))\frac{1}{g&#39;(g^{-1}(y))}\\
+=\frac{f(g^{-1}(y))}{g&#39;(g^{-1}(y))}
+\]</span></p>
+<h1 id="part-ii">Part II</h1>
+<p>Now that we have figured out how to calculate the density of the transformed variable, we can proceed to obtain the density of <span class="math inline">\(Y=lnX\)</span>.</p>
+<p>Since <span class="math inline">\(X\sim \Gamma(\alpha,\beta)\)</span>, <span class="math inline">\(Y=g(X)=ln(X)\)</span>, we have <span class="math inline">\(X=e^y\)</span>. Because <span class="math inline">\(\beta\)</span> is a scale parameter, its effect will be to shift the logarithm by <span class="math inline">\(log\beta\)</span>. Specifically, it will shift the logarithm by <span class="math inline">\(-log\beta\)</span>. So we can readily start with the case when <span class="math inline">\(\beta=1\)</span>.</p>
+<p>That gives us the distribution of <span class="math inline">\(X\)</span> as <span class="math display">\[
+f_X(x)=\frac{1}{\Gamma(\alpha)}x^{\alpha}e^{-x}\frac{1}{x}
+\]</span> Where <span class="math inline">\(\Gamma(\alpha)=\int_0^{\infty}x^{\alpha}e^{-x}\frac{dx}{x}\)</span> is the normalizing constant.</p>
+<p>Substituting <span class="math inline">\(x=e^y\)</span> entails <span class="math inline">\(dy=\frac{dx}{x}\)</span> as <span class="math inline">\(\frac{de^y}{dy}=e^y=x\)</span>, thus we have <span class="math display">\[
+f_Y(y)=\frac{f&#39;(g^{-1}(y))}{g&#39;(g^{-1}(y))}\\
+=\frac{1}{\Gamma(\alpha)}e^{\alpha y}e^{-e^y}\frac{1}{e^y}/(\frac{1}{e^y})\\
+=\frac{1}{\Gamma(\alpha)}e^{\alpha y-e^y}
+\]</span> The possible values of <span class="math inline">\(Y\)</span> now range over all the real numbers <span class="math inline">\(\mathbb{R}\)</span>.</p>
+<h1 id="part-iii">Part III</h1>
+<p>As <span class="math inline">\(f_Y\)</span> must integrate to unity, as <span class="math display">\[
+\int_{\mathbb{R}}f_Y(y)dy=\int_{\mathbb{R}}\frac{1}{\Gamma(\alpha)}e^{\alpha y-e^y}dy\\
+=\frac{1}{\Gamma(\alpha)}\int_{\mathbb{R}}e^{\alpha y-e^y}dy\\
+=1
+\]</span> we can obtain <span class="math display">\[
+\Gamma(\alpha)=\int_{\mathbb{R}}e^{\alpha y-e^y}dy
+\]</span> To calculate <span class="math inline">\(E(Y)=\int_{\mathbb{R}}yf_Y(y)dy\)</span>, we need to replace <span class="math inline">\(y\)</span> with <span class="math inline">\(\alpha\)</span> in order to eliminate the uncertainty.</p>
+<p>To do so, we notice that <span class="math inline">\(f_Y(y)\)</span> is a differentiable function of <span class="math inline">\(\alpha\)</span>, as <span class="math display">\[
+\frac{d}{d\alpha}e^{\alpha y-e^y}=ye^{\alpha y-e^y}\\
+=y\Gamma(\alpha)f_Y(y)\\
+\]</span> Since we can obtain <span class="math inline">\(e^{\alpha y-e^y}=\Gamma(\alpha)f_Y(y)\)</span> from <span class="math display">\[
+f_Y(y)=\frac{1}{\Gamma(\alpha)}e^{\alpha y-e^y}
+\]</span> Now that we can calculate the <span class="math inline">\(E(Y)\)</span>, as <span class="math display">\[
+E(Y)=\int_{\mathbb{R}}yf_Y(y)dy\\
+=\frac{1}{\Gamma(\alpha)}\int_{\mathbb{R}}\Gamma(\alpha)yf_Y(y)dy\\
+=\frac{1}{\Gamma(\alpha)}\int_{\mathbb{R}}\frac{d}{d\alpha}e^{\alpha y-e^y}dy\\
+=\frac{1}{\Gamma(\alpha)}\frac{d}{d\alpha}\int_{\mathbb{R}}e^{\alpha y-e^y}dy\\
+=\frac{1}{\Gamma(\alpha)}\frac{d}{d\alpha}\Gamma(\alpha)\\
+=\frac{d}{d\alpha}ln\Gamma(\alpha)\\
+=\Psi(\alpha)
+\]</span> <span class="math inline">\(\Psi(\cdot)\)</span> is the digamma function, which is the logarithmic derivative of the gamma function.</p>
+<p>By restoring the scale parameter <span class="math inline">\(\beta\)</span> value, we can obtain the general result of <span class="math inline">\(E[lnX]\)</span> as <span class="math display">\[
+E[lnX]=\Psi(\alpha)-ln\beta
+\]</span></p>
+<h1 id="reference">Reference</h1>
+<p><a target="_blank" rel="noopener" href="https://math.stackexchange.com/questions/3838777/how-to-calculate-the-density-function-of-gx">How to calculate the density function of <span class="math inline">\(g(X)\)</span>?</a></p>
+<p><a target="_blank" rel="noopener" href="https://stats.stackexchange.com/questions/370880/what-is-the-expected-value-of-the-logarithm-of-gamma-distribution">What is the expected value of the logarithm of Gamma distribution?</a></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1416,98 +1553,6 @@
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/10/31/mind-thinking/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Weiru Han">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Weiru Han's blog">
-      <meta itemprop="description" content="The journey of a thousand miles begins with one step">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Weiru Han's blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/10/31/mind-thinking/" class="post-title-link" itemprop="url">Mind thinking</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2022-10-31 03:19:06" itemprop="dateCreated datePublished" datetime="2022-10-31T03:19:06-04:00">2022-10-31</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-11-07 00:39:59" itemprop="dateModified" datetime="2022-11-07T00:39:59-05:00">2022-11-07</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/random-thoughts/" itemprop="url" rel="index"><span itemprop="name">random thoughts</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>There is a strong possibility that we were created by an unknown entity or entities (I choose to switch between singular and plural for not knowing if there are a group of entities). Assuming this to be true, the following question can be posed: who creates the mysterious entity or entities that create us?</p>
-<p>Following this line of reasoning, one would conclude that the entire universe is a simulation, functioning like Matryoshka dolls, and is replete with unending circulation.</p>
-<p><img src="https://res.cloudinary.com/djd9gr1bu/image/upload/v1667201189/github_page/parallel_potzkz.jpg" alt="hi" class="inline"/></p>
-<p>Given the notion that we are simulated with an extraordinarily high probability, emotions have lost their significance. In reality, the level of chemical compounds such as dopamine is closely connected with the degree of depression or happiness. However, not only feelings are pointless. According to this idea, intelligence, physical characteristics, and a variety of other factors are determined before birth.</p>
-<p>From what I've seen, it's easy for people to accept that they're not strong or tall based on their genes and nutrition during adolescence, but it's often excruciatingly painful to accept that their fluid intelligence may not get better with time. <em>To avoid depression, it would be advantageous to be a complete and absolute rationalist in the truest sense of the term, while at the same time accepting some dogmas.</em></p>
-<p><img src="https://res.cloudinary.com/djd9gr1bu/image/upload/v1667201074/github_page/brain_image_pocqns.webp" alt="hi" class="inline"/></p>
-<p>It is possible that we are modifiable modules. In this simulation experiment, the traits were allocated at the beginning of the birth, but the roads to our fate are countless. As a result, we could compare ourselves to humanoid robotics by employing various algorithms to traverse the final uncertainty. Bayes's rule might be used to determine the local optimal path, and reinforcement learning could be used to continuously adjust daily strategy.</p>
-<p>This blog entry serves as a reminder to consider my weaknesses from the past to the present. Knowing every failure I've encountered, stupid decision I've made, and wrong verbal response or body language I've displayed has been the primary discipline in my life, and will remain so in the future.</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
     <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
@@ -1521,7 +1566,7 @@
 
 <div class="copyright">
   &copy; 
-  <span itemprop="copyrightYear">2023</span>
+  <span itemprop="copyrightYear">2024</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
