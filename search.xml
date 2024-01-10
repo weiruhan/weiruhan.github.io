@@ -2208,6 +2208,32 @@ VAR(ln(\hat{OR}))=VAR[ln(\frac{\hat{p}_1/(1-\hat{p}_1)}{\hat{p}_2/(1-\hat{p}_2)}
       </tags>
   </entry>
   <entry>
+    <title>Reason of ignoring normalizing constant</title>
+    <url>/2024/01/10/Reason-of-ignoring-normalizing-constant/</url>
+    <content><![CDATA[<p>When approximating the posterior distribution, one tends to ignore the normalizing constant in the equation as <span class="math display">\[
+\pi(\theta|x)=\frac{\pi(x|\theta)\pi(\theta)}{\int\pi(x|\theta)\pi(\theta)d\theta}\\
+=\frac{\pi(x|\theta)\pi(\theta)}{\pi(x)}\\
+\propto\pi(x|\theta)\pi(\theta)
+\]</span> The fact is, not all the MCMC methods avoid the need for the normalizing constant. However, many of them do (such as the Metropolis-Hastings algorithm), since the iteration process is based on the ratio <span class="math display">\[
+\begin{gather*}
+R(\theta_1,\theta_2)=\frac{\pi(\theta_1|x)}{\pi(\theta_2|x)}\\
+=\frac{\pi(x|\theta_1)\pi(\theta_1)}{\pi(x)}/\frac{\pi(x|\theta_2)\pi(\theta_2)}{\pi(x)}\\
+=\frac{\pi(x|\theta_1)\pi(\theta_1)}{\pi(x|\theta_2)\pi(\theta_2)}
+\end{gather*}
+\]</span> You can easily observe that <span class="math inline">\(R(\theta_1,\theta_2)\)</span> does not involve the normalizing constant, so actually you can cancels out the normalizing constant <span class="math inline">\(\pi(x)\)</span> when approximating the posterior distribution <span class="math inline">\(\pi(\theta|x)\)</span>. Therefore, you can easily state that <span class="math inline">\(\pi(\theta|x)\)</span> is proportional to the <span class="math inline">\(\pi(x|\theta)\pi(\theta)\)</span> and utilize this information to approximate the posterior distribution.</p>
+<h1 id="reference">Reference</h1>
+<p><a href="https://stats.stackexchange.com/questions/51493/normalizing-constant-irrelevant-in-bayes-theorem">Normalizing constant irrelevant in Bayes Theorem?</a></p>
+<p><a href="https://stats.stackexchange.com/questions/545017/rationale-behind-ignoring-the-denomintator-in-bayes-rule">Rationale behind ignoring the “denominator” in Bayes Rule</a></p>
+]]></content>
+      <categories>
+        <category>statistics</category>
+      </categories>
+      <tags>
+        <tag>Math statistics</tag>
+        <tag>Bayes</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>About me</title>
     <url>/about/index.html</url>
     <content><![CDATA[<p><img src="https://res.cloudinary.com/djd9gr1bu/image/upload/v1637834720/2770F1B8-6DC8-4BBD-BC76-AA9756C6D8AF_1_201_a_grh7po.jpg" alt="hi" class="inline"/></p>

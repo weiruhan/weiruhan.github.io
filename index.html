@@ -154,7 +154,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">39</span>
+          <span class="site-state-item-count">40</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -194,6 +194,98 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/01/10/Reason-of-ignoring-normalizing-constant/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Weiru Han">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Weiru Han's blog">
+      <meta itemprop="description" content="The journey of a thousand miles begins with one step">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Weiru Han's blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/01/10/Reason-of-ignoring-normalizing-constant/" class="post-title-link" itemprop="url">Reason of ignoring normalizing constant</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2024-01-10 01:42:44 / Modified: 01:54:37" itemprop="dateCreated datePublished" datetime="2024-01-10T01:42:44-05:00">2024-01-10</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/statistics/" itemprop="url" rel="index"><span itemprop="name">statistics</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>When approximating the posterior distribution, one tends to ignore the normalizing constant in the equation as <span class="math display">\[
+\pi(\theta|x)=\frac{\pi(x|\theta)\pi(\theta)}{\int\pi(x|\theta)\pi(\theta)d\theta}\\
+=\frac{\pi(x|\theta)\pi(\theta)}{\pi(x)}\\
+\propto\pi(x|\theta)\pi(\theta)
+\]</span> The fact is, not all the MCMC methods avoid the need for the normalizing constant. However, many of them do (such as the Metropolis-Hastings algorithm), since the iteration process is based on the ratio <span class="math display">\[
+\begin{gather*}
+R(\theta_1,\theta_2)=\frac{\pi(\theta_1|x)}{\pi(\theta_2|x)}\\
+=\frac{\pi(x|\theta_1)\pi(\theta_1)}{\pi(x)}/\frac{\pi(x|\theta_2)\pi(\theta_2)}{\pi(x)}\\
+=\frac{\pi(x|\theta_1)\pi(\theta_1)}{\pi(x|\theta_2)\pi(\theta_2)}
+\end{gather*}
+\]</span> You can easily observe that <span class="math inline">\(R(\theta_1,\theta_2)\)</span> does not involve the normalizing constant, so actually you can cancels out the normalizing constant <span class="math inline">\(\pi(x)\)</span> when approximating the posterior distribution <span class="math inline">\(\pi(\theta|x)\)</span>. Therefore, you can easily state that <span class="math inline">\(\pi(\theta|x)\)</span> is proportional to the <span class="math inline">\(\pi(x|\theta)\pi(\theta)\)</span> and utilize this information to approximate the posterior distribution.</p>
+<h1 id="reference">Reference</h1>
+<p><a target="_blank" rel="noopener" href="https://stats.stackexchange.com/questions/51493/normalizing-constant-irrelevant-in-bayes-theorem">Normalizing constant irrelevant in Bayes Theorem?</a></p>
+<p><a target="_blank" rel="noopener" href="https://stats.stackexchange.com/questions/545017/rationale-behind-ignoring-the-denomintator-in-bayes-rule">Rationale behind ignoring the “denominator” in Bayes Rule</a></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1417,111 +1509,6 @@ E[lnX]=\Psi(\alpha)-ln\beta
 <li><a target="_blank" rel="noopener" href="https://github.com/scikit-learn/scikit-learn/issues/24593">Erroneous use of chi2 in the documentation</a></li>
 <li><a target="_blank" rel="noopener" href="https://www.stat.berkeley.edu/~stark/SticiGui/Text/chiSquare.htm">derivation for chi-square test</a></li>
 </ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/11/08/Minor-errors-in-R-that-can-be-disregarded/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Weiru Han">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Weiru Han's blog">
-      <meta itemprop="description" content="The journey of a thousand miles begins with one step">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Weiru Han's blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/11/08/Minor-errors-in-R-that-can-be-disregarded/" class="post-title-link" itemprop="url">Minor errors in R that can be disregarded</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2022-11-08 18:12:53" itemprop="dateCreated datePublished" datetime="2022-11-08T18:12:53-05:00">2022-11-08</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-11-09 02:33:00" itemprop="dateModified" datetime="2022-11-09T02:33:00-05:00">2022-11-09</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/R/" itemprop="url" rel="index"><span itemprop="name">R</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <ul>
-<li><p><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/33352746/can-an-r-matrix-contain-different-datatypes-does-this-hacked-up-matrix-of-lists">Matrix cannot store different type of variables</a></p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator">&gt;</span> <span class="comment"># each element of x is an integer</span></span><br><span class="line"><span class="operator">&gt;</span> x <span class="operator">&lt;-</span> matrix<span class="punctuation">(</span><span class="number">1</span><span class="operator">:</span><span class="number">16</span><span class="punctuation">,</span><span class="number">4</span><span class="punctuation">,</span><span class="number">4</span><span class="punctuation">)</span></span><br><span class="line"><span class="operator">&gt;</span> str<span class="punctuation">(</span>x<span class="punctuation">)</span></span><br><span class="line"> int <span class="punctuation">[</span><span class="number">1</span><span class="operator">:</span><span class="number">4</span><span class="punctuation">,</span> <span class="number">1</span><span class="operator">:</span><span class="number">4</span><span class="punctuation">]</span> <span class="number">1</span> <span class="number">2</span> <span class="number">3</span> <span class="number">4</span> <span class="number">5</span> <span class="number">6</span> <span class="number">7</span> <span class="number">8</span> <span class="number">9</span> <span class="number">10</span> ...</span><br><span class="line"><span class="operator">&gt;</span> <span class="comment"># identify type of elements</span></span><br><span class="line"><span class="operator">&gt;</span> typeof<span class="punctuation">(</span>x<span class="punctuation">)</span></span><br><span class="line"><span class="punctuation">[</span><span class="number">1</span><span class="punctuation">]</span> <span class="string">&quot;integer&quot;</span></span><br><span class="line"><span class="operator">&gt;</span> </span><br><span class="line"><span class="operator">&gt;</span> <span class="comment"># each element of x is a character</span></span><br><span class="line"><span class="operator">&gt;</span> x<span class="punctuation">[</span><span class="punctuation">,</span><span class="number">1</span><span class="punctuation">]</span> <span class="operator">&lt;-</span> <span class="built_in">as.character</span><span class="punctuation">(</span>x<span class="punctuation">[</span><span class="punctuation">,</span><span class="number">1</span><span class="punctuation">]</span><span class="punctuation">)</span></span><br><span class="line"><span class="operator">&gt;</span> str<span class="punctuation">(</span>x<span class="punctuation">)</span></span><br><span class="line"> chr <span class="punctuation">[</span><span class="number">1</span><span class="operator">:</span><span class="number">4</span><span class="punctuation">,</span> <span class="number">1</span><span class="operator">:</span><span class="number">4</span><span class="punctuation">]</span> <span class="string">&quot;1&quot;</span> <span class="string">&quot;2&quot;</span> <span class="string">&quot;3&quot;</span> <span class="string">&quot;4&quot;</span> <span class="string">&quot;5&quot;</span> <span class="string">&quot;6&quot;</span> <span class="string">&quot;7&quot;</span> <span class="string">&quot;8&quot;</span> <span class="string">&quot;9&quot;</span> <span class="string">&quot;10&quot;</span> <span class="string">&quot;11&quot;</span> <span class="string">&quot;12&quot;</span> <span class="string">&quot;13&quot;</span> <span class="string">&quot;14&quot;</span> <span class="string">&quot;15&quot;</span> <span class="string">&quot;16&quot;</span></span><br><span class="line"><span class="operator">&gt;</span> typeof<span class="punctuation">(</span>x<span class="punctuation">)</span></span><br><span class="line"><span class="punctuation">[</span><span class="number">1</span><span class="punctuation">]</span> <span class="string">&quot;character&quot;</span></span><br><span class="line"><span class="operator">&gt;</span> </span><br><span class="line"><span class="operator">&gt;</span> <span class="comment"># each element of y is a list</span></span><br><span class="line"><span class="operator">&gt;</span> y <span class="operator">&lt;-</span> matrix<span class="punctuation">(</span><span class="built_in">list</span><span class="punctuation">(</span><span class="string">&quot;1&quot;</span><span class="punctuation">,</span><span class="number">2</span><span class="punctuation">,</span><span class="number">3</span><span class="punctuation">,</span><span class="number">4</span><span class="punctuation">)</span><span class="punctuation">,</span><span class="number">2</span><span class="punctuation">,</span><span class="number">2</span><span class="punctuation">)</span></span><br><span class="line"><span class="operator">&gt;</span> str<span class="punctuation">(</span>y<span class="punctuation">)</span></span><br><span class="line">List of <span class="number">4</span></span><br><span class="line"> <span class="operator">$</span> <span class="operator">:</span> chr <span class="string">&quot;1&quot;</span></span><br><span class="line"> <span class="operator">$</span> <span class="operator">:</span> num <span class="number">2</span></span><br><span class="line"> <span class="operator">$</span> <span class="operator">:</span> num <span class="number">3</span></span><br><span class="line"> <span class="operator">$</span> <span class="operator">:</span> num <span class="number">4</span></span><br><span class="line"> <span class="operator">-</span> <span class="built_in">attr</span><span class="punctuation">(</span><span class="operator">*</span><span class="punctuation">,</span> <span class="string">&quot;dim&quot;</span><span class="punctuation">)</span><span class="operator">=</span> int <span class="punctuation">[</span><span class="number">1</span><span class="operator">:</span><span class="number">2</span><span class="punctuation">]</span> <span class="number">2</span> <span class="number">2</span></span><br><span class="line"><span class="operator">&gt;</span> typeof<span class="punctuation">(</span>y<span class="punctuation">)</span></span><br><span class="line"><span class="punctuation">[</span><span class="number">1</span><span class="punctuation">]</span> <span class="string">&quot;list&quot;</span></span><br></pre></td></tr></table></figure></li>
-<li><p><a target="_blank" rel="noopener" href="https://stat.ethz.ch/pipermail/r-help/2008-April/158990.html">Mode VS Class</a></p>
-<blockquote>
-<p>Mode is an exclusive classification of objects based on their fundamental structure. The "atomic" modes consist of numeric, complex, character, and logical data types. Modes for recursive objects include 'list' and 'function,' among others. There is one and only one mode for an object.</p>
-<p>Class is an object's property that determines how generic functions interact with it. This is not a mutually exclusive category. By convention, if an object has no specific class assigned, such as a simple numeric vector, its class is the same as its mode.</p>
-<p>Changing the mode of an object is frequently referred to as "coercion." The mode of an object can change without requiring a class change. e.g.</p>
-</blockquote>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator">&gt;</span> x <span class="operator">&lt;-</span> 1<span class="operator">:</span><span class="number">16</span></span><br><span class="line"><span class="operator">&gt;</span> mode<span class="punctuation">(</span>x<span class="punctuation">)</span></span><br><span class="line"><span class="punctuation">[</span><span class="number">1</span><span class="punctuation">]</span> <span class="string">&quot;numeric&quot;</span></span><br><span class="line"><span class="operator">&gt;</span> <span class="built_in">dim</span><span class="punctuation">(</span>x<span class="punctuation">)</span> <span class="operator">&lt;-</span> <span class="built_in">c</span><span class="punctuation">(</span><span class="number">4</span><span class="punctuation">,</span><span class="number">4</span><span class="punctuation">)</span></span><br><span class="line"><span class="operator">&gt;</span> x</span><br><span class="line">     <span class="punctuation">[</span><span class="punctuation">,</span><span class="number">1</span><span class="punctuation">]</span> <span class="punctuation">[</span><span class="punctuation">,</span><span class="number">2</span><span class="punctuation">]</span> <span class="punctuation">[</span><span class="punctuation">,</span><span class="number">3</span><span class="punctuation">]</span> <span class="punctuation">[</span><span class="punctuation">,</span><span class="number">4</span><span class="punctuation">]</span></span><br><span class="line"><span class="punctuation">[</span><span class="number">1</span><span class="punctuation">,</span><span class="punctuation">]</span>    <span class="number">1</span>    <span class="number">5</span>    <span class="number">9</span>   <span class="number">13</span></span><br><span class="line"><span class="punctuation">[</span><span class="number">2</span><span class="punctuation">,</span><span class="punctuation">]</span>    <span class="number">2</span>    <span class="number">6</span>   <span class="number">10</span>   <span class="number">14</span></span><br><span class="line"><span class="punctuation">[</span><span class="number">3</span><span class="punctuation">,</span><span class="punctuation">]</span>    <span class="number">3</span>    <span class="number">7</span>   <span class="number">11</span>   <span class="number">15</span></span><br><span class="line"><span class="punctuation">[</span><span class="number">4</span><span class="punctuation">,</span><span class="punctuation">]</span>    <span class="number">4</span>    <span class="number">8</span>   <span class="number">12</span>   <span class="number">16</span></span><br><span class="line"><span class="operator">&gt;</span> <span class="built_in">class</span><span class="punctuation">(</span>x<span class="punctuation">)</span></span><br><span class="line"><span class="punctuation">[</span><span class="number">1</span><span class="punctuation">]</span> <span class="string">&quot;matrix&quot;</span> <span class="string">&quot;array&quot;</span> </span><br><span class="line"><span class="operator">&gt;</span> <span class="built_in">is.numeric</span><span class="punctuation">(</span>x<span class="punctuation">)</span></span><br><span class="line"><span class="punctuation">[</span><span class="number">1</span><span class="punctuation">]</span> <span class="literal">TRUE</span></span><br><span class="line"><span class="operator">&gt;</span> mode<span class="punctuation">(</span>x<span class="punctuation">)</span> <span class="operator">&lt;-</span> <span class="string">&quot;character&quot;</span></span><br><span class="line"><span class="operator">&gt;</span> x</span><br><span class="line">     <span class="punctuation">[</span><span class="punctuation">,</span><span class="number">1</span><span class="punctuation">]</span> <span class="punctuation">[</span><span class="punctuation">,</span><span class="number">2</span><span class="punctuation">]</span> <span class="punctuation">[</span><span class="punctuation">,</span><span class="number">3</span><span class="punctuation">]</span> <span class="punctuation">[</span><span class="punctuation">,</span><span class="number">4</span><span class="punctuation">]</span></span><br><span class="line"><span class="punctuation">[</span><span class="number">1</span><span class="punctuation">,</span><span class="punctuation">]</span> <span class="string">&quot;1&quot;</span>  <span class="string">&quot;5&quot;</span>  <span class="string">&quot;9&quot;</span>  <span class="string">&quot;13&quot;</span></span><br><span class="line"><span class="punctuation">[</span><span class="number">2</span><span class="punctuation">,</span><span class="punctuation">]</span> <span class="string">&quot;2&quot;</span>  <span class="string">&quot;6&quot;</span>  <span class="string">&quot;10&quot;</span> <span class="string">&quot;14&quot;</span></span><br><span class="line"><span class="punctuation">[</span><span class="number">3</span><span class="punctuation">,</span><span class="punctuation">]</span> <span class="string">&quot;3&quot;</span>  <span class="string">&quot;7&quot;</span>  <span class="string">&quot;11&quot;</span> <span class="string">&quot;15&quot;</span></span><br><span class="line"><span class="punctuation">[</span><span class="number">4</span><span class="punctuation">,</span><span class="punctuation">]</span> <span class="string">&quot;4&quot;</span>  <span class="string">&quot;8&quot;</span>  <span class="string">&quot;12&quot;</span> <span class="string">&quot;16&quot;</span></span><br><span class="line"><span class="operator">&gt;</span> mode<span class="punctuation">(</span>x<span class="punctuation">)</span></span><br><span class="line"><span class="punctuation">[</span><span class="number">1</span><span class="punctuation">]</span> <span class="string">&quot;character&quot;</span></span><br><span class="line"><span class="operator">&gt;</span> <span class="built_in">class</span><span class="punctuation">(</span>x<span class="punctuation">)</span></span><br><span class="line"><span class="punctuation">[</span><span class="number">1</span><span class="punctuation">]</span> <span class="string">&quot;matrix&quot;</span> <span class="string">&quot;array&quot;</span> </span><br><span class="line"><span class="operator">&gt;</span> </span><br><span class="line"><span class="operator">&gt;</span> x <span class="operator">&lt;-</span> factor<span class="punctuation">(</span>x<span class="punctuation">)</span></span><br><span class="line"><span class="operator">&gt;</span> x</span><br><span class="line"> <span class="punctuation">[</span><span class="number">1</span><span class="punctuation">]</span> <span class="number">1</span>  <span class="number">2</span>  <span class="number">3</span>  <span class="number">4</span>  <span class="number">5</span>  <span class="number">6</span>  <span class="number">7</span>  <span class="number">8</span>  <span class="number">9</span>  <span class="number">10</span> <span class="number">11</span> <span class="number">12</span> <span class="number">13</span> <span class="number">14</span> <span class="number">15</span> <span class="number">16</span></span><br><span class="line">Levels<span class="operator">:</span> <span class="number">1</span> <span class="number">10</span> <span class="number">11</span> <span class="number">12</span> <span class="number">13</span> <span class="number">14</span> <span class="number">15</span> <span class="number">16</span> <span class="number">2</span> <span class="number">3</span> <span class="number">4</span> <span class="number">5</span> <span class="number">6</span> <span class="number">7</span> <span class="number">8</span> <span class="number">9</span></span><br><span class="line"><span class="operator">&gt;</span> <span class="built_in">class</span><span class="punctuation">(</span>x<span class="punctuation">)</span></span><br><span class="line"><span class="punctuation">[</span><span class="number">1</span><span class="punctuation">]</span> <span class="string">&quot;factor&quot;</span></span><br><span class="line"><span class="operator">&gt;</span> mode<span class="punctuation">(</span>x<span class="punctuation">)</span></span><br><span class="line"><span class="punctuation">[</span><span class="number">1</span><span class="punctuation">]</span> <span class="string">&quot;numeric&quot;</span></span><br></pre></td></tr></table></figure></li>
-<li><p><strong>NA</strong> in <em>R</em></p>
-<blockquote>
-<p>Use <strong>NA</strong> as index will replace elements as NA</p>
-</blockquote>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator">&gt;</span> x <span class="operator">&lt;-</span> 1<span class="operator">:</span><span class="number">16</span></span><br><span class="line"><span class="operator">&gt;</span> x<span class="punctuation">[</span><span class="literal">NA</span><span class="punctuation">]</span></span><br><span class="line"> <span class="punctuation">[</span><span class="number">1</span><span class="punctuation">]</span> <span class="literal">NA</span> <span class="literal">NA</span> <span class="literal">NA</span> <span class="literal">NA</span> <span class="literal">NA</span> <span class="literal">NA</span> <span class="literal">NA</span> <span class="literal">NA</span> <span class="literal">NA</span> <span class="literal">NA</span> <span class="literal">NA</span> <span class="literal">NA</span> <span class="literal">NA</span> <span class="literal">NA</span> <span class="literal">NA</span> <span class="literal">NA</span></span><br><span class="line"><span class="operator">&gt;</span> </span><br><span class="line"><span class="operator">&gt;</span> <span class="built_in">dim</span><span class="punctuation">(</span>x<span class="punctuation">)</span> <span class="operator">&lt;-</span> <span class="built_in">c</span><span class="punctuation">(</span><span class="number">4</span><span class="punctuation">,</span><span class="number">4</span><span class="punctuation">)</span></span><br><span class="line"><span class="operator">&gt;</span> x<span class="punctuation">[</span><span class="literal">NA</span><span class="punctuation">]</span></span><br><span class="line"> <span class="punctuation">[</span><span class="number">1</span><span class="punctuation">]</span> <span class="literal">NA</span> <span class="literal">NA</span> <span class="literal">NA</span> <span class="literal">NA</span> <span class="literal">NA</span> <span class="literal">NA</span> <span class="literal">NA</span> <span class="literal">NA</span> <span class="literal">NA</span> <span class="literal">NA</span> <span class="literal">NA</span> <span class="literal">NA</span> <span class="literal">NA</span> <span class="literal">NA</span> <span class="literal">NA</span> <span class="literal">NA</span></span><br><span class="line"><span class="operator">&gt;</span> </span><br><span class="line"><span class="operator">&gt;</span> x<span class="punctuation">[</span><span class="literal">NA</span><span class="punctuation">,</span><span class="punctuation">]</span></span><br><span class="line">     <span class="punctuation">[</span><span class="punctuation">,</span><span class="number">1</span><span class="punctuation">]</span> <span class="punctuation">[</span><span class="punctuation">,</span><span class="number">2</span><span class="punctuation">]</span> <span class="punctuation">[</span><span class="punctuation">,</span><span class="number">3</span><span class="punctuation">]</span> <span class="punctuation">[</span><span class="punctuation">,</span><span class="number">4</span><span class="punctuation">]</span></span><br><span class="line"><span class="punctuation">[</span><span class="number">1</span><span class="punctuation">,</span><span class="punctuation">]</span>   <span class="literal">NA</span>   <span class="literal">NA</span>   <span class="literal">NA</span>   <span class="literal">NA</span></span><br><span class="line"><span class="punctuation">[</span><span class="number">2</span><span class="punctuation">,</span><span class="punctuation">]</span>   <span class="literal">NA</span>   <span class="literal">NA</span>   <span class="literal">NA</span>   <span class="literal">NA</span></span><br><span class="line"><span class="punctuation">[</span><span class="number">3</span><span class="punctuation">,</span><span class="punctuation">]</span>   <span class="literal">NA</span>   <span class="literal">NA</span>   <span class="literal">NA</span>   <span class="literal">NA</span></span><br><span class="line"><span class="punctuation">[</span><span class="number">4</span><span class="punctuation">,</span><span class="punctuation">]</span>   <span class="literal">NA</span>   <span class="literal">NA</span>   <span class="literal">NA</span>   <span class="literal">NA</span></span><br></pre></td></tr></table></figure>
-<blockquote>
-<p><a target="_blank" rel="noopener" href="https://statisticsglobe.com/r-na/">R NA – What are <span class="math inline">\(\text{&lt;Not Available&gt;}\)</span> Values?</a></p>
-</blockquote></li>
-</ul>
-<hr />
-<p><strong>To be continued …</strong></p>
 
       
     </div>
