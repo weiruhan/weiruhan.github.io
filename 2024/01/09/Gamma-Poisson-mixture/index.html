@@ -20,26 +20,30 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.13.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":true,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta property="og:type" content="website">
-<meta property="og:title" content="tags">
-<meta property="og:url" content="http://example.com/tags/index.html">
+    <meta name="description" content="Note: This section contains notes on the derivations made while authoring my book. The derivation details originate from public Q&amp;A platforms and will naturally differ from those in the book chapt">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Gamma-Poisson mixture">
+<meta property="og:url" content="http://example.com/2024/01/09/Gamma-Poisson-mixture/index.html">
 <meta property="og:site_name" content="Weiru Han&#39;s blog">
+<meta property="og:description" content="Note: This section contains notes on the derivations made while authoring my book. The derivation details originate from public Q&amp;A platforms and will naturally differ from those in the book chapt">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2021-11-25T12:17:47.000Z">
-<meta property="article:modified_time" content="2022-11-07T05:39:59.000Z">
+<meta property="article:published_time" content="2024-01-09T23:05:33.000Z">
+<meta property="article:modified_time" content="2024-01-10T00:33:59.140Z">
 <meta property="article:author" content="Weiru Han">
+<meta property="article:tag" content="Math statistics">
+<meta property="article:tag" content="Bayes">
+<meta property="article:tag" content="Empirical Bayes">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="http://example.com/tags/">
+<link rel="canonical" href="http://example.com/2024/01/09/Gamma-Poisson-mixture/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":false,"lang":"en","comments":true,"permalink":"http://example.com/tags/index.html","path":"tags/index.html","title":"tags"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/2024/01/09/Gamma-Poisson-mixture/","path":"2024/01/09/Gamma-Poisson-mixture/","title":"Gamma-Poisson mixture"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>tags | Weiru Han's blog
-</title>
+<title>Gamma-Poisson mixture | Weiru Han's blog</title>
   
 
 
@@ -194,41 +198,122 @@
 </noscript>
 
 
-    <div class="main-inner page posts-expand">
+    <div class="main-inner post posts-expand">
 
 
-    
-    
-    
-    <div class="post-block" lang="en"><header class="post-header">
+  
 
-<h1 class="post-title" itemprop="name headline">tags
-</h1>
 
-<div class="post-meta-container">
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/01/09/Gamma-Poisson-mixture/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Weiru Han">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Weiru Han's blog">
+      <meta itemprop="description" content="The journey of a thousand miles begins with one step">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Gamma-Poisson mixture | Weiru Han's blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Gamma-Poisson mixture
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2024-01-09 18:05:33 / Modified: 19:33:59" itemprop="dateCreated datePublished" datetime="2024-01-09T18:05:33-05:00">2024-01-09</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/statistics/" itemprop="url" rel="index"><span itemprop="name">statistics</span></a>
+        </span>
+    </span>
+
+  
 </div>
 
-</header>
+        </div>
+      </header>
 
-      
-      
-      <div class="post-body"><div class="tag-cloud">
-  <div class="tag-cloud-title">
-    24 tags in total
-  </div>
-  <div class="tag-cloud-tags">
-    <a href="/tags/Bayes/" style="font-size: 22.8px;" class="tag-cloud-6">Bayes</a> <a href="/tags/Collecting-Data/" style="font-size: 12px;" class="tag-cloud-0">Collecting Data</a> <a href="/tags/Conference/" style="font-size: 15.6px;" class="tag-cloud-2">Conference</a> <a href="/tags/Economics/" style="font-size: 12px;" class="tag-cloud-0">Economics</a> <a href="/tags/Empirical-Bayes/" style="font-size: 12px;" class="tag-cloud-0">Empirical Bayes</a> <a href="/tags/Expectations/" style="font-size: 15.6px;" class="tag-cloud-2">Expectations</a> <a href="/tags/Frequentist/" style="font-size: 12px;" class="tag-cloud-0">Frequentist</a> <a href="/tags/Functions/" style="font-size: 12px;" class="tag-cloud-0">Functions</a> <a href="/tags/Linear-regression/" style="font-size: 19.2px;" class="tag-cloud-4">Linear regression</a> <a href="/tags/Math-statistics/" style="font-size: 30px;" class="tag-cloud-10">Math statistics</a> <a href="/tags/PCA/" style="font-size: 12px;" class="tag-cloud-0">PCA</a> <a href="/tags/Project-Management/" style="font-size: 12px;" class="tag-cloud-0">Project Management</a> <a href="/tags/Python-environment/" style="font-size: 12px;" class="tag-cloud-0">Python environment</a> <a href="/tags/R/" style="font-size: 15.6px;" class="tag-cloud-2">R</a> <a href="/tags/Shell-language/" style="font-size: 12px;" class="tag-cloud-0">Shell language</a> <a href="/tags/Statistics-and-Data-analysis-from-elementary-to-intermediate/" style="font-size: 26.4px;" class="tag-cloud-8">Statistics and Data analysis from elementary to intermediate</a> <a href="/tags/caret/" style="font-size: 12px;" class="tag-cloud-0">caret</a> <a href="/tags/cross-validation/" style="font-size: 12px;" class="tag-cloud-0">cross validation</a> <a href="/tags/fun/" style="font-size: 12px;" class="tag-cloud-0">fun</a> <a href="/tags/hexo/" style="font-size: 15.6px;" class="tag-cloud-2">hexo</a> <a href="/tags/intelligence/" style="font-size: 12px;" class="tag-cloud-0">intelligence</a> <a href="/tags/levy-process/" style="font-size: 12px;" class="tag-cloud-0">levy process</a> <a href="/tags/python/" style="font-size: 12px;" class="tag-cloud-0">python</a> <a href="/tags/random-thoughts/" style="font-size: 19.2px;" class="tag-cloud-4">random thoughts</a>
-  </div>
-</div>
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>Note: This section contains notes on the derivations made while authoring my book. The derivation details originate from public Q&amp;A platforms and will naturally differ from those in the book chapters.</p>
+<p>The goal is to prove the marginal distribution of data <span class="math inline">\(n\)</span> is a negative-binomial distribution when the likelihood is Poisson distribution.</p>
+<p>Suppose count <span class="math inline">\(n\)</span> is drawn from a Poisson distribution <span class="math display">\[
+n\sim Poisson(\mu)
+\]</span> where <span class="math inline">\(\lambda=\mu/E\sim \Gamma(\alpha,\beta)\)</span>,<span class="math inline">\(\beta\)</span> is the rate.</p>
+<p>Re-express the distribution of <span class="math inline">\(n\)</span>, as $$ <span class="math display">\[\begin{gather}
+n|\lambda\sim Poisson(\lambda E)\\
+f(n|\lambda,E)=\frac{(\lambda E)^n}{n!}e^{-\lambda E}
 
-      </div>
-      
-      
-      
+\end{gather}\]</span> <span class="math display">\[
+Suppose $\alpha,\beta$ are known. Taking all possible values of $\lambda$, we could obtain the marginal distribution of $n$ as
+\]</span> <span class="math display">\[\begin{gather}
+f(n|\alpha,\beta)=\int_0^{\infty}f(n|\lambda)\pi(\lambda)d\lambda\\
+=\int_0^{\infty}\frac{(\lambda E)^n}{n!}e^{-\lambda E}\frac{(\beta \lambda)^{\alpha -1}e^{-\lambda \beta}}{\Gamma(\alpha)}\beta d\lambda\\
+=\frac{E^n\beta^{\alpha}}{n!\Gamma(\alpha)}\int_0^{\infty}\lambda^ne^{-\lambda E}\lambda^{\alpha-1}e^{-\lambda \beta}d\lambda\\
+=\frac{E^n\beta^{\alpha}}{n!\Gamma(\alpha)}\int_0^{\infty}e^{-\lambda(E+\beta)}\lambda^{n+\alpha-1}d\lambda\\
+=\frac{E^n\beta^{\alpha}\Gamma(\alpha+n)}{n!\Gamma(\alpha)(\beta+E)^{n+\alpha}}\int_0^{\infty}\frac{(\beta+E)^{n+\alpha}}{\Gamma(\alpha+n)}e^{-\lambda(E+\beta)}\lambda^{n+\alpha-1}d\lambda\\
+=\frac{1}{n!\Gamma(\alpha)}(\frac{E}{\beta+E})^n(\frac{\beta}{\beta+E})^{\alpha}\Gamma(\alpha+n)*1\\
+=\frac{\Gamma(\alpha+n)}{n!\Gamma(\alpha)}(\frac{\beta}{E}+1)^{-n}(\frac{E}{\beta}+1)^{-\alpha}
+
+\end{gather}\]</span> $$ <span class="math inline">\(f(n|\alpha,\beta)\)</span> is exactly the density function of the negative Binomial distribution, and is also the likelihood function taking <span class="math inline">\(\alpha,\beta\)</span> as parameters.</p>
+
     </div>
 
     
     
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Math-statistics/" rel="tag"># Math statistics</a>
+              <a href="/tags/Bayes/" rel="tag"># Bayes</a>
+              <a href="/tags/Empirical-Bayes/" rel="tag"># Empirical Bayes</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2024/01/09/How-to-calculate-the-expected-value-of-the-logarithm-of-Gamma-distribution/" rel="prev" title="How to calculate the expected value of the logarithm of Gamma distribution?">
+                  <i class="fa fa-chevron-left"></i> How to calculate the expected value of the logarithm of Gamma distribution?
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
 
 
 </div>

@@ -154,7 +154,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">37</span>
+          <span class="site-state-item-count">38</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -165,7 +165,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">23</span>
+        <span class="site-state-item-count">24</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -194,6 +194,165 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/05/09/Density-of-transformed-random-variable/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Weiru Han">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Weiru Han's blog">
+      <meta itemprop="description" content="The journey of a thousand miles begins with one step">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Weiru Han's blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/05/09/Density-of-transformed-random-variable/" class="post-title-link" itemprop="url">Density of transformed random variable</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2022-05-09 02:27:40" itemprop="dateCreated datePublished" datetime="2022-05-09T02:27:40-04:00">2022-05-09</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2022-12-20 23:45:34" itemprop="dateModified" datetime="2022-12-20T23:45:34-05:00">2022-12-20</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/statistics/" itemprop="url" rel="index"><span itemprop="name">statistics</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>Suppose we are given the distribution of a <strong>continuous</strong> random variable <span class="math inline">\(X\)</span>. Let <span class="math inline">\(Y=\phi(X)\)</span>, where <span class="math inline">\(\phi\)</span> is an invertible (one-to-one) function. Let <span class="math inline">\(\psi=\phi^{-1}\)</span> so that <span class="math inline">\(X=\psi(Y)\)</span>. Furthermore,suppose <span class="math inline">\(\psi\)</span> is differentiable. Then the p.d.f. of <span class="math inline">\(Y\)</span> is <span class="math display">\[
+\begin{gather}
+g(y)=f(\psi(y))|\frac{dx}{dy}|\\
+\text{where }x=\psi(y)
+\end{gather}
+\]</span> From the equation, we can easily observe that <span class="math inline">\(|\frac{dx}{dy}|\)</span> is the dispersion of <span class="math inline">\(Y\)</span> when random variable <span class="math inline">\(X\)</span> is transformed to random variable <span class="math inline">\(Y\)</span>. Thus one cannot simply replace <span class="math inline">\(X\)</span> with <span class="math inline">\(\psi(y)\)</span> to derive the density of <span class="math inline">\(Y\)</span> without considering the difference of dispersion between <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>.</p>
+<p><strong>Proof:</strong></p>
+<p>Let <span class="math inline">\(G(y)\)</span> represents the c.d.f. of <span class="math inline">\(Y\)</span>. first suppose <span class="math inline">\(\phi\)</span> is a strictly increasing function. Then <span class="math inline">\(\psi=\phi^{-1}\)</span> is also a strictly increasing function and <span class="math inline">\(d\psi(y)/dy&gt;0\)</span>. Therefore <span class="math display">\[
+\begin{gather}\\
+G(y)=P[Y\leq y]=P[\phi(X)\leq y]\\
+=P(X\leq \phi^{-1}(y))=F(\psi(y))
+\end{gather}
+\]</span> Differentiating <span class="math inline">\(G(y)\)</span> by using the chain rule, it follows that <span class="math display">\[
+\begin{gather}
+g(y)=\frac{dG(y)}{dy}=\frac{dF(\psi(y))}{dy}\\
+=f(\psi(y))\frac{d\psi(y)}{dy}=f(\psi(y))\frac{dx}{dy}
+\end{gather}
+\]</span> Next suppose <span class="math inline">\(\phi\)</span> is a strictly decreasing function. Then <span class="math inline">\(\psi=\phi^{-1}\)</span> is also a strictly decreasing function and <span class="math inline">\(d\psi(y)/dy&lt;0\)</span>. Therefore <span class="math display">\[
+G(y)=P[Y\leq y] = P[\phi(X)\leq y]=P[X\geq\phi^{-1}(y)]=1-F(\psi(y))
+\]</span> Differentiating <span class="math inline">\(G(y)\)</span> by using the chain rule, it follows that <span class="math display">\[
+\begin{gather}
+g(y)=\frac{dG(y)}{dy} = -\frac{dF(\psi(y))}{dy}\\
+=-f(\psi(y))\frac{d\psi(y)}{dy}\\
+=f(\psi(y))|\frac{dx}{dy}|
+\end{gather}
+\]</span></p>
+<h2 id="example">Example</h2>
+<p>Suppose <span class="math inline">\(Y=lnX\)</span>, where <span class="math inline">\(X\sim Beta(a,b)\)</span>.</p>
+<ul>
+<li>Then we have p.d.f. of <span class="math inline">\(X\)</span></li>
+</ul>
+<p><span class="math display">\[
+\begin{gather}
+f_X(x)=\frac{x^{a-1}(1-x)^{b-1}}{B(a,b)}\\
+\text{where }B(a,b)=\frac{\Gamma(a)\Gamma(b)}{\Gamma(a+b)}\\
+x\in[0,1]
+\end{gather}
+\]</span></p>
+<p><span class="math display">\[
+\begin{gather}
+Y=\phi(X)=lnX\\
+Y\in(-\infty,0]\\
+X=\psi(Y)=e^Y\\
+X\in[0,1]
+\end{gather}
+\]</span></p>
+<ul>
+<li>Then we have p.d.f. of <span class="math inline">\(Y\)</span></li>
+</ul>
+<p><span class="math display">\[
+\begin{gather}
+g_Y(y)=f_X(\psi(y))|\frac{dx}{dy}|\\
+=\frac{e^{y(a-1)}(1-e^y)^{b-1}}{B(a,b)}e^y\ (\frac{dx}{dy}=\frac{de^y}{dy}=e^y)\\
+=\frac{e^{ay}(1-e^y)^{b-1}}{B(a,b)}
+\end{gather}
+\]</span></p>
+<ul>
+<li>Next we derive the m.g.f. (moment generating function) of <span class="math inline">\(Y\)</span></li>
+</ul>
+<p><span class="math display">\[
+\begin{gather}
+M_Y(t)=E[e^{tY}]\\
+=\int_{-\infty}^0e^{ty}g_Y(y)dy\\
+=\int_{-\infty}^0\frac{e^{ay}(1-e^y)^{b-1}}{B(a,b)}e^{ty}dy\\
+=\frac{\Gamma(a+b)}{\Gamma(a)\Gamma(b)}\int_{-\infty}^0(e^y)^{a+t}(1-e^y)^{b-1}dy\\
+=\frac{\Gamma(a+b)}{\Gamma(a)\Gamma(b)}\int_0^1x^{a+t}(1-x)^{b-1}dlnx\ (e^y=e^{lnx}=x)\\
+=\frac{\Gamma(a+b)}{\Gamma(a)\Gamma(b)}\int_0^1x^{a+t}(1-x)^{b-1}\frac{1}{x}dx\\(\frac{dy}{dx}=\frac{dlnx}{dx}=\frac{1}{x}\Rightarrow dlnx=\frac{1}{x}dx)\\
+=\frac{\Gamma(a+b)}{\Gamma(a)\Gamma(b)}\int_0^1x^{a+t-1}(1-x)^{b-1}dx\\
+=\frac{\Gamma(a+b)}{\Gamma(a)\Gamma(b)}B(a+t,b)\int_0^1\frac{x^{a+t-1}(1-x)^{b-1}}{B(a+t,b)}dx\\
+=\frac{\Gamma(a+b)}{\Gamma(a)\Gamma(b)}B(a+t,b)\\
+(\int_0^1\frac{x^{a+t-1}(1-x)^{b-1}}{B(a+t,b)}dx\text{ is the integration of distribution }Beta(a+t,b)\text{ which is 1})\\
+=\frac{\Gamma(a+b)\Gamma(a+t)\Gamma(b)}{\Gamma(a)\Gamma(b)\Gamma(a+b+t)}\\
+=\frac{\Gamma(a+b)\Gamma(a+t)}{\Gamma(a+b+t)\Gamma(a)}
+\end{gather}
+\]</span></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 

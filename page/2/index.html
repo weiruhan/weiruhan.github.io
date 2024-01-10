@@ -154,7 +154,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">37</span>
+          <span class="site-state-item-count">38</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -165,7 +165,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">23</span>
+        <span class="site-state-item-count">24</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -194,6 +194,124 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/11/07/Set-up-hexo-page-in-WSL-system/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Weiru Han">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Weiru Han's blog">
+      <meta itemprop="description" content="The journey of a thousand miles begins with one step">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Weiru Han's blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/11/07/Set-up-hexo-page-in-WSL-system/" class="post-title-link" itemprop="url">Set up hexo page in WSL system</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2022-11-07 20:33:19 / Modified: 23:14:12" itemprop="dateCreated datePublished" datetime="2022-11-07T20:33:19-05:00">2022-11-07</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/hexo/" itemprop="url" rel="index"><span itemprop="name">hexo</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>This post mainly introduces how to build up a webpage from scratch using Hexo framework based on WSL system.</p>
+<h1 id="install-and-configuration-procedure">Install and configuration procedure</h1>
+<ul>
+<li><p>Install <a target="_blank" rel="noopener" href="https://github.com/nvm-sh/nvm#troubleshooting-on-linux">nvm</a></p>
+<p><code>$ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.2/install.sh | bash</code></p>
+<blockquote>
+<p>Running either of the above commands downloads a script and runs it. The script clones the nvm repository to <code>~/.nvm</code>, and attempts to add the source lines from the snippet below to the correct profile file (<code>~/.bash_profile</code>, <code>~/.zshrc</code>, <code>~/.profile</code>, or <code>~/.bashrc</code>).</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> NVM_DIR=<span class="string">&quot;<span class="subst">$([ -z <span class="string">&quot;<span class="variable">$&#123;XDG_CONFIG_HOME-&#125;</span>&quot;</span> ] &amp;&amp; printf %s <span class="string">&quot;<span class="variable">$&#123;HOME&#125;</span>/.nvm&quot;</span> || printf %s <span class="string">&quot;<span class="variable">$&#123;XDG_CONFIG_HOME&#125;</span>/nvm&quot;</span>)</span>&quot;</span></span><br><span class="line">[ -s <span class="string">&quot;<span class="variable">$NVM_DIR</span>/nvm.sh&quot;</span> ] &amp;&amp; \. <span class="string">&quot;<span class="variable">$NVM_DIR</span>/nvm.sh&quot;</span> <span class="comment"># This loads nvm</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>On Linux, after running the install script, if you get <code>nvm: command not found</code> or see no feedback from your terminal after you type <code>command -v nvm</code>, simply close your current terminal, open a new terminal, and try verifying again. Alternatively, you can run the following commands for the different shells on the command line:</p>
+<p><em>bash</em>: <code>source ~/.bashrc</code></p>
+<p><em>zsh</em>: <code>source ~/.zshrc</code></p>
+<p><em>ksh</em>: <code>. ~/.profile</code></p>
+<p>These should pick up the <code>nvm</code> command.</p>
+</blockquote></li>
+<li><p>Install <a target="_blank" rel="noopener" href="https://hexo.io/docs/">hexo</a></p>
+<p><code>$ npm install -g hexo-cli</code></p>
+<blockquote>
+<p>Advanced users may prefer to install and use <code>hexo</code> package instead.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo</span><br></pre></td></tr></table></figure>
+<p>Once installed, you can run Hexo in two ways:</p>
+<ol type="1">
+<li><code>npx hexo &lt;command&gt;</code></li>
+<li>Linux users can set relative path of <code>node_modules/</code> folder:</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;PATH=&quot;$PATH:./node_modules/.bin&quot;&#x27;</span> &gt;&gt; ~/.profile</span><br></pre></td></tr></table></figure>
+<p>then run Hexo using <code>hexo &lt;command&gt;</code></p>
+</blockquote></li>
+<li><p>Initialize webpage folder</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo init &lt;webpage_name&gt;</span><br><span class="line"><span class="built_in">cd</span> &lt;webpage_name&gt;</span><br></pre></td></tr></table></figure></li>
+<li><p>Download configuration packages</p>
+<p>For example</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Download local search toolkit</span></span><br><span class="line">npm install hexo-generator-searchdb</span><br><span class="line"><span class="comment"># Download NEXT theme</span></span><br><span class="line">npm install hexo-theme-next</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h1 id="troubleshooting">Troubleshooting</h1>
+<ul>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/theme-next/hexo-theme-next/issues/1454">Mathjax configuration problem</a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># install pandoc</span></span><br><span class="line">sudo apt-get install pandoc</span><br><span class="line">npm un hexo-renderer-marked</span><br><span class="line">npm i hexo-renderer-pandoc</span><br></pre></td></tr></table></figure></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1160,117 +1278,6 @@ G --&gt; H[Measure and analyze yourself]
 <ul>
 <li><a target="_blank" rel="noopener" href="https://stats.libretexts.org/Bookshelves/Probability_Theory/Book%3A_Introductory_Probability_(Grinstead_and_Snell)/07%3A_Sums_of_Random_Variables/7.02%3A_Sums_of_Continuous_Random_Variables">sum of random variables</a></li>
 <li><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Sum_of_normally_distributed_random_variables">Wikipedia-Proof using convolutions</a></li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/06/08/lnE-X-and-E-lnX/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Weiru Han">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Weiru Han's blog">
-      <meta itemprop="description" content="The journey of a thousand miles begins with one step">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Weiru Han's blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/06/08/lnE-X-and-E-lnX/" class="post-title-link" itemprop="url">lnE(X) and E(lnX)</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2022-06-08 00:18:40" itemprop="dateCreated datePublished" datetime="2022-06-08T00:18:40-04:00">2022-06-08</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-11-07 00:39:59" itemprop="dateModified" datetime="2022-11-07T00:39:59-05:00">2022-11-07</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Mathematics/" itemprop="url" rel="index"><span itemprop="name">Mathematics</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>Since <span class="math inline">\(lnx\)</span> is the concave function, by <strong>Jensen's inequality</strong>, we know that <span class="math display">\[
-ln[E(X)]&gt;E[lnX]
-\]</span> Another proof can be displayed as follows:</p>
-<blockquote>
-<p>From <a target="_blank" rel="noopener" href="https://math.stackexchange.com/questions/504663/simplest-or-nicest-proof-that-1x-le-ex">Simplest or nicest proof that <span class="math inline">\(1+x \le e^x\)</span></a>, we can prove that</p>
-</blockquote>
-<p><span class="math display">\[
-e^x\geq 1+x
-\]</span></p>
-<p>Expectation of <span class="math inline">\(e^x\)</span> is <span class="math display">\[
-\begin{gather*}
-E(e^Y)=e^{E(Y)}E(e^{Y-E(Y)})\\
-\geq e^{EY}E(1+Y-EY)\\
-=e^{EY}
-\end{gather*}
-\]</span> Therefore, we have <span class="math display">\[
-e^{EY}\leq E[e^Y]
-\]</span> Denote <span class="math inline">\(Y=lnX\)</span>, we have <span class="math display">\[
-e^{ElnX}\leq E(e^{lnX})=EX\\
-\Rightarrow E(lnX)\geq ln(EX)
-\]</span> The equality holds <strong>if and only if</strong> <span class="math inline">\(X\)</span> is almost surely constant.</p>
-<h1 id="reference">Reference</h1>
-<ul>
-<li><p>[<a target="_blank" rel="noopener" href="https://stats.stackexchange.com/questions/302902/why-is-lnex-elnx">Why is <span class="math inline">\(ln[E(x)] &gt; E[ln(x)]?\)</span></a>]</p></li>
-<li><p><a target="_blank" rel="noopener" href="https://math.stackexchange.com/questions/504663/simplest-or-nicest-proof-that-1x-le-ex">Simplest or nicest proof that <span class="math inline">\(1+x \le e^x\)</span></a></p></li>
-<li><p>[<a target="_blank" rel="noopener" href="https://math.stackexchange.com/questions/21063/difference-between-logarithm-of-an-expectation-value-and-expectation-value-of-a">Difference between logarithm of an expectation value and expectation value of a logarithm</a>]</p></li>
 </ul>
 
       

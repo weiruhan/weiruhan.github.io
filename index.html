@@ -154,7 +154,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">37</span>
+          <span class="site-state-item-count">38</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -165,7 +165,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">23</span>
+        <span class="site-state-item-count">24</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -194,6 +194,105 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/01/09/Gamma-Poisson-mixture/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Weiru Han">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Weiru Han's blog">
+      <meta itemprop="description" content="The journey of a thousand miles begins with one step">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Weiru Han's blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/01/09/Gamma-Poisson-mixture/" class="post-title-link" itemprop="url">Gamma-Poisson mixture</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2024-01-09 18:05:33 / Modified: 19:33:59" itemprop="dateCreated datePublished" datetime="2024-01-09T18:05:33-05:00">2024-01-09</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/statistics/" itemprop="url" rel="index"><span itemprop="name">statistics</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>Note: This section contains notes on the derivations made while authoring my book. The derivation details originate from public Q&amp;A platforms and will naturally differ from those in the book chapters.</p>
+<p>The goal is to prove the marginal distribution of data <span class="math inline">\(n\)</span> is a negative-binomial distribution when the likelihood is Poisson distribution.</p>
+<p>Suppose count <span class="math inline">\(n\)</span> is drawn from a Poisson distribution <span class="math display">\[
+n\sim Poisson(\mu)
+\]</span> where <span class="math inline">\(\lambda=\mu/E\sim \Gamma(\alpha,\beta)\)</span>,<span class="math inline">\(\beta\)</span> is the rate.</p>
+<p>Re-express the distribution of <span class="math inline">\(n\)</span>, as $$ <span class="math display">\[\begin{gather}
+n|\lambda\sim Poisson(\lambda E)\\
+f(n|\lambda,E)=\frac{(\lambda E)^n}{n!}e^{-\lambda E}
+
+\end{gather}\]</span> <span class="math display">\[
+Suppose $\alpha,\beta$ are known. Taking all possible values of $\lambda$, we could obtain the marginal distribution of $n$ as
+\]</span> <span class="math display">\[\begin{gather}
+f(n|\alpha,\beta)=\int_0^{\infty}f(n|\lambda)\pi(\lambda)d\lambda\\
+=\int_0^{\infty}\frac{(\lambda E)^n}{n!}e^{-\lambda E}\frac{(\beta \lambda)^{\alpha -1}e^{-\lambda \beta}}{\Gamma(\alpha)}\beta d\lambda\\
+=\frac{E^n\beta^{\alpha}}{n!\Gamma(\alpha)}\int_0^{\infty}\lambda^ne^{-\lambda E}\lambda^{\alpha-1}e^{-\lambda \beta}d\lambda\\
+=\frac{E^n\beta^{\alpha}}{n!\Gamma(\alpha)}\int_0^{\infty}e^{-\lambda(E+\beta)}\lambda^{n+\alpha-1}d\lambda\\
+=\frac{E^n\beta^{\alpha}\Gamma(\alpha+n)}{n!\Gamma(\alpha)(\beta+E)^{n+\alpha}}\int_0^{\infty}\frac{(\beta+E)^{n+\alpha}}{\Gamma(\alpha+n)}e^{-\lambda(E+\beta)}\lambda^{n+\alpha-1}d\lambda\\
+=\frac{1}{n!\Gamma(\alpha)}(\frac{E}{\beta+E})^n(\frac{\beta}{\beta+E})^{\alpha}\Gamma(\alpha+n)*1\\
+=\frac{\Gamma(\alpha+n)}{n!\Gamma(\alpha)}(\frac{\beta}{E}+1)^{-n}(\frac{E}{\beta}+1)^{-\alpha}
+
+\end{gather}\]</span> $$ <span class="math inline">\(f(n|\alpha,\beta)\)</span> is exactly the density function of the negative Binomial distribution, and is also the likelihood function taking <span class="math inline">\(\alpha,\beta\)</span> as parameters.</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1343,7 +1442,7 @@ E[lnX]=\Psi(\alpha)-ln\beta
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-11-08 12:43:19" itemprop="dateModified" datetime="2022-11-08T12:43:19-05:00">2022-11-08</time>
+      <time title="Modified: 2022-11-08 18:13:24" itemprop="dateModified" datetime="2022-11-08T18:13:24-05:00">2022-11-08</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -1416,124 +1515,6 @@ E[lnX]=\Psi(\alpha)-ln\beta
 <li><p><a target="_blank" rel="noopener" href="https://www.statology.org/standardized-residuals-in-r/">How to Calculate Standardized Residuals in R</a></p></li>
 <li><p><a target="_blank" rel="noopener" href="https://stats.stackexchange.com/questions/12395/why-is-r-plotting-standardized-residuals-against-theoretical-quantiles-in-a-q-q">Why is R plotting standardized residuals against theoretical quantiles in a Q-Q plot?</a></p></li>
 <li><p><a target="_blank" rel="noopener" href="https://boostedml.com/2019/03/linear-regression-plots-how-to-read-a-qq-plot.html">The QQ Plot in Linear Regression</a></p></li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/11/07/Set-up-hexo-page-in-WSL-system/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Weiru Han">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Weiru Han's blog">
-      <meta itemprop="description" content="The journey of a thousand miles begins with one step">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Weiru Han's blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/11/07/Set-up-hexo-page-in-WSL-system/" class="post-title-link" itemprop="url">Set up hexo page in WSL system</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-      
-
-      <time title="Created: 2022-11-07 20:33:19 / Modified: 23:14:12" itemprop="dateCreated datePublished" datetime="2022-11-07T20:33:19-05:00">2022-11-07</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/hexo/" itemprop="url" rel="index"><span itemprop="name">hexo</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>This post mainly introduces how to build up a webpage from scratch using Hexo framework based on WSL system.</p>
-<h1 id="install-and-configuration-procedure">Install and configuration procedure</h1>
-<ul>
-<li><p>Install <a target="_blank" rel="noopener" href="https://github.com/nvm-sh/nvm#troubleshooting-on-linux">nvm</a></p>
-<p><code>$ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.2/install.sh | bash</code></p>
-<blockquote>
-<p>Running either of the above commands downloads a script and runs it. The script clones the nvm repository to <code>~/.nvm</code>, and attempts to add the source lines from the snippet below to the correct profile file (<code>~/.bash_profile</code>, <code>~/.zshrc</code>, <code>~/.profile</code>, or <code>~/.bashrc</code>).</p>
-</blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> NVM_DIR=<span class="string">&quot;<span class="subst">$([ -z <span class="string">&quot;<span class="variable">$&#123;XDG_CONFIG_HOME-&#125;</span>&quot;</span> ] &amp;&amp; printf %s <span class="string">&quot;<span class="variable">$&#123;HOME&#125;</span>/.nvm&quot;</span> || printf %s <span class="string">&quot;<span class="variable">$&#123;XDG_CONFIG_HOME&#125;</span>/nvm&quot;</span>)</span>&quot;</span></span><br><span class="line">[ -s <span class="string">&quot;<span class="variable">$NVM_DIR</span>/nvm.sh&quot;</span> ] &amp;&amp; \. <span class="string">&quot;<span class="variable">$NVM_DIR</span>/nvm.sh&quot;</span> <span class="comment"># This loads nvm</span></span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>On Linux, after running the install script, if you get <code>nvm: command not found</code> or see no feedback from your terminal after you type <code>command -v nvm</code>, simply close your current terminal, open a new terminal, and try verifying again. Alternatively, you can run the following commands for the different shells on the command line:</p>
-<p><em>bash</em>: <code>source ~/.bashrc</code></p>
-<p><em>zsh</em>: <code>source ~/.zshrc</code></p>
-<p><em>ksh</em>: <code>. ~/.profile</code></p>
-<p>These should pick up the <code>nvm</code> command.</p>
-</blockquote></li>
-<li><p>Install <a target="_blank" rel="noopener" href="https://hexo.io/docs/">hexo</a></p>
-<p><code>$ npm install -g hexo-cli</code></p>
-<blockquote>
-<p>Advanced users may prefer to install and use <code>hexo</code> package instead.</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo</span><br></pre></td></tr></table></figure>
-<p>Once installed, you can run Hexo in two ways:</p>
-<ol type="1">
-<li><code>npx hexo &lt;command&gt;</code></li>
-<li>Linux users can set relative path of <code>node_modules/</code> folder:</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;PATH=&quot;$PATH:./node_modules/.bin&quot;&#x27;</span> &gt;&gt; ~/.profile</span><br></pre></td></tr></table></figure>
-<p>then run Hexo using <code>hexo &lt;command&gt;</code></p>
-</blockquote></li>
-<li><p>Initialize webpage folder</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo init &lt;webpage_name&gt;</span><br><span class="line"><span class="built_in">cd</span> &lt;webpage_name&gt;</span><br></pre></td></tr></table></figure></li>
-<li><p>Download configuration packages</p>
-<p>For example</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Download local search toolkit</span></span><br><span class="line">npm install hexo-generator-searchdb</span><br><span class="line"><span class="comment"># Download NEXT theme</span></span><br><span class="line">npm install hexo-theme-next</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h1 id="troubleshooting">Troubleshooting</h1>
-<ul>
-<li><p><a target="_blank" rel="noopener" href="https://github.com/theme-next/hexo-theme-next/issues/1454">Mathjax configuration problem</a></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># install pandoc</span></span><br><span class="line">sudo apt-get install pandoc</span><br><span class="line">npm un hexo-renderer-marked</span><br><span class="line">npm i hexo-renderer-pandoc</span><br></pre></td></tr></table></figure></li>
 </ul>
 
       
