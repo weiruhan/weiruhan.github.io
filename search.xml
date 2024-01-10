@@ -2139,6 +2139,75 @@ p_{(i)}^{BH}=min\{\underset{j\geq i}{min}\{\frac{mp_{(j)}}{j}\},1\}
       </tags>
   </entry>
   <entry>
+    <title>Variance of log-odds-ratio</title>
+    <url>/2024/01/09/Variance-of-log-odds-ratio/</url>
+    <content><![CDATA[<p>Note: This section contains notes on the derivations made while authoring my book. The derivation details originate from public Q&amp;A platforms and will naturally differ from those in the book chapters.</p>
+<table>
+<thead>
+<tr class="header">
+<th></th>
+<th>Column 1</th>
+<th>Column 2</th>
+<th>Total</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Row 1</td>
+<td><span class="math inline">\(a\)</span></td>
+<td><span class="math inline">\(b\)</span></td>
+<td><span class="math inline">\(n_{1\cdot}=a+b\)</span></td>
+</tr>
+<tr class="even">
+<td>Row 2</td>
+<td><span class="math inline">\(c\)</span></td>
+<td><span class="math inline">\(d\)</span></td>
+<td><span class="math inline">\(n_{2\cdot}=c+d\)</span></td>
+</tr>
+<tr class="odd">
+<td>Total</td>
+<td><span class="math inline">\(n_{\cdot 1}\)</span></td>
+<td><span class="math inline">\(n_{\cdot 2}\)</span></td>
+<td><span class="math inline">\(N\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>The goal is to approximate the variance of log odds-ratio <span class="math inline">\(VAR[ln(OR)]\)</span> when <span class="math inline">\(OR\)</span> is expressed as <span class="math display">\[
+OR=\frac{p_1/(1-p_1)}{p_2/(1-p_2)}
+\]</span> where <span class="math inline">\(p_1\)</span> and <span class="math inline">\(p_2\)</span> are two probabilities for group 1 and group 2, respectively.</p>
+<p>Suppose <span class="math inline">\(Y=f(X)\)</span>, then we can use delta method to approximate the <span class="math inline">\(f(X)\)</span> if <span class="math inline">\(E(X)=\mu\)</span>, as <span class="math display">\[
+f(X)\approx f(\mu)+f&#39;(\mu)(X-\mu)+\frac{1}{2}f&#39;&#39;(\mu)(X-\mu)^2
+\]</span> Assume <span class="math inline">\(VAR(X)=\sigma^2\)</span>, we have <span class="math display">\[
+\begin{gather*}
+E(Y)\approx E(f(X))=f(\mu)+\frac{1}{2}f&#39;&#39;(\mu)\sigma^2\\
+VAR(Y)=VAR[f(x)]\approx [f&#39;(\mu)]^2VAR(X)
+\end{gather*}
+\]</span></p>
+<blockquote>
+<p>Note, if <span class="math inline">\(E[Y]=E[f(X)]\)</span> can be obtained using transformed density function, then delta method is not needed in approximating the <span class="math inline">\(Y=f(X)\)</span></p>
+</blockquote>
+<p>Let <span class="math inline">\(Y=ln(\hat{OR})\)</span>; since group 1 and group 2 are independent, we have <span class="math display">\[
+\begin{gather*}
+VAR(ln(\hat{OR}))=VAR[ln(\frac{\hat{p}_1/(1-\hat{p}_1)}{\hat{p}_2/(1-\hat{p}_2)})]\\
+=VAR[ln(\frac{\hat{p}_1}{1-\hat{p}_1})]+VAR[ln(\frac{\hat{p}_2}{1-\hat{p}_2})]\\
+=(\frac{1}{\hat{p}_1(1-\hat{p}_1)})^2\frac{\hat{p}_1(1-\hat{p}_1)}{n_{1\cdot}}+(\frac{1}{\hat{p}_2(1-\hat{p}_2)})^2\frac{\hat{p}_2(1-\hat{p}_2)}{n_{2\cdot}}\\
+=\frac{1}{n_{1\cdot}\hat{p}_1(1-\hat{p}_1)}+\frac{1}{n_{2\cdot}\hat{p}_2(1-\hat{p}_2)}\\
+=\frac{1}{n_{1\cdot}\hat{p}_1}+\frac{1}{n_{1\cdot}(1-\hat{p}_1)}+\frac{1}{n_{2\cdot}\hat{p}_2}+\frac{1}{n_{2\cdot}(1-\hat{p}_2)}\\
+=\frac{1}{a}+\frac{1}{b}+\frac{1}{c}+\frac{1}{d}
+\end{gather*}
+\]</span> Where <span class="math inline">\(n_{1\cdot},n_{2\cdot}\)</span> are counts for group 1 and group 2, respectively; <span class="math inline">\(a,b,c,d\)</span> are 4 counts for the <span class="math inline">\(2\times 2\)</span> contingency table.</p>
+<h1 id="reference">Reference</h1>
+<p><a href="https://stats.stackexchange.com/questions/266098/how-do-i-calculate-the-standard-deviation-of-the-log-odds">How to calculate the standard deviation of the log-odds?</a></p>
+]]></content>
+      <categories>
+        <category>statistics</category>
+      </categories>
+      <tags>
+        <tag>Math statistics</tag>
+        <tag>Delta method</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>About me</title>
     <url>/about/index.html</url>
     <content><![CDATA[<p><img src="https://res.cloudinary.com/djd9gr1bu/image/upload/v1637834720/2770F1B8-6DC8-4BBD-BC76-AA9756C6D8AF_1_201_a_grh7po.jpg" alt="hi" class="inline"/></p>

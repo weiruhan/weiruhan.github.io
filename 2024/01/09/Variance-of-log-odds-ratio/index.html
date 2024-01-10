@@ -20,25 +20,29 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.13.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":true,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="The journey of a thousand miles begins with one step">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Weiru Han&#39;s blog">
-<meta property="og:url" content="http://example.com/categories/Data-science/index.html">
+    <meta name="description" content="Note: This section contains notes on the derivations made while authoring my book. The derivation details originate from public Q&amp;A platforms and will naturally differ from those in the book chapt">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Variance of log-odds-ratio">
+<meta property="og:url" content="http://example.com/2024/01/09/Variance-of-log-odds-ratio/index.html">
 <meta property="og:site_name" content="Weiru Han&#39;s blog">
-<meta property="og:description" content="The journey of a thousand miles begins with one step">
+<meta property="og:description" content="Note: This section contains notes on the derivations made while authoring my book. The derivation details originate from public Q&amp;A platforms and will naturally differ from those in the book chapt">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2024-01-10T01:54:35.000Z">
+<meta property="article:modified_time" content="2024-01-10T02:26:15.010Z">
 <meta property="article:author" content="Weiru Han">
+<meta property="article:tag" content="Math statistics">
+<meta property="article:tag" content="Delta method">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="http://example.com/categories/Data-science/">
+<link rel="canonical" href="http://example.com/2024/01/09/Variance-of-log-odds-ratio/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":false,"lang":"en","comments":"","permalink":"","path":"categories/Data-science/index.html","title":""}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/2024/01/09/Variance-of-log-odds-ratio/","path":"2024/01/09/Variance-of-log-odds-ratio/","title":"Variance of log-odds-ratio"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>Category: Data science | Weiru Han's blog</title>
+<title>Variance of log-odds-ratio | Weiru Han's blog</title>
   
 
 
@@ -129,7 +133,7 @@
 
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           Table of Contents
@@ -142,6 +146,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#reference"><span class="nav-number">1.</span> <span class="nav-text">Reference</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -193,50 +198,158 @@
 </noscript>
 
 
-    <div class="main-inner category posts-collapse">
+    <div class="main-inner post posts-expand">
 
 
   
+
+
+<div class="post-block">
   
   
-  <div class="post-block">
-    <div class="post-content">
-      <div class="collection-title">
-        <h1 class="collection-header">Data science
-          <small>Category</small>
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/01/09/Variance-of-log-odds-ratio/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Weiru Han">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Weiru Han's blog">
+      <meta itemprop="description" content="The journey of a thousand miles begins with one step">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Variance of log-odds-ratio | Weiru Han's blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Variance of log-odds-ratio
         </h1>
-      </div>
 
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
       
-    <div class="collection-year">
-      <span class="collection-header">2022</span>
+
+      <time title="Created: 2024-01-09 20:54:35 / Modified: 21:26:15" itemprop="dateCreated datePublished" datetime="2024-01-09T20:54:35-05:00">2024-01-09</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/statistics/" itemprop="url" rel="index"><span itemprop="name">statistics</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>Note: This section contains notes on the derivations made while authoring my book. The derivation details originate from public Q&amp;A platforms and will naturally differ from those in the book chapters.</p>
+<table>
+<thead>
+<tr class="header">
+<th></th>
+<th>Column 1</th>
+<th>Column 2</th>
+<th>Total</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Row 1</td>
+<td><span class="math inline">\(a\)</span></td>
+<td><span class="math inline">\(b\)</span></td>
+<td><span class="math inline">\(n_{1\cdot}=a+b\)</span></td>
+</tr>
+<tr class="even">
+<td>Row 2</td>
+<td><span class="math inline">\(c\)</span></td>
+<td><span class="math inline">\(d\)</span></td>
+<td><span class="math inline">\(n_{2\cdot}=c+d\)</span></td>
+</tr>
+<tr class="odd">
+<td>Total</td>
+<td><span class="math inline">\(n_{\cdot 1}\)</span></td>
+<td><span class="math inline">\(n_{\cdot 2}\)</span></td>
+<td><span class="math inline">\(N\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>The goal is to approximate the variance of log odds-ratio <span class="math inline">\(VAR[ln(OR)]\)</span> when <span class="math inline">\(OR\)</span> is expressed as <span class="math display">\[
+OR=\frac{p_1/(1-p_1)}{p_2/(1-p_2)}
+\]</span> where <span class="math inline">\(p_1\)</span> and <span class="math inline">\(p_2\)</span> are two probabilities for group 1 and group 2, respectively.</p>
+<p>Suppose <span class="math inline">\(Y=f(X)\)</span>, then we can use delta method to approximate the <span class="math inline">\(f(X)\)</span> if <span class="math inline">\(E(X)=\mu\)</span>, as <span class="math display">\[
+f(X)\approx f(\mu)+f&#39;(\mu)(X-\mu)+\frac{1}{2}f&#39;&#39;(\mu)(X-\mu)^2
+\]</span> Assume <span class="math inline">\(VAR(X)=\sigma^2\)</span>, we have <span class="math display">\[
+\begin{gather*}
+E(Y)\approx E(f(X))=f(\mu)+\frac{1}{2}f&#39;&#39;(\mu)\sigma^2\\
+VAR(Y)=VAR[f(x)]\approx [f&#39;(\mu)]^2VAR(X)
+\end{gather*}
+\]</span></p>
+<blockquote>
+<p>Note, if <span class="math inline">\(E[Y]=E[f(X)]\)</span> can be obtained using transformed density function, then delta method is not needed in approximating the <span class="math inline">\(Y=f(X)\)</span></p>
+</blockquote>
+<p>Let <span class="math inline">\(Y=ln(\hat{OR})\)</span>; since group 1 and group 2 are independent, we have <span class="math display">\[
+\begin{gather*}
+VAR(ln(\hat{OR}))=VAR[ln(\frac{\hat{p}_1/(1-\hat{p}_1)}{\hat{p}_2/(1-\hat{p}_2)})]\\
+=VAR[ln(\frac{\hat{p}_1}{1-\hat{p}_1})]+VAR[ln(\frac{\hat{p}_2}{1-\hat{p}_2})]\\
+=(\frac{1}{\hat{p}_1(1-\hat{p}_1)})^2\frac{\hat{p}_1(1-\hat{p}_1)}{n_{1\cdot}}+(\frac{1}{\hat{p}_2(1-\hat{p}_2)})^2\frac{\hat{p}_2(1-\hat{p}_2)}{n_{2\cdot}}\\
+=\frac{1}{n_{1\cdot}\hat{p}_1(1-\hat{p}_1)}+\frac{1}{n_{2\cdot}\hat{p}_2(1-\hat{p}_2)}\\
+=\frac{1}{n_{1\cdot}\hat{p}_1}+\frac{1}{n_{1\cdot}(1-\hat{p}_1)}+\frac{1}{n_{2\cdot}\hat{p}_2}+\frac{1}{n_{2\cdot}(1-\hat{p}_2)}\\
+=\frac{1}{a}+\frac{1}{b}+\frac{1}{c}+\frac{1}{d}
+\end{gather*}
+\]</span> Where <span class="math inline">\(n_{1\cdot},n_{2\cdot}\)</span> are counts for group 1 and group 2, respectively; <span class="math inline">\(a,b,c,d\)</span> are 4 counts for the <span class="math inline">\(2\times 2\)</span> contingency table.</p>
+<h1 id="reference">Reference</h1>
+<p><a target="_blank" rel="noopener" href="https://stats.stackexchange.com/questions/266098/how-do-i-calculate-the-standard-deviation-of-the-log-odds">How to calculate the standard deviation of the log-odds?</a></p>
+
     </div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2022-12-15T16:17:11-05:00"
-              content="2022-12-15">
-          12-15
-        </time>
-      </div>
+    
+    
+    
 
-      <div class="post-title">
-          <a class="post-title-link" href="/2022/12/15/cross-validation-related/" itemprop="url">
-            <span itemprop="name">Cross validation related</span>
-          </a>
-      </div>
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Math-statistics/" rel="tag"># Math statistics</a>
+              <a href="/tags/Delta-method/" rel="tag"># Delta method</a>
+          </div>
 
-      
-    </header>
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2024/01/09/Gamma-Poisson-mixture/" rel="prev" title="Gamma-Poisson mixture">
+                  <i class="fa fa-chevron-left"></i> Gamma-Poisson mixture
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
   </article>
+</div>
 
-    </div>
-  </div>
-  
-  
-  
+
+
+
+
 
 </div>
   </main>

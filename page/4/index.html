@@ -154,7 +154,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">38</span>
+          <span class="site-state-item-count">39</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -165,7 +165,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">24</span>
+        <span class="site-state-item-count">25</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -194,6 +194,215 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/05/28/q-value/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Weiru Han">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Weiru Han's blog">
+      <meta itemprop="description" content="The journey of a thousand miles begins with one step">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Weiru Han's blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/05/28/q-value/" class="post-title-link" itemprop="url">q-value</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2022-05-28 16:44:17" itemprop="dateCreated datePublished" datetime="2022-05-28T16:44:17-04:00">2022-05-28</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2022-11-07 00:39:59" itemprop="dateModified" datetime="2022-11-07T00:39:59-05:00">2022-11-07</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/statistics/" itemprop="url" rel="index"><span itemprop="name">statistics</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="q-value">Q value</h1>
+<p>From <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Q-value_(statistics)">wikipedia</a>, q value is phrased as follows</p>
+<blockquote>
+<p>In <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Statistical_hypothesis_testing">statistical hypothesis testing</a>, specifically <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Multiple_comparisons_problem">multiple hypothesis testing</a>, the <strong>q-value</strong> provides a means to control the <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/False_discovery_rate#Related_error_rates">positive false discovery rate</a> (pFDR).<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Q-value_(statistics)#cite_note-:0-1">John D. 2003</a> Just as the <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/P-value">p-value</a> gives the expected <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/False_positive_rate">false positive rate</a> obtained by rejecting the <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Null_hypothesis">null hypothesis</a> for any result with an equal or smaller p-value, the q-value gives the expected pFDR obtained by rejecting the null hypothesis for any result with an equal or smaller q-value.</p>
+</blockquote>
+<p>From <a target="_blank" rel="noopener" href="https://www.pearson.com/us/higher-education/program/Tamhane-Statistics-and-Data-Analysis-From-Elementary-to-Intermediate/PGM227786.html">Statistics and Data analysis: From elementary to Intermediate</a>, we can find the explicit definition of <strong>p-value</strong></p>
+<blockquote>
+<p>Simply rejecting or not rejecting <span class="math inline">\(H_0\)</span> at a specified <span class="math inline">\(\alpha\)</span> does not fully convey the information in the data. It is more useful to report the <em>smallest</em> a-level at which the observed test result is significant. This smallest <span class="math inline">\(\alpha\)</span>-level is called the <strong>observed level of significance</strong> or the <strong>P-value.</strong> The smaller the <strong>P-value</strong>, the more significant is the test result. Once the <strong>P-value</strong> is computed, a test at any specified <span class="math inline">\(\alpha\)</span> can be conducted by rejecting <span class="math inline">\(H_0\)</span> if <strong>P-value</strong><span class="math inline">\(&lt;\alpha\)</span>. <code>An alternative definition of the <strong>P-value</strong> is that it is the probability under Null hypothesis of obtaining a test statistic at least as "extreme" as the observed value. </code></p>
+</blockquote>
+<p>We can provide an example to enhance the understanding of <strong>p-value</strong> and <strong>q-value</strong>. Assume we have <span class="math inline">\(1000\)</span> tests. Each test will produce a <strong>p-value</strong>. We can order these <strong>p-values</strong> from the smallest to the largest. A <strong>p-value</strong> of <span class="math inline">\(0.05\)</span> means <span class="math inline">\(5\%\)</span> of <strong>all tests</strong> which is 50 tests are expected to output false positive results. A <strong>q-value</strong> of <span class="math inline">\(0.05\)</span> means tests with <strong>q-value</strong> less than <span class="math inline">\(0.05\)</span> are all considered to be significant, and <span class="math inline">\(5\%\)</span> of these significant tests are expected to output false positive results.</p>
+<p>One of the methods that adjust <strong>p-value</strong> to <strong>q-value</strong> is the <a href="%5B10.1111/j.2517-6161.1995.tb02031.x%5D(https://doi.org/10.1111%2Fj.2517-6161.1995.tb02031.x)">Benjamini-Hochberg method</a>, (short for <strong>BH</strong>). The <strong>BH-adjusted p-values</strong> are defined as <span class="math display">\[
+p_{(i)}^{BH}=min\{\underset{j\geq i}{min}\{\frac{mp_{(j)}}{j}\},1\}
+\]</span> The process is as follows.</p>
+<blockquote>
+<ol type="1">
+<li>Order all <strong>p-values</strong> in an ascending sequence. Then multiply each <strong>p-value</strong> by the total number of test <span class="math inline">\(m\)</span> and divide by its rank order</li>
+<li>For the first <strong>p-value</strong>, find the minimum value of <span class="math inline">\(\frac{mp_{(j)}}{j}\)</span>for <span class="math inline">\(j=1,2,\cdots,m\)</span>; compare with <span class="math inline">\(1\)</span>, assign <strong>q-value</strong> as <span class="math inline">\(1\)</span> if it is larger than <span class="math inline">\(1\)</span>. This value would be the smallest <strong>q-value</strong> among all tests; For the second <strong>p-value</strong>, find the minimum value of <span class="math inline">\(\frac{mp_{(j)}}{j}\)</span>for <span class="math inline">\(j=2,\cdots,m\)</span>, this <strong>q-value</strong> must be less than the first <strong>q-value</strong>. We begin this procedure until all <strong>p-values</strong> are adjusted to <strong>q-values</strong></li>
+</ol>
+</blockquote>
+<p>We can write <strong>BH method</strong> using R code</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator">&gt;</span> BH <span class="operator">&lt;-</span> <span class="keyword">function</span><span class="punctuation">(</span>p.values<span class="punctuation">)</span></span><br><span class="line"><span class="operator">+</span> <span class="punctuation">&#123;</span></span><br><span class="line"><span class="operator">+</span>   p <span class="operator">&lt;-</span> p.values</span><br><span class="line"><span class="operator">+</span>   lp <span class="operator">&lt;-</span> <span class="built_in">length</span><span class="punctuation">(</span>p<span class="punctuation">)</span></span><br><span class="line"><span class="operator">+</span>   i <span class="operator">&lt;-</span> lp<span class="operator">:</span><span class="number">1L</span></span><br><span class="line"><span class="operator">+</span>   <span class="comment"># key to the p.values (key1)</span></span><br><span class="line"><span class="operator">+</span>   o <span class="operator">&lt;-</span> order<span class="punctuation">(</span>p<span class="punctuation">,</span>decreasing <span class="operator">=</span> <span class="literal">TRUE</span><span class="punctuation">)</span></span><br><span class="line"><span class="operator">+</span>   <span class="comment"># key to the key1 (key2)</span></span><br><span class="line"><span class="operator">+</span>   ro <span class="operator">&lt;-</span> order<span class="punctuation">(</span>o<span class="punctuation">)</span></span><br><span class="line"><span class="operator">+</span>   pmin<span class="punctuation">(</span><span class="number">1</span><span class="punctuation">,</span><span class="built_in">cummin</span><span class="punctuation">(</span>lp<span class="operator">/</span>i <span class="operator">*</span> p<span class="punctuation">[</span>o<span class="punctuation">]</span><span class="punctuation">)</span><span class="punctuation">)</span><span class="punctuation">[</span>ro<span class="punctuation">]</span></span><br><span class="line"><span class="operator">+</span> <span class="punctuation">&#125;</span></span><br><span class="line"><span class="operator">&gt;</span> BH<span class="punctuation">(</span><span class="built_in">c</span><span class="punctuation">(</span><span class="number">0.05</span><span class="punctuation">,</span><span class="number">0.02</span><span class="punctuation">,</span><span class="number">0.2</span><span class="punctuation">,</span><span class="number">0.4</span><span class="punctuation">,</span><span class="number">0.5</span><span class="punctuation">)</span><span class="punctuation">)</span></span><br><span class="line"><span class="punctuation">[</span><span class="number">1</span><span class="punctuation">]</span> <span class="number">0.1250000</span> <span class="number">0.1000000</span> <span class="number">0.3333333</span> <span class="number">0.5000000</span> <span class="number">0.5000000</span></span><br></pre></td></tr></table></figure>
+<p>We can visualize this process</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">p.value</th>
+<th style="text-align: center;">0.05</th>
+<th style="text-align: center;">0.02</th>
+<th style="text-align: center;">0.2</th>
+<th style="text-align: center;">0.4</th>
+<th style="text-align: center;">0.5</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">p.value position (key1)</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">5</td>
+</tr>
+</tbody>
+</table>
+<p><span class="math display">\[
+\downarrow
+\]</span></p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">p.value position(key1)</th>
+<th style="text-align: center;">5</th>
+<th style="text-align: center;">4</th>
+<th style="text-align: center;">3</th>
+<th style="text-align: center;">1</th>
+<th style="text-align: center;">2</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">q.value</td>
+<td style="text-align: center;">0.5</td>
+<td style="text-align: center;">0.5</td>
+<td style="text-align: center;">1/3</td>
+<td style="text-align: center;">0.125</td>
+<td style="text-align: center;">0.1</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Position of key (key2)</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">5</td>
+</tr>
+</tbody>
+</table>
+<p><span class="math display">\[
+\downarrow
+\]</span></p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">position of key (key2)</th>
+<th style="text-align: center;">4</th>
+<th style="text-align: center;">5</th>
+<th style="text-align: center;">3</th>
+<th style="text-align: center;">2</th>
+<th style="text-align: center;">1</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">p.value position (key1)</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">5</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">p.value</td>
+<td style="text-align: center;">0.05</td>
+<td style="text-align: center;">0.02</td>
+<td style="text-align: center;">0.2</td>
+<td style="text-align: center;">0.4</td>
+<td style="text-align: center;">0.5</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">q.value</td>
+<td style="text-align: center;">0.125</td>
+<td style="text-align: center;">0.1</td>
+<td style="text-align: center;">1/3</td>
+<td style="text-align: center;">1/2</td>
+<td style="text-align: center;">1/2</td>
+</tr>
+</tbody>
+</table>
+<h2 id="reference">Reference</h2>
+<ul>
+<li><p><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Q-value_(statistics)">wikipedia</a></p></li>
+<li><p><a target="_blank" rel="noopener" href="https://www.pearson.com/us/higher-education/program/Tamhane-Statistics-and-Data-Analysis-From-Elementary-to-Intermediate/PGM227786.html">Statistics and Data analysis: From elementary to Intermediate</a></p></li>
+<li><p><a target="_blank" rel="noopener" href="https://stats.stackexchange.com/questions/238458/whats-the-formula-for-the-benjamini-hochberg-adjusted-p-value">what's the formula for the Benjamini-Hochberg adjusted p-value?</a></p></li>
+<li><p><a target="_blank" rel="noopener" href="https://www.jstor.org/stable/2346101">Benjamini &amp; Hochberg (1995)</a></p></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
