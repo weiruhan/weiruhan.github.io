@@ -458,6 +458,13 @@ f(n|\alpha,\beta)=\int_0^{\infty}f(n|\lambda)\pi(\lambda)d\lambda\\
 =\frac{\Gamma(\alpha+n)}{n!\Gamma(\alpha)}(\frac{\beta}{E}+1)^{-n}(\frac{E}{\beta}+1)^{-\alpha}
 
 \end{gather}\]</span> $$ <span class="math inline">\(f(n|\alpha,\beta)\)</span> is exactly the density function of the negative Binomial distribution, and is also the likelihood function taking <span class="math inline">\(\alpha,\beta\)</span> as parameters.</p>
+<p>Based on the details provided in the derivation, it can also be stated that the negative binomial distribution is essentially a Gamma-Poisson mixture distribution, as it integrates aspects of both the Gamma and Poisson distributions.</p>
+<p>It’s also readily to prove that the posterior predictive distribution of data <span class="math inline">\(n\)</span> as <span class="math inline">\(f(\hat{n}|n)\)</span> is a negative binomial distribution. Since the prior of <span class="math inline">\(\lambda\)</span> is a Gamma distribution, the posterior of <span class="math inline">\(\lambda\)</span> given <span class="math inline">\(n\)</span> is also a Gamma distribution. The likelihood of <span class="math inline">\(\hat{n}\)</span> given unknown but fixed <span class="math inline">\(\lambda\)</span> is a Poisson distribution. Then we could obtain the posterior predictive distribution of <span class="math inline">\(\hat{n}\)</span> given <span class="math inline">\(n\)</span> as <span class="math display">\[
+\begin{gather}
+p(\hat{n}|n)=\int_0^{\infty}p(\hat{n}|\lambda)p(\lambda|n)d\lambda\\
+=\int_0^{\infty}(Poisson\times Gamma) d\lambda
+\end{gather}
+\]</span> Thus we show that <span class="math inline">\(\hat{n}|n\)</span> is a Gamma-Poisson mixture distribution.</p>
 ]]></content>
       <categories>
         <category>statistics</category>
