@@ -512,7 +512,7 @@ f_X(x)=\frac{1}{\Gamma(\alpha)}x^{\alpha}e^{-x}\frac{1}{x}
 \]</span> Where <span class="math inline">\(\Gamma(\alpha)=\int_0^{\infty}x^{\alpha}e^{-x}\frac{dx}{x}\)</span> is the normalizing constant.</p>
 <p>Substituting <span class="math inline">\(x=e^y\)</span> entails <span class="math inline">\(dy=\frac{dx}{x}\)</span> as <span class="math inline">\(\frac{de^y}{dy}=e^y=x\)</span>, thus we have <span class="math display">\[
 \begin{gather*}
-f_Y(y)=\frac{f&#39;(g^{-1}(y))}{g&#39;(g^{-1}(y))}\\
+f_Y(y)=\frac{f(g^{-1}(y))}{g&#39;(g^{-1}(y))}\\
 =\frac{1}{\Gamma(\alpha)}e^{\alpha y}e^{-e^y}\frac{1}{e^y}/(\frac{1}{e^y})\\
 =\frac{1}{\Gamma(\alpha)}e^{\alpha y-e^y}
 \end{gather*}
