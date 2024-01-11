@@ -28,7 +28,7 @@
 <meta property="og:description" content="Note: This section contains notes on the derivations made while authoring my book. The derivation details originate from public Q&amp;A platforms and will naturally differ from those in the book chapt">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2024-01-09T05:04:02.000Z">
-<meta property="article:modified_time" content="2024-01-09T06:10:52.718Z">
+<meta property="article:modified_time" content="2024-01-11T08:01:23.243Z">
 <meta property="article:author" content="Weiru Han">
 <meta property="article:tag" content="Math statistics">
 <meta property="article:tag" content="Bayes">
@@ -237,9 +237,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
-      
 
-      <time title="Created: 2024-01-09 00:04:02 / Modified: 01:10:52" itemprop="dateCreated datePublished" datetime="2024-01-09T00:04:02-05:00">2024-01-09</time>
+      <time title="Created: 2024-01-09 00:04:02" itemprop="dateCreated datePublished" datetime="2024-01-09T00:04:02-05:00">2024-01-09</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2024-01-11 03:01:23" itemprop="dateModified" datetime="2024-01-11T03:01:23-05:00">2024-01-11</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -270,16 +276,22 @@ E[lnX]
 <p>Suppose <span class="math inline">\(Y=g(X)\)</span>, <span class="math inline">\(X\)</span> is a random variable on probability space <span class="math inline">\((\Omega,\mathcal{F},\mathcal{P})\)</span>, and has continuous density <span class="math inline">\(f\)</span>.</p>
 <p><span class="math inline">\(\Rightarrow Y=g(X)\)</span> has the distribution function <span class="math inline">\(F(g^{-1}(y))\)</span>.</p>
 <p>Taking derivatives via the chain rule, we have <span class="math display">\[
+\begin{gather*}
 f_Y(y)=\frac{dF(g^{-1}(y))}{dy}\\=\frac{dF(g^{-1}(y))}{dx}\frac{dx}{dy}\\
 =\frac{dF(g^{-1}(y))}{dx}\frac{d[g^{-1}(y)]}{dy}\\
 =f(g^{-1}(y))\frac{d[g^{-1}(y)]}{dy}
+\end{gather*}
 \]</span> Recall that the derivative of an inverse function is <span class="math display">\[
+\begin{gather*}
 \frac{d}{dy}[g^{-1}(y)]\\
 =\frac{dx}{d[g(g^{-1}(y))]}\\
 =\frac{1}{g&#39;(g^{-1}(y))}
+\end{gather*}
 \]</span> The density function of <span class="math inline">\(g(X)\)</span> is then expressed as <span class="math display">\[
+\begin{gather*}
 f_Y(y)=f(g^{-1}(y))\frac{1}{g&#39;(g^{-1}(y))}\\
 =\frac{f(g^{-1}(y))}{g&#39;(g^{-1}(y))}
+\end{gather*}
 \]</span></p>
 <h1 id="part-ii">Part II</h1>
 <p>Now that we have figured out how to calculate the density of the transformed variable, we can proceed to obtain the density of <span class="math inline">\(Y=lnX\)</span>.</p>
@@ -288,15 +300,19 @@ f_Y(y)=f(g^{-1}(y))\frac{1}{g&#39;(g^{-1}(y))}\\
 f_X(x)=\frac{1}{\Gamma(\alpha)}x^{\alpha}e^{-x}\frac{1}{x}
 \]</span> Where <span class="math inline">\(\Gamma(\alpha)=\int_0^{\infty}x^{\alpha}e^{-x}\frac{dx}{x}\)</span> is the normalizing constant.</p>
 <p>Substituting <span class="math inline">\(x=e^y\)</span> entails <span class="math inline">\(dy=\frac{dx}{x}\)</span> as <span class="math inline">\(\frac{de^y}{dy}=e^y=x\)</span>, thus we have <span class="math display">\[
+\begin{gather*}
 f_Y(y)=\frac{f&#39;(g^{-1}(y))}{g&#39;(g^{-1}(y))}\\
 =\frac{1}{\Gamma(\alpha)}e^{\alpha y}e^{-e^y}\frac{1}{e^y}/(\frac{1}{e^y})\\
 =\frac{1}{\Gamma(\alpha)}e^{\alpha y-e^y}
+\end{gather*}
 \]</span> The possible values of <span class="math inline">\(Y\)</span> now range over all the real numbers <span class="math inline">\(\mathbb{R}\)</span>.</p>
 <h1 id="part-iii">Part III</h1>
 <p>As <span class="math inline">\(f_Y\)</span> must integrate to unity, as <span class="math display">\[
+\begin{gather*}
 \int_{\mathbb{R}}f_Y(y)dy=\int_{\mathbb{R}}\frac{1}{\Gamma(\alpha)}e^{\alpha y-e^y}dy\\
 =\frac{1}{\Gamma(\alpha)}\int_{\mathbb{R}}e^{\alpha y-e^y}dy\\
 =1
+\end{gather*}
 \]</span> we can obtain <span class="math display">\[
 \Gamma(\alpha)=\int_{\mathbb{R}}e^{\alpha y-e^y}dy
 \]</span> To calculate <span class="math inline">\(E(Y)=\int_{\mathbb{R}}yf_Y(y)dy\)</span>, we need to replace <span class="math inline">\(y\)</span> with <span class="math inline">\(\alpha\)</span> in order to eliminate the uncertainty.</p>
@@ -306,6 +322,7 @@ f_Y(y)=\frac{f&#39;(g^{-1}(y))}{g&#39;(g^{-1}(y))}\\
 \]</span> Since we can obtain <span class="math inline">\(e^{\alpha y-e^y}=\Gamma(\alpha)f_Y(y)\)</span> from <span class="math display">\[
 f_Y(y)=\frac{1}{\Gamma(\alpha)}e^{\alpha y-e^y}
 \]</span> Now that we can calculate the <span class="math inline">\(E(Y)\)</span>, as <span class="math display">\[
+\begin{gather*}
 E(Y)=\int_{\mathbb{R}}yf_Y(y)dy\\
 =\frac{1}{\Gamma(\alpha)}\int_{\mathbb{R}}\Gamma(\alpha)yf_Y(y)dy\\
 =\frac{1}{\Gamma(\alpha)}\int_{\mathbb{R}}\frac{d}{d\alpha}e^{\alpha y-e^y}dy\\
@@ -313,6 +330,7 @@ E(Y)=\int_{\mathbb{R}}yf_Y(y)dy\\
 =\frac{1}{\Gamma(\alpha)}\frac{d}{d\alpha}\Gamma(\alpha)\\
 =\frac{d}{d\alpha}ln\Gamma(\alpha)\\
 =\Psi(\alpha)
+\end{gather*}
 \]</span> <span class="math inline">\(\Psi(\cdot)\)</span> is the digamma function, which is the logarithmic derivative of the gamma function.</p>
 <p>By restoring the scale parameter <span class="math inline">\(\beta\)</span> value, we can obtain the general result of <span class="math inline">\(E[lnX]\)</span> as <span class="math display">\[
 E[lnX]=\Psi(\alpha)-ln\beta
