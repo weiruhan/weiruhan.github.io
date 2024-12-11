@@ -2312,6 +2312,25 @@ R(\theta_1,\theta_2)=\frac{\pi(\theta_1|x)}{\pi(\theta_2|x)}\\
       </tags>
   </entry>
   <entry>
+    <title>Multi-collinearity in polynomials</title>
+    <url>/2024/12/11/Multi-collinearity-in-polynomials/</url>
+    <content><![CDATA[<p>Multicollinearity arises in the polynomial regression. As a special case of the linear model, two problems occurs, the first is the multicollinearity, the second is that if power <span class="math inline">\(k\)</span> is large, say more than <span class="math inline">\(3\)</span> or <span class="math inline">\(4\)</span>, the magnitudes of these powers tend to vary over a rather wide range.</p>
+<p>To deal with these problems, <span class="math inline">\(2\)</span> strategies are needed. One is to limit to a cubic (<span class="math inline">\(k=3\)</span>) if at all possible, and generally no more than a quintic (<span class="math inline">\(k=5\)</span>). The other is to center the <span class="math inline">\(x\)</span>-variable. In other words, fit the model <span class="math display">\[
+y=\beta_0^*+\beta_1^*(x-\bar{x})+\cdots+\beta_k^*(x-\bar{x})^k
+\]</span> In addition to centering, one could also scale the <span class="math inline">\(x\)</span> variable by dividing by its standard deviation <span class="math inline">\(s_x\)</span>, thus standardizing it to have a zero mean and a unit standard deviation.</p>
+<h1 id="reference">Reference</h1>
+<ul>
+<li>Statistics and data analysis : from elementary to intermediate (page 418)</li>
+</ul>
+]]></content>
+      <categories>
+        <category>statistics</category>
+      </categories>
+      <tags>
+        <tag>Math statistics</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>About me</title>
     <url>/about/index.html</url>
     <content><![CDATA[<p><img src="https://res.cloudinary.com/djd9gr1bu/image/upload/v1637834720/2770F1B8-6DC8-4BBD-BC76-AA9756C6D8AF_1_201_a_grh7po.jpg" alt="hi" class="inline"/></p>
