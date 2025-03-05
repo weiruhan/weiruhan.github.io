@@ -154,7 +154,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">42</span>
+          <span class="site-state-item-count">41</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -165,7 +165,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">25</span>
+        <span class="site-state-item-count">26</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -194,6 +194,105 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/12/11/Alpha%20in%20central%20composite%20design%20with%20circumscribed%20type/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Weiru Han">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Weiru Han's blog">
+      <meta itemprop="description" content="The journey of a thousand miles begins with one step">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Weiru Han's blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/12/11/Alpha%20in%20central%20composite%20design%20with%20circumscribed%20type/" class="post-title-link" itemprop="url">Alpha in central composite design with circumscribed type</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2024-12-11 19:23:54" itemprop="dateCreated datePublished" datetime="2024-12-11T19:23:54-05:00">2024-12-11</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2025-01-30 13:58:54" itemprop="dateModified" datetime="2025-01-30T13:58:54-05:00">2025-01-30</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/statistics/" itemprop="url" rel="index"><span itemprop="name">statistics</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p><span class="math inline">\(\alpha\)</span> in central composite design with circumscribed type is equal to <span class="math inline">\(2^{k/4}\)</span> where <span class="math inline">\(k\)</span> is the number of factors, <span class="math inline">\(2^k\)</span> is the number of factorial runs if each factor has two levels.</p>
+<p>This property is derived based on its inherent property, which is <strong>rotatability</strong>.</p>
+<p>Suppose we want to fit a linear model <span class="math display">\[
+\mathbf{Y}=\mathbf{X}\boldsymbol\beta+\boldsymbol\epsilon
+\]</span> where <span class="math inline">\(\boldsymbol\epsilon\sim N(\mathbf{0},\sigma^2\mathbf{I}_n)\)</span>, <span class="math inline">\(\mathbf{Y}\)</span> is the observation vector.</p>
+<p>Suppose true value <span class="math inline">\(Y_{true}\)</span> has the exact relationship as <span class="math inline">\(\mathbf{Y}_{true}=E(\mathbf{Y}|\mathbf{X})=\mathbf{X}\boldsymbol\beta\)</span>, then <span class="math inline">\(V(\mathbf{Y})=\sigma^2\)</span> means given the fixed predictor variables <span class="math inline">\(\mathbf{X}\)</span>, the variance of observed response <span class="math inline">\(\mathbf{Y}\)</span> is <span class="math inline">\(\sigma^2\)</span> if we repeat experiments multiple times. In reality, it’s actually hard to know the true (exact) expression, so we tend to use estimated <span class="math inline">\(\mathbf{b}\)</span> to replace <span class="math inline">\(\boldsymbol\beta\)</span>, and estimate response as <span class="math inline">\(\mathbf{\hat{Y}}=\mathbf{X}^T\mathbf{b}\)</span>, <span class="math inline">\(\mathbf{b}\)</span> is the unbiased estimate for <span class="math inline">\(\boldsymbol\beta\)</span>, <span class="math inline">\(E(\mathbf{b})=\boldsymbol\beta\)</span>, as <span class="math display">\[
+\mathbf{b}=(\mathbf{X}^T\mathbf{X})^{-1}\mathbf{X}^T\mathbf{Y}
+\]</span> Then for the current experiment, suppose the current observation is <span class="math inline">\(\mathbf{Y}\)</span>, the variance of <span class="math inline">\(\mathbf{Y}\)</span> is equal to <span class="math display">\[
+V(\mathbf{\hat{Y}})=\sigma^2\mathbf{X}^T(\mathbf{X^T X})^{-1}\mathbf{X}
+\]</span> The above equation simply describe a situation: Suppose we know the distribution of <span class="math inline">\(\mathbf{Y}\)</span> as <span class="math inline">\(\mathbf{Y}\sim N(\mathbf{X}\boldsymbol\beta,\sigma^2\mathbf{I}_n)\)</span>, then <span class="math inline">\(E(\mathbf{Y})=\mathbf{X}\boldsymbol{\beta}\)</span>. Then we fix the predictors variables as <span class="math inline">\(\mathbf{X}\)</span>, and replicate the experiment multiple times, each time we have different observed response values <span class="math inline">\(\mathbf{Y}\)</span>. However, usually we do not have so many chances to replicate the experiment, we can only deduct by the current experiment, so the variance <span class="math inline">\(\sigma^2\)</span> is replaced by the <span class="math inline">\(s^2\)</span> where <span class="math inline">\(s^2\)</span> is the residual variance <span class="math display">\[
+s^2=\frac{SSE}{n-p}=\frac{(\mathbf{Y}-\mathbf{Xb})^T(\mathbf{Y-Xb})}{n-p}
+\]</span> After replacing the <span class="math inline">\(\sigma\)</span> with <span class="math inline">\(s^2\)</span>, we also replace true coefficient <span class="math inline">\(\boldsymbol\beta\)</span> with the coefficient estimated from the current experiment <span class="math inline">\(\mathbf{b}\)</span>.</p>
+<p>Extending from the current condition, one can replicate multiple times, and obtain multiple fitted response variables <span class="math inline">\(\mathbf{\hat{Y}}\)</span> as well as multiple observed response variables <span class="math inline">\(\mathbf{Y}\)</span>. The variance of fitted response variables <span class="math inline">\(\mathbf{\hat{Y}}\)</span> is then equal to <span class="math display">\[
+V(\hat{\mathbf{Y}})=s^2\mathbf{X^T(X^T X)^{-1}X}
+\]</span></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -233,7 +332,7 @@
       <span class="post-meta-item-text">Posted on</span>
       
 
-      <time title="Created: 2024-12-11 17:57:25 / Modified: 18:56:34" itemprop="dateCreated datePublished" datetime="2024-12-11T17:57:25-05:00">2024-12-11</time>
+      <time title="Created: 2024-12-11 17:57:25 / Modified: 19:24:16" itemprop="dateCreated datePublished" datetime="2024-12-11T17:57:25-05:00">2024-12-11</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -262,145 +361,6 @@ y=\beta_0^*+\beta_1^*(x-\bar{x})+\cdots+\beta_k^*(x-\bar{x})^k
 <h1 id="reference">Reference</h1>
 <ul>
 <li>Statistics and data analysis : from elementary to intermediate (page 418)</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/08/18/Life-prompt/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Weiru Han">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Weiru Han's blog">
-      <meta itemprop="description" content="The journey of a thousand miles begins with one step">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Weiru Han's blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/08/18/Life-prompt/" class="post-title-link" itemprop="url">Life prompt</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2024-08-18 23:25:07" itemprop="dateCreated datePublished" datetime="2024-08-18T23:25:07-04:00">2024-08-18</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2024-11-21 19:50:04" itemprop="dateModified" datetime="2024-11-21T19:50:04-05:00">2024-11-21</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/random-thoughts/" itemprop="url" rel="index"><span itemprop="name">random thoughts</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <ul>
-<li>Plan ahead</li>
-<li>Get straight to the point and push things to the limit.</li>
-<li>Be more rational, less emotional</li>
-<li>Find problem, solve problem, be fast, no excuse, no procrastination</li>
-<li>The ability to quickly judge someone's true nature is crucial. Cut ties with anyone untrustworthy; don't dwell on the past.</li>
-<li>Never adore anyone</li>
-<li>Optimize every step</li>
-<li>Control dopamine</li>
-<li>Reverse thinking</li>
-<li>The devil is in details</li>
-<li>Prioritize work over work-life balance; keep your focus on work at all times. Most importantly, work smart.</li>
-<li>Do not fall in love my own ideas, come up with a quick and cheap and easy way to test the idea</li>
-<li>Don't get too attached to your ideas; instead, find a fast, simple, and inexpensive way to test them.</li>
-<li>Do not chase hard new things, position for yourself, position something that captures your curiosity. Pick something you are passionate about, and you are good at, and is able to contribute to the world.</li>
-<li>Nothing is impossible.</li>
-<li>Look for someone to collaborate with who shares your values, as that’s the most important factor. Also, consider their ability to learn and adapt quickly, which are even more crucial than their existing skills or experience. (Values &gt; Adaptability &gt; Skills)</li>
-<li>Personality&gt;Talent</li>
-<li>Courage &gt; Intelligence</li>
-<li>Evaluate the character of a person's friends and associates to better assess them.</li>
-<li>Great founders are frugal: They understand money should be spent in precisely certain and necessary areas.</li>
-<li>Having somebody who you totally trust, who shares the vision, who has a little bit different set of skills, and also acts as a check on you is very crucial.</li>
-<li>What makes company fail most of time is poor execution by the founders, not competitors.</li>
-<li>The thing that’s always a big mistake is going after a giant market on day one. Start with a market where there are not many competitors.</li>
-<li>Understand every risk, be crazy and also rational about every risk.</li>
-<li>Be extremely obsessed with truth</li>
-<li>Build your own brand. There’s already a book on you.</li>
-<li>Most founder-led companies are entrepreneurially driven. Be obsessed with not only following the rules, but also making new rules. The ability to offense is much more important than to defense.</li>
-<li>Starting a company is like jumping off a cliff and assembling the airplane on the way down. It’s like playing a video game with a thousand levels, and each level gets harder. At each level, you learn about yourself. The problem with success is that it amplifies every thing, including positive and negative parts.</li>
-<li>Innovation is easier with a relatively small team that has to make a decisive and clear concentrated bet and that doesn’t tolerate any mediocre performers.</li>
-<li>The ability to endure pain and suffering is way more important than the intelligence. The ability to work on something for a very very long period time, to handle setbacks and see the opportunities just around the corner is the way to success.</li>
-<li>Networking is overrated. Go do something great, and your network will instantly emerge.</li>
-<li>Figure out how to express the questions in no longer than 20 words. Ask questions precisely.</li>
-<li>The art of storytelling is incredibly important. Money flows as a function of a story.</li>
-<li>Ignoring the advice would get what I want in most of time.</li>
-<li>Information matters. Everyone should have equal access to information.</li>
-<li>Learning from other people’s mistake is a great way to improve.</li>
-<li>Make principle decisions instead of business decisions in crisis.</li>
-<li>Do not set high expectations.</li>
-<li>Great founder needs to pay himself less than average in the early stage of the company.</li>
-<li>Resilience, adaptability, high rate of learning, creativity, familiarity with the tools are important.</li>
-<li>Use “Idiot index” to measure every work, every project. Be sure to complete a project/work in a short period of time.</li>
-<li>Do not follow the rule; Break the rule; Create the brand and network</li>
-<li>Utilize the power</li>
-<li>Winner takes all.</li>
-</ul>
-<h1 id="how-to-deal-with-complex-problems">How to deal with complex problems?</h1>
-<ul>
-<li>Know the intention of the problem</li>
-<li>Simplify the problem</li>
-<li>Decompose the problem into sub-problems</li>
-<li>Decompose the solution into sub-solutions</li>
-<li>For simple problem/project such as coding problems/math problems that don’t take up too much time, you can randomize the sub-problems/sub-solutions, and solve the problem one-by-one;</li>
-<li>For complex problem/project such as paper/experimentation task that usually take up too much time, do not randomize the sub-problems/sub-solutions, optimize every solution.</li>
 </ul>
 
       
@@ -1204,104 +1164,6 @@ E[lnX]=\Psi(\alpha)-ln\beta
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2023/07/09/Rules-of-life/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Weiru Han">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Weiru Han's blog">
-      <meta itemprop="description" content="The journey of a thousand miles begins with one step">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Weiru Han's blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2023/07/09/Rules-of-life/" class="post-title-link" itemprop="url">Rules of life</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2023-07-09 23:59:59" itemprop="dateCreated datePublished" datetime="2023-07-09T23:59:59-04:00">2023-07-09</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2023-07-11 15:24:42" itemprop="dateModified" datetime="2023-07-11T15:24:42-04:00">2023-07-11</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/random-thoughts/" itemprop="url" rel="index"><span itemprop="name">random thoughts</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <ol type="1">
-<li>Renounce all emotions and embrace absolute rationalism. Recognize that all emotions, including anxiety and fear, are merely manifestations of chemical reactions occurring within the body. Begin to adopt a mindset and behavior similar to that of artificial intelligence.</li>
-<li>Always consider the optimal path by utilizing Bayes' rule to guide your actions in reality.</li>
-<li>Maintain an open mind towards at least two theorems. Evaluate each theorem based on its advantages and superiority, and accept the one that can be articulated more clearly than the others.</li>
-<li>If you come across a mountain and decide to climb it, you may spend your entire life ascending. As you reach two-thirds of the way, you suddenly realize that the peak is still far above you. Despite being at such a significant height, you realize that to reach the top, you must descend to the bottom and search for an alternative route. Most people, being ordinary, are unwilling to undertake such a task. Starting anew is not their inclination, especially as they grow older and feel the constraints of time. Consequently, retracing their steps and seeking a new path is a painful endeavor. Nevertheless, it may be the most beneficial course of action. This explains why the greatest artists and creators possess an exceptional ability to begin again, a characteristic unparalleled by others.</li>
-<li>Incorporate the <strong>Law of Attraction</strong> into your daily life as a guiding principle. Minimize complaints and refrain from questioning the reasons. Instead, focus on finding solutions and discussing the methods to address the issue.</li>
-<li>Success comprises four dimensions, each of which, when possessed, can lead to the attainment of the remaining three.
-<ol type="1">
-<li>Money</li>
-<li>Power</li>
-<li>Fame</li>
-<li>Sex</li>
-</ol></li>
-</ol>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="http://example.com/2022/12/15/cross-validation-related/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1464,6 +1326,106 @@ E[lnX]=\Psi(\alpha)-ln\beta
 
 
 
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/12/14/ten-things-related-to-brain-function/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Weiru Han">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Weiru Han's blog">
+      <meta itemprop="description" content="The journey of a thousand miles begins with one step">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Weiru Han's blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/12/14/ten-things-related-to-brain-function/" class="post-title-link" itemprop="url">Ten things related to brain function</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2022-12-14 16:26:56 / Modified: 16:51:44" itemprop="dateCreated datePublished" datetime="2022-12-14T16:26:56-05:00">2022-12-14</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/intelligence/" itemprop="url" rel="index"><span itemprop="name">intelligence</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <ul>
+<li><p>A good brain diet</p>
+<ul>
+<li>avocado</li>
+<li>blueberries</li>
+<li>broccoli</li>
+<li>eggs</li>
+<li>coconut/olive oil</li>
+<li>green leafy dark vegetables</li>
+<li>wild salmon</li>
+<li>termeric</li>
+</ul></li>
+<li><p>Killing ANTs (Automatic Negative thoughts)</p></li>
+<li><p>Exercise</p></li>
+<li><p>Brain nutrients/Brain Vitamins</p></li>
+<li><p>Positive peer group</p></li>
+<li><p>Clean environment</p></li>
+<li><p>Sleep</p></li>
+<li><p>Brain protection (such as electromagnetic fields)</p></li>
+<li><p>New learnings</p></li>
+<li><p>Stress management</p></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
   <nav class="pagination">
     <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
@@ -1477,7 +1439,7 @@ E[lnX]=\Psi(\alpha)-ln\beta
 
 <div class="copyright">
   &copy; 
-  <span itemprop="copyrightYear">2024</span>
+  <span itemprop="copyrightYear">2025</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

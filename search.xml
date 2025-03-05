@@ -1,6 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Alpha in central composite design with circumscribed type</title>
+    <url>/2024/12/11/Alpha%20in%20central%20composite%20design%20with%20circumscribed%20type/</url>
+    <content><![CDATA[<p><span class="math inline">\(\alpha\)</span> in central composite design with circumscribed type is equal to <span class="math inline">\(2^{k/4}\)</span> where <span class="math inline">\(k\)</span> is the number of factors, <span class="math inline">\(2^k\)</span> is the number of factorial runs if each factor has two levels.</p>
+<p>This property is derived based on its inherent property, which is <strong>rotatability</strong>.</p>
+<p>Suppose we want to fit a linear model <span class="math display">\[
+\mathbf{Y}=\mathbf{X}\boldsymbol\beta+\boldsymbol\epsilon
+\]</span> where <span class="math inline">\(\boldsymbol\epsilon\sim N(\mathbf{0},\sigma^2\mathbf{I}_n)\)</span>, <span class="math inline">\(\mathbf{Y}\)</span> is the observation vector.</p>
+<p>Suppose true value <span class="math inline">\(Y_{true}\)</span> has the exact relationship as <span class="math inline">\(\mathbf{Y}_{true}=E(\mathbf{Y}|\mathbf{X})=\mathbf{X}\boldsymbol\beta\)</span>, then <span class="math inline">\(V(\mathbf{Y})=\sigma^2\)</span> means given the fixed predictor variables <span class="math inline">\(\mathbf{X}\)</span>, the variance of observed response <span class="math inline">\(\mathbf{Y}\)</span> is <span class="math inline">\(\sigma^2\)</span> if we repeat experiments multiple times. In reality, it’s actually hard to know the true (exact) expression, so we tend to use estimated <span class="math inline">\(\mathbf{b}\)</span> to replace <span class="math inline">\(\boldsymbol\beta\)</span>, and estimate response as <span class="math inline">\(\mathbf{\hat{Y}}=\mathbf{X}^T\mathbf{b}\)</span>, <span class="math inline">\(\mathbf{b}\)</span> is the unbiased estimate for <span class="math inline">\(\boldsymbol\beta\)</span>, <span class="math inline">\(E(\mathbf{b})=\boldsymbol\beta\)</span>, as <span class="math display">\[
+\mathbf{b}=(\mathbf{X}^T\mathbf{X})^{-1}\mathbf{X}^T\mathbf{Y}
+\]</span> Then for the current experiment, suppose the current observation is <span class="math inline">\(\mathbf{Y}\)</span>, the variance of <span class="math inline">\(\mathbf{Y}\)</span> is equal to <span class="math display">\[
+V(\mathbf{\hat{Y}})=\sigma^2\mathbf{X}^T(\mathbf{X^T X})^{-1}\mathbf{X}
+\]</span> The above equation simply describe a situation: Suppose we know the distribution of <span class="math inline">\(\mathbf{Y}\)</span> as <span class="math inline">\(\mathbf{Y}\sim N(\mathbf{X}\boldsymbol\beta,\sigma^2\mathbf{I}_n)\)</span>, then <span class="math inline">\(E(\mathbf{Y})=\mathbf{X}\boldsymbol{\beta}\)</span>. Then we fix the predictors variables as <span class="math inline">\(\mathbf{X}\)</span>, and replicate the experiment multiple times, each time we have different observed response values <span class="math inline">\(\mathbf{Y}\)</span>. However, usually we do not have so many chances to replicate the experiment, we can only deduct by the current experiment, so the variance <span class="math inline">\(\sigma^2\)</span> is replaced by the <span class="math inline">\(s^2\)</span> where <span class="math inline">\(s^2\)</span> is the residual variance <span class="math display">\[
+s^2=\frac{SSE}{n-p}=\frac{(\mathbf{Y}-\mathbf{Xb})^T(\mathbf{Y-Xb})}{n-p}
+\]</span> After replacing the <span class="math inline">\(\sigma\)</span> with <span class="math inline">\(s^2\)</span>, we also replace true coefficient <span class="math inline">\(\boldsymbol\beta\)</span> with the coefficient estimated from the current experiment <span class="math inline">\(\mathbf{b}\)</span>.</p>
+<p>Extending from the current condition, one can replicate multiple times, and obtain multiple fitted response variables <span class="math inline">\(\mathbf{\hat{Y}}\)</span> as well as multiple observed response variables <span class="math inline">\(\mathbf{Y}\)</span>. The variance of fitted response variables <span class="math inline">\(\mathbf{\hat{Y}}\)</span> is then equal to <span class="math display">\[
+V(\hat{\mathbf{Y}})=s^2\mathbf{X^T(X^T X)^{-1}X}
+\]</span></p>
+]]></content>
+      <categories>
+        <category>statistics</category>
+      </categories>
+      <tags>
+        <tag>Design of experiment</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Assumption of linear regression</title>
     <url>/2022/04/21/Assumption-of-linear-regression/</url>
     <content><![CDATA[<h1 id="definition">Definition</h1>
@@ -707,6 +733,25 @@ y_i=\hat{y}_i+e_i
       </tags>
   </entry>
   <entry>
+    <title>Multi-collinearity in polynomials</title>
+    <url>/2024/12/11/Multi-collinearity-in-polynomials/</url>
+    <content><![CDATA[<p>Multicollinearity arises in the polynomial regression. As a special case of the linear model, two problems occurs, the first is the multicollinearity, the second is that if power <span class="math inline">\(k\)</span> is large, say more than <span class="math inline">\(3\)</span> or <span class="math inline">\(4\)</span>, the magnitudes of these powers tend to vary over a rather wide range.</p>
+<p>To deal with these problems, <span class="math inline">\(2\)</span> strategies are needed. One is to limit to a cubic (<span class="math inline">\(k=3\)</span>) if at all possible, and generally no more than a quintic (<span class="math inline">\(k=5\)</span>). The other is to center the <span class="math inline">\(x\)</span>-variable. In other words, fit the model <span class="math display">\[
+y=\beta_0^*+\beta_1^*(x-\bar{x})+\cdots+\beta_k^*(x-\bar{x})^k
+\]</span> In addition to centering, one could also scale the <span class="math inline">\(x\)</span> variable by dividing by its standard deviation <span class="math inline">\(s_x\)</span>, thus standardizing it to have a zero mean and a unit standard deviation.</p>
+<h1 id="reference">Reference</h1>
+<ul>
+<li>Statistics and data analysis : from elementary to intermediate (page 418)</li>
+</ul>
+]]></content>
+      <categories>
+        <category>statistics</category>
+      </categories>
+      <tags>
+        <tag>Math statistics</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Principal component analysis</title>
     <url>/2022/02/21/Principal-component-analysis/</url>
     <content><![CDATA[<h1 id="principal-component-analysis">Principal Component analysis</h1>
@@ -768,6 +813,32 @@ G --&gt; H[Measure and analyze yourself]
       <tags>
         <tag>Conference</tag>
         <tag>Project Management</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Reason of ignoring normalizing constant</title>
+    <url>/2024/01/10/Reason-of-ignoring-normalizing-constant/</url>
+    <content><![CDATA[<p>When approximating the posterior distribution, one tends to ignore the normalizing constant in the equation as <span class="math display">\[
+\pi(\theta|x)=\frac{\pi(x|\theta)\pi(\theta)}{\int\pi(x|\theta)\pi(\theta)d\theta}\\
+=\frac{\pi(x|\theta)\pi(\theta)}{\pi(x)}\\
+\propto\pi(x|\theta)\pi(\theta)
+\]</span> The fact is, not all the MCMC methods avoid the need for the normalizing constant. However, many of them do (such as the Metropolis-Hastings algorithm), since the iteration process is based on the ratio <span class="math display">\[
+\begin{gather*}
+R(\theta_1,\theta_2)=\frac{\pi(\theta_1|x)}{\pi(\theta_2|x)}\\
+=\frac{\pi(x|\theta_1)\pi(\theta_1)}{\pi(x)}/\frac{\pi(x|\theta_2)\pi(\theta_2)}{\pi(x)}\\
+=\frac{\pi(x|\theta_1)\pi(\theta_1)}{\pi(x|\theta_2)\pi(\theta_2)}
+\end{gather*}
+\]</span> You can easily observe that <span class="math inline">\(R(\theta_1,\theta_2)\)</span> does not involve the normalizing constant, so actually you can cancels out the normalizing constant <span class="math inline">\(\pi(x)\)</span> when approximating the posterior distribution <span class="math inline">\(\pi(\theta|x)\)</span>. Therefore, you can easily state that <span class="math inline">\(\pi(\theta|x)\)</span> is proportional to the <span class="math inline">\(\pi(x|\theta)\pi(\theta)\)</span> and utilize this information to approximate the posterior distribution.</p>
+<h1 id="reference">Reference</h1>
+<p><a href="https://stats.stackexchange.com/questions/51493/normalizing-constant-irrelevant-in-bayes-theorem">Normalizing constant irrelevant in Bayes Theorem?</a></p>
+<p><a href="https://stats.stackexchange.com/questions/545017/rationale-behind-ignoring-the-denomintator-in-bayes-rule">Rationale behind ignoring the “denominator” in Bayes Rule</a></p>
+]]></content>
+      <categories>
+        <category>statistics</category>
+      </categories>
+      <tags>
+        <tag>Math statistics</tag>
+        <tag>Bayes</tag>
       </tags>
   </entry>
   <entry>
@@ -853,31 +924,6 @@ R^2 = \frac{ESS}{SST}=\frac{\hat{\beta_1}^2S_{xx}}{S_{yy}}\\
       <tags>
         <tag>Linear regression</tag>
         <tag>Statistics and Data analysis from elementary to intermediate</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Rules of life</title>
-    <url>/2023/07/09/Rules-of-life/</url>
-    <content><![CDATA[<ol type="1">
-<li>Renounce all emotions and embrace absolute rationalism. Recognize that all emotions, including anxiety and fear, are merely manifestations of chemical reactions occurring within the body. Begin to adopt a mindset and behavior similar to that of artificial intelligence.</li>
-<li>Always consider the optimal path by utilizing Bayes' rule to guide your actions in reality.</li>
-<li>Maintain an open mind towards at least two theorems. Evaluate each theorem based on its advantages and superiority, and accept the one that can be articulated more clearly than the others.</li>
-<li>If you come across a mountain and decide to climb it, you may spend your entire life ascending. As you reach two-thirds of the way, you suddenly realize that the peak is still far above you. Despite being at such a significant height, you realize that to reach the top, you must descend to the bottom and search for an alternative route. Most people, being ordinary, are unwilling to undertake such a task. Starting anew is not their inclination, especially as they grow older and feel the constraints of time. Consequently, retracing their steps and seeking a new path is a painful endeavor. Nevertheless, it may be the most beneficial course of action. This explains why the greatest artists and creators possess an exceptional ability to begin again, a characteristic unparalleled by others.</li>
-<li>Incorporate the <strong>Law of Attraction</strong> into your daily life as a guiding principle. Minimize complaints and refrain from questioning the reasons. Instead, focus on finding solutions and discussing the methods to address the issue.</li>
-<li>Success comprises four dimensions, each of which, when possessed, can lead to the attainment of the remaining three.
-<ol type="1">
-<li>Money</li>
-<li>Power</li>
-<li>Fame</li>
-<li>Sex</li>
-</ol></li>
-</ol>
-]]></content>
-      <categories>
-        <category>random thoughts</category>
-      </categories>
-      <tags>
-        <tag>random thoughts</tag>
       </tags>
   </entry>
   <entry>
@@ -1297,6 +1343,75 @@ Cov(X,Y)=E[Z^3]=0
       </tags>
   </entry>
   <entry>
+    <title>Variance of log-odds-ratio</title>
+    <url>/2024/01/09/Variance-of-log-odds-ratio/</url>
+    <content><![CDATA[<p>Note: This section contains notes on the derivations made while authoring my book. The derivation details originate from public Q&amp;A platforms and will naturally differ from those in the book chapters.</p>
+<table>
+<thead>
+<tr class="header">
+<th></th>
+<th>Column 1</th>
+<th>Column 2</th>
+<th>Total</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Row 1</td>
+<td><span class="math inline">\(a\)</span></td>
+<td><span class="math inline">\(b\)</span></td>
+<td><span class="math inline">\(n_{1\cdot}=a+b\)</span></td>
+</tr>
+<tr class="even">
+<td>Row 2</td>
+<td><span class="math inline">\(c\)</span></td>
+<td><span class="math inline">\(d\)</span></td>
+<td><span class="math inline">\(n_{2\cdot}=c+d\)</span></td>
+</tr>
+<tr class="odd">
+<td>Total</td>
+<td><span class="math inline">\(n_{\cdot 1}\)</span></td>
+<td><span class="math inline">\(n_{\cdot 2}\)</span></td>
+<td><span class="math inline">\(N\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>The goal is to approximate the variance of log odds-ratio <span class="math inline">\(VAR[ln(OR)]\)</span> when <span class="math inline">\(OR\)</span> is expressed as <span class="math display">\[
+OR=\frac{p_1/(1-p_1)}{p_2/(1-p_2)}
+\]</span> where <span class="math inline">\(p_1\)</span> and <span class="math inline">\(p_2\)</span> are two probabilities for group 1 and group 2, respectively.</p>
+<p>Suppose <span class="math inline">\(Y=f(X)\)</span>, then we can use delta method to approximate the <span class="math inline">\(f(X)\)</span> if <span class="math inline">\(E(X)=\mu\)</span>, as <span class="math display">\[
+f(X)\approx f(\mu)+f&#39;(\mu)(X-\mu)+\frac{1}{2}f&#39;&#39;(\mu)(X-\mu)^2
+\]</span> Assume <span class="math inline">\(VAR(X)=\sigma^2\)</span>, we have <span class="math display">\[
+\begin{gather*}
+E(Y)\approx E(f(X))=f(\mu)+\frac{1}{2}f&#39;&#39;(\mu)\sigma^2\\
+VAR(Y)=VAR[f(x)]\approx [f&#39;(\mu)]^2VAR(X)
+\end{gather*}
+\]</span></p>
+<blockquote>
+<p>Note, if <span class="math inline">\(E[Y]=E[f(X)]\)</span> can be obtained using transformed density function, then delta method is not needed in approximating the <span class="math inline">\(Y=f(X)\)</span></p>
+</blockquote>
+<p>Let <span class="math inline">\(Y=ln(\hat{OR})\)</span>; since group 1 and group 2 are independent, we have <span class="math display">\[
+\begin{gather*}
+VAR(ln(\hat{OR}))=VAR[ln(\frac{\hat{p}_1/(1-\hat{p}_1)}{\hat{p}_2/(1-\hat{p}_2)})]\\
+=VAR[ln(\frac{\hat{p}_1}{1-\hat{p}_1})]+VAR[ln(\frac{\hat{p}_2}{1-\hat{p}_2})]\\
+=(\frac{1}{\hat{p}_1(1-\hat{p}_1)})^2\frac{\hat{p}_1(1-\hat{p}_1)}{n_{1\cdot}}+(\frac{1}{\hat{p}_2(1-\hat{p}_2)})^2\frac{\hat{p}_2(1-\hat{p}_2)}{n_{2\cdot}}\\
+=\frac{1}{n_{1\cdot}\hat{p}_1(1-\hat{p}_1)}+\frac{1}{n_{2\cdot}\hat{p}_2(1-\hat{p}_2)}\\
+=\frac{1}{n_{1\cdot}\hat{p}_1}+\frac{1}{n_{1\cdot}(1-\hat{p}_1)}+\frac{1}{n_{2\cdot}\hat{p}_2}+\frac{1}{n_{2\cdot}(1-\hat{p}_2)}\\
+=\frac{1}{a}+\frac{1}{b}+\frac{1}{c}+\frac{1}{d}
+\end{gather*}
+\]</span> Where <span class="math inline">\(n_{1\cdot},n_{2\cdot}\)</span> are counts for group 1 and group 2, respectively; <span class="math inline">\(a,b,c,d\)</span> are 4 counts for the <span class="math inline">\(2\times 2\)</span> contingency table.</p>
+<h1 id="reference">Reference</h1>
+<p><a href="https://stats.stackexchange.com/questions/266098/how-do-i-calculate-the-standard-deviation-of-the-log-odds">How to calculate the standard deviation of the log-odds?</a></p>
+]]></content>
+      <categories>
+        <category>statistics</category>
+      </categories>
+      <tags>
+        <tag>Math statistics</tag>
+        <tag>Delta method</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>chi2 is not appropriate</title>
     <url>/2022/12/07/chi2-is-not-appropriate/</url>
     <content><![CDATA[<p><code>chi2</code> is mainly used for binary indicator or term counts, so one needs to be really careful when doing Pearson chi-square test. I will provide several functions to compare these differences, the dataset which I use is the pima dataset</p>
@@ -1573,6 +1688,36 @@ var[f(X)]=var(f(\mu)+(X-\mu)f&#39;(\mu))\\
       </tags>
   </entry>
   <entry>
+    <title>Basic command of hexo</title>
+    <url>/2021/11/29/hexo_tutorial/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="quick-start">Quick Start</h2>
+<h3 id="create-a-new-post">Create a new post</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="run-server">Run server</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="generate-static-files">Generate static files</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="deploy-to-remote-sites">Deploy to remote sites</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+<h2 id="reference">Reference</h2>
+<ul>
+<li><a href="https://theme-next.js.org/">Configure Hexo Next page from scratch</a></li>
+<li><a href="https://clarkchen.com/Hexo/Hexo%E4%B8%AD%E6%8F%92%E5%85%A5mermaid-diagrams/">Insert mermaid</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>hexo</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>hidden jargon in statistics</title>
     <url>/2022/09/28/hidden%20jargon%20in%20statistics/</url>
     <content><![CDATA[<h1 id="randomization-replication-repeated-measurement-blocking">Randomization, replication, repeated measurement, blocking</h1>
@@ -1613,36 +1758,6 @@ var[f(X)]=var(f(\mu)+(X-\mu)f&#39;(\mu))\\
       <tags>
         <tag>Math statistics</tag>
         <tag>Bayes</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Basic command of hexo</title>
-    <url>/2021/11/29/hexo_tutorial/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="quick-start">Quick Start</h2>
-<h3 id="create-a-new-post">Create a new post</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="run-server">Run server</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="generate-static-files">Generate static files</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="deploy-to-remote-sites">Deploy to remote sites</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-<h2 id="reference">Reference</h2>
-<ul>
-<li><a href="https://theme-next.js.org/">Configure Hexo Next page from scratch</a></li>
-<li><a href="https://clarkchen.com/Hexo/Hexo%E4%B8%AD%E6%8F%92%E5%85%A5mermaid-diagrams/">Insert mermaid</a></li>
-</ul>
-]]></content>
-      <categories>
-        <category>hexo</category>
-      </categories>
-      <tags>
-        <tag>hexo</tag>
       </tags>
   </entry>
   <entry>
@@ -2151,196 +2266,16 @@ p_{(i)}^{BH}=min\{\underset{j\geq i}{min}\{\frac{mp_{(j)}}{j}\},1\}
       </tags>
   </entry>
   <entry>
-    <title>Variance of log-odds-ratio</title>
-    <url>/2024/01/09/Variance-of-log-odds-ratio/</url>
-    <content><![CDATA[<p>Note: This section contains notes on the derivations made while authoring my book. The derivation details originate from public Q&amp;A platforms and will naturally differ from those in the book chapters.</p>
-<table>
-<thead>
-<tr class="header">
-<th></th>
-<th>Column 1</th>
-<th>Column 2</th>
-<th>Total</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Row 1</td>
-<td><span class="math inline">\(a\)</span></td>
-<td><span class="math inline">\(b\)</span></td>
-<td><span class="math inline">\(n_{1\cdot}=a+b\)</span></td>
-</tr>
-<tr class="even">
-<td>Row 2</td>
-<td><span class="math inline">\(c\)</span></td>
-<td><span class="math inline">\(d\)</span></td>
-<td><span class="math inline">\(n_{2\cdot}=c+d\)</span></td>
-</tr>
-<tr class="odd">
-<td>Total</td>
-<td><span class="math inline">\(n_{\cdot 1}\)</span></td>
-<td><span class="math inline">\(n_{\cdot 2}\)</span></td>
-<td><span class="math inline">\(N\)</span></td>
-</tr>
-</tbody>
-</table>
-<p>The goal is to approximate the variance of log odds-ratio <span class="math inline">\(VAR[ln(OR)]\)</span> when <span class="math inline">\(OR\)</span> is expressed as <span class="math display">\[
-OR=\frac{p_1/(1-p_1)}{p_2/(1-p_2)}
-\]</span> where <span class="math inline">\(p_1\)</span> and <span class="math inline">\(p_2\)</span> are two probabilities for group 1 and group 2, respectively.</p>
-<p>Suppose <span class="math inline">\(Y=f(X)\)</span>, then we can use delta method to approximate the <span class="math inline">\(f(X)\)</span> if <span class="math inline">\(E(X)=\mu\)</span>, as <span class="math display">\[
-f(X)\approx f(\mu)+f&#39;(\mu)(X-\mu)+\frac{1}{2}f&#39;&#39;(\mu)(X-\mu)^2
-\]</span> Assume <span class="math inline">\(VAR(X)=\sigma^2\)</span>, we have <span class="math display">\[
-\begin{gather*}
-E(Y)\approx E(f(X))=f(\mu)+\frac{1}{2}f&#39;&#39;(\mu)\sigma^2\\
-VAR(Y)=VAR[f(x)]\approx [f&#39;(\mu)]^2VAR(X)
-\end{gather*}
-\]</span></p>
-<blockquote>
-<p>Note, if <span class="math inline">\(E[Y]=E[f(X)]\)</span> can be obtained using transformed density function, then delta method is not needed in approximating the <span class="math inline">\(Y=f(X)\)</span></p>
-</blockquote>
-<p>Let <span class="math inline">\(Y=ln(\hat{OR})\)</span>; since group 1 and group 2 are independent, we have <span class="math display">\[
-\begin{gather*}
-VAR(ln(\hat{OR}))=VAR[ln(\frac{\hat{p}_1/(1-\hat{p}_1)}{\hat{p}_2/(1-\hat{p}_2)})]\\
-=VAR[ln(\frac{\hat{p}_1}{1-\hat{p}_1})]+VAR[ln(\frac{\hat{p}_2}{1-\hat{p}_2})]\\
-=(\frac{1}{\hat{p}_1(1-\hat{p}_1)})^2\frac{\hat{p}_1(1-\hat{p}_1)}{n_{1\cdot}}+(\frac{1}{\hat{p}_2(1-\hat{p}_2)})^2\frac{\hat{p}_2(1-\hat{p}_2)}{n_{2\cdot}}\\
-=\frac{1}{n_{1\cdot}\hat{p}_1(1-\hat{p}_1)}+\frac{1}{n_{2\cdot}\hat{p}_2(1-\hat{p}_2)}\\
-=\frac{1}{n_{1\cdot}\hat{p}_1}+\frac{1}{n_{1\cdot}(1-\hat{p}_1)}+\frac{1}{n_{2\cdot}\hat{p}_2}+\frac{1}{n_{2\cdot}(1-\hat{p}_2)}\\
-=\frac{1}{a}+\frac{1}{b}+\frac{1}{c}+\frac{1}{d}
-\end{gather*}
-\]</span> Where <span class="math inline">\(n_{1\cdot},n_{2\cdot}\)</span> are counts for group 1 and group 2, respectively; <span class="math inline">\(a,b,c,d\)</span> are 4 counts for the <span class="math inline">\(2\times 2\)</span> contingency table.</p>
-<h1 id="reference">Reference</h1>
-<p><a href="https://stats.stackexchange.com/questions/266098/how-do-i-calculate-the-standard-deviation-of-the-log-odds">How to calculate the standard deviation of the log-odds?</a></p>
+    <title>categories</title>
+    <url>/categories/index.html</url>
+    <content><![CDATA[
 ]]></content>
-      <categories>
-        <category>statistics</category>
-      </categories>
-      <tags>
-        <tag>Math statistics</tag>
-        <tag>Delta method</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Reason of ignoring normalizing constant</title>
-    <url>/2024/01/10/Reason-of-ignoring-normalizing-constant/</url>
-    <content><![CDATA[<p>When approximating the posterior distribution, one tends to ignore the normalizing constant in the equation as <span class="math display">\[
-\pi(\theta|x)=\frac{\pi(x|\theta)\pi(\theta)}{\int\pi(x|\theta)\pi(\theta)d\theta}\\
-=\frac{\pi(x|\theta)\pi(\theta)}{\pi(x)}\\
-\propto\pi(x|\theta)\pi(\theta)
-\]</span> The fact is, not all the MCMC methods avoid the need for the normalizing constant. However, many of them do (such as the Metropolis-Hastings algorithm), since the iteration process is based on the ratio <span class="math display">\[
-\begin{gather*}
-R(\theta_1,\theta_2)=\frac{\pi(\theta_1|x)}{\pi(\theta_2|x)}\\
-=\frac{\pi(x|\theta_1)\pi(\theta_1)}{\pi(x)}/\frac{\pi(x|\theta_2)\pi(\theta_2)}{\pi(x)}\\
-=\frac{\pi(x|\theta_1)\pi(\theta_1)}{\pi(x|\theta_2)\pi(\theta_2)}
-\end{gather*}
-\]</span> You can easily observe that <span class="math inline">\(R(\theta_1,\theta_2)\)</span> does not involve the normalizing constant, so actually you can cancels out the normalizing constant <span class="math inline">\(\pi(x)\)</span> when approximating the posterior distribution <span class="math inline">\(\pi(\theta|x)\)</span>. Therefore, you can easily state that <span class="math inline">\(\pi(\theta|x)\)</span> is proportional to the <span class="math inline">\(\pi(x|\theta)\pi(\theta)\)</span> and utilize this information to approximate the posterior distribution.</p>
-<h1 id="reference">Reference</h1>
-<p><a href="https://stats.stackexchange.com/questions/51493/normalizing-constant-irrelevant-in-bayes-theorem">Normalizing constant irrelevant in Bayes Theorem?</a></p>
-<p><a href="https://stats.stackexchange.com/questions/545017/rationale-behind-ignoring-the-denomintator-in-bayes-rule">Rationale behind ignoring the “denominator” in Bayes Rule</a></p>
-]]></content>
-      <categories>
-        <category>statistics</category>
-      </categories>
-      <tags>
-        <tag>Math statistics</tag>
-        <tag>Bayes</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Life prompt</title>
-    <url>/2024/08/18/Life-prompt/</url>
-    <content><![CDATA[<ul>
-<li>Plan ahead</li>
-<li>Get straight to the point and push things to the limit.</li>
-<li>Be more rational, less emotional</li>
-<li>Find problem, solve problem, be fast, no excuse, no procrastination</li>
-<li>The ability to quickly judge someone's true nature is crucial. Cut ties with anyone untrustworthy; don't dwell on the past.</li>
-<li>Never adore anyone</li>
-<li>Optimize every step</li>
-<li>Control dopamine</li>
-<li>Reverse thinking</li>
-<li>The devil is in details</li>
-<li>Prioritize work over work-life balance; keep your focus on work at all times. Most importantly, work smart.</li>
-<li>Do not fall in love my own ideas, come up with a quick and cheap and easy way to test the idea</li>
-<li>Don't get too attached to your ideas; instead, find a fast, simple, and inexpensive way to test them.</li>
-<li>Do not chase hard new things, position for yourself, position something that captures your curiosity. Pick something you are passionate about, and you are good at, and is able to contribute to the world.</li>
-<li>Nothing is impossible.</li>
-<li>Look for someone to collaborate with who shares your values, as that’s the most important factor. Also, consider their ability to learn and adapt quickly, which are even more crucial than their existing skills or experience. (Values &gt; Adaptability &gt; Skills)</li>
-<li>Personality&gt;Talent</li>
-<li>Courage &gt; Intelligence</li>
-<li>Evaluate the character of a person's friends and associates to better assess them.</li>
-<li>Great founders are frugal: They understand money should be spent in precisely certain and necessary areas.</li>
-<li>Having somebody who you totally trust, who shares the vision, who has a little bit different set of skills, and also acts as a check on you is very crucial.</li>
-<li>What makes company fail most of time is poor execution by the founders, not competitors.</li>
-<li>The thing that’s always a big mistake is going after a giant market on day one. Start with a market where there are not many competitors.</li>
-<li>Understand every risk, be crazy and also rational about every risk.</li>
-<li>Be extremely obsessed with truth</li>
-<li>Build your own brand. There’s already a book on you.</li>
-<li>Most founder-led companies are entrepreneurially driven. Be obsessed with not only following the rules, but also making new rules. The ability to offense is much more important than to defense.</li>
-<li>Starting a company is like jumping off a cliff and assembling the airplane on the way down. It’s like playing a video game with a thousand levels, and each level gets harder. At each level, you learn about yourself. The problem with success is that it amplifies every thing, including positive and negative parts.</li>
-<li>Innovation is easier with a relatively small team that has to make a decisive and clear concentrated bet and that doesn’t tolerate any mediocre performers.</li>
-<li>The ability to endure pain and suffering is way more important than the intelligence. The ability to work on something for a very very long period time, to handle setbacks and see the opportunities just around the corner is the way to success.</li>
-<li>Networking is overrated. Go do something great, and your network will instantly emerge.</li>
-<li>Figure out how to express the questions in no longer than 20 words. Ask questions precisely.</li>
-<li>The art of storytelling is incredibly important. Money flows as a function of a story.</li>
-<li>Ignoring the advice would get what I want in most of time.</li>
-<li>Information matters. Everyone should have equal access to information.</li>
-<li>Learning from other people’s mistake is a great way to improve.</li>
-<li>Make principle decisions instead of business decisions in crisis.</li>
-<li>Do not set high expectations.</li>
-<li>Great founder needs to pay himself less than average in the early stage of the company.</li>
-<li>Resilience, adaptability, high rate of learning, creativity, familiarity with the tools are important.</li>
-<li>Use “Idiot index” to measure every work, every project. Be sure to complete a project/work in a short period of time.</li>
-<li>Do not follow the rule; Break the rule; Create the brand and network</li>
-<li>Utilize the power</li>
-<li>Winner takes all.</li>
-</ul>
-<h1 id="how-to-deal-with-complex-problems">How to deal with complex problems?</h1>
-<ul>
-<li>Know the intention of the problem</li>
-<li>Simplify the problem</li>
-<li>Decompose the problem into sub-problems</li>
-<li>Decompose the solution into sub-solutions</li>
-<li>For simple problem/project such as coding problems/math problems that don’t take up too much time, you can randomize the sub-problems/sub-solutions, and solve the problem one-by-one;</li>
-<li>For complex problem/project such as paper/experimentation task that usually take up too much time, do not randomize the sub-problems/sub-solutions, optimize every solution.</li>
-</ul>
-]]></content>
-      <categories>
-        <category>random thoughts</category>
-      </categories>
-      <tags>
-        <tag>random thoughts</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Multi-collinearity in polynomials</title>
-    <url>/2024/12/11/Multi-collinearity-in-polynomials/</url>
-    <content><![CDATA[<p>Multicollinearity arises in the polynomial regression. As a special case of the linear model, two problems occurs, the first is the multicollinearity, the second is that if power <span class="math inline">\(k\)</span> is large, say more than <span class="math inline">\(3\)</span> or <span class="math inline">\(4\)</span>, the magnitudes of these powers tend to vary over a rather wide range.</p>
-<p>To deal with these problems, <span class="math inline">\(2\)</span> strategies are needed. One is to limit to a cubic (<span class="math inline">\(k=3\)</span>) if at all possible, and generally no more than a quintic (<span class="math inline">\(k=5\)</span>). The other is to center the <span class="math inline">\(x\)</span>-variable. In other words, fit the model <span class="math display">\[
-y=\beta_0^*+\beta_1^*(x-\bar{x})+\cdots+\beta_k^*(x-\bar{x})^k
-\]</span> In addition to centering, one could also scale the <span class="math inline">\(x\)</span> variable by dividing by its standard deviation <span class="math inline">\(s_x\)</span>, thus standardizing it to have a zero mean and a unit standard deviation.</p>
-<h1 id="reference">Reference</h1>
-<ul>
-<li>Statistics and data analysis : from elementary to intermediate (page 418)</li>
-</ul>
-]]></content>
-      <categories>
-        <category>statistics</category>
-      </categories>
-      <tags>
-        <tag>Math statistics</tag>
-      </tags>
   </entry>
   <entry>
     <title>About me</title>
     <url>/about/index.html</url>
     <content><![CDATA[<p><img src="https://res.cloudinary.com/djd9gr1bu/image/upload/v1637834720/2770F1B8-6DC8-4BBD-BC76-AA9756C6D8AF_1_201_a_grh7po.jpg" alt="hi" class="inline"/></p>
 <p>Hello, welcome to my blog. I'm currently a Ph.D. candidate in the statistics department of the University of South Florida. My research fields mainly include the design of experiments, compressive sensing, functional data analysis, machine learning, and deep learning. My daily work as a research assistant is to employ machine learning and deep learning to assist physicists, biologists, and medical scientists in analyzing the data either from physical experiments such as spectrum data or from U.S. Food and Drug Administration so that scientists can further understand the underlying mechanism behind them.</p>
-]]></content>
-  </entry>
-  <entry>
-    <title>categories</title>
-    <url>/categories/index.html</url>
-    <content><![CDATA[
 ]]></content>
   </entry>
   <entry>
