@@ -154,7 +154,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">41</span>
+          <span class="site-state-item-count">40</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -165,7 +165,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">26</span>
+        <span class="site-state-item-count">25</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -194,112 +194,6 @@
 
 
     <div class="main-inner index posts-expand">
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/05/29/log-normal-distribution/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Weiru Han">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Weiru Han's blog">
-      <meta itemprop="description" content="The journey of a thousand miles begins with one step">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Weiru Han's blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/05/29/log-normal-distribution/" class="post-title-link" itemprop="url">log-normal distribution</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2022-05-29 17:08:06" itemprop="dateCreated datePublished" datetime="2022-05-29T17:08:06-04:00">2022-05-29</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-11-07 00:39:59" itemprop="dateModified" datetime="2022-11-07T00:39:59-05:00">2022-11-07</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/statistics/" itemprop="url" rel="index"><span itemprop="name">statistics</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>The p.d.f. of log-normal distribution is <span class="math display">\[
-f_X(x)=\frac{1}{x\sigma\sqrt{2\pi}}e^{-\frac{1}{2}(\frac{lnx-\mu}{\sigma})^2}
-\]</span></p>
-<blockquote>
-<p><a target="_blank" rel="noopener" href="https://towardsdatascience.com/log-normal-distribution-a-simple-explanation-7605864fb67c">The log-normal distribution is a right skewed continuous probability distribution, meaning it has a long tail towards the right. It is used for modelling various natural phenomena such as income distributions, the length of chess games or the time to repair a maintainable system and more.</a></p>
-</blockquote>
-<p>If the random variable <span class="math inline">\(X\)</span> is log-normally distributed, then <span class="math inline">\(Y=\ln(X)\)</span> has a normal distribution. We can apply the same rule from <a target="_blank" rel="noopener" href="https://weiruhan.github.io/2022/05/09/Density-of-transformed-random-variable/">Density of transformed random variable</a> to prove this statement. <span class="math display">\[
-\begin{gather*}
-X\sim LogNormal(\mu,\sigma^2)\\
-Y=lnX\\
-X=\psi(Y)=e^Y\\
-\Rightarrow g_Y(y)=f(\psi(y))|\frac{dx}{dy}|\\
-=\frac{1}{e^y\sigma\sqrt{2\pi}}e^{-\frac{1}{2}(\frac{y-\mu}{\sigma})^2}e^y\\
-=\frac{1}{\sigma\sqrt{2\pi}}e^{-\frac{1}{2}(\frac{y-\mu}{\sigma})^2}\\
-\Rightarrow Y\sim N(\mu,\sigma^2)
-\end{gather*}
-\]</span></p>
-<h2 id="reference">Reference</h2>
-<ul>
-<li><a target="_blank" rel="noopener" href="https://towardsdatascience.com/log-normal-distribution-a-simple-explanation-7605864fb67c">Log-normal Distribution - A simple explanation</a></li>
-<li><a target="_blank" rel="noopener" href="https://weiruhan.github.io/2022/05/09/Density-of-transformed-random-variable/">Density of transformed random variable</a></li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
 
     
 
@@ -1699,8 +1593,142 @@ var(Y_i)=e_i^T\lambda_ie_i=\lambda_ie_i^Te_i=\lambda_i
 
 
 
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/11/29/Levy-process/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Weiru Han">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Weiru Han's blog">
+      <meta itemprop="description" content="The journey of a thousand miles begins with one step">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Weiru Han's blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/11/29/Levy-process/" class="post-title-link" itemprop="url">Levy process</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2021-11-29 01:19:34" itemprop="dateCreated datePublished" datetime="2021-11-29T01:19:34-05:00">2021-11-29</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2022-12-20 23:46:49" itemprop="dateModified" datetime="2022-12-20T23:46:49-05:00">2022-12-20</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/time-series-analysis/" itemprop="url" rel="index"><span itemprop="name">time series analysis</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="definition-of-levy-process">Definition of Levy process</h1>
+<p>A <b>Levy process</b>, <span class="math inline">\(\{L(t),t\in \mathbb{R}\}\)</span> is a process with the following <span class="math inline">\(4\)</span> properties:</p>
+<ol type="i">
+<li><p><span class="math inline">\(L(0)=0\)</span></p></li>
+<li><p><span class="math inline">\(L(t)-L(s)\)</span> has the same distribution as <span class="math inline">\(L(t-s)\)</span> for <span class="math inline">\(\forall\ s,t\)</span> such that <span class="math inline">\(s\leq t\)</span></p></li>
+<li><p>If <span class="math inline">\((s,t)\)</span> and <span class="math inline">\((u,v)\)</span> are disjoint intervals then <span class="math inline">\(L(t)-L(s)\)</span> and <span class="math inline">\(L(v)-L(u)\)</span> are independent</p></li>
+<li><p><span class="math inline">\(\{L(t)\}\)</span> is continuous in probability, that is, for <span class="math inline">\(\forall\ \epsilon&gt;0\)</span> and for <span class="math inline">\(\forall\ t\in \mathbb{R}\)</span> <span class="math display">\[
+\underset{s\rightarrow t}{lim}P(\left|L(t)-L(s)\right|&gt;\epsilon)=0
+\]</span></p></li>
+</ol>
+<h2 id="brownian-motion">Brownian motion</h2>
+<p>A well-known example of the levy process is the <strong>Brownian Motion</strong> <span class="math display">\[
+\begin{gather}
+L(t)\sim N(\mu t,\sigma^2t)\\
+t\geq0,\ \mu\in \mathbb{R}\ and\ \sigma&gt;0
+\end{gather}
+\]</span> To show that it satisfies property (ii) of <strong>Levy process</strong>, we can calculate the corresponding expectation and variance <span class="math display">\[
+\begin{gather}
+E[L(t)-L(s)]\\
+=E[L(t)]-E[L(s)]\\
+=\mu(t-s)\\
+=E[L(t-s)]
+\end{gather}
+\]</span></p>
+<p><span class="math display">\[
+\begin{gather}
+Var[L(t)-L(s)]\\
+=E[(L(t)-L(s)-E[L(t)-L(s)])^2]\\
+=E[[L(t)-L(s)]^2-2[L(t)-L(s)]\mu(t-s)+\mu^2(t-s)^2]\\
+=E[L^2(t)+L^2(s)-2L(t)L(s)]-\mu^2(t-s)^2\\
+=\sigma^2t+\mu^2t^2+\sigma^2s+\mu^2s^2-\mu^2(t-s)^2-2E[L(t)L(s)]\\
+=\sigma^2(t+s)+\mu^2(t^2+s^2-t^2-s^2+2ts)-2E[L(t)L(s)]\\
+=\sigma^2(t+s)+2\mu^2ts-2E[L(t)L(s)]\\
+=\sigma^2(t+s)+2\mu^2ts-2E[[L(s)+L(t)-L(s)]L(s)]
+\end{gather}
+\]</span></p>
+<p>Since <span class="math inline">\(L(t)-L(s)\text{ is independent to }L(s)\)</span>, we have <span class="math display">\[
+\begin{gather}
+Var[L(t)-L(s)]\\
+=\sigma^2(t+s)+2\mu^2ts-2[E[L^2(s)]+E[L(t)-L(s)]E[L(s)]]\\
+=\sigma^2(t+s)+2\mu^2ts-2(\mu^2s^2+\sigma^2s+\mu(t-s)\mu s)\\
+=\sigma^2(t+s)-2\sigma^2s\\
+=\sigma^2(t-s)\\
+=Var[L(t-s)]\
+\end{gather}
+\]</span> Hence <span class="math inline">\(L(t)-L(s)\)</span> has the same distribution of <span class="math inline">\(L(t-s)\)</span></p>
+<h1 id="reference">Reference</h1>
+<ol type="1">
+<li><a target="_blank" rel="noopener" href="https://link.springer.com/book/10.1007/978-3-319-29854-2"><strong>Brockwell, P. J., &amp; Davis, R. A. (2002). <em>Introduction to time series and forecasting</em>. New York: Springer.</strong></a></li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/5/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+    <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span>
   </nav>
 
 </div>

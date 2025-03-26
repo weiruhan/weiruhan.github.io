@@ -1,32 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Alpha in central composite design with circumscribed type</title>
-    <url>/2024/12/11/Alpha%20in%20central%20composite%20design%20with%20circumscribed%20type/</url>
-    <content><![CDATA[<p><span class="math inline">\(\alpha\)</span> in central composite design with circumscribed type is equal to <span class="math inline">\(2^{k/4}\)</span> where <span class="math inline">\(k\)</span> is the number of factors, <span class="math inline">\(2^k\)</span> is the number of factorial runs if each factor has two levels.</p>
-<p>This property is derived based on its inherent property, which is <strong>rotatability</strong>.</p>
-<p>Suppose we want to fit a linear model <span class="math display">\[
-\mathbf{Y}=\mathbf{X}\boldsymbol\beta+\boldsymbol\epsilon
-\]</span> where <span class="math inline">\(\boldsymbol\epsilon\sim N(\mathbf{0},\sigma^2\mathbf{I}_n)\)</span>, <span class="math inline">\(\mathbf{Y}\)</span> is the observation vector.</p>
-<p>Suppose true value <span class="math inline">\(Y_{true}\)</span> has the exact relationship as <span class="math inline">\(\mathbf{Y}_{true}=E(\mathbf{Y}|\mathbf{X})=\mathbf{X}\boldsymbol\beta\)</span>, then <span class="math inline">\(V(\mathbf{Y})=\sigma^2\)</span> means given the fixed predictor variables <span class="math inline">\(\mathbf{X}\)</span>, the variance of observed response <span class="math inline">\(\mathbf{Y}\)</span> is <span class="math inline">\(\sigma^2\)</span> if we repeat experiments multiple times. In reality, it’s actually hard to know the true (exact) expression, so we tend to use estimated <span class="math inline">\(\mathbf{b}\)</span> to replace <span class="math inline">\(\boldsymbol\beta\)</span>, and estimate response as <span class="math inline">\(\mathbf{\hat{Y}}=\mathbf{X}^T\mathbf{b}\)</span>, <span class="math inline">\(\mathbf{b}\)</span> is the unbiased estimate for <span class="math inline">\(\boldsymbol\beta\)</span>, <span class="math inline">\(E(\mathbf{b})=\boldsymbol\beta\)</span>, as <span class="math display">\[
-\mathbf{b}=(\mathbf{X}^T\mathbf{X})^{-1}\mathbf{X}^T\mathbf{Y}
-\]</span> Then for the current experiment, suppose the current observation is <span class="math inline">\(\mathbf{Y}\)</span>, the variance of <span class="math inline">\(\mathbf{Y}\)</span> is equal to <span class="math display">\[
-V(\mathbf{\hat{Y}})=\sigma^2\mathbf{X}^T(\mathbf{X^T X})^{-1}\mathbf{X}
-\]</span> The above equation simply describe a situation: Suppose we know the distribution of <span class="math inline">\(\mathbf{Y}\)</span> as <span class="math inline">\(\mathbf{Y}\sim N(\mathbf{X}\boldsymbol\beta,\sigma^2\mathbf{I}_n)\)</span>, then <span class="math inline">\(E(\mathbf{Y})=\mathbf{X}\boldsymbol{\beta}\)</span>. Then we fix the predictors variables as <span class="math inline">\(\mathbf{X}\)</span>, and replicate the experiment multiple times, each time we have different observed response values <span class="math inline">\(\mathbf{Y}\)</span>. However, usually we do not have so many chances to replicate the experiment, we can only deduct by the current experiment, so the variance <span class="math inline">\(\sigma^2\)</span> is replaced by the <span class="math inline">\(s^2\)</span> where <span class="math inline">\(s^2\)</span> is the residual variance <span class="math display">\[
-s^2=\frac{SSE}{n-p}=\frac{(\mathbf{Y}-\mathbf{Xb})^T(\mathbf{Y-Xb})}{n-p}
-\]</span> After replacing the <span class="math inline">\(\sigma\)</span> with <span class="math inline">\(s^2\)</span>, we also replace true coefficient <span class="math inline">\(\boldsymbol\beta\)</span> with the coefficient estimated from the current experiment <span class="math inline">\(\mathbf{b}\)</span>.</p>
-<p>Extending from the current condition, one can replicate multiple times, and obtain multiple fitted response variables <span class="math inline">\(\mathbf{\hat{Y}}\)</span> as well as multiple observed response variables <span class="math inline">\(\mathbf{Y}\)</span>. The variance of fitted response variables <span class="math inline">\(\mathbf{\hat{Y}}\)</span> is then equal to <span class="math display">\[
-V(\hat{\mathbf{Y}})=s^2\mathbf{X^T(X^T X)^{-1}X}
-\]</span></p>
-]]></content>
-      <categories>
-        <category>statistics</category>
-      </categories>
-      <tags>
-        <tag>Design of experiment</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Assumption of linear regression</title>
     <url>/2022/04/21/Assumption-of-linear-regression/</url>
     <content><![CDATA[<h1 id="definition">Definition</h1>
